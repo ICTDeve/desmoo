@@ -1,0 +1,29 @@
+body {
+    height: 100vh;
+
+    display: flex;
+    align-items: center;
+}
+
+button {
+    height: 5rem;
+    width: 30rem;
+
+    font-size: 2rem;
+
+    cursor: pointer;
+}
+
+img {
+    width: 50%;
+}
+
+.test {
+    background: linear-gradient(to right, blue, red);
+}
+
+h1 {
+    font-size: 10rem;
+
+    margin-left: 11%;
+}

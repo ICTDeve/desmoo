@@ -1,0 +1,10 @@
+@mixin flex-container($direction: row, $justify-content: center, $align-items: center) {
+    display: flex;
+    flex-direction: $direction;
+    justify-content: $justify-content;
+    align-items: $align-items;
+}
+
+@mixin transition($transition-speed: var(--transition-speed), $transition-timing-function: var(--transition-timing-function)) {
+   transition: $transition-speed $transition-timing-function;
+}
