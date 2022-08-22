@@ -3,7 +3,7 @@ function criarConexao(){
   return mysql.createConnection ({
     host:'127.0.0.1',
     user: 'root',
-    password: 'Esquilo79512357#',
+    password: '',
     database: 'desmoo',
     insecureAuth: 'true',
     multipleStatements: 'true'
