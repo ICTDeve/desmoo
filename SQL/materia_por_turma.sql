@@ -1,18 +1,17 @@
 DROP DATABASE IF EXISTS teste_relacionamento;
+CREATE DATABASE IF NOT EXISTS teste_relacionamento;
+USE teste_relacionamento;
 
 DROP TABLE IF EXISTS materias_por_turmas;
 DROP TABLE IF EXISTS turmas;
 DROP TABLE IF EXISTS materias;
-
-CREATE DATABASE IF NOT EXISTS teste_relacionamento;
-
 
 -- CRIAÇÃO E INSERÇÃO DE TURMAS
 CREATE TABLE IF NOT EXISTS turmas (
     id INT UNSIGNED NOT NULL AUTO_INCREMENT,
     turma VARCHAR(20) NOT NULL,
 
-    UNIQUE KEY (turma)
+    UNIQUE KEY (turma),
     PRIMARY KEY (id)
 );
 
@@ -27,18 +26,18 @@ VALUES
 -- CRIAÇÃO E INSERÇÃO DE MATÉRIAS
 CREATE TABLE IF NOT EXISTS materias (
     id INT UNSIGNED NOT NULL AUTO_INCREMENT,
-    materia VARCHAR(20) NOT NULL
+    materia VARCHAR(20) NOT NULL,
 
-    UNIQUE KEY (materia)
+    UNIQUE KEY (materia),
     PRIMARY KEY (id)
 );
 
 INSERT INTO materias -- NOME DA TABELA
-    (materias) -- NOME DO CAMPO REFERENTE À TABELA ACIMA
+    (materia) -- NOME DO CAMPO REFERENTE À TABELA ACIMA
 VALUES
     ("Artes"),
     ("Culinária"),
-    ("Filosofia"),
+    ("Filosofia");
 
 -- CRIAÇÃO E INSERÇÃO DE MATÉRIAS POR TURMAS (TABÉLA INTERMEDIÁRIA PARA RELACIONAMENTO DAS TABELAS "TURMAS" E "MATÉRIAS")
 CREATE TABLE IF NOT EXISTS materias_por_turmas (
@@ -46,8 +45,9 @@ CREATE TABLE IF NOT EXISTS materias_por_turmas (
     id_materia INT UNSIGNED NOT NULL,
 
     UNIQUE KEY (id_turma, id_materia),
-    FOREIGN KEY (id_turma) REFERENCES turmas (id);
-    FOREIGN KEY (id_materia) REFERENCES materias (id);
+    FOREIGN KEY (id_turma) REFERENCES turmas (id),
+    FOREIGN KEY (id_materia) REFERENCES materias (id),
+    PRIMARY KEY (id_turma, id_materia)
 );
 
 INSERT INTO materias_por_turmas
@@ -59,9 +59,17 @@ VALUES
     (2, 1);
 
 -- SELECIONANDO DISCIPLINAS DE ACORDO COM UMA TURMA X
-SELECT materias.materia Disciplina
-FROM turmas, materias, materias_por_turmas
-WHERE materias_por_turmas.id = 1
+SELECT id_materia
+FROM materias_por_turmas
+WHERE materias_por_turmas.id_turma = 1;
+
+SELECT materia
+FROM materias
+WHERE id = 1;
+
+SELECT materia
+FROM materias
+WHERE id = 2;
 
 
 CREATE TABLE IF NOT EXISTS alunos (
@@ -69,8 +77,8 @@ CREATE TABLE IF NOT EXISTS alunos (
     id_turma INT UNSIGNED NOT NULL,
     nome VARCHAR(50) NOT NULL,
 
-    PRIMARY KEY (id)
-    FOREIGN KEY (id_turma) REFERENCES turmas (id);
+    PRIMARY KEY (id),
+    FOREIGN KEY (id_turma) REFERENCES turmas (id)
 );
 
 INSERT INTO alunos
