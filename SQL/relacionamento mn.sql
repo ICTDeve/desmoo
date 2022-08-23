@@ -33,8 +33,8 @@ CREATE TABLE IF NOT EXISTS interesses_usuarios (
 INSERT INTO interesses_usuarios
 	(usuario_id, categoria_id)
 VALUES
-	(1, 1),
-    (1, 3),
+	(1, ""),
+    (1, 2),
     
     (2, 1),
     (2, 2),
