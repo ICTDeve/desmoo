@@ -7,15 +7,17 @@ CREATE TABLE IF NOT EXISTS areas_conhecimentos (
     PRIMARY KEY (id)
 );
 
-INSERT INTO areas_conhecimentos nome VALUE
-    (Medicina),
-    (Odontologia),
-    (Farmácia),
-    (Enfermagem),
-    (Nutrição),
-    (Saúde Coletiva),
-    (Fonoaudiologia),
-    (Fisioterapia e Terapia Ocupacional),
-    (Educação Física);
+INSERT INTO areas_conhecimentos 
+    (nome) 
+VALUES
+    ("Medicina"),
+    ("Odontologia"),
+    ("Farmácia"),
+    ("Enfermagem"),
+    ("Nutrição"),
+    ("Saúde Coletiva"),
+    ("Fonoaudiologia"),
+    ("Fisioterapia e Terapia Ocupacional"),
+    ("Educação Física");
 
 -- http://lattes.cnpq.br/web/dgp/ciencias-da-saude
