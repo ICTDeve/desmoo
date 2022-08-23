@@ -2,10 +2,7 @@ const express = require('express');
 const app = express();
 const routes = require('./routes');
 const path = require('path');
-
-const load = require('express-load');
-
-load('src/models').into(app)
+const port = 3000
 
 app.use(express.urlencoded({ extended: true }));
 
@@ -16,7 +13,6 @@ app.set('view engine', 'ejs');
 
 app.use(routes);
 
-app.listen(3000, () => {
+app.listen(port, () => {
   console.log('Acessar http://localhost:3000');
-  console.log('Servidor executando na porta 3000');
 });
