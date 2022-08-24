@@ -1,3 +1,5 @@
+-- Objetivo: Selecionar todas as matérias que estão relacionadas à turma "1ºA"
+
 DROP DATABASE IF EXISTS teste_relacionamento;
 CREATE DATABASE IF NOT EXISTS teste_relacionamento;
 USE teste_relacionamento;
@@ -60,8 +62,8 @@ VALUES
 
 -- SELECIONANDO DISCIPLINAS DE ACORDO COM UMA TURMA X
 SELECT id_materia
-FROM materias_por_turmas
-WHERE materias_por_turmas.id_turma = 1;
+INNER JOIN materias_por_turmas
+ON materias_por_turmas.id_turma = 1;
 
 SELECT materia
 FROM materias
