@@ -50,27 +50,20 @@ CREATE TABLE IF NOT EXISTS materias_por_turmas (
     PRIMARY KEY (id_turma, id_materia)
 );
 
-INSERT INTO materias_por_turmas
-    (id_turma, id_materia)
-VALUES
-    (1, 1),
-    (1, 2),
+ INSERT INTO materias_por_turmas
+     (id_turma, id_materia)
+ VALUES
+     (1, 1),
+     (1, 2),
 
-    (2, 1);
+     (2, 1);
 
 -- SELECIONANDO DISCIPLINAS DE ACORDO COM UMA TURMA X
-SELECT id_materia
-FROM materias_por_turmas
-WHERE materias_por_turmas.id_turma = 1;
-
-SELECT materia
-FROM materias
-WHERE id = 1;
-
-SELECT materia
-FROM materias
-WHERE id = 2;
-
+SELECT * FROM turmas t 
+JOIN materias_por_turmas mt
+ON mt.id_turma = t.id 
+JOIN materias m
+ON m.id = mt.id_materia;
 
 CREATE TABLE IF NOT EXISTS alunos (
     id INT UNSIGNED NOT NULL AUTO_INCREMENT,
