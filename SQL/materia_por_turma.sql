@@ -24,7 +24,6 @@ VALUES
     ("1ºB"),
     ("1ºC");
 
-
 -- CRIAÇÃO E INSERÇÃO DE MATÉRIAS
 CREATE TABLE IF NOT EXISTS materias (
     id INT UNSIGNED NOT NULL AUTO_INCREMENT,
@@ -61,26 +60,11 @@ CREATE TABLE IF NOT EXISTS materias_por_turmas (
      (2, 1);
 
 -- SELECIONANDO DISCIPLINAS DE ACORDO COM UMA TURMA X
-<<<<<<< HEAD
-SELECT * FROM turmas t 
+SELECT m.materia FROM turmas t 
 JOIN materias_por_turmas mt
-ON mt.id_turma = t.id 
+ON mt.id_turma = 1 AND t.id = 1
 JOIN materias m
 ON m.id = mt.id_materia;
-=======
-SELECT id_materia
-INNER JOIN materias_por_turmas
-ON materias_por_turmas.id_turma = 1;
-
-SELECT materia
-FROM materias
-WHERE id = 1;
-
-SELECT materia
-FROM materias
-WHERE id = 2;
-
->>>>>>> 42d9504b7e8b12de564c2fe95b5e17b4f9814c22
 
 CREATE TABLE IF NOT EXISTS alunos (
     id INT UNSIGNED NOT NULL AUTO_INCREMENT,
@@ -96,3 +80,12 @@ INSERT INTO alunos
 VALUES
     (1, "Isabela dos Santos"),
     (2, "Victor Ribeiro");
+    
+SELECT turma, nome FROM turmas, alunos
+WHERE alunos.id = turmas.id;
+
+SELECT m.materia FROM alunos a 
+JOIN materias_por_turmas mt
+ON mt.id_turma = 2 AND a.id_turma = 2
+JOIN materias m
+ON m.id = mt.id_materia;
