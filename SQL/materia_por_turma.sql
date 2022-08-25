@@ -1,3 +1,5 @@
+-- Objetivo: Selecionar todas as matérias que estão relacionadas à turma "1ºA"
+
 DROP DATABASE IF EXISTS teste_relacionamento;
 CREATE DATABASE IF NOT EXISTS teste_relacionamento;
 USE teste_relacionamento;
@@ -50,18 +52,25 @@ CREATE TABLE IF NOT EXISTS materias_por_turmas (
     PRIMARY KEY (id_turma, id_materia)
 );
 
-INSERT INTO materias_por_turmas
-    (id_turma, id_materia)
-VALUES
-    (1, 1),
-    (1, 2),
+ INSERT INTO materias_por_turmas
+     (id_turma, id_materia)
+ VALUES
+     (1, 1),
+     (1, 2),
 
-    (2, 1);
+     (2, 1);
 
 -- SELECIONANDO DISCIPLINAS DE ACORDO COM UMA TURMA X
+<<<<<<< HEAD
+SELECT * FROM turmas t 
+JOIN materias_por_turmas mt
+ON mt.id_turma = t.id 
+JOIN materias m
+ON m.id = mt.id_materia;
+=======
 SELECT id_materia
-FROM materias_por_turmas
-WHERE materias_por_turmas.id_turma = 1;
+INNER JOIN materias_por_turmas
+ON materias_por_turmas.id_turma = 1;
 
 SELECT materia
 FROM materias
@@ -71,6 +80,7 @@ SELECT materia
 FROM materias
 WHERE id = 2;
 
+>>>>>>> 42d9504b7e8b12de564c2fe95b5e17b4f9814c22
 
 CREATE TABLE IF NOT EXISTS alunos (
     id INT UNSIGNED NOT NULL AUTO_INCREMENT,
