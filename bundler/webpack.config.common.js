@@ -5,8 +5,9 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
     entry: {
-        main: './frontend/js/main.js',
         about: './frontend/js/about.js',
+        feed: './frontend/js/feed.js',
+        bundle: './frontend/js/bundle.js',
     },
 
     output: {
@@ -30,7 +31,7 @@ module.exports = {
                 test: /\.(jpe?g|png|gif)$/,
                 type: 'asset/resource',
                 generator: {
-                    filename: 'medias/images/[name][ext]'
+                    filename: 'medias/imagens/[name][ext]'
                 }
             },
 
@@ -38,7 +39,7 @@ module.exports = {
                 test: /\.(svg)$/,
                 type: 'asset/resource',
                 generator: {
-                    filename: 'medias/svgs/[name][ext]'
+                    filename: 'medias/icones/[name][ext]'
                 }
             },
 
@@ -51,10 +52,10 @@ module.exports = {
             },
 
             {
-                test: /\.(woff|woff2|otf|ttf)$/i,
+                test: /\.(woff|woff2|otf|ttf|eot)$/i,
                 type: 'asset/resource',
                 generator: {
-                    filename: 'medias/fonts/aeonik/[name][ext]'
+                    filename: 'medias/fontes/[name][ext]'
                 }
             }
         ]

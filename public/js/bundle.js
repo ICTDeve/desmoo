@@ -10,53 +10,73 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
-/***/ "./frontend/js/main.js":
-/*!*****************************!*\
-  !*** ./frontend/js/main.js ***!
-  \*****************************/
+/***/ "./frontend/js/bundle.js":
+/*!*******************************!*\
+  !*** ./frontend/js/bundle.js ***!
+  \*******************************/
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _scss_main_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../scss/main.scss */ \"./frontend/scss/main.scss\");\n/* harmony import */ var _medias_fonts_aeonik_Aeonik_Regular_otf__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../medias/fonts/aeonik/Aeonik-Regular.otf */ \"./frontend/medias/fonts/aeonik/Aeonik-Regular.otf\");\n/* harmony import */ var _medias_images_purple_jpg__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../medias/images/purple.jpg */ \"./frontend/medias/images/purple.jpg\");\n/* harmony import */ var _medias_videos_working_from_home_mov__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../medias/videos/working from home.mov */ \"./frontend/medias/videos/working from home.mov\");\n\r\n\r\n\r\n\r\n\r\n\r\nconsole.log(\"came from 'entry'\")\n\n//# sourceURL=webpack://molde/./frontend/js/main.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _medias_imagens_arteCadastro_png__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../medias/imagens/arteCadastro.png */ \"./frontend/medias/imagens/arteCadastro.png\");\n/* harmony import */ var _medias_icones_email_svg__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../medias/icones/email.svg */ \"./frontend/medias/icones/email.svg\");\n/* harmony import */ var _medias_icones_entusiasta_svg__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../medias/icones/entusiasta.svg */ \"./frontend/medias/icones/entusiasta.svg\");\n/* harmony import */ var _medias_icones_lattes_svg__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../medias/icones/lattes.svg */ \"./frontend/medias/icones/lattes.svg\");\n/* harmony import */ var _medias_icones_qualificado_svg__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../medias/icones/qualificado.svg */ \"./frontend/medias/icones/qualificado.svg\");\n/* harmony import */ var _medias_fontes_lato_Lato_Regular_eot__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../medias/fontes/lato/Lato-Regular.eot */ \"./frontend/medias/fontes/lato/Lato-Regular.eot\");\n//IMAGENS\r\n\r\n\r\n//ÍCONES\r\n\r\n\r\n\r\n\r\n\r\n// FONTES\r\n\n\n//# sourceURL=webpack://molde/./frontend/js/bundle.js?");
 
 /***/ }),
 
-/***/ "./frontend/scss/main.scss":
-/*!*********************************!*\
-  !*** ./frontend/scss/main.scss ***!
-  \*********************************/
-/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
-
-eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extract-plugin\n\n\n//# sourceURL=webpack://molde/./frontend/scss/main.scss?");
-
-/***/ }),
-
-/***/ "./frontend/medias/fonts/aeonik/Aeonik-Regular.otf":
-/*!*********************************************************!*\
-  !*** ./frontend/medias/fonts/aeonik/Aeonik-Regular.otf ***!
-  \*********************************************************/
-/***/ (function(module, __unused_webpack_exports, __webpack_require__) {
-
-eval("module.exports = __webpack_require__.p + \"medias/fonts/aeonik/Aeonik-Regular.otf\";\n\n//# sourceURL=webpack://molde/./frontend/medias/fonts/aeonik/Aeonik-Regular.otf?");
-
-/***/ }),
-
-/***/ "./frontend/medias/images/purple.jpg":
-/*!*******************************************!*\
-  !*** ./frontend/medias/images/purple.jpg ***!
-  \*******************************************/
-/***/ (function(module, __unused_webpack_exports, __webpack_require__) {
-
-eval("module.exports = __webpack_require__.p + \"medias/images/purple.jpg\";\n\n//# sourceURL=webpack://molde/./frontend/medias/images/purple.jpg?");
-
-/***/ }),
-
-/***/ "./frontend/medias/videos/working from home.mov":
+/***/ "./frontend/medias/fontes/lato/Lato-Regular.eot":
 /*!******************************************************!*\
-  !*** ./frontend/medias/videos/working from home.mov ***!
+  !*** ./frontend/medias/fontes/lato/Lato-Regular.eot ***!
   \******************************************************/
 /***/ (function(module, __unused_webpack_exports, __webpack_require__) {
 
-eval("module.exports = __webpack_require__.p + \"medias/videos/working from home.mov\";\n\n//# sourceURL=webpack://molde/./frontend/medias/videos/working_from_home.mov?");
+eval("module.exports = __webpack_require__.p + \"medias/fontes/Lato-Regular.eot\";\n\n//# sourceURL=webpack://molde/./frontend/medias/fontes/lato/Lato-Regular.eot?");
+
+/***/ }),
+
+/***/ "./frontend/medias/icones/email.svg":
+/*!******************************************!*\
+  !*** ./frontend/medias/icones/email.svg ***!
+  \******************************************/
+/***/ (function(module, __unused_webpack_exports, __webpack_require__) {
+
+eval("module.exports = __webpack_require__.p + \"medias/icones/email.svg\";\n\n//# sourceURL=webpack://molde/./frontend/medias/icones/email.svg?");
+
+/***/ }),
+
+/***/ "./frontend/medias/icones/entusiasta.svg":
+/*!***********************************************!*\
+  !*** ./frontend/medias/icones/entusiasta.svg ***!
+  \***********************************************/
+/***/ (function(module, __unused_webpack_exports, __webpack_require__) {
+
+eval("module.exports = __webpack_require__.p + \"medias/icones/entusiasta.svg\";\n\n//# sourceURL=webpack://molde/./frontend/medias/icones/entusiasta.svg?");
+
+/***/ }),
+
+/***/ "./frontend/medias/icones/lattes.svg":
+/*!*******************************************!*\
+  !*** ./frontend/medias/icones/lattes.svg ***!
+  \*******************************************/
+/***/ (function(module, __unused_webpack_exports, __webpack_require__) {
+
+eval("module.exports = __webpack_require__.p + \"medias/icones/lattes.svg\";\n\n//# sourceURL=webpack://molde/./frontend/medias/icones/lattes.svg?");
+
+/***/ }),
+
+/***/ "./frontend/medias/icones/qualificado.svg":
+/*!************************************************!*\
+  !*** ./frontend/medias/icones/qualificado.svg ***!
+  \************************************************/
+/***/ (function(module, __unused_webpack_exports, __webpack_require__) {
+
+eval("module.exports = __webpack_require__.p + \"medias/icones/qualificado.svg\";\n\n//# sourceURL=webpack://molde/./frontend/medias/icones/qualificado.svg?");
+
+/***/ }),
+
+/***/ "./frontend/medias/imagens/arteCadastro.png":
+/*!**************************************************!*\
+  !*** ./frontend/medias/imagens/arteCadastro.png ***!
+  \**************************************************/
+/***/ (function(module, __unused_webpack_exports, __webpack_require__) {
+
+eval("module.exports = __webpack_require__.p + \"medias/imagens/arteCadastro.png\";\n\n//# sourceURL=webpack://molde/./frontend/medias/imagens/arteCadastro.png?");
 
 /***/ })
 
@@ -135,7 +155,7 @@ eval("module.exports = __webpack_require__.p + \"medias/videos/working from home
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module can't be inlined because the eval devtool is used.
-/******/ 	var __webpack_exports__ = __webpack_require__("./frontend/js/main.js");
+/******/ 	var __webpack_exports__ = __webpack_require__("./frontend/js/bundle.js");
 /******/ 	
 /******/ })()
 ;
