@@ -16,67 +16,87 @@
   \*******************************/
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _medias_imagens_arteCadastro_png__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../medias/imagens/arteCadastro.png */ \"./frontend/medias/imagens/arteCadastro.png\");\n/* harmony import */ var _medias_icones_email_svg__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../medias/icones/email.svg */ \"./frontend/medias/icones/email.svg\");\n/* harmony import */ var _medias_icones_entusiasta_svg__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../medias/icones/entusiasta.svg */ \"./frontend/medias/icones/entusiasta.svg\");\n/* harmony import */ var _medias_icones_lattes_svg__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../medias/icones/lattes.svg */ \"./frontend/medias/icones/lattes.svg\");\n/* harmony import */ var _medias_icones_qualificado_svg__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../medias/icones/qualificado.svg */ \"./frontend/medias/icones/qualificado.svg\");\n/* harmony import */ var _medias_fontes_lato_Lato_Regular_eot__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../medias/fontes/lato/Lato-Regular.eot */ \"./frontend/medias/fontes/lato/Lato-Regular.eot\");\n//IMAGENS\r\n\r\n\r\n//ÍCONES\r\n\r\n\r\n\r\n\r\n\r\n// FONTES\r\n\n\n//# sourceURL=webpack://molde/./frontend/js/bundle.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _midias_imagens_arteCadastro_png__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../midias/imagens/arteCadastro.png */ \"./frontend/midias/imagens/arteCadastro.png\");\n/* harmony import */ var _midias_imagens_isologo_png__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../midias/imagens/isologo.png */ \"./frontend/midias/imagens/isologo.png\");\n/* harmony import */ var _midias_icones_email_svg__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../midias/icones/email.svg */ \"./frontend/midias/icones/email.svg\");\n/* harmony import */ var _midias_icones_entusiasta_svg__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../midias/icones/entusiasta.svg */ \"./frontend/midias/icones/entusiasta.svg\");\n/* harmony import */ var _midias_icones_lattes_svg__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../midias/icones/lattes.svg */ \"./frontend/midias/icones/lattes.svg\");\n/* harmony import */ var _midias_icones_qualificado_svg__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../midias/icones/qualificado.svg */ \"./frontend/midias/icones/qualificado.svg\");\n/* harmony import */ var _midias_fontes_lato_Lato_Regular_eot__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../midias/fontes/lato/Lato-Regular.eot */ \"./frontend/midias/fontes/lato/Lato-Regular.eot\");\n/* harmony import */ var _midias_fontes_lato_Lato_Semibold_woff__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../midias/fontes/lato/Lato-Semibold.woff */ \"./frontend/midias/fontes/lato/Lato-Semibold.woff\");\n//IMAGENS\r\n\r\n\r\n\r\n//ÍCONES\r\n\r\n\r\n\r\n\r\n\r\n// FONTES\r\n\r\n\n\n//# sourceURL=webpack://molde/./frontend/js/bundle.js?");
 
 /***/ }),
 
-/***/ "./frontend/medias/fontes/lato/Lato-Regular.eot":
+/***/ "./frontend/midias/fontes/lato/Lato-Regular.eot":
 /*!******************************************************!*\
-  !*** ./frontend/medias/fontes/lato/Lato-Regular.eot ***!
+  !*** ./frontend/midias/fontes/lato/Lato-Regular.eot ***!
   \******************************************************/
 /***/ (function(module, __unused_webpack_exports, __webpack_require__) {
 
-eval("module.exports = __webpack_require__.p + \"medias/fontes/Lato-Regular.eot\";\n\n//# sourceURL=webpack://molde/./frontend/medias/fontes/lato/Lato-Regular.eot?");
+eval("module.exports = __webpack_require__.p + \"midias/fontes/Lato-Regular.eot\";\n\n//# sourceURL=webpack://molde/./frontend/midias/fontes/lato/Lato-Regular.eot?");
 
 /***/ }),
 
-/***/ "./frontend/medias/icones/email.svg":
+/***/ "./frontend/midias/fontes/lato/Lato-Semibold.woff":
+/*!********************************************************!*\
+  !*** ./frontend/midias/fontes/lato/Lato-Semibold.woff ***!
+  \********************************************************/
+/***/ (function(module, __unused_webpack_exports, __webpack_require__) {
+
+eval("module.exports = __webpack_require__.p + \"midias/fontes/Lato-Semibold.woff\";\n\n//# sourceURL=webpack://molde/./frontend/midias/fontes/lato/Lato-Semibold.woff?");
+
+/***/ }),
+
+/***/ "./frontend/midias/icones/email.svg":
 /*!******************************************!*\
-  !*** ./frontend/medias/icones/email.svg ***!
+  !*** ./frontend/midias/icones/email.svg ***!
   \******************************************/
 /***/ (function(module, __unused_webpack_exports, __webpack_require__) {
 
-eval("module.exports = __webpack_require__.p + \"medias/icones/email.svg\";\n\n//# sourceURL=webpack://molde/./frontend/medias/icones/email.svg?");
+eval("module.exports = __webpack_require__.p + \"midias/icones/email.svg\";\n\n//# sourceURL=webpack://molde/./frontend/midias/icones/email.svg?");
 
 /***/ }),
 
-/***/ "./frontend/medias/icones/entusiasta.svg":
+/***/ "./frontend/midias/icones/entusiasta.svg":
 /*!***********************************************!*\
-  !*** ./frontend/medias/icones/entusiasta.svg ***!
+  !*** ./frontend/midias/icones/entusiasta.svg ***!
   \***********************************************/
 /***/ (function(module, __unused_webpack_exports, __webpack_require__) {
 
-eval("module.exports = __webpack_require__.p + \"medias/icones/entusiasta.svg\";\n\n//# sourceURL=webpack://molde/./frontend/medias/icones/entusiasta.svg?");
+eval("module.exports = __webpack_require__.p + \"midias/icones/entusiasta.svg\";\n\n//# sourceURL=webpack://molde/./frontend/midias/icones/entusiasta.svg?");
 
 /***/ }),
 
-/***/ "./frontend/medias/icones/lattes.svg":
+/***/ "./frontend/midias/icones/lattes.svg":
 /*!*******************************************!*\
-  !*** ./frontend/medias/icones/lattes.svg ***!
+  !*** ./frontend/midias/icones/lattes.svg ***!
   \*******************************************/
 /***/ (function(module, __unused_webpack_exports, __webpack_require__) {
 
-eval("module.exports = __webpack_require__.p + \"medias/icones/lattes.svg\";\n\n//# sourceURL=webpack://molde/./frontend/medias/icones/lattes.svg?");
+eval("module.exports = __webpack_require__.p + \"midias/icones/lattes.svg\";\n\n//# sourceURL=webpack://molde/./frontend/midias/icones/lattes.svg?");
 
 /***/ }),
 
-/***/ "./frontend/medias/icones/qualificado.svg":
+/***/ "./frontend/midias/icones/qualificado.svg":
 /*!************************************************!*\
-  !*** ./frontend/medias/icones/qualificado.svg ***!
+  !*** ./frontend/midias/icones/qualificado.svg ***!
   \************************************************/
 /***/ (function(module, __unused_webpack_exports, __webpack_require__) {
 
-eval("module.exports = __webpack_require__.p + \"medias/icones/qualificado.svg\";\n\n//# sourceURL=webpack://molde/./frontend/medias/icones/qualificado.svg?");
+eval("module.exports = __webpack_require__.p + \"midias/icones/qualificado.svg\";\n\n//# sourceURL=webpack://molde/./frontend/midias/icones/qualificado.svg?");
 
 /***/ }),
 
-/***/ "./frontend/medias/imagens/arteCadastro.png":
+/***/ "./frontend/midias/imagens/arteCadastro.png":
 /*!**************************************************!*\
-  !*** ./frontend/medias/imagens/arteCadastro.png ***!
+  !*** ./frontend/midias/imagens/arteCadastro.png ***!
   \**************************************************/
 /***/ (function(module, __unused_webpack_exports, __webpack_require__) {
 
-eval("module.exports = __webpack_require__.p + \"medias/imagens/arteCadastro.png\";\n\n//# sourceURL=webpack://molde/./frontend/medias/imagens/arteCadastro.png?");
+eval("module.exports = __webpack_require__.p + \"midias/imagens/arteCadastro.png\";\n\n//# sourceURL=webpack://molde/./frontend/midias/imagens/arteCadastro.png?");
+
+/***/ }),
+
+/***/ "./frontend/midias/imagens/isologo.png":
+/*!*********************************************!*\
+  !*** ./frontend/midias/imagens/isologo.png ***!
+  \*********************************************/
+/***/ (function(module, __unused_webpack_exports, __webpack_require__) {
+
+eval("module.exports = __webpack_require__.p + \"midias/imagens/isologo.png\";\n\n//# sourceURL=webpack://molde/./frontend/midias/imagens/isologo.png?");
 
 /***/ })
 

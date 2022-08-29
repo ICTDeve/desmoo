@@ -1,8 +1,8 @@
-/*!************************************************************************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./frontend/scss/main.scss ***!
-  \************************************************************************************************************************************************************/
+/*!****************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./frontend/scss/cadastro.scss ***!
+  \****************************************************************************************************************************************************************/
 html {
-  --color-primary: ;
+  --color-primary: #11D183;
   --color-secondary: ;
   --color-tertiary: ;
   --min-height: ;
@@ -380,8 +380,12 @@ table {
 }
 
 @font-face {
-  src: url(../medias/fontes/Lato-Regular.eot);
+  src: url(../midias/fontes/Lato-Regular.eot);
   font-family: "Lato Regular";
+}
+@font-face {
+  src: url(../midias/fontes/Lato-Semibold.woff);
+  font-family: "Lato Semibold";
 }
 html {
   font-size: 62.5%;
@@ -389,8 +393,91 @@ html {
   letter-spacing: 2px;
 }
 
-body {
+.cadastro {
   height: 100vh;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.cadastro * {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+.cadastro__imagem {
+  height: 100%;
+  width: 60%;
+}
+.cadastro__conteudo {
+  height: 100%;
+  width: 40%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 50px 50px;
+}
+.cadastro__conteudo__isologo {
+  width: 25rem;
+  -ms-flex-item-align: center;
+      align-self: center;
+}
+.cadastro__conteudo__informacoes__voltar {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: 1.5rem;
+  color: var(--color-primary);
+  margin-bottom: 5px;
+}
+.cadastro__conteudo__informacoes__voltar__setinha {
+  margin-right: 10px;
+}
+.cadastro__conteudo__informacoes__titulo {
+  font-size: 4rem;
+}
+.cadastro__conteudo__formulario {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  height: 60%;
+}
+.cadastro__conteudo__formulario__inputs {
+  height: 80%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+.cadastro__conteudo__formulario__inputs__input {
+  height: calc(20% - 25px);
+  background-color: #E5E5E5;
+  border: none;
+  border-radius: 10px;
+  font-size: 1.7rem;
+  outline: none;
+  padding-left: 10px;
+}
+.cadastro__conteudo__formulario__checkbox-container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -398,24 +485,27 @@ body {
       -ms-flex-align: center;
           align-items: center;
 }
-
-button {
-  height: 5rem;
-  width: 30rem;
+.cadastro__conteudo__formulario__checkbox-container__checkbox {
+  margin-right: 5px;
+}
+.cadastro__conteudo__formulario__checkbox-container__checkbox__label {
   font-size: 2rem;
-  cursor: pointer;
 }
-
-img {
-  width: 50%;
+.cadastro__conteudo__formulario__avancar {
+  background-color: var(--color-primary);
+  border: none;
+  border-radius: 999px;
+  height: 5rem;
+  font-size: 2rem;
+  font-family: "Lato Regular";
+  color: white;
 }
-
-.test {
-  background: -webkit-gradient(linear, left top, right top, from(blue), to(red));
-  background: linear-gradient(to right, blue, red);
+.cadastro__conteudo__login {
+  -ms-flex-item-align: center;
+      align-self: center;
+  font-size: 2rem;
 }
-
-h1 {
-  font-size: 10rem;
-  margin-left: 11%;
+.cadastro__conteudo__login__link, .cadastro__conteudo__login__link:link, .cadastro__conteudo__login__link:visited {
+  color: var(--color-primary);
+  text-decoration: none;
 }

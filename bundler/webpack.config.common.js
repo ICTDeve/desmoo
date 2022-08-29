@@ -5,8 +5,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
     entry: {
-        about: './frontend/js/about.js',
-        feed: './frontend/js/feed.js',
+        cadastro: './frontend/js/cadastro.js',
         bundle: './frontend/js/bundle.js',
     },
 
@@ -31,7 +30,7 @@ module.exports = {
                 test: /\.(jpe?g|png|gif)$/,
                 type: 'asset/resource',
                 generator: {
-                    filename: 'medias/imagens/[name][ext]'
+                    filename: 'midias/imagens/[name][ext]'
                 }
             },
 
@@ -39,7 +38,7 @@ module.exports = {
                 test: /\.(svg)$/,
                 type: 'asset/resource',
                 generator: {
-                    filename: 'medias/icones/[name][ext]'
+                    filename: 'midias/icones/[name][ext]'
                 }
             },
 
@@ -47,7 +46,7 @@ module.exports = {
                 test: /\.(mp4|mov|qt|avi|wmv|avchd|flv|swf)$/,
                 type: 'asset/resource',
                 generator: {
-                    filename: 'medias/videos/[name][ext]'
+                    filename: 'midias/videos/[name][ext]'
                 }
             },
 
@@ -55,7 +54,7 @@ module.exports = {
                 test: /\.(woff|woff2|otf|ttf|eot)$/i,
                 type: 'asset/resource',
                 generator: {
-                    filename: 'medias/fontes/[name][ext]'
+                    filename: 'midias/fontes/[name][ext]'
                 }
             }
         ]

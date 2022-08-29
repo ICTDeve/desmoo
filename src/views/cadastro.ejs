@@ -1,21 +1,49 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
     <head>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Document</title>
+        <title>Cadastro</title>
+
+        <link rel="stylesheet" href="css/cadastro.css">
     </head>
     <body>
-        <form action="/cadastro/confirmacaoEmail" method="POST">
-            id_personalizavel:<input type="text" name="id_personalizavel"/><br/>
-            nome_completo:<input type="text" name="nome_completo"/><br/>
-            email:<input type="text" name="email"/><br/>
-            senha:<input type="text" name="senha"/><br/>
-            idade:<input type="text" name="idade"/><br/>
-            cpf:<input type="text" name="cpf"/><br/>
-            id_lates:<input type="text" name="id_lattes"/><br/>
-            <button>Enviar</button>
-        </form>
+        <div class="cadastro">
+            <img class="cadastro__imagem" src="midias/imagens/arteCadastro.png" alt="">
+
+            <div class="cadastro__conteudo">
+                <img src="midias/imagens/isologo.png" alt="isologo Desmoo" class="cadastro__conteudo__isologo">
+                <div class="cadastro__conteudo__informacoes">
+                    <div class="cadastro__conteudo__informacoes__voltar">
+                        <div class="cadastro__conteudo__informacoes__voltar__setinha"><</div>
+                        <span class="cadastro__conteudo__informacoes__voltar__text">Voltar</span>
+                    </div>
+
+                    <h1 class="cadastro__conteudo__informacoes__titulo">Crie sua conta Desmoo</h1>
+                </div>
+
+                <form action="cadastro/confirmacaoEmail" method="post" class="cadastro__conteudo__formulario">
+                    <div class="cadastro__conteudo__formulario__inputs">
+                        <input type="text"      id="nomeCompleto"   name="nome_completo"    placeholder="Nome Completo"     class="cadastro__conteudo__formulario__inputs__input cadastro__conteudo__formulario__inputs__input">
+                        <input type="text"      id="cpf"            name="cpf"              placeholder="CPF"               class="cadastro__conteudo__formulario__inputs__input cadastro__conteudo__formulario__inputs__input">
+                        <input type="text"      id="email"          name="email"            placeholder="E-mail"            class="cadastro__conteudo__formulario__inputs__input cadastro__conteudo__formulario__inputs__input">
+                        <input type="password"  id="senha"          name="senha"            placeholder="Senha"             class="cadastro__conteudo__formulario__inputs__input cadastro__conteudo__formulario__inputs__input">
+                        <input type="password"  id="repetirSenha"                           placeholder="Confirmar Senha"   class="cadastro__conteudo__formulario__inputs__input cadastro__conteudo__formulario__inputs__input">
+                    </div>
+
+                    <div class="cadastro__conteudo__formulario__checkbox-container">
+                        <input type="checkbox" id="termos" class="cadastro__conteudo__formulario__checkbox-container__checkbox"> <label for="termos" class="cadastro__conteudo__formulario__checkbox-container__checkbox__label"> Eu li e concordo com os <span class="cadastro__conteudo__formulario__checkbox-container__checkbox__label__span">Termos de Serviço</span>.</label>
+                    </div>
+
+                    <input type="submit" value="Avançar" class="cadastro__conteudo__formulario__avancar">
+                </form>
+
+                <span class="cadastro__conteudo__login">
+                    Já tem conta? 
+                    <a href="/login" class="cadastro__conteudo__login__link">Faça login</a>
+                </span>
+            </div>
+        </div>
     </body>
 </html>

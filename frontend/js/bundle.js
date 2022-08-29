@@ -1,11 +1,13 @@
 //IMAGENS
-import "../medias/imagens/arteCadastro.png"
+import "../midias/imagens/arteCadastro.png"
+import "../midias/imagens/isologo.png"
 
 //ÍCONES
-import "../medias/icones/email.svg"
-import "../medias/icones/entusiasta.svg"
-import "../medias/icones/lattes.svg"
-import "../medias/icones/qualificado.svg"
+import "../midias/icones/email.svg"
+import "../midias/icones/entusiasta.svg"
+import "../midias/icones/lattes.svg"
+import "../midias/icones/qualificado.svg"
 
 // FONTES
-import "../medias/fontes/lato/Lato-Regular.eot"
+import "../midias/fontes/lato/Lato-Regular.eot"
+import "../midias/fontes/lato/Lato-Semibold.woff"

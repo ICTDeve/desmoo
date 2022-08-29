@@ -1,0 +1,140 @@
+.cadastro {
+    height: 100vh;
+    width: 100%;
+
+    display: flex;
+
+    * {
+        box-sizing: border-box;
+    }
+
+    // overflow: hidden;
+
+    &__imagem {
+        height: 100%;
+        width: 60%;
+    }
+
+    &__conteudo {
+        height: 100%;
+        width: 40%;
+
+        // border: 1px solid black;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        padding: 50px 50px;
+        
+        &__isologo {
+            width: 25rem;
+
+            align-self: center;
+
+            // margin-bottom: 100px;
+
+            // background-color: blue;
+        }
+
+        &__informacoes {
+            // background-color: green;
+
+            &__voltar {
+                display: flex;
+
+                font-size: 1.5rem;
+                color: var(--color-primary);
+
+                margin-bottom: 5px;
+
+                &__setinha {
+                    margin-right: 10px;
+                }
+            }
+
+            &__titulo {
+                font-size: 4rem;
+            }
+        }
+
+        &__formulario {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+
+            // background-color: red;
+
+            height: 60%;
+
+            &__inputs {
+                height: 80%;
+
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+
+                &__input {
+                    height: calc((100% / 5) - 25px);
+
+                    background-color: #E5E5E5;
+                    border: none;
+                    border-radius: 10px;
+
+                    font-size: 1.7rem;
+
+                    outline: none;
+                    padding-left: 10px;
+                }
+            }
+
+                
+            &__checkbox-container {
+                display: flex;
+                align-items: center;
+
+                &__checkbox {
+                    margin-right: 5px;
+                    
+                    &__label {
+                        // display: block;
+                        // margin-top: 50px;
+
+                        font-size: 2rem;
+
+                        &__span {
+
+                        }
+                    }
+                }
+            }
+
+            &__avancar {
+                background-color: var(--color-primary);
+                border: none;
+                border-radius: 999px;
+
+                height: 5rem;
+
+                font-size: 2rem;
+                font-family: "Lato Regular";
+                color: white;
+            }
+        }
+
+        &__login {
+            align-self: center;
+            font-size: 2rem;
+
+            // background-color: purple;
+            &__link {
+                &,
+                &:link,
+                &:visited {
+                    color: var(--color-primary);
+                    text-decoration: none;
+                }
+            }
+        }
+    }
+}
