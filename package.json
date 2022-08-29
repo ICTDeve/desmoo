@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "webpack -w --progress --config ./bundler/webpack.config.development.js",
     "prod": "webpack -w --progress --config ./bundler/webpack.config.production.js",
-    "server": "nodemon server.js"
+    "server": "nodemon server.js",
+    "start": "concurrently  npm:server , npm:dev"
   },
   "keywords": [],
   "author": "",
@@ -18,6 +19,7 @@
     "autoprefixer": "^10.4.8",
     "babel-loader": "^8.2.5",
     "clean-webpack-plugin": "^4.0.0",
+    "concurrently": "^7.3.0",
     "css-loader": "^6.7.1",
     "css-minimizer-webpack-plugin": "^4.0.0",
     "image-minimizer-webpack-plugin": "^3.2.3",
