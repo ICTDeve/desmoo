@@ -16,7 +16,7 @@
   \*********************************/
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _scss_cadastro_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../scss/cadastro.scss */ \"./frontend/scss/cadastro.scss\");\n//SCSS\r\n\n\n//# sourceURL=webpack://molde/./frontend/js/cadastro.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _scss_cadastro_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../scss/cadastro.scss */ \"./frontend/scss/cadastro.scss\");\n//SCSS\r\n\r\n\r\nconsole.log('cadastro!')\n\n//# sourceURL=webpack://molde/./frontend/js/cadastro.js?");
 
 /***/ }),
 
