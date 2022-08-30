@@ -6,7 +6,7 @@ const cadastroController = require('./src/controllers/cadastroController');
     // GET
         route.get('/cadastro', cadastroController.cadastro);
     // POST
-        route.post('/cadastro/confirmacaoEmail', cadastroController.confirmacaoEmail);
+        route.get('/cadastro/confirmacaoEmail', cadastroController.confirmacaoEmail);
         route.post('/cadastro/tipoDeUsuario', cadastroController.tipoDeUsuario);
         route.post('/cadastro/solicitacao', cadastroController.solicitacao);
         route.post('/cadastro/solicitacaoEnviada', cadastroController.solicitacao);
