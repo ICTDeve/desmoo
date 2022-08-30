@@ -5,10 +5,12 @@ CREATE TABLE IF NOT EXISTS publicacoes (
     titulo VARCHAR(300) NOT NULL,
     conteudo MEDIUMTEXT NOT NULL,
 
+    -- termos / siglas,
+    -- links bibliográficos
+
     data_inicio VARCHAR(10) NOT NULL,
     data_fim VARCHAR(10) NOT NULL
 
-    UNIQUE KEY (id_autor, titulo),
     PRIMARY KEY (id),
-    FOREIGN KEY (id_autor),
+    FOREIGN KEY (id_autor) REFERENCES usuarios (id)
 );

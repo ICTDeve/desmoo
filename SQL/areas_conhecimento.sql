@@ -1,13 +1,13 @@
-DROP TABLE IS EXISTS areas_conhecimentos;
-
-CREATE TABLE IF NOT EXISTS areas_conhecimentos (
+DROP TABLE IF EXISTS areas_conhecimento;
+CREATE TABLE IF NOT EXISTS areas_conhecimento (
     id INT UNSIGNED NOT NULL AUTO_INCREMENT,
     nome VARCHAR(30) NOT NULL,
-    UNIQUE KEY (nome),
+
     PRIMARY KEY (id)
+    UNIQUE KEY (nome),
 );
 
-INSERT INTO areas_conhecimentos 
+INSERT INTO areas_conhecimento 
     (nome) 
 VALUES
     ("Medicina"),

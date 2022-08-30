@@ -10,7 +10,7 @@ CREATE TABLE IF NOT EXISTS pesquisas_de_campo (
     data_inicio VARCHAR(10) NOT NULL,
     data_fim VARCHAR(10) NOT NULL
 
-    -- UNIQUE KEY (id, titulo),
     PRIMARY KEY (id),
-    FOREIGN KEY (id_autor),
+    FOREIGN KEY (id_autor) REFERENCES usuarios (id),
+    UNIQUE KEY (id, titulo)
 );
