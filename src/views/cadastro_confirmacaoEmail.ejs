@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
     <head>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,20 +7,24 @@
         <title>Confirmação de E-mail</title>
     </head>
     <body>
-        <div>
-            <img src="" alt="">
+        <div class="confirmacao-email">
+            <img src="" alt="" class="confirmacao-email__imagem">
 
-            <div class="conteudo">
-                <img src="" alt="">
+            <div class="confirmacao-email__conteudo">
+                <img src="" alt="" class="confirmacao-email__conteudo__isologo">
 
-                <div class="">
-                    <a href=""></a>
-                    <h1></h1>
-                    
-                    <div class="">
-                        
-                    </div>
+                <div class="confirmacao-email__conteudo__header">
+                    <a href="" class="confirmacao-email__conteudo__header__voltar"> < Voltar</a>
+                    <h1 class="confirmacao-email__conteudo__header__h1">Crie sua conta Desmoo</h1>
                 </div>
+
+                <form class="confirmacao-email__conteudo__form" action="/cadastro/tipoDeUsuario" method="POST">
+                    <img src="" alt="" class="confirmacao-email__conteudo__form__icone-email">
+                    <span class="confirmacao-email__conteudo__form__descricao">Confirmar Email</span>
+                    <input type="text" class="confirmacao-email__conteudo__form__input-codigo" placeholder="Inserir Código">
+                    <span class="confirmacao-email__conteudo__form__resgate-codigo">Como pegar o Código?</span>
+                    <input type="submit" class="confirmacao-email__conteudo__form__botao-avancar">
+                </form>
             </div>
         </div>
     </body>
