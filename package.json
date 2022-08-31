@@ -43,4 +43,5 @@
     "mysql2": "^2.3.3",
     "regenerator-runtime": "^0.13.9"
   }
+  
 }

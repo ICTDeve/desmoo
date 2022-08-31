@@ -1,3 +1,63 @@
-body{
-    background-color: red;
+.confirmacao-email{
+    height: 100vh;
+    width: 100%;
+    border: 1px red solid;
+
+    display: flex;
+    // flex-direction: row;
+
+    // overflow: hidden;
+
+    &__imagem {
+        width: 60%;
+        // height: 100vh;
+    }
+
+    &__conteudo {
+        border: 1px solid blue ;
+
+        width: 40%;
+
+        padding: 50px 0 0 0;
+        
+        &__isologo {
+            width: 25rem;
+        }
+        
+        &__header {
+        
+            &__voltar{
+
+            }
+        
+            &__h1{
+
+            }
+        }
+        
+        &__form{
+        
+            &__icone-email{
+
+            }
+        
+            &__descricao {
+
+            }
+        
+            &__input-codigo {
+
+            }
+        
+            &__resgate-codigo {
+
+            }
+        
+            &__botao-avancar{
+
+            }
+        }
+
+
+    }
 }
