@@ -8,6 +8,10 @@ exports.confirmacaoEmail = (req, res) => {
     res.render('cadastro_confirmacaoEmail');
 };
 
+exports.confirmacaoLattes = (req, res) => {
+    res.render('cadastro_confirmacaoLattes');
+};
+
 exports.tipoDeUsuario = (req, res) => {
     res.render('cadastro_tipoConta');
 };
