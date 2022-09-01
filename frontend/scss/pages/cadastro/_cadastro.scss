@@ -1,28 +1,10 @@
 .cadastro {
-    height: 100vh;
-    width: 100%;
-
-    display: flex;
-
-    // overflow: hidden;
 
     &__imagem {
-        // height: 100%;
-        width: 60%;
-        object-position: cover;
+       
     }
 
     &__conteudo {
-        height: 100%;
-        width: 40%;
-
-        // border: 1px solid black;
-
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-
-        padding: 50px 50px;
         
         &__isologo {
             width: 25rem;

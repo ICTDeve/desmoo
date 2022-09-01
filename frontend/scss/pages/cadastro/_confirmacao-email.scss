@@ -15,22 +15,9 @@
     }
 
     &__conteudo {
-        // border: 2px solid blue;
-
-        width: 40%;
-
-        padding: 50px 50px 25vh 0;
-
-        @include flex-container(column, space-between, center);
-
-        // padding-bottom: 50%;
-
-
         
         &__isologo {
-            width: 25rem;
-            // border: 2px red solid;
-            
+                        
         }
         
         &__header {

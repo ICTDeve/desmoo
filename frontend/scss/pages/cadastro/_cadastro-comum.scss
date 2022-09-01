@@ -2,8 +2,8 @@
     height: 100vh;
     width: 100%;
 
-    display: flex;
-    // overflow: hidden;
+    @include flex-container(row, start, start);
+    overflow: hidden;
 
     &__imagem {
         width: 60%;
@@ -12,15 +12,23 @@
     }
 
     &__conteudo {
+        width: 40%;
+        height: 100%;
 
+        padding: 50px 50px 25vh 0;
+
+        @include flex-container(column, space-between, center);
     }
-
+    
     &__cabecalho {
-        
+        width: 100%;
+        height: 30%;
+        // background-color: blue;
+        @include flex-container(column, space-between, center);
     }
 
     &__isologo {
-
+        width: 25rem;
     }
 
     &__instrucoes {
