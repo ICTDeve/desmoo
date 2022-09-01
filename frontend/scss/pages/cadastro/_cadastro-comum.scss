@@ -10,34 +10,93 @@
         object-fit: cover;
         // height: 100vh;
     }
+
     &__conteudo {
+        width: 100%;
+        
+        padding: 50px 50px 50px 0;
+        
+        @include flex-container(column, space-between, center);
+        
         &__cabecalho {
-            &__isologo {
-        
-            }
-        
-            &__instrucoes {
-                &__voltar {
+            height: 25%;
+            width: 100%;
+
+            margin-bottom: 20px;
+
+            @include flex-container(column, space-between, center);
             
+            &__isologo {
+                width: 25rem;
+            }
+            
+            &__instrucoes {
+                align-self: flex-start;
+
+                &__voltar {
+                    &,
+                    &:link,
+                    &:visited {
+                        color: var(--color-primary);
+
+                        font-size: 1.7rem;
+
+                        text-decoration: none;
+                    }
                 }
             
                 &__titulo {
-            
+                    font-size: 4rem;
                 }
             }
         }
         
         &__form {
+            // background-color: blue;
+
+            width: 100%;
+            height: 75%;
+
             &__icone {
-        
+                width: 10rem;
+                height: 10rem;
+
+                margin-bottom: 18px;
+
+                fill: var(--color-primary);
+            }
+
+            &__descricao {
+                font-size: 4rem;
+
+                margin-bottom: 20px;
             }
         
             &__input {
-        
+                height: 5rem;
+                
+                background-color: #E5E5E5;
+                border: none;
+                border-radius: 5px;
+
+                font-size: 1.7rem;
+
+                outline: none;
+                padding-left: 10px;
             }
         
             &__botao-avancar {
-        
+                width: 65%;                    
+                height: 4rem;
+
+                background-color: var(--color-primary);
+                border: none;
+                border-radius: 999px;
+
+                color: white;
+                cursor: pointer;
+
+                font-size: 1.5rem;
             }
         }
     }

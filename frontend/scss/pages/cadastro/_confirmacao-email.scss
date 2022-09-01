@@ -9,60 +9,39 @@
     // overflow: hidden;
 
     &__imagem {
-        width: 60%;
-        object-fit: cover;
-        // height: 100vh;
+        
     }
 
     &__conteudo {
-        
-        &__isologo {
-                        
-        }
-        
-        &__header {
-            // border: 2px green solid;
-            align-self: flex-start;
-
-            &__voltar{
-                &,
-                &:link,
-                &:visited {
-                    color: var(--color-primary);
-
-                    font-size: 1.7rem;
-
-                    text-decoration: none;
-                }
+        &__cabecalho {
+            background-color: blue !important;
+            &__isologo {
+                            
             }
-        
-            &__h1{
-                font-size: 4rem;
+            
+            &__instrucoes {
+                // border: 2px green solid;
+                align-self: flex-start;
+    
+                &__voltar {
+                    
+                }
+            
+                &__titulo {
+                    font-size: 4rem;
+                }
             }
         }
         
         &__form{
-            // margin-bottom: 50%;
-            width: 100%;
-
-            // border: 2px rgb(102, 0, 122) solid;
-
             @include flex-container(column, flex-start, center);
 
             &__icone-email{
-                width: 10rem;
-                height: 10rem;
 
-                margin-bottom: 18px;
-
-                fill: var(--color-primary);
             }
         
             &__descricao {
-                font-size: 4rem;
-                font-family: "Lato Semibold";                
 
-                margin-bottom: 20px;
             }
 
             &__input-codigo {
@@ -100,17 +79,6 @@
                 }
 
                 &__botao-avancar{
-                    width: 65%;                    
-                    height: 3rem;
-
-                    background-color: var(--color-primary);
-                    border: none;
-                    border-radius: 999px;
-
-                    color: white;
-                    cursor: pointer;
-
-                    font-size: 1.5rem;
 
                 }
             }

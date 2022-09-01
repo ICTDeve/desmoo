@@ -7,10 +7,6 @@
     &__conteudo {
         
         &__isologo {
-            width: 25rem;
-
-            align-self: center;
-
             // margin-bottom: 100px;
 
             // background-color: blue;
@@ -20,31 +16,20 @@
             // background-color: green;
 
             &__voltar {
-                display: flex;
 
-                font-size: 1.5rem;
-                color: var(--color-primary);
-
-                margin-bottom: 5px;
-
-                &__setinha {
-                    margin-right: 10px;
-                }
             }
 
             &__titulo {
-                font-size: 4rem;
+
             }
         }
 
-        &__formulario {
+        &__form {
             display: flex;
             flex-direction: column;
             justify-content: space-between;
 
             // background-color: red;
-
-            height: 60%;
 
             &__inputs {
                 height: 80%;
@@ -53,67 +38,61 @@
                 flex-direction: column;
                 justify-content: space-between;
 
+                margin-bottom: 20px;
+                
                 &__input {
-                    height: calc((100% / 5) - 25px);
-
-                    background-color: #E5E5E5;
-                    border: none;
-                    border-radius: 10px;
-
-                    font-size: 1.7rem;
-
-                    outline: none;
-                    padding-left: 10px;
+                    &:not(:last-of-type) {
+                        margin-bottom: 15px;
+                    }
+                    
+                    height: calc(100% / 5);
                 }
             }
-
                 
             &__checkbox-container {
                 display: flex;
                 align-items: center;
 
+                margin-bottom: 20px;
+
+                
                 &__checkbox {
                     margin-right: 5px;
+                    cursor: pointer;
                     
                     &__label {
-                        // display: block;
-                        // margin-top: 50px;
-
-                        font-size: 2rem;
-
+                        cursor: pointer;
+                        
+                        font-size: 1.4rem;
+                        
                         &__span {
-
+                            color: var(--color-primary);
                         }
                     }
                 }
             }
 
-            &__avancar {
-                background-color: var(--color-primary);
-                border: none;
-                border-radius: 999px;
+            &__botao-avancar {
+                width: 100%;
 
-                height: 5rem;
-
-                font-size: 2rem;
-                font-family: "Lato Regular";
-                color: white;
+                margin-bottom: 20px;
             }
-        }
 
-        &__login {
-            align-self: center;
-            font-size: 2rem;
-
-            // background-color: purple;
-            &__link {
-                &,
-                &:link,
-                &:visited {
-                    color: var(--color-primary);
-                    text-decoration: none;
+            &__login {
+                align-self: center;
+                font-size: 1.4rem;
+    
+                // background-color: purple;
+                &__link {
+                    &,
+                    &:link,
+                    &:visited {
+                        color: var(--color-primary);
+                        text-decoration: none;
+                    }
                 }
             }
         }
+
     }
 }
