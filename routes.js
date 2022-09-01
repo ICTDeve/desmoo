@@ -8,8 +8,7 @@ const cadastroController = require('./src/controllers/cadastroController');
     // POST
         route.get('/cadastro/confirmacaoEmail', cadastroController.confirmacaoEmail);
         route.get('/cadastro/confirmacaoLattes', cadastroController.confirmacaoLattes);
-        route.post('/cadastro/tipoDeUsuario', cadastroController.tipoDeUsuario);
-        route.post('/cadastro/solicitacao', cadastroController.solicitacao);
+        route.get('/cadastro/tipoDeUsuario', cadastroController.tipoDeUsuario);
         route.post('/cadastro/solicitacaoEnviada', cadastroController.solicitacao);
  
 // 404

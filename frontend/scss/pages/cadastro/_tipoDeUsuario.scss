@@ -1,0 +1,64 @@
+.tipo-de-usuario {
+    &__conteudo {
+        &__form{
+            justify-content: flex-start;
+            
+            &__card {
+                // background-color: red;
+                box-shadow: 1px 1px 10px #0000003c;
+                border-radius: 20px;
+
+                cursor: pointer;;
+
+                height: 15rem;
+
+                padding: 20px;
+                margin-bottom: 20px;
+
+                @include flex-container(row, space-between, center);
+
+                transition: .2s ease;
+                
+                &:hover { 
+                    background-color: var(--color-primary);
+                }
+                
+                &:hover & {
+                    &__icone {
+                        fill: white;
+                    }
+
+                    &__descricao {
+                        color: white;
+                    }
+                }
+                
+                &__icone {
+                    width: 6rem;    
+                    height: 6rem;
+                    
+                    fill: var(--color-primary);
+                    
+                    margin-right: 10px;
+
+                    transition: .2s ease;
+                }
+                
+                &__descricao {
+                    color: black;
+
+                    transition: .2s ease;
+                    &__titulo {
+                        font-size: 2rem;
+
+                        margin-bottom: 10px;   
+                    }
+
+                    &__texto {
+
+                    }
+                }
+            }
+        }
+    }
+}

@@ -13,7 +13,7 @@ exports.confirmacaoLattes = (req, res) => {
 };
 
 exports.tipoDeUsuario = (req, res) => {
-    res.render('cadastro_tipoConta');
+    res.render('cadastro_tipoDeUsuario');
 };
 
 exports.solicitacao = (req, res) => {
