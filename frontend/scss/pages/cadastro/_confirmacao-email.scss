@@ -14,18 +14,29 @@
     }
 
     &__conteudo {
-        border: 1px solid blue ;
+        border: 2px solid blue ;
 
         width: 40%;
 
-        padding: 50px 0 0 0;
+        padding: 50px 0 25vh 0;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        // padding-bottom: 50%;
+
+
         
         &__isologo {
             width: 25rem;
+            border: 2px red solid;
+            
         }
         
         &__header {
-        
+            border: 2px green solid;
+            align-self: flex-start;
             &__voltar{
 
             }
@@ -36,7 +47,8 @@
         }
         
         &__form{
-        
+            // margin-bottom: 50%;
+            border: 2px rgb(102, 0, 122) solid;
             &__icone-email{
 
             }
