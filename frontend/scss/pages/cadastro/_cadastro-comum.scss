@@ -10,40 +10,35 @@
         object-fit: cover;
         // height: 100vh;
     }
-
     &__conteudo {
-
-    }
-
-    &__cabecalho {
+        &__cabecalho {
+            &__isologo {
         
-    }
-
-    &__isologo {
-
-    }
-
-    &__instrucoes {
+            }
         
-    }
-
-    &__voltar {
-
-    }
-
-    &__titulo {
-
-    }
-
-    &__icone {
-
-    }
-
-    &__input {
-
-    }
-
-    &__avancar {
-
+            &__instrucoes {
+                &__voltar {
+            
+                }
+            
+                &__titulo {
+            
+                }
+            }
+        }
+        
+        &__form {
+            &__icone {
+        
+            }
+        
+            &__input {
+        
+            }
+        
+            &__botao-avancar {
+        
+            }
+        }
     }
 }
