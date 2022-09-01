@@ -5,6 +5,13 @@
     align-items: $align-items;
 }
 
+@mixin centralizar () {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
 @mixin transition($transition-speed: var(--transition-speed), $transition-timing-function: var(--transition-timing-function)) {
    transition: $transition-speed $transition-timing-function;
 }

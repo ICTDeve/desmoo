@@ -1,0 +1,49 @@
+.cadastro-comum {
+    height: 100vh;
+    width: 100%;
+
+    display: flex;
+    // overflow: hidden;
+
+    &__imagem {
+        width: 60%;
+        object-fit: cover;
+        // height: 100vh;
+    }
+
+    &__conteudo {
+
+    }
+
+    &__cabecalho {
+        
+    }
+
+    &__isologo {
+
+    }
+
+    &__instrucoes {
+        
+    }
+
+    &__voltar {
+
+    }
+
+    &__titulo {
+
+    }
+
+    &__icone {
+
+    }
+
+    &__input {
+
+    }
+
+    &__avancar {
+
+    }
+}

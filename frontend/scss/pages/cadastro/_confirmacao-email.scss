@@ -1,7 +1,7 @@
 .confirmacao-email{
     height: 100vh;
     width: 100%;
-    border: 1px red solid;
+    // border: 1px red solid;
 
     display: flex;
     // flex-direction: row;
@@ -10,66 +10,123 @@
 
     &__imagem {
         width: 60%;
+        object-fit: cover;
         // height: 100vh;
     }
 
     &__conteudo {
-        border: 2px solid blue ;
+        // border: 2px solid blue;
 
         width: 40%;
 
-        padding: 50px 0 25vh 0;
+        padding: 50px 50px 25vh 0;
 
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: space-between;
+        @include flex-container(column, space-between, center);
+
         // padding-bottom: 50%;
 
 
         
         &__isologo {
             width: 25rem;
-            border: 2px red solid;
+            // border: 2px red solid;
             
         }
         
         &__header {
-            border: 2px green solid;
+            // border: 2px green solid;
             align-self: flex-start;
-            &__voltar{
 
+            &__voltar{
+                &,
+                &:link,
+                &:visited {
+                    color: var(--color-primary);
+
+                    font-size: 1.7rem;
+
+                    text-decoration: none;
+                }
             }
         
             &__h1{
-
+                font-size: 4rem;
             }
         }
         
         &__form{
             // margin-bottom: 50%;
-            border: 2px rgb(102, 0, 122) solid;
-            &__icone-email{
+            width: 100%;
 
+            // border: 2px rgb(102, 0, 122) solid;
+
+            @include flex-container(column, flex-start, center);
+
+            &__icone-email{
+                width: 10rem;
+                height: 10rem;
+
+                margin-bottom: 18px;
+
+                fill: var(--color-primary);
             }
         
             &__descricao {
+                font-size: 4rem;
+                font-family: "Lato Semibold";                
 
+                margin-bottom: 20px;
             }
-        
+
             &__input-codigo {
+                width: 100%;
+                height: 4.5rem;
 
+                background-color: #E5E5E5;
+                border: none;
+                border-radius: 5px;
+
+                font-size: 1.7rem;
+
+                outline: none;
+                padding-left: 10px;
+
+                margin-bottom: 20px;
             }
-        
-            &__resgate-codigo {
 
-            }
-        
-            &__botao-avancar{
+            &__box-confirm {
+                width: 100%;
+                // background-color: green;
 
+                @include flex-container(row, start, center);
+
+                &__resgate-codigo {
+                    width: calc(35% - 20px);
+                    margin-right: 20px;
+                    color: var(--color-primary);
+                    font-size: 1.2rem;
+                    font-family: "Lato Semibold";
+
+                    white-space: nowrap;
+
+                    cursor: pointer;
+                }
+
+                &__botao-avancar{
+                    width: 65%;                    
+                    height: 3rem;
+
+                    background-color: var(--color-primary);
+                    border: none;
+                    border-radius: 999px;
+
+                    color: white;
+                    cursor: pointer;
+
+                    font-size: 1.5rem;
+
+                }
             }
         }
-
-
     }
 }
