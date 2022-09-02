@@ -1,37 +1,41 @@
 html {
-   // colors
-   --color-primary: #11D183;
-   --color-secondary: ;
-   --color-tertiary: ;
+   // COR
+   --cor-principal: #11D183;
+   --cor-secundaria: ;
 
-   // font-sizes
+   // SCREEN 
+      // HEIGHT
+      --min-height: ;
+      --max-height: ;
+   
+      // WIDTH
+      --min-width: ;
+      --max-width: ;
 
-   // font-families
+   // TRANSITION
+   --transition-1: .2s ease;
+   
+   // BREAKPOINT
+      // WIDTH
+      $breakpoint-width-1: 1600px;
 
-   // sizes
-   --min-height: ;
-   --max-height: ;
+   // TEXTO
+   --tamanho-text-comum: 1.7rem;
+   --tamanho-text-importante: 4rem;
 
-   --min-width: ;
-   --max-width: ;
-
-   // transition
-
-
-   // texts
-   --commum-text-size: 1.6rem;
-
-   // @media only screen and (max-width: 1600px) {
-   //    --commum-text-size: 1.7rem;
-   // }
+   
+   @media only screen and (max-width: $breakpoint-width-1) {
+      --tamanho-text-comum: 1.4rem;
+      --tamanho-text-importante: 3rem;
+   }
 
    // @media only screen and (max-width: 1350px) {
-   //    --commum-text-size: 1.4rem;
+   //    --tamanho-text-comum: 1.4rem;
    // }
 
    // @media only screen and (max-width: 550px) {
-   //    --commum-text-size: 1.8rem;
+   //    --tamanho-text-comum: 1.8rem;
    // }
 
-   //others
+   // OUTROS
 }

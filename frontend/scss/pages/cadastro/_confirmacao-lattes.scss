@@ -1,31 +1,7 @@
 .confirmacao-lattes{
-    &__imagem {
-        
-    }
-
     &__conteudo {
-        &__cabecalho {
-            background-color: blue !important;
-            &__isologo {
-                            
-            }
-            
-            &__instrucoes {
-                // border: 2px green solid;
-                align-self: flex-start;
-    
-                &__voltar {
-                    
-                }
-            
-                &__titulo {
-                    font-size: 4rem;
-                }
-            }
-        }
-        
         &__form{
-            @include flex-container(column, flex-start, center);
+            // @include flex-container(column, flex-start, center);
 
             &__icone-email{
 
@@ -36,41 +12,23 @@
             }
 
             &__input-codigo {
-                width: 100%;
-                height: 4.5rem;
-
-                background-color: #E5E5E5;
-                border: none;
-                border-radius: 5px;
-
-                font-size: 1.7rem;
-
-                outline: none;
-                padding-left: 10px;
-
                 margin-bottom: 20px;
             }
 
             &__box-confirm {
-                width: 100%;
-                // background-color: green;
+                @include flex-container(row, space-between, center);
 
-                @include flex-container(row, start, center);
+                width: 100%;
 
                 &__resgate-codigo {
                     width: calc(35% - 20px);
-                    margin-right: 20px;
-                    color: var(--color-primary);
-                    font-size: 1.2rem;
+                    
+                    color: var(--cor-principal);
                     font-family: "Lato Semibold";
 
-                    white-space: nowrap;
+                    // white-space: nowrap;
 
                     cursor: pointer;
-                }
-
-                &__botao-avancar{
-
                 }
             }
         }

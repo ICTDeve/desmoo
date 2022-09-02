@@ -10,38 +10,39 @@
     </head>
     <body>
         <div class="cadastro-comum cadastro">
-            <img class="cadastro-comum__imagem" src="midias/imagens/arteCadastro.png" alt="">
+            <div class="cadastro-comum__container-imagem">
+                <img class="cadastro-comum__container-imagem__imagem" src="midias/imagens/arteCadastro.png" alt="">
+            </div>
 
             <div class="cadastro-comum__conteudo">
                 <div class="cadastro-comum__conteudo__cabecalho">
                     <img src="midias/imagens/isologo.png" alt="isologo Desmoo" class="cadastro-comum__conteudo__cabecalho__isologo">
                     <div class="cadastro-comum__conteudo__cabecalho__instrucoes">
-                        <div class="cadastro-comum__conteudo__cabecalho__instrucoes__voltar">< Voltar</div>
-                        <h1 class="cadastro-comum__conteudo__cabecalho__instrucoes__titulo">Crie sua conta Desmoo</h1>
+                        <div class="tamanho-texto-comum cadastro-comum__conteudo__cabecalho__instrucoes__voltar">< Voltar</div>
+                        <h1 class="tamanho-texto-comum cadastro-comum__conteudo__cabecalho__instrucoes__titulo">Crie sua conta Desmoo</h1>
                     </div>
                 </div>
 
                 <form action="cadastro/confirmacaoEmail" method="post" class="cadastro-comum__conteudo__form cadastro__conteudo__form">
                     <div class="cadastro__conteudo__form__inputs">
-                        <input type="text"      id="nomeCompleto"   name="nome_completo"    placeholder="Nome Completo"     class="cadastro-comum__conteudo__form__input cadastro__conteudo__form__inputs__input cadastro__conteudo__form__inputs__input">
-                        <input type="text"      id="cpf"            name="cpf"              placeholder="CPF"               class="cadastro-comum__conteudo__form__input cadastro__conteudo__form__inputs__input cadastro__conteudo__form__inputs__input">
-                        <input type="text"      id="email"          name="email"            placeholder="E-mail"            class="cadastro-comum__conteudo__form__input cadastro__conteudo__form__inputs__input cadastro__conteudo__form__inputs__input">
-                        <input type="password"  id="senha"          name="senha"            placeholder="Senha"             class="cadastro-comum__conteudo__form__input cadastro__conteudo__form__inputs__input cadastro__conteudo__form__inputs__input">
-                        <input type="password"  id="repetirSenha"                           placeholder="Confirmar Senha"   class="cadastro-comum__conteudo__form__input cadastro__conteudo__form__inputs__input cadastro__conteudo__form__inputs__input">
+                        <input type="text"      id="nomeCompleto"   name="nome_completo"    placeholder="Nome Completo"         class="tamanho-texto-comum cadastro-comum__conteudo__form__input cadastro__conteudo__form__inputs__input cadastro__conteudo__form__inputs__input">
+                        <input type="text"      id="cpf"            name="cpf"              placeholder="CPF (apenas dígitos)"  class="tamanho-texto-comum cadastro-comum__conteudo__form__input cadastro__conteudo__form__inputs__input cadastro__conteudo__form__inputs__input">
+                        <input type="text"      id="email"          name="email"            placeholder="E-mail"                class="tamanho-texto-comum cadastro-comum__conteudo__form__input cadastro__conteudo__form__inputs__input cadastro__conteudo__form__inputs__input">
+                        <input type="password"  id="senha"          name="senha"            placeholder="Senha"                 class="tamanho-texto-comum cadastro-comum__conteudo__form__input cadastro__conteudo__form__inputs__input cadastro__conteudo__form__inputs__input">
+                        <input type="password"  id="repetirSenha"                           placeholder="Confirmar Senha"       class="tamanho-texto-comum cadastro-comum__conteudo__form__input cadastro__conteudo__form__inputs__input cadastro__conteudo__form__inputs__input">
                     </div>
 
                     <div class="cadastro__conteudo__form__checkbox-container">
-                        <input type="checkbox" id="termos" class="cadastro__conteudo__form__checkbox-container__checkbox"> <label for="termos" class="cadastro__conteudo__form__checkbox-container__checkbox__label"> Eu li e concordo com os <span class="cadastro__conteudo__form__checkbox-container__checkbox__label__span">Termos de Serviço</span>.</label>
+                        <input type="checkbox" id="termos" class="cadastro__conteudo__form__checkbox-container__checkbox"> <label for="termos" class="tamanho-texto-comum cadastro__conteudo__form__checkbox-container__checkbox__label"> Eu li e concordo com os <span class="cadastro__conteudo__form__checkbox-container__checkbox__label__span">Termos de Serviço</span>.</label>
                     </div>
 
-                    <input type="submit" value="Avançar" class="cadastro-comum__conteudo__form__botao-avancar cadastro__conteudo__form__botao-avancar">
+                    <input type="submit" value="Avançar" class="tamanho-texto-comum cadastro-comum__conteudo__form__box-confirm__botao-avancar cadastro__conteudo__form__botao-avancar">
 
-                    <span class="cadastro__conteudo__form__login">
+                    <span class="tamanho-texto-comum cadastro__conteudo__form__login">
                         Já tem conta? 
-                        <a href="/login" class="cadastro__conteudo__form__login__link">Faça login</a>
+                        <a href="/login" class="tamanho-texto-comum cadastro__conteudo__form__login__link">Faça login</a>
                     </span>
                 </form>
-
             </div>
         </div>
 

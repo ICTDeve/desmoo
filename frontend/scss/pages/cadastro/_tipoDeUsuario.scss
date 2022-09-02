@@ -1,11 +1,9 @@
 .tipo-de-usuario {
     &__conteudo {
         &__form{
-            justify-content: flex-start;
-            
             &__card {
                 // background-color: red;
-                box-shadow: 1px 1px 10px #0000003c;
+                box-shadow: 6px 5px 15px #00000028;
                 border-radius: 20px;
 
                 cursor: pointer;;
@@ -17,10 +15,10 @@
 
                 @include flex-container(row, space-between, center);
 
-                transition: .2s ease;
+                transition: var(--transition-1);
                 
                 &:hover { 
-                    background-color: var(--color-primary);
+                    background-color: var(--cor-principal);
                 }
                 
                 &:hover & {
@@ -37,21 +35,22 @@
                     width: 6rem;    
                     height: 6rem;
                     
-                    fill: var(--color-primary);
+                    fill: var(--cor-principal);
                     
                     margin-right: 10px;
 
-                    transition: .2s ease;
+                    transition: var(--transition-1);
                 }
                 
                 &__descricao {
                     color: black;
 
-                    transition: .2s ease;
                     &__titulo {
+                        font-family: "Lato semibold";
                         font-size: 2rem;
 
                         margin-bottom: 10px;   
+                        transition: var(--transition-1);
                     }
 
                     &__texto {
