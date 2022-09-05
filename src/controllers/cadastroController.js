@@ -1,11 +1,15 @@
 require("./express-load")
 
+
 exports.cadastro = (req, res) => {
     res.render('cadastro');
 };
 
 exports.confirmacaoEmail = (req, res) => {
-    res.render('cadastro_confirmacaoEmail');
+    var dados = req.body;
+    dados.email
+    console.log(dados);
+    res.render('cadastro_confirmacaoEmail',{dados:dados});
 };
 
 exports.confirmacaoLattes = (req, res) => {

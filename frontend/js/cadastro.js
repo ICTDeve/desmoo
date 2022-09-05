@@ -1,4 +1,10 @@
 //SCSS
 import "../scss/cadastro.scss"
 
-console.log('cadastro!')
+// document.getElementById('nomeCompleto').addEventListener('click', () => alert('oi'))
+
+// class Validacao {
+//     constructor() {
+
+//     }
+// }

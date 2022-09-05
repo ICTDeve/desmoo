@@ -3,6 +3,8 @@ const app = express();
 const routes = require('./routes');
 const path = require('path');
 const port = 3000
+var bp = require('body-parser');
+app.use(bp.urlencoded({ extended: true }))
 
 app.use(express.urlencoded({ extended: true }));
 
