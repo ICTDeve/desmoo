@@ -24,9 +24,9 @@
                     </div>
                 </div>
 
-                <form class="cadastro-comum__conteudo__form tipo-de-usuario__conteudo__form" action="/cadastro/tipo-de-usuario" method="POST">
-                    
-                    <div class="tipo-de-usuario__conteudo__form__card">
+                <form id="formTipoDeCategoria" action="/cadastro/confirmacao-lattes" method="post" class="cadastro-comum__conteudo__form tipo-de-usuario__conteudo__form">
+                    <input type="radio" name="categoria" id="qualificado" value="qualificado" class="card-tipo-de-categoria tipo-de-usuario__conteudo__form__input-radio">
+                    <label for="qualificado" class="tipo-de-usuario__conteudo__form__card">
                         <svg class="icon tipo-de-usuario__conteudo__form__card__icone">
                             <use xlink:href="../midias/icones/qualificado.svg#qualificado"></use>
                         </svg>
@@ -35,9 +35,10 @@
                             <h3 class="tipo-de-usuario__conteudo__form__card__descricao__titulo">Qualificado</h3>
                             <p class="tamanho-texto-comum tipo-de-usuario__conteudo__form__card__descricao__texto">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam, laudantium.</p>
                         </div>
-                    </div>
+                    </label>
                     
-                    <div class="tipo-de-usuario__conteudo__form__card">
+                    <input type="radio" name="categoria" id="entusiasta" value="entusiasta" class="card-tipo-de-categoria tipo-de-usuario__conteudo__form__input-radio">
+                    <label for="entusiasta" class="tipo-de-usuario__conteudo__form__card">
                         <svg class="icon tipo-de-usuario__conteudo__form__card__icone">
                             <use xlink:href="../midias/icones/entusiasta.svg#entusiasta"></use>
                         </svg>
@@ -46,9 +47,9 @@
                             <h3 class="tipo-de-usuario__conteudo__form__card__descricao__titulo">Entusiasta</h3>
                             <p class="tamanho-texto-comum tipo-de-usuario__conteudo__form__card__descricao__texto">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam, laudantium.</p>
                         </div>
-                    </div>
+                    </label>
 
-                    <input type="hidden" name="categoria">
+                    <script src="../js/cadastro.js"></script>
                 </form>
             </div>
         </div>

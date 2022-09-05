@@ -23,14 +23,13 @@
                     </div>
                 </div>
 
-                <form class="icon cadastro-comum__conteudo__form confirmacao-email__conteudo__form" action="/cadastro/tipoDeUsuario" method="POST">
+                <form class="icon cadastro-comum__conteudo__form confirmacao-email__conteudo__form" action="/cadastro/tipo-de-usuario" method="post">
                     <svg class="cadastro-comum__conteudo__form__icone cadastro-comum__icone confirmacao-email__conteudo__form__icone-email">
                         <use xlink:href="../midias/icones/email.svg#email"></use>
                     </svg>
                     <span class="cadastro-comum__conteudo__form__descricao confirmacao-email__conteudo__form__descricao">Confirmar Email</span>
                     
-                    <input type="text" class="tamanho-texto-comum cadastro-comum__conteudo__form__input confirmacao-email__conteudo__form__input-codigo" placeholder="Inserir Código" value="<%= dados.email %>">
-                    <!-- <input type="text" class="tamanho-texto-comum cadastro-comum__conteudo__form__input confirmacao-email__conteudo__form__input-codigo" placeholder="Inserir Código" value="<%= dados.email %>"> -->
+                    <input type="text" class="tamanho-texto-comum cadastro-comum__conteudo__form__input confirmacao-email__conteudo__form__input-codigo" placeholder="Inserir Código">
 
                     <div class="cadastro-comum__conteudo__form__box-confirm confirmacao-email__conteudo__form__box-confirm">
                         <span class="tamanho-texto-comum cadastro-comum__conteudo__form__box-confirm__resgate-codigo confirmacao-email__conteudo__form__box-confirm__resgate-codigo">Como Pegar o Código?</span>
@@ -39,5 +38,10 @@
                 </form>
             </div>
         </div>
+
+        <input type="hidden" name="nome" value="">
+        <input type="hidden" name="cpf" value="">
+        <input type="hidden" name="email" value="">
+        <input type="hidden" name="senha" value="">
     </body>
 </html>

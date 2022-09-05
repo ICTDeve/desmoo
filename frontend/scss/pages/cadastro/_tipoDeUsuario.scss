@@ -1,6 +1,9 @@
 .tipo-de-usuario {
     &__conteudo {
         &__form{
+            &__input-radio {
+                display: none;
+            }
             &__card {
                 // background-color: red;
                 box-shadow: 6px 5px 15px #00000028;
