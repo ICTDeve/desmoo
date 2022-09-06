@@ -5,16 +5,16 @@ USE desmoo;
 DROP TABLE IF EXISTS usuarios;
 CREATE TABLE IF NOT EXISTS usuarios (
 	id INT UNSIGNED NOT NULL AUTO_INCREMENT,
-    id_personalizavel VARCHAR(30) NOT NULL,
+    id_personalizavel VARCHAR(30) DEFAULT NULL,
     id_lattes VARCHAR(100) NOT NULL,
 	nome_completo VARCHAR(50) NOT NULL,
     email VARCHAR(40) NOT NULL,
     senha VARCHAR(40) NOT NULL,
-    idade INT UNSIGNED NOT NULL,
+    idade INT UNSIGNED  DEFAULT NULL,
     cpf VARCHAR(11) NOT NULL,
 
     data_cadastro VARCHAR(10) NOT NULL,
-    status ENUM("qualificado", "entusiasta", "admin") NOT NULL,
+    categoria ENUM("qualificado", "entusiasta", "admin") NOT NULL,
 
     seguidores INT UNSIGNED DEFAULT 0,
     seguindo INT UNSIGNED DEFAULT 0,
