@@ -1,4 +1,8 @@
-require("./express-load")
+// require("./express-load")
+const express = require('express');
+const app = express();
+const load = require('express-load');
+load('src/models').into(app)
 
 let dados;
 exports.cadastro = (req, res) => {
@@ -16,7 +20,6 @@ exports.tipoDeUsuario = (req, res) => {
 
 exports.confirmacaoLattes = (req, res) => {
     dados.categoria = req.body.categoria
-    console.log(dados)
     res.render('cadastro_confirmacaoLattes');
 };
 
@@ -33,15 +36,14 @@ exports.cadastrar = (req, res) => {
 
     console.log(dados)
 
-    // const dados = req.body;
-    // const conexao = app.src.models.conexao();
-    // const usuarios = new app.src.models.usuarios(coenxao);
+    const conexao = app.src.models.conexao();
+    const usuarios = new app.src.models.usuarios(conexao);
 
-    // usuarios.cadastrar(dados,function(erro,sucesso){
-    //     if(erro){
-    //         console.log(erro);
-    //     }
-    // });
+    usuarios.cadastrar(dados,function(erro, sucesso){
+        if(erro){
+            console.log(erro);
+        }
+    });
 
-    res.render('cadastrar', {'info':dados});
+    res.render('cadastrar', {dados});
 };

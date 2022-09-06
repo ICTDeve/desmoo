@@ -10,7 +10,7 @@ CREATE TABLE IF NOT EXISTS usuarios (
     cpf VARCHAR(11) NOT NULL,
 
     data_cadastro VARCHAR(10) NOT NULL,
-    status ENUM("qualificado", "entusiasta", "admin") NOT NULL,
+    categoria ENUM("qualificado", "entusiasta", "admin") NOT NULL,
 
     seguidores INT UNSIGNED DEFAULT 0,
     seguindo INT UNSIGNED DEFAULT 0,
