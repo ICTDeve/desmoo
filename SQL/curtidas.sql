@@ -10,5 +10,4 @@ CREATE TABLE IF NOT EXISTS curtidas (
     PRIMARY KEY (id),
     FOREIGN KEY (id_publicacao) REFERENCES publicacoes (id),
     FOREIGN KEY (id_usuario) REFERENCES usuarios (id)
-
 );

@@ -9,7 +9,7 @@ CREATE TABLE IF NOT EXISTS usuarios (
     idade INT UNSIGNED NOT NULL,
     cpf VARCHAR(11) NOT NULL,
 
-    data_cadastro VARCHAR(10) DEFAULT NOT NULL,
+    data_cadastro VARCHAR(10) NOT NULL,
     status ENUM("qualificado", "entusiasta", "admin") NOT NULL,
 
     seguidores INT UNSIGNED DEFAULT 0,
