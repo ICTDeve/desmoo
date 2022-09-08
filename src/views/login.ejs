@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Cadastro</title>
+
+        <link rel="stylesheet" href="css/cadastro.css">
+    </head>
+    <body>
+        <div class="cadastro-comum cadastro">
+            <div class="cadastro-comum__container-imagem">
+                <img class="cadastro-comum__container-imagem__imagem" src="midias/imagens/arteCadastro.png" alt="">
+            </div>
+
+            <div class="cadastro-comum__conteudo">
+                <div class="cadastro-comum__conteudo__cabecalho">
+                    <img src="midias/imagens/isologo.png" alt="isologo Desmoo" class="cadastro-comum__conteudo__cabecalho__isologo">
+                    <div class="cadastro-comum__conteudo__cabecalho__instrucoes">
+                        <div class="tamanho-texto-comum cadastro-comum__conteudo__cabecalho__instrucoes__voltar">< Voltar</div>
+                        <h1 class="tamanho-texto-comum cadastro-comum__conteudo__cabecalho__instrucoes__titulo">Crie sua conta Desmoo</h1>
+                    </div>
+                </div>
+
+                <form action="cadastro/confirmacao-email" method="post" class="cadastro-comum__conteudo__form cadastro__conteudo__form">
+                    <div class="cadastro__conteudo__form__inputs">
+                        <input type="text"      id="nomeCompleto"   name="nome_completo" obrigatorio="true"    placeholder="Nome Completo"         class="tamanho-texto-comum cadastro-comum__conteudo__form__input cadastro__conteudo__form__inputs__input cadastro__conteudo__form__inputs__input">
+                        <input type="text"      id="cpf"            name="cpf"           obrigatorio="true"    placeholder="CPF (apenas dígitos)"  class="tamanho-texto-comum cadastro-comum__conteudo__form__input cadastro__conteudo__form__inputs__input cadastro__conteudo__form__inputs__input">
+                        <input type="text"      id="email"          name="email"         obrigatorio="true"    placeholder="E-mail"                class="tamanho-texto-comum cadastro-comum__conteudo__form__input cadastro__conteudo__form__inputs__input cadastro__conteudo__form__inputs__input">
+                        <input type="password"  id="senha"          name="senha"         obrigatorio="true"    placeholder="Senha"                 class="tamanho-texto-comum cadastro-comum__conteudo__form__input cadastro__conteudo__form__inputs__input cadastro__conteudo__form__inputs__input">
+                        <input type="password"  id="repeticaoSenha"                      obrigatorio="true"    placeholder="Confirmar Senha"       class="tamanho-texto-comum cadastro-comum__conteudo__form__input cadastro__conteudo__form__inputs__input cadastro__conteudo__form__inputs__input">
+                    </div>
+
+                    <div class="cadastro__conteudo__form__checkbox-container">
+                        <input type="checkbox" id="confirmacaoTermos" class="cadastro__conteudo__form__checkbox-container__checkbox"> <label for="termos" class="tamanho-texto-comum cadastro__conteudo__form__checkbox-container__checkbox__label"> Eu li e concordo com os <span class="cadastro__conteudo__form__checkbox-container__checkbox__label__span">Termos de Serviço</span>.</label>
+                    </div>
+
+                    <input type="submit" id="botaoEnvio" value="Avançar" class="tamanho-texto-comum cadastro-comum__conteudo__form__box-confirm__botao-avancar cadastro__conteudo__form__botao-avancar">
+
+                    <span class="tamanho-texto-comum cadastro__conteudo__form__login">
+                        Já tem conta? 
+                        <a href="/login" class="tamanho-texto-comum cadastro__conteudo__form__login__link">Faça login</a>
+                    </span>
+                </form>
+            </div>
+        </div>
+
+        <script src="js/cadastro.js"></script>
+    </body>
+</html>

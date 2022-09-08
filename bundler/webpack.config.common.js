@@ -6,6 +6,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 module.exports = {
     entry: {
         cadastro: './frontend/js/cadastro.js',
+        login: './frontend/js/login.js',
         bundle: './frontend/js/bundle.js',
     },
 

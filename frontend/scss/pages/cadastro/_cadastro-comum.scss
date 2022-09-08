@@ -44,9 +44,8 @@
                     &:link,
                     &:visited {
                         color: var(--cor-principal);
-
-                        // font-size: 1.7rem;
-
+                        cursor: pointer;
+                        
                         text-decoration: none;
                     }
                 }
@@ -231,6 +230,10 @@
                 justify-content: flex-start;
 
                 transform: translateY(0);
+
+                button {
+                    width: 100%;
+                }
             }
         }
     }

@@ -4,17 +4,15 @@ const app = express();
 const load = require('express-load');
 load('src/models').into(app)
 
-// let dados;
-
 class Usuario {
-    constructor(idLattes, nomeCompleto, email, cpf, senha, dataCadastro, categoria) {
-        this.nome_completo = nomeCompleto
+    constructor(nome_completo, email, cpf, senha, categoria, id_lattes, data_cadastro) {
+        this.nome_completo = nome_completo
         this.email = email
         this.cpf = cpf
         this.senha = senha
         this.categoria = categoria
-        this.id_lattes = idLattes | null
-        this.data_cadastro = dataCadastro
+        this.id_lattes = id_lattes | null
+        this.data_cadastro = data_cadastro
 
         this.seguidores = 0
         this.seguindo = 0
@@ -65,16 +63,16 @@ exports.cadastrar = (req, res) => {
 
     console.log(usuario)
 
-    const dadosUsuarios = {...usuario}
+    // const dadosUsuarios = {...usuario}
 
     const conexao = app.src.models.conexao();
     const usuarios = new app.src.models.usuarios(conexao);
 
-    usuarios.cadastrar(dadosUsuarios, function(erro, sucesso){
+    usuarios.cadastrar(usuario, function(erro, sucesso){
         if(erro){
             console.log(erro);
         }
     });
 
-    res.render('cadastrar', {dadosUsuarios});
+    res.render('cadastrar', {usuario});
 };
