@@ -1,6 +1,11 @@
 .tipo-de-usuario {
     &__conteudo {
         &__form{
+            button {
+                border: none;
+                background-color: transparent;
+            }
+            
             &__input-radio {
                 display: none;
             }
@@ -47,6 +52,7 @@
                 
                 &__descricao {
                     color: black;
+                    text-align: left;
 
                     &__titulo {
                         font-family: "Lato semibold";

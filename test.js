@@ -19,4 +19,3 @@ const usuario = new Usuario();
 
 usuario.categoria = 'qualificado'
 
-console.log(usuario)

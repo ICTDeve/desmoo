@@ -7,19 +7,21 @@ load('src/models').into(app)
 // let dados;
 
 class Usuario {
-    constructor(idPersonalizavel, idLattes, nomeCompleto, email, cpf, senha, dataCadastro, categoria, seguidores, seguindo, pontos, advertencias) {
-        this.idPersonalizavel = idPersonalizavel
-        this.idLattes = idLattes
-        this.nomeCompleto = nomeCompleto
+    constructor(idLattes, nomeCompleto, email, cpf, senha, dataCadastro, categoria) {
+        this.nome_completo = nomeCompleto
         this.email = email
         this.cpf = cpf
         this.senha = senha
-        this.dataCadastro = dataCadastro
         this.categoria = categoria
-        this.seguidores = seguidores
-        this.seguindo = seguindo
-        this.pontos = pontos
-        this.advertencias = advertencias
+        this.id_lattes = idLattes | null
+        this.data_cadastro = dataCadastro
+
+        this.seguidores = 0
+        this.seguindo = 0
+        this.pontos = 0
+        this.advertencias = 0
+
+        this.id_personalizavel = null
     }
 }
 
@@ -30,10 +32,12 @@ exports.cadastro = (req, res) => {
 };
 
 exports.confirmacaoEmail = (req, res) => {
-    usuario.nomeCompleto = req.body.nome_completo
+    usuario.nome_completo = req.body.nome_completo
     usuario.email = req.body.email
     usuario.cpf = req.body.cpf
     usuario.senha = req.body.senha
+
+    console.log(usuario)
 
     res.render('cadastro_confirmacaoEmail');
 };
@@ -49,7 +53,7 @@ exports.confirmacaoLattes = (req, res) => {
 };
 
 exports.cadastrar = (req, res) => {
-    usuario.idLattes = req.body.id_lattes
+    usuario.id_lattes = req.body.id_lattes
 
     const date = new Date()
 
@@ -57,18 +61,20 @@ exports.cadastrar = (req, res) => {
     const today = date.getDate();
     const currentMonth = date.getMonth() + 1; 
 
-    usuario.dataCadastro = `${today}/${currentMonth}/${currentYear}`
+    usuario.data_cadastro = `${today}/${currentMonth}/${currentYear}`
 
     console.log(usuario)
 
-    // const conexao = app.src.models.conexao();
-    // const usuarios = new app.src.models.usuarios(conexao);
+    const dadosUsuarios = {...usuario}
 
-    // usuarios.cadastrar(dados,function(erro, sucesso){
-    //     if(erro){
-    //         console.log(erro);
-    //     }
-    // });
+    const conexao = app.src.models.conexao();
+    const usuarios = new app.src.models.usuarios(conexao);
 
-    // res.render('cadastrar', {dados});
+    usuarios.cadastrar(dadosUsuarios, function(erro, sucesso){
+        if(erro){
+            console.log(erro);
+        }
+    });
+
+    res.render('cadastrar', {dadosUsuarios});
 };
