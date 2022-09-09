@@ -5,9 +5,9 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
     entry: {
-        cadastro: './frontend/js/cadastro.js',
-        login: './frontend/js/login.js',
         bundle: './frontend/js/bundle.js',
+        cadastro: ['./frontend/js/cadastro.js', './frontend/scss/cadastro.scss'],
+        login: './frontend/js/login.js',
     },
 
     output: {
@@ -26,7 +26,7 @@ module.exports = {
                     "sass-loader",
                 ]
             },
-
+            
             {
                 test: /\.(jpe?g|png|gif)$/,
                 type: 'asset/resource',
@@ -66,4 +66,4 @@ module.exports = {
 
         new MiniCssExtractPlugin({filename: 'css/[name].css'})
     ],
-}
+}   

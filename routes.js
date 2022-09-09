@@ -11,6 +11,8 @@ const loginController = require('./src/controllers/loginController');
         route.post('/cadastro/confirmacao-lattes', cadastroController.confirmacaoLattes);
         route.post('/cadastro/tipo-de-usuario', cadastroController.tipoDeUsuario);
         route.post('/cadastrar', cadastroController.cadastrar);
+        
+        route.get('/teste', cadastroController.teste);
 
 // LOGIN
     // GET

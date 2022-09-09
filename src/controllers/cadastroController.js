@@ -76,3 +76,18 @@ exports.cadastrar = (req, res) => {
 
     res.render('cadastrar', {usuario});
 };
+
+exports.teste = (req, res) => {
+    const conexao = app.src.models.conexao();
+    const usuarios = new app.src.models.usuarios(conexao);
+
+    usuarios.cpf(usuario, function(erro, sucesso) {
+        if(erro){
+            console.log('erro');
+        } else {
+            console.log('sucesso')
+        }
+    });
+
+    res.render('teste');
+}
