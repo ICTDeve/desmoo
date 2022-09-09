@@ -9,4 +9,3 @@ cardsTipoDeCategoria.forEach(card => {
         formTipoDeCategoria.submit()
     })
 })
-

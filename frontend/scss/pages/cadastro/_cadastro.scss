@@ -16,7 +16,7 @@
                     &:not(:last-of-type) {
                         margin-bottom: 15px;
                     }
-                    
+
                     // height: 7rem;
                 }
             }
@@ -33,9 +33,17 @@
                     
                     &__label {
                         cursor: pointer;
+
+                        &::selection {
+                            background-color: transparent;
+                        }
                         
                         &__span {
                             color: var(--cor-principal);
+
+                            &::selection {
+                                background-color: transparent;
+                            }
                         }
                     }
                 }

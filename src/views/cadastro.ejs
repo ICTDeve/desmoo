@@ -23,17 +23,17 @@
                     </div>
                 </div>
 
-                <form action="cadastro/confirmacao-email" method="post" class="cadastro-comum__conteudo__form cadastro__conteudo__form">
+                <form id="formulario" action="cadastro/confirmacao-email" method="post" class="cadastro-comum__conteudo__form cadastro__conteudo__form">
                     <div class="cadastro__conteudo__form__inputs">
                         <input type="text"      id="nomeCompleto"   name="nome_completo" obrigatorio="true"    placeholder="Nome Completo"         class="tamanho-texto-comum cadastro-comum__conteudo__form__input cadastro__conteudo__form__inputs__input cadastro__conteudo__form__inputs__input">
-                        <input type="text"      id="cpf"            name="cpf"           obrigatorio="true"    placeholder="CPF (apenas dígitos)"  class="tamanho-texto-comum cadastro-comum__conteudo__form__input cadastro__conteudo__form__inputs__input cadastro__conteudo__form__inputs__input">
+                        <input type="text"      id="cpf"            name="cpf"           obrigatorio="true"    placeholder="CPF (apenas dígitos)"  class="tamanho-texto-comum cadastro-comum__conteudo__form__input cadastro__conteudo__form__inputs__input cadastro__conteudo__form__inputs__input" value="">
                         <input type="text"      id="email"          name="email"         obrigatorio="true"    placeholder="E-mail"                class="tamanho-texto-comum cadastro-comum__conteudo__form__input cadastro__conteudo__form__inputs__input cadastro__conteudo__form__inputs__input">
                         <input type="password"  id="senha"          name="senha"         obrigatorio="true"    placeholder="Senha"                 class="tamanho-texto-comum cadastro-comum__conteudo__form__input cadastro__conteudo__form__inputs__input cadastro__conteudo__form__inputs__input">
                         <input type="password"  id="repeticaoSenha"                      obrigatorio="true"    placeholder="Confirmar Senha"       class="tamanho-texto-comum cadastro-comum__conteudo__form__input cadastro__conteudo__form__inputs__input cadastro__conteudo__form__inputs__input">
                     </div>
 
                     <div class="cadastro__conteudo__form__checkbox-container">
-                        <input type="checkbox" id="confirmacaoTermos" class="cadastro__conteudo__form__checkbox-container__checkbox"> <label for="termos" class="tamanho-texto-comum cadastro__conteudo__form__checkbox-container__checkbox__label"> Eu li e concordo com os <span class="cadastro__conteudo__form__checkbox-container__checkbox__label__span">Termos de Serviço</span>.</label>
+                        <input type="checkbox" id="confirmacaoTermos" class="cadastro__conteudo__form__checkbox-container__checkbox"> <label for="confirmacaoTermos" class="tamanho-texto-comum cadastro__conteudo__form__checkbox-container__checkbox__label"> Eu li e concordo com os <span class="cadastro__conteudo__form__checkbox-container__checkbox__label__span">Termos de Serviço</span>.</label>
                     </div>
 
                     <input type="submit" id="botaoEnvio" value="Avançar" class="tamanho-texto-comum cadastro-comum__conteudo__form__box-confirm__botao-avancar cadastro__conteudo__form__botao-avancar">

@@ -64,6 +64,14 @@
 
             transform: translateY(-8%);
 
+            .mensagem-de-erro {
+                color: red;
+
+                font-size: 1.2rem;
+
+                margin-bottom: 5px;
+            }
+
             &__icone {
                 width: 10rem;
                 height: 10rem;
