@@ -213,6 +213,8 @@
     @media only screen and (orientation: portrait) {
         @include flex-container(row, center, center);
 
+        overflow: visible;
+
         &__container-imagem {
             display: none;
         }
@@ -236,6 +238,8 @@
                 height: unset;
 
                 justify-content: flex-start;
+
+                margin-bottom: 50px;
 
                 transform: translateY(0);
 

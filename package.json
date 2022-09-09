@@ -43,6 +43,7 @@
     "express-load": "^1.1.16",
     "express-session": "^1.17.3",
     "mysql2": "^2.3.3",
+    "nodemailer": "^6.7.8",
     "regenerator-runtime": "^0.13.9"
   }
 }

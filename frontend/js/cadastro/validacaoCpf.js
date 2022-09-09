@@ -12,6 +12,7 @@ class ValidacaoCpf {
             enumerable: true,
             writable: false,
             value: cpfRecebido.replace(/\D+/g, ''),
+            // nodemailer
         })
     }
 
