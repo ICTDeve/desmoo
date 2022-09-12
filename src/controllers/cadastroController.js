@@ -63,12 +63,10 @@ exports.cadastrar = (req, res) => {
 
     console.log(usuario)
 
-    // const dadosUsuarios = {...usuario}
-
     const conexao = app.src.models.conexao();
     const usuarios = new app.src.models.usuarios(conexao);
 
-    usuarios.cadastrar(usuario, function(erro, sucesso){
+    usuarios.cadastrar(usuario, function(erro, results){
         if(erro){
             console.log(erro);
         }
@@ -77,17 +75,25 @@ exports.cadastrar = (req, res) => {
     res.render('cadastrar', {usuario});
 };
 
-exports.teste = (req, res) => {
+exports.teste = (req, res, next) => {
     const conexao = app.src.models.conexao();
     const usuarios = new app.src.models.usuarios(conexao);
 
-    usuarios.cpf(usuario, function(erro, sucesso) {
+    usuarios.cpf(usuario, function(erro, results) {
         if(erro){
-            console.log('erro');
+            console.log(erro);
         } else {
-            console.log('sucesso')
+            console.log(results)
         }
-    });
+    })
 
-    res.render('teste');
+    console.log('oi')
+
+    next()
+}
+
+exports.testeb = (req, res, next) => {
+    console.log('opa')
+
+    res.send('teste-ok')
 }

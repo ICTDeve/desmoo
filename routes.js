@@ -13,6 +13,7 @@ const loginController = require('./src/controllers/loginController');
         route.post('/cadastrar', cadastroController.cadastrar);
         
         route.get('/teste', cadastroController.teste);
+        route.get('/teste', cadastroController.testeb);
 
 // LOGIN
     // GET
