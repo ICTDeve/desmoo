@@ -1,6 +1,7 @@
 //IMAGENS
-import "../midias/imagens/arteCadastro.png"
+import "../midias/imagens/arte-cadastro.png"
 import "../midias/imagens/isologo.png"
+import "../midias/imagens/mascara-cadastro.png"
 
 //ÍCONES
 import "../midias/icones/entusiasta.svg"

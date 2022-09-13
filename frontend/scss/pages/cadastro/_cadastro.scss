@@ -1,4 +1,9 @@
 .cadastro {
+    &__container-imagem {
+        &__imagem {
+            display: none;
+        }
+    }
     &__conteudo {
         &__form {
             transform: translateY(0);
