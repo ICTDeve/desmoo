@@ -20,11 +20,7 @@ usuarios.prototype.cpf = function(dados, callback){
   let resultado;
   this._conexao.query(
     // `SELECT COUNT(cpf) AS numeroDeRegistros FROM usuarios WHERE cpf = ${dados.cpf}`,
-    `SELECT COUNT(cpf) AS numeroDeRegistros FROM usuarios WHERE cpf = '43513604882'`,
-
-    dados,
-
-    callback
+    `SELECT COUNT(cpf) AS numeroDeRegistros FROM usuarios WHERE cpf = '43513604882'`, dados, callback
   )
 
     
