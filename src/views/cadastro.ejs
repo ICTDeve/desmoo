@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
     <head>
@@ -25,7 +26,11 @@
                         <h1 class="tamanho-texto-comum cadastro-comum__conteudo__cabecalho__instrucoes__titulo">Crie sua conta Desmoo</h1>
                     </div>
                 </div>
-
+                <% if(typeof erros != 'undefined'){ %>
+                <span>
+                        <%= erros; %>
+                </span>
+                <% } %>
                 <form id="formulario" action="cadastro/confirmacao-email" method="post" class="cadastro-comum__conteudo__form cadastro__conteudo__form">
                     <div class="cadastro__conteudo__form__inputs">
                         <input type="text"      id="nomeCompleto"   name="nome_completo" obrigatorio="true"    placeholder="Nome Completo"         class="tamanho-texto-comum cadastro-comum__conteudo__form__input cadastro__conteudo__form__inputs__input cadastro__conteudo__form__inputs__input">
