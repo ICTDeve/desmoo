@@ -22,46 +22,70 @@ class Usuario {
         this.id_personalizavel = null
     }
 }
-
 const usuario = new Usuario();
 
-exports.cadastro = (req, res) => {
-    res.render('cadastro_novoUsuario');
+let etapa;
+
+exports.dadosEssenciais = (req, res) => {
+    etapa = 'cadastro_dadosEssenciais'
+
+    res.render('cadastro_dadosEssenciais', {erros: 'undefined'});
 };
 
-exports.confirmacaoEmail = (req, res) => {
-    usuario.nome_completo = req.body.nome_completo
-    usuario.email = req.body.email
-    usuario.cpf = req.body.cpf
-    usuario.senha = req.body.senha
+exports.confirmacaoEmail = (req, res, next) => {
+    if(etapa == 'cadastro_dadosEssenciais') {
+        etapa = 'confirmacaoEmail'
 
-    const conexao = app.src.models.conexao();
-    const usuarios = new app.src.models.usuarios(conexao);
+        usuario.cpf = req.body.cpf[1] // RESOLVER ESTA CAGADA
 
-    usuarios.cpf(usuario, function(erro, results) {
-        if(erro){
-            console.log(erro);
-        } else {
-            console.log(results)
+        const conexao = app.src.models.conexao();
+        const usuarios = new app.src.models.usuarios(conexao);
 
-            if(results[0].numeroDeRegistros==0){
-                res.render('cadastro_confirmacaoEmail');
-            }else{
-                var erros = "Usuário já cadastrado";
-                res.render('cadastro',{erros:erros});
-            }
-        }
-    })
-};
-
-exports.tipoDeUsuario = (req, res) => {
-    res.render('cadastro_tipoDeUsuario');
-};
-
-exports.confirmacaoLattes = (req, res) => {
-    usuario.categoria = req.body.categoria
+        console.log(usuario)
     
-    res.render('cadastro_confirmacaoLattes');
+        usuarios.cpf(usuario, function(erro, results) {
+            if(erro){
+                console.log(erro);
+            } else {
+                console.log(results)
+    
+                if(results[0].numeroDeRegistros==0){
+
+                    usuario.nome_completo = req.body.nome_completo
+                    usuario.email = req.body.email
+                    usuario.senha = req.body.senha
+
+                    res.render('cadastro_confirmacaoEmail');
+                }else{
+                    const erros = "Usuário já cadastrado";
+                    res.render('cadastro_dadosEssenciais', {erros});
+                }
+            }
+        })
+    } else {
+        // next()
+    }
+};
+
+exports.selecaoCategoria = (req, res, next) => {
+    if (etapa == 'confirmacaoEmail') {
+        etapa = 'selecaoCategoria'
+        res.render('cadastro_selecaoCategoria');
+    } else {
+        next()
+    }
+};
+
+exports.confirmacaoLattes = (req, res, next) => {
+    if (etapa == 'selecaoCategoria') {
+        etapa = 'confirmacaoLattes'
+
+        usuario.categoria = req.body.categoria
+
+        res.render('cadastro_confirmacaoLattes');
+    } else {
+        next()
+    }
 };
 
 exports.cadastrar = (req, res) => {
@@ -114,3 +138,4 @@ exports.testeb = (req, res, next) => {
 
     res.send('teste-ok')
 }
+
