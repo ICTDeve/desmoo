@@ -26,21 +26,24 @@ class Usuario {
 const usuario = new Usuario();
 
 exports.cadastro = (req, res) => {
-    res.render('cadastro');
+    res.render('cadastro_novoUsuario');
 };
 
 exports.confirmacaoEmail = (req, res) => {
-    const conexao = app.src.models.conexao();
-    const usuarios = new app.src.models.usuarios(conexao);
     usuario.nome_completo = req.body.nome_completo
     usuario.email = req.body.email
     usuario.cpf = req.body.cpf
     usuario.senha = req.body.senha
+
+    const conexao = app.src.models.conexao();
+    const usuarios = new app.src.models.usuarios(conexao);
+
     usuarios.cpf(usuario, function(erro, results) {
         if(erro){
             console.log(erro);
         } else {
             console.log(results)
+
             if(results[0].numeroDeRegistros==0){
                 res.render('cadastro_confirmacaoEmail');
             }else{
@@ -49,9 +52,6 @@ exports.confirmacaoEmail = (req, res) => {
             }
         }
     })
-    console.log(usuario)
-
-   
 };
 
 exports.tipoDeUsuario = (req, res) => {

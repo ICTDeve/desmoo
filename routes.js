@@ -5,7 +5,7 @@ const loginController = require('./src/controllers/loginController');
 
 // CADASTRO
     // GET
-        route.get('/cadastro', cadastroController.cadastro);
+        route.get('/cadastro/novo-usuario', cadastroController.cadastro);
     // POST
         route.post('/cadastro/confirmacao-email', cadastroController.confirmacaoEmail);
         route.post('/cadastro/confirmacao-lattes', cadastroController.confirmacaoLattes);
