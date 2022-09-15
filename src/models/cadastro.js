@@ -1,10 +1,10 @@
 
 
-function usuarios(conexao){
+function cadastro(conexao){
   this._conexao=conexao;
 }
 
-usuarios.prototype.cadastrar = function(dados, callback){
+cadastro.prototype.cadastrar = function(dados, callback){
   this._conexao.query('INSERT INTO usuarios set ?', dados, callback);
 }
 
@@ -16,16 +16,14 @@ usuarios.prototype.cadastrar = function(dados, callback){
 //     });
 // }
 
-usuarios.prototype.cpf = function(dados, callback){
-  let resultado;
+cadastro.prototype.verificarSeJaHaCadastro = function(dados, callback){
   this._conexao.query(
-    `SELECT COUNT(cpf) AS numeroDeRegistros FROM usuarios WHERE cpf = '${dados.cpf}'`, dados, callback
-    // `SELECT COUNT(cpf) AS numeroDeRegistros FROM usuarios WHERE cpf = '43513604882'`, dados, callback
+    `SELECT COUNT(*) AS numeroDeRegistros FROM usuarios WHERE cpf = '${dados.cpf}' or email = '${dados.email}'`, 
+    dados, 
+    callback
   )
-
-    
 }
 
 module.exports = function(){
-  return usuarios;
+  return cadastro;
 }

@@ -18,6 +18,12 @@
                   </video>
             </div>
 
+            <% if(typeof erros != 'undefined'){ %>
+                <%= erros %>
+            <% } else { %>
+                oii
+            <% }%>
+
             <div class="cadastro-comum__conteudo">
                 <div class="cadastro-comum__conteudo__cabecalho">
                     <img src="../midias/imagens/isologo.png" alt="isologo Desmoo" class="cadastro-comum__conteudo__cabecalho__isologo">
@@ -36,8 +42,13 @@
                             <input type="text"      id="cpf"            name="cpf"           obrigatorio="true"    placeholder="CPF (apenas dígitos)"  class="tamanho-texto-comum cadastro-comum__conteudo__form__input cadastro__conteudo__form__inputs__input cadastro__conteudo__form__inputs__input" value="">
                         <% } %>
 
-                        <input type="text"      id="cpf"            name="cpf"           obrigatorio="true"    placeholder="CPF (apenas dígitos)"  class="tamanho-texto-comum cadastro-comum__conteudo__form__input cadastro__conteudo__form__inputs__input cadastro__conteudo__form__inputs__input" value="">
-                        <input type="text"      id="email"          name="email"         obrigatorio="true"    placeholder="E-mail"                class="tamanho-texto-comum cadastro-comum__conteudo__form__input cadastro__conteudo__form__inputs__input cadastro__conteudo__form__inputs__input">
+                        
+                        <% if(typeof erros != 'undefined'){ %>
+                            <input type="text"      id="email"          name="email"         obrigatorio="true"    placeholder="E-mail"                class="tamanho-texto-comum cadastro-comum__conteudo__form__input cadastro__conteudo__form__inputs__input cadastro__conteudo__form__inputs__input ja-cadastrado">
+                        <% } else { %>
+                            <input type="text"      id="email"          name="email"         obrigatorio="true"    placeholder="E-mail"                class="tamanho-texto-comum cadastro-comum__conteudo__form__input cadastro__conteudo__form__inputs__input cadastro__conteudo__form__inputs__input">
+                        <% } %>
+
                         <input type="password"  id="senha"          name="senha"         obrigatorio="true"    placeholder="Senha"                 class="tamanho-texto-comum cadastro-comum__conteudo__form__input cadastro__conteudo__form__inputs__input cadastro__conteudo__form__inputs__input">
                         <input type="password"  id="repeticaoSenha"                      obrigatorio="true"    placeholder="Confirmar Senha"       class="tamanho-texto-comum cadastro-comum__conteudo__form__input cadastro__conteudo__form__inputs__input cadastro__conteudo__form__inputs__input">
                     </div>

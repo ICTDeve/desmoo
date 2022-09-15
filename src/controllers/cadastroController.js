@@ -22,54 +22,54 @@ class Usuario {
         this.id_personalizavel = null
     }
 }
+
 const usuario = new Usuario();
 
-let etapa;
+let etapaCadastro;
 
 exports.dadosEssenciais = (req, res) => {
-    etapa = 'cadastro_dadosEssenciais'
+    etapaCadastro = 'dadosEssenciais'
 
-    res.render('cadastro_dadosEssenciais', {erros: 'undefined'});
+    res.render('cadastro_dadosEssenciais');
 };
 
 exports.confirmacaoEmail = (req, res, next) => {
-    if(etapa == 'cadastro_dadosEssenciais') {
-        etapa = 'confirmacaoEmail'
+    if(etapaCadastro == 'dadosEssenciais') {
+        etapaCadastro = 'confirmacaoEmail'
 
-        usuario.cpf = req.body.cpf[1] // RESOLVER ESTA CAGADA
+        usuario.cpf = req.body.cpf
+        usuario.email = req.body.email
 
         const conexao = app.src.models.conexao();
-        const usuarios = new app.src.models.usuarios(conexao);
+        const cadastro = new app.src.models.cadastro(conexao);
 
-        console.log(usuario)
-    
-        usuarios.cpf(usuario, function(erro, results) {
+        cadastro.verificarSeJaHaCadastro(usuario, function(erro, results) {
             if(erro){
                 console.log(erro);
             } else {
                 console.log(results)
-    
-                if(results[0].numeroDeRegistros==0){
 
+                let jaExisteRegistro = results[0]['numeroDeRegistros']
+
+                if(jaExisteRegistro) {
+                    const erros = "Usuário já cadastrado";
+                    res.render('cadastro_dadosEssenciais', {erros});
+                } else {
                     usuario.nome_completo = req.body.nome_completo
-                    usuario.email = req.body.email
                     usuario.senha = req.body.senha
 
                     res.render('cadastro_confirmacaoEmail');
-                }else{
-                    const erros = "Usuário já cadastrado";
-                    res.render('cadastro_dadosEssenciais', {erros});
                 }
             }
         })
     } else {
-        // next()
+        next()
     }
 };
 
 exports.selecaoCategoria = (req, res, next) => {
-    if (etapa == 'confirmacaoEmail') {
-        etapa = 'selecaoCategoria'
+    if (etapaCadastro == 'confirmacaoEmail') {
+        etapaCadastro = 'selecaoCategoria'
         res.render('cadastro_selecaoCategoria');
     } else {
         next()
@@ -77,8 +77,8 @@ exports.selecaoCategoria = (req, res, next) => {
 };
 
 exports.confirmacaoLattes = (req, res, next) => {
-    if (etapa == 'selecaoCategoria') {
-        etapa = 'confirmacaoLattes'
+    if (etapaCadastro == 'selecaoCategoria') {
+        etapaCadastro = 'confirmacaoLattes'
 
         usuario.categoria = req.body.categoria
 
@@ -102,40 +102,13 @@ exports.cadastrar = (req, res) => {
     console.log(usuario)
 
     const conexao = app.src.models.conexao();
-    const usuarios = new app.src.models.usuarios(conexao);
+    const cadastro = new app.src.models.cadastro(conexao);
 
-    usuarios.cadastrar(usuario, function(erro, results){
+    cadastro.cadastrar(usuario, function(erro, results){
         if(erro){
             console.log(erro);
         }
     });
 
-    res.render('cadastrar', {usuario});
+    res.render('cadastro__cadastrar', {usuario});
 };
-
-exports.teste = (req, res, next) => {
-    const conexao = app.src.models.conexao();
-    const usuarios = new app.src.models.usuarios(conexao);
-    console.log(usuario);
-    usuarios.cpf(usuario, function(erro, results) {
-        if(erro){
-            console.log(erro);
-        } else {
-            console.log(results)
-            if(results==0){
-                res.redirect('/cadastro/confirmacaoEmail');
-            }
-        }
-    })
-
-    console.log('oi')
-
-    next()
-}
-
-exports.testeb = (req, res, next) => {
-    console.log('opa')
-
-    res.send('teste-ok')
-}
-

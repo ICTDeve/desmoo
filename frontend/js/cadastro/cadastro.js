@@ -4,7 +4,7 @@
 
 // const botaoEnvio = document.getElementById('botaoEnvio')
 
-// const camposObrigatorias = document.querySelectorAll("[obrigatorio='true']")
+// const camposObrigatorios = document.querySelectorAll("[obrigatorio='true']")
 
 // const campoNomeCompleto = document.getElementById('nomeCompleto')
 // const campoEmail = document.getElementById('email')
@@ -16,12 +16,12 @@
 // const { ValidacaoCpf } = require('./validacaoCpf');
 
 // class Validacao {
-//     constructor(formulario, botaoEnvio, camposObrigatorias, campoNomeCompleto, campoEmail, campoCpf, campoSenha, campoRepeticaoSenha, confirmacaoTermos) {
+//     constructor(formulario, botaoEnvio, camposObrigatorios, campoNomeCompleto, campoEmail, campoCpf, campoSenha, campoRepeticaoSenha, confirmacaoTermos) {
 //         this.formulario = formulario
 
 //         this.botaoEnvio = botaoEnvio
 
-//         this.camposObrigatorias = camposObrigatorias
+//         this.camposObrigatorios = camposObrigatorios
 
 //         this.campoNomeCompleto = campoNomeCompleto
 //         this.campoEmail = campoEmail
@@ -47,7 +47,7 @@
 //     obrigatoriosEstaoPreenchidos() {
 //         let obrigatoriosEstaoPreenchidos = true 
 
-//         this.camposObrigatorias.forEach(campo => {
+//         this.camposObrigatorios.forEach(campo => {
 //             if (campo.value.length == 0) {
 //                 obrigatoriosEstaoPreenchidos = false
 //                 this.dispararErro(campo, '* Campo não pode estar em branco.')
@@ -173,6 +173,20 @@
 //         return senhasSaoIguais
 //     }
 
+//     jaCadastrado() {
+//         let jaCadastrado = false
+
+//         this.camposObrigatorios.forEach(campoObrigatorio => {
+//             if (campoObrigatorio.classList.contains('ja-cadastrado')) {
+//                 jaCadastrado = true
+
+//                 this.dispararErro(campoObrigatorio, '* Já cadastrado!')
+//             }
+//         })
+
+//         return jaCadastrado
+//     }
+
 //     formatarCpf() {
 //         let cpf = this.campoCpf.value
 
@@ -204,8 +218,9 @@
 //             const senhaValida = this.validacaoSenha()
 //             const senhasSaoIguais = this.senhasSaoIguais()
 //             const termoPreenchido = this.termoPreenchido()
+//             const jaCadastrado = this.jaCadastrado()
 
-//             if (obrigatoriosEstaoPreenchidos && emailValido && cpfValido && senhaValida && senhasSaoIguais && termoPreenchido) {
+//             if (obrigatoriosEstaoPreenchidos && emailValido && cpfValido && senhaValida && senhasSaoIguais && termoPreenchido && !jaCadastrado) {
 //                 this.formulario.submit()
 //             }
 //         })
@@ -216,5 +231,5 @@
 //     }
 // }
 
-// const v1 = new Validacao(formulario, botaoEnvio, camposObrigatorias, campoNomeCompleto, campoEmail, campoCpf, campoSenha, campoRepeticaoSenha, confirmacaoTermos)
+// const v1 = new Validacao(formulario, botaoEnvio, camposObrigatorios, campoNomeCompleto, campoEmail, campoCpf, campoSenha, campoRepeticaoSenha, confirmacaoTermos)
 // v1.start()

@@ -12,6 +12,6 @@ import "../midias/icones/qualificado.svg"
 // FONTES
 import "../midias/fontes/lato/Lato-Regular.eot"
 import "../midias/fontes/lato/Lato-Semibold.woff"
-w
+
 // VIDEOS
 import "../midias/videos/animacao-cadastro.mp4"
