@@ -13,7 +13,10 @@ const loginController = require('./src/controllers/loginController');
                                 cadastroController.cadastrar);
 
 // LOGIN
-    route.get('/login', loginController.login);
+    // GET
+        route.get('/login', loginController.login);
+    // POST
+        route.post('/login', loginController.logar);
 
 // 404
     route.use((req, res) => res.status(404).render('404.ejs'))

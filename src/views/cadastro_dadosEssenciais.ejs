@@ -18,13 +18,7 @@
                   </video>
             </div>
 
-            <% if(typeof erros != 'undefined'){ %>
-                <%= erros %>
-            <% } else { %>
-                oii
-            <% }%>
-
-            <div class="cadastro-comum__conteudo">
+''            <div class="cadastro-comum__conteudo">
                 <div class="cadastro-comum__conteudo__cabecalho">
                     <img src="../midias/imagens/isologo.png" alt="isologo Desmoo" class="cadastro-comum__conteudo__cabecalho__isologo">
                     <div class="cadastro-comum__conteudo__cabecalho__instrucoes">
@@ -35,13 +29,12 @@
                 <form id="formulario" action="" method="post" class="cadastro-comum__conteudo__form cadastro__conteudo__form">
                     <div class="cadastro__conteudo__form__inputs">
                         <input type="text"      id="nomeCompleto"   name="nome_completo" obrigatorio="true"    placeholder="Nome Completo"         class="tamanho-texto-comum cadastro-comum__conteudo__form__input cadastro__conteudo__form__inputs__input cadastro__conteudo__form__inputs__input">
-
+  
                         <% if(typeof erros != 'undefined'){ %>
                             <input type="text"      id="cpf"            name="cpf"           obrigatorio="true"    placeholder="CPF (apenas dígitos)"  class="tamanho-texto-comum cadastro-comum__conteudo__form__input cadastro__conteudo__form__inputs__input cadastro__conteudo__form__inputs__input ja-cadastrado" value="">
                         <% } else { %>
                             <input type="text"      id="cpf"            name="cpf"           obrigatorio="true"    placeholder="CPF (apenas dígitos)"  class="tamanho-texto-comum cadastro-comum__conteudo__form__input cadastro__conteudo__form__inputs__input cadastro__conteudo__form__inputs__input" value="">
                         <% } %>
-
                         
                         <% if(typeof erros != 'undefined'){ %>
                             <input type="text"      id="email"          name="email"         obrigatorio="true"    placeholder="E-mail"                class="tamanho-texto-comum cadastro-comum__conteudo__form__input cadastro__conteudo__form__inputs__input cadastro__conteudo__form__inputs__input ja-cadastrado">
