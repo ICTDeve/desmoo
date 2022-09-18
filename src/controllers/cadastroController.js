@@ -28,12 +28,16 @@ const usuario = new Usuario();
 let etapaCadastro;
 
 exports.dadosEssenciais = (req, res) => {
+    console.log(req.body)
+    
     etapaCadastro = 'dadosEssenciais'
 
     res.render('cadastro_dadosEssenciais');
 };
 
 exports.confirmacaoEmail = (req, res, next) => {
+    console.log(req.body)
+
     if(etapaCadastro == 'dadosEssenciais') {
         etapaCadastro = 'confirmacaoEmail'
 
@@ -49,16 +53,49 @@ exports.confirmacaoEmail = (req, res, next) => {
             } else {
                 console.log(results)
 
-                let jaExisteRegistro = results[0]['numeroDeRegistros']
+                let cpfJaCadastrado = results[0]['cpf'] == 1
+                let emailJaCadastrado = results[0]['email'] == 1
 
-                if(jaExisteRegistro) {
-                    const erros = "Usuário já cadastrado";
-                    res.render('cadastro_dadosEssenciais', {erros});
+                console.log(cpfJaCadastrado, emailJaCadastrado)
+
+                if(cpfJaCadastrado && emailJaCadastrado) {
+                    console.log('nop')
+
+                    etapaCadastro = 'dadosEssenciais'
+
+                    res.render('cadastro_dadosEssenciais', { cpfJaCadastrado, emailJaCadastrado });
                 } else {
                     usuario.nome_completo = req.body.nome_completo
                     usuario.senha = req.body.senha
 
-                    res.render('cadastro_confirmacaoEmail');
+                    console.log('yep')
+
+                    function gerarNovoDigito() {
+                        const max = 9
+                        const min = 1
+            
+                        return Math.floor(Math.random() * (max - min + 1) + min)
+                    }
+                    
+                    function gerarCodigo() {
+                        const codigo = []
+                    
+                            for (let contador = 0; contador != 6; contador++) {
+                                const digito = gerarNovoDigito()
+                                codigo.push(digito)
+                            }
+                    
+                        return codigo.join('')
+            
+                        // IDEIA: ENCRIPTAR E JOGAR NO REQ.BODY
+                    }
+                    
+                    const codigo = gerarCodigo()
+            
+                    // const enviarEmail = require('../nodemailer.config')
+                    // enviarEmail(codigo).catch(console.error);
+
+                    res.render('cadastro_confirmacaoEmail', {codigo})
                 }
             }
         })
@@ -68,6 +105,8 @@ exports.confirmacaoEmail = (req, res, next) => {
 };
 
 exports.selecaoCategoria = (req, res, next) => {
+    console.log(req.body)
+
     if (etapaCadastro == 'confirmacaoEmail') {
         etapaCadastro = 'selecaoCategoria'
         res.render('cadastro_selecaoCategoria');
@@ -77,18 +116,27 @@ exports.selecaoCategoria = (req, res, next) => {
 };
 
 exports.confirmacaoLattes = (req, res, next) => {
+    console.log(req.body)
+
     if (etapaCadastro == 'selecaoCategoria') {
         etapaCadastro = 'confirmacaoLattes'
 
         usuario.categoria = req.body.categoria
 
-        res.render('cadastro_confirmacaoLattes');
+        if (req.body.categoria == 'entusiasta') {
+            next()
+        } else {
+            res.render('cadastro_confirmacaoLattes');
+        }
+
     } else {
         next()
     }
 };
 
 exports.cadastrar = (req, res) => {
+    console.log(req.body)
+
     usuario.id_lattes = req.body.id_lattes
 
     const date = new Date()
@@ -110,5 +158,5 @@ exports.cadastrar = (req, res) => {
         }
     });
 
-    res.render('cadastro__cadastrar', {usuario});
+    res.render('cadastro_cadastrar', {usuario});
 };

@@ -1,25 +1,20 @@
-
-
 function login(conexao){
   this._conexao=conexao;
 }
 
-login.prototype.cadastrar = function(dados, callback){
-  this._conexao.query('INSERT INTO usuarios set ?', dados, callback);
-}
-
-// usuarios.prototype.cadastrar = function(dados, callback){
-//   this._conexao.query(
-//     'SELECT * FROM usuarios',
-//     function(err, results, fields) {
-//       console.log(results[0].id); // results contains rows returned by server
-//     });
-// }
-
-login.prototype.verificarSeHaCadastro = function(dados, callback) {
+login.prototype.conferirCredenciais = function(dados, callback) {
   
   this._conexao.query(
-    `SELECT COUNT(*) AS numeroDeRegistros FROM usuarios WHERE cpf = '${dados.cpf}' or email = '${dados.email}'`, 
+    `SELECT  (
+      SELECT COUNT(*)
+      FROM usuarios
+      WHERE email = '${dados.email}'
+  ) AS email,
+  (
+      SELECT COUNT(*)
+      FROM   usuarios
+      WHERE senha = '${dados.senha}'
+  ) AS senha;`,
     dados, 
     callback
   )

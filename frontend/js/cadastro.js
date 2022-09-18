@@ -1,6 +1,6 @@
 // JS
 import "./cadastro/cadastro"
-import "./cadastro/tipoDeUsuario"
+import "./cadastro/selecaoCategoria"
 
 //SCSS
 // import "../scss/cadastro.scss"

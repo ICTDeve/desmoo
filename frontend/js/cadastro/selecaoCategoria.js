@@ -2,10 +2,12 @@
 const formTipoDeCategoria = document.getElementById('formTipoDeCategoria')
 
 // referente aos cards propriamente ditos
-const cardsTipoDeCategoria = document.querySelectorAll('.card-tipo-de-categoria')
+const cardsTipoDeCategoria = document.querySelectorAll('label')
 
 cardsTipoDeCategoria.forEach(card => {
     card.addEventListener('click', () => {
-        formTipoDeCategoria.submit()
+        setTimeout(() => {
+            formTipoDeCategoria.submit()
+        }, 100)
     })
 })

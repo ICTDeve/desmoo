@@ -8,15 +8,32 @@ exports.login = (req, res) => {
 };
 
 exports.logar = (req, res) => {
-    console.log(req.body)
+    const credenciais = {
+        email: req.body.email,
+        senha: req.body.senha
+    }
 
     const conexao = app.src.models.conexao();
-    const cadastro = new app.src.models.login(conexao);
+    const login = new app.src.models.login(conexao);
 
-    cadastro.cadastrar({}, function(erro, results){
+    login.conferirCredenciais(credenciais, function(erro, results){
         if(erro){
             console.log(erro);
+        } else {
+            console.log(results)
+
+            let temEmail = results[0]['email'] == 1
+            let temSenha = results[0]['senha'] == 1
+
+            if(temEmail && temSenha) {
+                console.log('yep')
+
+                res.redirect('/feed');
+            } else {            
+                console.log('nop')
+
+                res.render('login', { temEmail, temSenha });
+            }
         }
     });
-    res.render('login');
 };
