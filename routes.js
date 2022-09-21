@@ -9,6 +9,7 @@ const feedController = require('./src/controllers/feedController');
         route.get('/cadastro', cadastroController.dadosEssenciais);
     // POST
         route.post('/cadastro', cadastroController.confirmacaoEmail, 
+                                cadastroController.validacaoCodigo, 
                                 cadastroController.confirmacaoLattes, 
                                 cadastroController.selecaoCategoria, 
                                 cadastroController.cadastrar);
