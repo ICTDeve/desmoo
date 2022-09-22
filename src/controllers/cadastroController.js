@@ -27,19 +27,55 @@ const usuario = new Usuario();
 let etapaCadastro;
 
 exports.dadosEssenciais = (req, res) => {
-    console.log(req.body)
-    
-    etapaCadastro = 'dadosEssenciais'
-
+    etapaCadastro = 'validacaoDadosEssenciais'
     res.render('cadastro_dadosEssenciais');
 };
 
-exports.validacaoDadoa = (req, res) => {
-    // 
+exports.validacaoDadosEssenciais = (req, res, next) => {
+    if (etapaCadastro == 'validacaoDadosEssenciais') {
+        
+        usuario.cpf = req.body.cpf
+        usuario.email = req.body.email
+    
+        const conexao = app.src.models.conexao();
+        const cadastro = new app.src.models.cadastro(conexao);
+    
+        cadastro.verificarSeJaHaCadastro(usuario, function(erro, results) {
+            if(erro){
+                console.log(erro);
+            } else {
+                console.log(results)
+    
+                let cpfJaCadastrado = results[0]['cpf'] == 1
+                let emailJaCadastrado = results[0]['email'] == 1
+    
+                console.log(cpfJaCadastrado, emailJaCadastrado)
+    
+                if(cpfJaCadastrado && emailJaCadastrado) {
+                    console.log('nop')
+    
+                    etapaCadastro = 'dadosEssenciais'
+                    res.render('cadastro_dadosEssenciais', { cpfJaCadastrado, emailJaCadastrado });
+                } else {
+                    usuario.nome_completo = req.body.nome_completo
+                    usuario.senha = req.body.senha
+    
+                    console.log('yep')
+    
+                    etapaCadastro = 'gerarCodigo'
+                    next()
+                }
+            }
+        }) 
+    } else {
+        next()
+    }
 }
 
 exports.gerarCodigo = (req, res, next) => {
-    if (etapaCadastro == 'dadosEssenciais') {
+    if (etapaCadastro == 'gerarCodigo') {
+        etapaCadastro = 'confirmacaoEmail'
+
         function gerarNovoDigito() {
             const max = 9
             const min = 1
@@ -67,61 +103,27 @@ exports.gerarCodigo = (req, res, next) => {
 }
 
 exports.confirmacaoEmail = (req, res, next) => {
-    console.log(res.codigo)
-
+    if (etapaCadastro == 'confirmacaoEmail') {
+    const codigo = res.codigo
 
     // const enviarEmail = require('../nodemailer.config')
     // enviarEmail(codigo).catch(console.error);
 
-    let codigo = res.codigo
-    console.log(codigo)
+    // let codigo = res.codigo
+    // console.log(codigo)
 
-
-    if(etapaCadastro == 'dadosEssenciais' || etapaCadastro == 'validacaoCodigo') {
-        etapaCadastro = 'confirmacaoEmail'
-
-        usuario.cpf = req.body.cpf
-        usuario.email = req.body.email
-
-        const conexao = app.src.models.conexao();
-        const cadastro = new app.src.models.cadastro(conexao);
-
-        cadastro.verificarSeJaHaCadastro(usuario, function(erro, results) {
-            if(erro){
-                console.log(erro);
-            } else {
-                console.log(results)
-
-                let cpfJaCadastrado = results[0]['cpf'] == 1
-                let emailJaCadastrado = results[0]['email'] == 1
-
-                console.log(cpfJaCadastrado, emailJaCadastrado)
-
-                if(cpfJaCadastrado && emailJaCadastrado) {
-                    console.log('nop')
-
-                    etapaCadastro = 'dadosEssenciais'
-
-                    res.render('cadastro_dadosEssenciais', { cpfJaCadastrado, emailJaCadastrado });
-                } else {
-                    usuario.nome_completo = req.body.nome_completo
-                    usuario.senha = req.body.senha
-
-                    console.log('yep')
-
-                    res.render('cadastro_confirmacaoEmail', {codigo})
-                }
-            }
-        })
+        res.codigo = codigo
+        etapaCadastro = 'validacaoCodigo'
+        res.render('cadastro_confirmacaoEmail')
     } else {
-        console.log(codigo)
         next()
     }
 };
 
 exports.validacaoCodigo = (req, res, next) => {
-    console.log(req.body)
-    if (etapaCadastro == 'confirmacaoEmail') {
+    console.log('teste')
+    // console.log(res.codigo)
+    if (etapaCadastro == 'validacaoCodigo') {
         etapaCadastro = 'validacaoCodigo'
 
     } else {
