@@ -13,7 +13,6 @@ class Usuario {
         this.categoria = categoria
         this.id_lattes = id_lattes | null
         this.data_cadastro = data_cadastro
-''
         this.seguidores = 0
         this.seguindo = 0
         this.pontos = 0
@@ -35,36 +34,50 @@ exports.dadosEssenciais = (req, res) => {
     res.render('cadastro_dadosEssenciais');
 };
 
+exports.validacaoDadoa = (req, res) => {
+    // 
+}
+
+exports.gerarCodigo = (req, res, next) => {
+    if (etapaCadastro == 'dadosEssenciais') {
+        function gerarNovoDigito() {
+            const max = 9
+            const min = 1
+    
+            return Math.floor(Math.random() * (max - min + 1) + min)
+        }
+        
+        function gerarCodigo() {
+            const codigo = []
+        
+                for (let contador = 0; contador != 6; contador++) {
+                    const digito = gerarNovoDigito()
+                    codigo.push(digito)
+                }
+        
+            return codigo.join('')
+        }
+        
+        const codigo = gerarCodigo()
+        console.log(codigo)
+        res.codigo = codigo
+
+        next()
+    }
+}
+
 exports.confirmacaoEmail = (req, res, next) => {
-    console.log(req.body)
+    console.log(res.codigo)
 
-    function gerarNovoDigito() {
-        const max = 9
-        const min = 1
-
-        return Math.floor(Math.random() * (max - min + 1) + min)
-    }
-    
-    function gerarCodigo() {
-        const codigo = []
-    
-            for (let contador = 0; contador != 6; contador++) {
-                const digito = gerarNovoDigito()
-                codigo.push(digito)
-            }
-    
-        return codigo.join('')
-    }
-    
-    const codigo = gerarCodigo()
 
     // const enviarEmail = require('../nodemailer.config')
     // enviarEmail(codigo).catch(console.error);
 
-    res.codigo = codigo
-    req.body.codigo = codigo
+    let codigo = res.codigo
+    console.log(codigo)
 
-    if(etapaCadastro == 'dadosEssenciais') {
+
+    if(etapaCadastro == 'dadosEssenciais' || etapaCadastro == 'validacaoCodigo') {
         etapaCadastro = 'confirmacaoEmail'
 
         usuario.cpf = req.body.cpf
@@ -101,6 +114,7 @@ exports.confirmacaoEmail = (req, res, next) => {
             }
         })
     } else {
+        console.log(codigo)
         next()
     }
 };
