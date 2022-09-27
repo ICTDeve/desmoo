@@ -2,6 +2,16 @@
     box-sizing: border-box;
 }
 
+html {
+    &::-webkit-scrollbar {
+        width: 4px;
+
+        &-thumb {
+            background-color: var(--cor-principal);
+        }
+    }
+}
+
 .tamanho-texto-comum {
     font-size: var(--tamanho-text-comum);
     transition: var(--transition-1);

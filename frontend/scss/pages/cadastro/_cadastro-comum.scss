@@ -1,5 +1,7 @@
 .cadastro-comum {
     height: 100vh;
+    min-height: 700px;
+    overflow-y: scroll;
     width: 100%;
 
     @include flex-container(row, space-between, unset);
@@ -36,22 +38,24 @@
     &__conteudo {
         width: 40%;
         
-        padding: 50px 50px 50px 0;
+        padding: 50px 50px 0px 0;
 
-        margin-bottom: 50px;
+        margin-bottom: 0px;
         
-        @include flex-container(column, space-between, center);
+        @include flex-container(column, flex-start, center);
         
         &__cabecalho {
-            height: 25%;
+            // height: 25%;
             width: 100%;
 
-            // margin-bottom: 40px;
+            margin-bottom: 40px;
 
-            @include flex-container(column, space-between, center);
+            @include flex-container(column, flex-start, center);
             
             &__isologo {
                 width: 40%;
+
+                margin-bottom: 40px;
             }
             
             &__instrucoes {
@@ -75,10 +79,10 @@
         }
         
         &__form {
-            @include flex-container(column, center, center);
+            @include flex-container(column, flex-start, center);
 
             width: 100%;
-            height: 75%;
+            // height: 75%;
 
             transform: translateY(-8%);
 
@@ -117,6 +121,13 @@
 
                 outline: none;
                 padding-left: 10px;
+
+                @media only screen and (max-height: 930px) {
+                    // background-color: red;
+                    height: 4rem;
+
+                    font-size: 1.5rem;
+                }
             }
 
             &__box-confirm {
@@ -128,8 +139,9 @@
                 }
 
                 &__botao-avancar {
-                    width: 65%;                    
+                    width: 100%;                    
                     height: 4rem;
+                    min-height: 4rem;
     
                     background-color: var(--cor-principal);
                     border: none;
@@ -137,28 +149,30 @@
     
                     color: white;
                     cursor: pointer;
+
+                    margin-bottom: 20px;
     
                     transition: var(--transition-1);
     
                     &:hover {
-                        background-color: #8cfca0;
+                        background-color: #37ff70;
     
                         transition: var(--transition-1);
                     }
     
                     @media only screen and (max-width: 1700px) {
-                       width: 60%; 
+                    //    width: 60%; 
                     }
 
                     @media only screen and (max-width: 1610px) {
-                       width: 58%; 
+                    //    width: 58%; 
                     }
                 }
             }
         }
     }
 
-    @media only screen and (max-width: 1600px) {
+    @media only screen and (max-width: 1500px) {
         &__container-imagem {
             &__imagem {
 
@@ -166,7 +180,7 @@
         }
 
         &__conteudo {
-            width: 35%;
+            // width: 35%;
 
             &__cabecalho {
                 &__isologo {
@@ -199,7 +213,7 @@
                 }
             
                 &__input {
-                    height: 5rem;
+                    // height: 5rem;
                 }
     
                 &__box-confirm {
@@ -209,18 +223,11 @@
                     }
     
                     &__botao-avancar {
-                        height: 3.5rem;
+                        height: 3rem;
+                        min-height: 3rem;
     
                         &:hover {
     
-                        }
-        
-                        @media only screen and (max-width: 1700px) {
-                        
-                        }
-    
-                        @media only screen and (max-width: 1610px) {
-                        
                         }
                     }
                 }

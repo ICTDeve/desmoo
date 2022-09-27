@@ -6,19 +6,22 @@
             }
 
             &__box-confirm {
-                @include flex-container(row, space-between, center);
+                @include flex-container(column-reverse, space-between, center);
 
                 width: 100%;
 
                 &__resgate-codigo {
-                    width: calc(35% - 20px);
+                    // width: calc(35% - 20px);
+                    width: 100%;
                     
                     color: var(--cor-principal);
-                    font-family: "Lato Semibold";
-
-                    // white-space: nowrap;
-
                     cursor: pointer;
+                    
+                    font-family: "Lato Semibold";
+                    
+                    text-align: center;
+                    
+                    // white-space: nowrap;
                 }
             }
         }
