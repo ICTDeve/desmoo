@@ -25,8 +25,10 @@ class Usuario {
 const usuario = new Usuario();
 
 let etapaCadastro;
+let codigoValidacaoEmail;
 
 exports.dadosEssenciais = (req, res) => {
+    // console.log('nada a ver')
     etapaCadastro = 'validacaoDadosEssenciais'
     res.render('cadastro_dadosEssenciais');
 };
@@ -44,23 +46,19 @@ exports.validacaoDadosEssenciais = (req, res, next) => {
             if(erro){
                 console.log(erro);
             } else {
-                console.log(results)
+                // console.log(results)
     
                 let cpfJaCadastrado = results[0]['cpf'] == 1
                 let emailJaCadastrado = results[0]['email'] == 1
     
-                console.log(cpfJaCadastrado, emailJaCadastrado)
+                // console.log(cpfJaCadastrado, emailJaCadastrado)
     
-                if(cpfJaCadastrado && emailJaCadastrado) {
-                    console.log('nop')
-    
-                    etapaCadastro = 'dadosEssenciais'
+                if(cpfJaCadastrado || emailJaCadastrado) {
+                    etapaCadastro = 'validacaoDadosEssenciais'
                     res.render('cadastro_dadosEssenciais', { cpfJaCadastrado, emailJaCadastrado });
                 } else {
                     usuario.nome_completo = req.body.nome_completo
                     usuario.senha = req.body.senha
-    
-                    console.log('yep')
     
                     etapaCadastro = 'gerarCodigo'
                     next()
@@ -95,24 +93,33 @@ exports.gerarCodigo = (req, res, next) => {
         }
         
         const codigo = gerarCodigo()
-        console.log(codigo)
-        res.codigo = codigo
+        // console.log(codigo)
+        codigoValidacaoEmail = codigo
 
+        next()
+    } else {
         next()
     }
 }
 
 exports.confirmacaoEmail = (req, res, next) => {
     if (etapaCadastro == 'confirmacaoEmail') {
-    const codigo = res.codigo
+        // console.log('codigo vindo da res ' + res.codigo)
 
-    // const enviarEmail = require('../nodemailer.config')
-    // enviarEmail(codigo).catch(console.error);
+        console.log(codigoValidacaoEmail)
 
-    // let codigo = res.codigo
-    // console.log(codigo)
+        // res.teste = 'oi'
+        // req.body.teste = 'oi'
+        // req.teste = 'oi'
+        // console.log(res.oi)
 
-        res.codigo = codigo
+        // const enviarEmail = require('../nodemailer.config')
+        // enviarEmail(codigo).catch(console.error);
+
+        // let codigo = res.codigo
+        // console.log(codigo)
+
+        // res.codigo = codigo
         etapaCadastro = 'validacaoCodigo'
         res.render('cadastro_confirmacaoEmail')
     } else {
@@ -121,32 +128,38 @@ exports.confirmacaoEmail = (req, res, next) => {
 };
 
 exports.validacaoCodigo = (req, res, next) => {
-    console.log('teste')
-    // console.log(res.codigo)
     if (etapaCadastro == 'validacaoCodigo') {
-        etapaCadastro = 'validacaoCodigo'
+        const codigoInserido = req.body.codigo
+        
+        // if (codigoValidacaoEmail == codigoInserido) {
+            etapaCadastro = 'selecaoCategoria'
+            next()
+        // } else {
+            // etapaCadastro = 'confirmacaoEmail'
+            // res.render('cadastro_confirmacaoEmail')
+        // }
+        // etapaCadastro = 'validacaoCodigo'
+
+        // console.log(res)
 
     } else {
-        // next()
+        next()
     }
 }
 
 exports.selecaoCategoria = (req, res, next) => {
-    console.log(req.body)
-
-    if (etapaCadastro == 'confirmacaoEmail') {
-        etapaCadastro = 'selecaoCategoria'
+    if (etapaCadastro == 'selecaoCategoria') {
         res.render('cadastro_selecaoCategoria');
+
+        etapaCadastro = 'confirmacaoLattes'
     } else {
+        console.log('next')
         next()
     }
 };
 
 exports.confirmacaoLattes = (req, res, next) => {
-    console.log(req.body)
-
-    if (etapaCadastro == 'selecaoCategoria') {
-        etapaCadastro = 'confirmacaoLattes'
+    if (etapaCadastro == 'confirmacaoLattes') {
 
         usuario.categoria = req.body.categoria
 
@@ -155,7 +168,6 @@ exports.confirmacaoLattes = (req, res, next) => {
         } else {
             res.render('cadastro_confirmacaoLattes');
         }
-
     } else {
         next()
     }

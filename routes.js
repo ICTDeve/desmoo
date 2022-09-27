@@ -12,8 +12,8 @@ const feedController = require('./src/controllers/feedController');
                                 cadastroController.gerarCodigo, 
                                 cadastroController.confirmacaoEmail, 
                                 cadastroController.validacaoCodigo, 
-                                cadastroController.confirmacaoLattes, 
                                 cadastroController.selecaoCategoria, 
+                                cadastroController.confirmacaoLattes, 
                                 cadastroController.cadastrar);
 // LOGIN
     // GET

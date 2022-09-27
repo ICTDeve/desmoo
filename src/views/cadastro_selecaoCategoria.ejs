@@ -11,7 +11,10 @@
     <body>
         <div class="cadastro-comum tipo-de-usuario">
             <div class="cadastro-comum__container-imagem">
-                <img class="cadastro-comum__container-imagem__imagem" src="../midias/imagens/arte-cadastro.png" alt="">
+                <video class="cadastro-comum__container-imagem__imagem" autoplay loop muted>
+                    <source src="../midias\videos\animacao-cadastro.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
             </div>
 
             <div class="cadastro-comum__conteudo tipo-de-usuario__conteudo"> 
@@ -24,7 +27,7 @@
                     </div>
                 </div>
 
-                <form id="formTipoDeCategoria" action="cadastro" method="post" class="cadastro-comum__conteudo__form tipo-de-usuario__conteudo__form">
+                <form id="formTipoDeCategoria" action="" method="post" class="cadastro-comum__conteudo__form tipo-de-usuario__conteudo__form">
                     <input type="radio" name="categoria" id="qualificado" value="qualificado" class="card-tipo-de-categoria tipo-de-usuario__conteudo__form__input-radio">
                     
                     <label for="qualificado" class="tipo-de-usuario__conteudo__form__card">
