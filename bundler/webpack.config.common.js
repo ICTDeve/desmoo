@@ -7,6 +7,7 @@ module.exports = {
     entry: {
         bundle: './frontend/js/bundle.js',
         cadastro: ['./frontend/js/cadastro.js', './frontend/scss/cadastro.scss'],
+        feed: ['./frontend/js/feed.js', './frontend/scss/feed.scss'],
         login: './frontend/js/login.js',
     },
 

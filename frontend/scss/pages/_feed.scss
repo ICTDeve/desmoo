@@ -1,0 +1,140 @@
+.container {
+    // background-color: red;
+    @include flex-container(row, space-between, flex-start);
+}
+
+.menu {
+    background-color: lightgreen;
+
+    @include flex-container(column, flex-start, center);
+
+    height: 100vh;
+    // width: calc(100% / 3);
+    width: 33%;
+    
+    &__isologo {
+        width: 20rem;
+    }
+
+    &__lista {
+        &__item-lista {
+            &__icone {
+                height: 5rem;
+                width: 5rem;
+            }
+
+            &__link {
+                &,
+                &:link,
+                &:visited {
+
+                }
+            }
+        }
+    }
+}
+
+.feed {
+    @include flex-container(column, flex-start, center);
+    background-color: lightblue;
+    // width: calc(100% / 3);
+
+    height: 100vh;
+    width: 33%;
+
+    padding: 0 var(--distancia-horizontal);
+
+    &__barrinha-de-pesquisa {
+        @include flex-container(row, flex-start, center);
+
+        background-color: red;
+        border-radius: 999px;
+
+        height: 4rem;
+        width: 65%;
+
+        &__icone {
+            width: 2rem;
+        }
+
+        &__pesquisar {
+
+        }
+    }
+
+    &__ordenar-por {
+        @include flex-container(row, flex-start, center);
+        background-color: red;
+
+        width: 100%;
+
+        &__bloco {
+
+        }
+    }
+
+    &__publicacoes {
+        &__publicacao {
+
+            padding-bottom: 45px;
+
+            background-color: lightgreen;
+
+            // &:not(:last-of-type) {
+                border-bottom: 1px solid #ee0d6f;
+            // }
+
+            &__topo {
+                &__informacoes-usuario {
+                    &__foto-perfil {
+                        border-radius: 999px;
+                        width: 5rem;
+                    }
+                }
+            }
+
+            &--1 {
+                &__previa {
+                    border-radius: 10px;
+
+                    overflow: hidden;
+
+                    position: relative;
+
+                    &__imagem {
+                        width: 100%;
+                    }
+
+                    &__titulo {
+                        position: absolute;
+                        bottom: 0;
+                        left: 0;
+
+                        font-size: 3rem;
+
+                        margin-left: var(--distancia-horizontal);
+                        margin-bottom: var(--distancia-horizontal);
+
+                        z-index: 1;
+                    }
+                }
+            }
+
+            &__interacoes {
+                @include flex-container(row, space-between, flex-start);
+
+                &__interacao {
+                    height: 4rem;
+                    width: 4rem;
+                }
+            }
+        }
+    }
+}
+
+.menu-secundario {
+    background-color: lightyellow;
+    // width: calc(100% / 3);
+    height: 100vh;
+    width: 33%;
+}
