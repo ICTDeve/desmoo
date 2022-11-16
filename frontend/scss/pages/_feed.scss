@@ -4,23 +4,42 @@
 }
 
 .menu {
-    background-color: lightgreen;
+    // background-color: lightgreen;
 
     @include flex-container(column, flex-start, center);
 
     height: 100vh;
     // width: calc(100% / 3);
-    width: 33%;
+    width: 30%;
+    
+    padding-top: 100px;
     
     &__isologo {
         width: 20rem;
+
+        margin-bottom: 50px;
     }
 
     &__lista {
+        width: 25%;
+        margin-bottom: var(--distancia-vertical);
+
         &__item-lista {
+            @include flex-container(row, flex-start, center);
+
+            &:not(:last-of-type) {
+                margin-bottom: var(--distancia-vertical);
+            }
+
             &__icone {
                 height: 5rem;
                 width: 5rem;
+
+                cursor: pointer;
+
+                &:hover, &.atual {
+                    fill: var(--cor-principal);
+                }
             }
 
             &__link {
@@ -32,22 +51,39 @@
             }
         }
     }
+
+    &__botao {
+        background-color: var(--cor-principal);
+        border-radius: 9999px;
+        border: none;
+
+        font-size: 1.7rem;
+
+        height: 3rem;
+        width: 25%
+    }
 }
 
 .feed {
     @include flex-container(column, flex-start, center);
-    background-color: lightblue;
+    // background-color: lightblue;
     // width: calc(100% / 3);
 
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+
     height: 100vh;
-    width: 33%;
+    width: 40%;
 
     padding: 0 var(--distancia-horizontal);
+    padding-top: 100px;
 
     &__barrinha-de-pesquisa {
-        @include flex-container(row, flex-start, center);
+        @include flex-container(row, space-around, center);
 
-        background-color: red;
+        margin-bottom: var(--distancia-vertical);
+
+        background-color: #fdfdfd;
         border-radius: 999px;
 
         height: 4rem;
@@ -57,8 +93,19 @@
             width: 2rem;
         }
 
-        &__pesquisar {
+        &__input {
+            background-color: transparent;
+            border: none;
 
+            font-size: 1.5rem;
+
+            height: 100%;
+            width: 75%;
+
+            &:active,
+            &:focus {
+                border: none
+            }
         }
     }
 
@@ -76,7 +123,7 @@
     &__publicacoes {
         &__publicacao {
 
-            padding-bottom: 45px;
+            // padding-bottom: 45px;
 
             background-color: lightgreen;
 
@@ -85,10 +132,53 @@
             // }
 
             &__topo {
+                @include flex-container(row, space-between, center);
+
+                margin-bottom: var(--distancia-vertical);
+
                 &__informacoes-usuario {
+                    @include flex-container(row, flex-start, center);
                     &__foto-perfil {
                         border-radius: 999px;
                         width: 5rem;
+
+                        margin-right: 20px;
+                    }
+
+                    &__nome {
+                        font-size: 1.7rem;
+
+                        margin-right: 20px;
+                    }
+
+                    &__seguir {
+                        font-size: 1.7rem;
+                    }
+                }
+
+                &__tres-pontinhos {
+                    @include flex-container(column, space-between, center);
+                    // background-color: lightgrey;
+                    border-radius: 999px;
+
+                    height: 3rem;
+                    width: 3rem;
+
+                    cursor: pointer;
+
+                    &:hover {
+                        background-color: #d3d3d361;
+                    }
+                    &__pontinho {
+                        background-color: black;
+                        border-radius: 999px;
+
+                        height: .7rem;
+                        width: .7rem;
+
+                        &:not(:last-of-type) {
+                            margin-bottom: 2px;
+                        }
                     }
                 }
             }
@@ -100,6 +190,7 @@
                     overflow: hidden;
 
                     position: relative;
+                    margin-bottom: 10px;
 
                     &__imagem {
                         width: 100%;
@@ -120,12 +211,142 @@
                 }
             }
 
+            &__informacoes {
+                @include flex-container(row, space-between, center);
+                
+                &__curtidas {
+                    @include flex-container(row, flex-start, center);
+
+                    margin-bottom: 10px;
+
+                    &__icone {
+                        height: 2rem;
+                        width: 2rem
+                    }
+
+                    &__informacao {
+                        display: inline-block;
+
+                        &__numeroDeCurtidas {
+
+                        }
+                    }
+                }
+
+                &__comentarios {
+
+                }
+            }
+
             &__interacoes {
                 @include flex-container(row, space-between, flex-start);
+
+                margin: var(--distancia-vertical) 0;
 
                 &__interacao {
                     height: 4rem;
                     width: 4rem;
+                }
+            }
+
+            &__descricao {
+                background-color: lightblue;
+                font-size: 1.6rem;
+
+                margin-bottom: 10px;
+
+                &__conteudo {
+                    display: inline-block;
+                    height: 17px;
+                    overflow: hidden;
+                }
+
+                &__verMais {
+                    color: var(--cor-principal);
+                    cursor: pointer;
+                }
+            }
+
+            &__comentarios {
+                background-color: lightgrey;
+
+                margin-bottom: 10px;
+
+                &__novoComentario {
+                    @include flex-container(row, space-around, center);
+                    background-color: grey;
+                    border-radius: 999px;
+                    width: 100%;
+
+                    padding: 8px 0;
+
+                    margin-bottom: 10px;
+
+                    &__input {
+                        background-color: transparent;
+                        border: none;
+
+                        height: 3rem;
+                        width: 85%;
+
+                        font-size: 1.6rem;
+
+                        resize: none;
+
+                        padding-top: 6px;
+
+                        &::-webkit-scrollbar {
+                            display: none;
+                          }
+                    }
+
+                    &__iconeEmoji {
+                        cursor: pointer;
+
+                        height: 1.5rem;
+                        width: 1.5rem;
+                    }
+                }
+
+                &__comentarios {
+                    &__comentario {
+                        @include flex-container(row, flex-start, flex-start);
+
+                        &__img {
+                            border-radius: 999px;
+                            width: 4rem;
+
+                            margin-right: 10px;
+                        }
+                        
+                        &__conteudo {
+                            padding-top: 14px;
+                            margin-right: 10px;
+                        }
+
+                        &__estrelinha {
+                            height: 2rem;
+                            width: 2rem;
+
+                            align-self: flex-end;
+                        }
+                    }
+
+                    &__comentario {                        
+                        &__conteudo {
+                            @include flex-container(column, flex-start, flex-start);
+
+                            &__nomeAutor {
+                                font-weight: bold;
+
+                                margin-bottom: 10px;
+                            }
+
+                            &__comentario {
+
+                            }
+                        }
+                    }
                 }
             }
         }
@@ -133,8 +354,54 @@
 }
 
 .menu-secundario {
-    background-color: lightyellow;
-    // width: calc(100% / 3);
+    // background-color: lightyellow;
+
     height: 100vh;
-    width: 33%;
+    width: 30%;
+
+    padding-top: 100px;
+
+    @include flex-container(column, flex-start, center);
+
+    &__sugestoes {
+        width: 50%;
+
+        &__titulo {
+            font-size: 1.7rem;
+            font-family: 'Lato Semibold';
+
+            margin-bottom: 50px
+        }
+        
+        &__pessoas {
+            &__pessoa {
+                @include flex-container(row, space-between, center);
+    
+                width: 100%;
+                &__bloco-um {
+                    @include flex-container(row, flex-start, center);
+
+                    &__foto-perfil {
+                        border-radius: 999px;
+
+                        margin-right: 10px;
+
+                        width: 4rem;
+                    }
+
+                    &__nome {
+                        font-size: 1.7rem;
+                    }
+                }
+
+                &__bloco-dois {
+                    &__seguir {
+                        color: var(--cor-principal);
+
+                        font-size: 1.7rem;
+                    }
+                }
+            }
+        }
+    }
 }
