@@ -104,10 +104,8 @@
 
         margin-bottom: var(--distancia-vertical);
 
-        background-color: #fdfdfd;
+        background-color: #d9d9d9;
         border-radius: 999px;
-
-        border: 1px solid black;
 
         height: 4rem;
         width: 65%;
@@ -272,6 +270,8 @@
 
                     &__imagem {
                         width: 100%;
+
+                        filter: brightness(0.8);
                     }
 
                     &__titulo {
@@ -354,7 +354,7 @@
 
                 &__novoComentario {
                     @include flex-container(row, space-around, center);
-                    background-color: grey;
+                    background-color: #d9d9d9;
                     border-radius: 999px;
                     width: 100%;
 
@@ -459,7 +459,11 @@
             margin-bottom: 50px
         }
         
-        &__pessoas {
+        &__sugestao {
+            &:not(:last-of-type) {
+                margin-bottom: 10px
+            }
+
             &__pessoa {
                 @include flex-container(row, space-between, center);
     
