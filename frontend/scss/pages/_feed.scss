@@ -12,7 +12,10 @@
     // width: calc(100% / 3);
     width: 30%;
     
-    padding-top: 100px;
+    padding-top: 50px;
+
+    position: fixed;
+    top: 0;
     
     &__isologo {
         width: 20rem;
@@ -21,19 +24,23 @@
     }
 
     &__lista {
-        width: 25%;
-        margin-bottom: var(--distancia-vertical);
+        @include flex-container(column, flex-start, flex-start);
+        margin-bottom: calc(var(--distancia-vertical) * 2);
+        // width: 25%;
 
         &__item-lista {
             @include flex-container(row, flex-start, center);
 
             &:not(:last-of-type) {
-                margin-bottom: var(--distancia-vertical);
+                margin-bottom: calc(var(--distancia-vertical) * 2);
             }
 
             &__icone {
                 height: 5rem;
                 width: 5rem;
+
+                // margin-right: var(--distancia-horizontal);
+                margin-right: 15px;
 
                 cursor: pointer;
 
@@ -46,7 +53,9 @@
                 &,
                 &:link,
                 &:visited {
-
+                    color: black;
+                    font-size: 2rem;
+                    text-decoration: none;
                 }
             }
         }
@@ -57,10 +66,18 @@
         border-radius: 9999px;
         border: none;
 
-        font-size: 1.7rem;
+        cursor: pointer;
+
+        font-size: 1.8rem;
 
         height: 3rem;
-        width: 25%
+        width: 20rem;
+
+        transition: ease .1s;
+
+        &:hover {
+            color: white
+        }
     }
 }
 
@@ -76,7 +93,11 @@
     width: 40%;
 
     padding: 0 var(--distancia-horizontal);
-    padding-top: 100px;
+    padding-top: 50px;
+
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
 
     &__barrinha-de-pesquisa {
         @include flex-container(row, space-around, center);
@@ -85,6 +106,8 @@
 
         background-color: #fdfdfd;
         border-radius: 999px;
+
+        border: 1px solid black;
 
         height: 4rem;
         width: 65%;
@@ -100,23 +123,36 @@
             font-size: 1.5rem;
 
             height: 100%;
-            width: 75%;
+            width: 85%;
 
             &:active,
             &:focus {
-                border: none
+                border: none;
             }
         }
     }
 
     &__ordenar-por {
         @include flex-container(row, flex-start, center);
-        background-color: red;
+        // background-color: red;
 
         width: 100%;
 
-        &__bloco {
+        margin-bottom: 10px;
 
+        &__bloco {
+            border: 1px solid black;
+            border-radius: 3px;
+
+            padding: 3px 10px;
+            
+            &:not(:last-of-type) {
+                margin-right: 15px;
+            }
+
+            &:hover {
+                
+            }
         }
     }
 
@@ -130,6 +166,10 @@
             // &:not(:last-of-type) {
                 border-bottom: 1px solid #ee0d6f;
             // }
+
+            &:first-of-type {
+                border-top: 1px solid #ee0d6f;
+            }
 
             &__topo {
                 @include flex-container(row, space-between, center);
@@ -169,6 +209,7 @@
                     &:hover {
                         background-color: #d3d3d361;
                     }
+
                     &__pontinho {
                         background-color: black;
                         border-radius: 999px;
@@ -201,6 +242,8 @@
                         bottom: 0;
                         left: 0;
 
+                        color: white;
+
                         font-size: 3rem;
 
                         margin-left: var(--distancia-horizontal);
@@ -230,11 +273,13 @@
                         &__numeroDeCurtidas {
 
                         }
+
+
                     }
                 }
 
-                &__comentarios {
-
+                &__verComentarios {
+                    cursor: pointer
                 }
             }
 
@@ -359,12 +404,12 @@
     height: 100vh;
     width: 30%;
 
-    padding-top: 100px;
+    padding-top: 50px;
 
     @include flex-container(column, flex-start, center);
 
     &__sugestoes {
-        width: 50%;
+        width: 75%;
 
         &__titulo {
             font-size: 1.7rem;
