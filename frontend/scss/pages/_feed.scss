@@ -8,9 +8,11 @@
 
     @include flex-container(column, flex-start, center);
 
+    border-right: 1px solid black;
+
     height: 100vh;
     // width: calc(100% / 3);
-    width: 30%;
+    width: 33%;
     
     padding-top: 50px;
 
@@ -86,13 +88,11 @@
     // background-color: lightblue;
     // width: calc(100% / 3);
 
-    border-left: 1px solid black;
-    border-right: 1px solid black;
 
     height: 100vh;
-    width: 40%;
+    width: 34%;
 
-    padding: 0 var(--distancia-horizontal);
+    padding: 0 var(--distancia-vertical);
     padding-top: 50px;
 
     position: absolute;
@@ -144,6 +144,8 @@
             border: 1px solid black;
             border-radius: 3px;
 
+            cursor: pointer;
+
             padding: 3px 10px;
             
             &:not(:last-of-type) {
@@ -151,25 +153,56 @@
             }
 
             &:hover {
-                
+                background-color: lightgrey;
             }
         }
     }
 
     &__publicacoes {
         &__publicacao {
-
             // padding-bottom: 45px;
 
-            background-color: lightgreen;
+            // background-color: lightgreen;
 
             // &:not(:last-of-type) {
-                border-bottom: 1px solid #ee0d6f;
-            // }
+                // border-bottom: 1px solid #ee0d6f;
 
-            &:first-of-type {
-                border-top: 1px solid #ee0d6f;
+            position: relative;
+
+            &::after,
+            &::before {
+                content: "";
+
+                background-color: black;
+                
+                display: none;
+        
+                height: 1px;
+                width: calc(100% + (var(--distancia-vertical) * 2));
+
+                transform: translateX(calc(-1 * var(--distancia-vertical)));
+
+                position: absolute;
             }
+
+            &:nth-of-type(1) {
+                &::before {
+                    display: block;
+                    
+                    top: 0;
+                }
+            }
+            
+            &:not(:last-of-type) {
+                &::after {
+                    display: block;
+
+                    bottom: 0;
+                }
+            }
+
+            padding-top: var(--distancia-vertical);
+            padding-bottom: var(--distancia-vertical);
 
             &__topo {
                 @include flex-container(row, space-between, center);
@@ -192,6 +225,10 @@
                     }
 
                     &__seguir {
+                        color: var(--cor-principal);
+
+                        cursor: pointer;
+
                         font-size: 1.7rem;
                     }
                 }
@@ -244,7 +281,7 @@
 
                         color: white;
 
-                        font-size: 3rem;
+                        font-size: 3.5rem;
 
                         margin-left: var(--distancia-horizontal);
                         margin-bottom: var(--distancia-horizontal);
@@ -295,7 +332,7 @@
             }
 
             &__descricao {
-                background-color: lightblue;
+                // background-color: lightblue;
                 font-size: 1.6rem;
 
                 margin-bottom: 10px;
@@ -313,9 +350,7 @@
             }
 
             &__comentarios {
-                background-color: lightgrey;
-
-                margin-bottom: 10px;
+                // background-color: lightgrey;
 
                 &__novoComentario {
                     @include flex-container(row, space-around, center);
@@ -365,13 +400,13 @@
                         }
                         
                         &__conteudo {
-                            padding-top: 14px;
+                            padding-top: 13px;
                             margin-right: 10px;
                         }
 
                         &__estrelinha {
-                            height: 2rem;
-                            width: 2rem;
+                            height: 3rem;
+                            width:  7rem;
 
                             align-self: flex-end;
                         }
@@ -382,13 +417,14 @@
                             @include flex-container(column, flex-start, flex-start);
 
                             &__nomeAutor {
+                                font-size: 1.4rem;
                                 font-weight: bold;
 
                                 margin-bottom: 10px;
                             }
 
                             &__comentario {
-
+                                font-size: 1.2rem;
                             }
                         }
                     }
@@ -401,10 +437,15 @@
 .menu-secundario {
     // background-color: lightyellow;
 
+    border-left: 1px solid black;
+
     height: 100vh;
-    width: 30%;
+    width: 33%;
 
     padding-top: 50px;
+
+    position: fixed;
+    right: 0;
 
     @include flex-container(column, flex-start, center);
 
