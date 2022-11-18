@@ -1,0 +1,166 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    overflow-x:hidden;
+}
+
+
+body {
+    height: 100vh;
+    width: 100%;
+}
+.container {
+    /* display: block; */
+    /* border: 1px solid blue; */
+}
+
+/* HEADER--------------------------------------------------- */
+
+header {
+    width: 90%;
+    display: flex;
+    transform: translateX(-50%);
+    margin-left: 50%;
+    margin-top: 5vh;
+    flex-wrap: nowrap;
+    /* border: 2px solid yellow; */
+
+}
+
+.logo {
+    display: flex;
+    width: 30%;
+    /* border: 1px solid red; */
+}
+
+.botoes {
+    display: flex; 
+    width: 50%;
+    /* border: 1px solid blue; */
+    justify-content: flex-end;
+}
+
+.btn {
+    /* Predefinições */
+    cursor: pointer;
+    display: inline;
+    
+    /* Estilo Padrão */
+    text-decoration: none;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-weight: 600;
+}
+
+.btn-entrar {
+    color: black;
+    padding: 10px;
+    padding-right: 30px;
+} 
+
+.btn-verde {
+    /* margin: 10px;    */
+    background-color: #11D183;
+    color: white;
+    border: none;
+    padding: 11px 20px;
+    display: inline-block;
+    border-radius: 30px;
+    text-decoration: none;
+    
+}
+
+/* FIM-HEADER--------------------------------------------------- */
+
+/* PT1--------------------------------------------------- */
+
+.leia-artigos {
+    display: flex;
+    /* border: 1px solid red; */
+}
+
+.esquerda {
+    width: 50%;
+    /* border: 1px solid blue   ; */
+    padding-top: 10%;
+    padding-left: 5%;
+}
+
+.direita {
+    width: 50%;
+    /* border: 1px solid yellow; */
+}
+
+.geral {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    padding-top: 5%;
+    /* border: 1px solid red; */
+    background-color: #11D183;
+}
+
+.titulo {
+    /* border: 1px solid green; */
+    /* width: 50%; */
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color: #363636;
+}
+
+.titulo h1 {
+    font-size: 70px;
+}
+
+
+.titulo h2 {
+    font-size: 50px;
+}
+
+.botao-pt1 {
+    margin-top: 10%;
+}
+
+
+.imagem1-LP {
+    display: flex;
+    /* border: 1px solid red; */
+    width: 60%;
+ 
+}
+.direita img {
+    /* border: 1px solid blue; */
+    width: 700px;
+}
+
+.imagem3-LP img {
+    margin-left: 10%;
+    padding-top: 5%;
+    width: 100%;
+}
+
+
+/* FIM PT1--------------------------------------------------- */
+
+/* PT2------------------------------------------------------- */
+.para-voce {
+    display: flex;
+    margin-top: 5%;
+}
+
+.texto p {
+     /* border: 1px solid green; */
+    font-size: 20px;
+
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color: #363636;
+    font-weight: 500;
+}
+
+
+/* FIM PT2------------------------------------------------------- */
