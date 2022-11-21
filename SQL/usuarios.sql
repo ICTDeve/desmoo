@@ -17,7 +17,7 @@ CREATE TABLE IF NOT EXISTS usuarios (
     pontos INT UNSIGNED DEFAULT 0,
     advertencias INT UNSIGNED DEFAULT 0,
     
-    idade INT UNSIGNED DEFAULT NULL
+    idade INT UNSIGNED DEFAULT NULL,
 
     PRIMARY KEY (id),
     UNIQUE KEY (id_personalizavel),
