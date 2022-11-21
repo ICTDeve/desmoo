@@ -2,7 +2,7 @@ CREATE TABLE IF NOT EXISTS publicacoes (
     id INT UNSIGNED NOT NULL AUTO_INCREMENT,
     id_autor INT UNSIGNED NOT NULL,
 
-    caminho_imagem 
+    caminho_imagem VARCHAR(100) NOT NULL,
     titulo VARCHAR(300) NOT NULL,
     conteudo MEDIUMTEXT NOT NULL,
 
