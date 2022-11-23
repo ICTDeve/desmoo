@@ -1,0 +1,13 @@
+.perfil {
+    @include flex-container(column, flex-start, center);
+
+    height: 100%;
+    width: 34%;
+
+    padding: 0 var(--distancia-vertical);
+    padding-top: 50px;
+
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
