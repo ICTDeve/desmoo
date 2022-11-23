@@ -3,6 +3,7 @@ const route = express.Router();
 const cadastroController = require('./src/controllers/cadastroController');
 const loginController = require('./src/controllers/loginController');
 const feedController = require('./src/controllers/feedController');
+const perfilController = require('./src/controllers/perfilController');
 
 // CADASTRO
     // GET
@@ -24,6 +25,10 @@ const feedController = require('./src/controllers/feedController');
 // FEED
     // GET
         route.get('/feed', feedController.feed)
+
+// PERFIL
+    // GET
+        route.get('/perfil', perfilController.perfil)
 
 // 404
     route.use((req, res) => res.status(404).render('404.ejs'))

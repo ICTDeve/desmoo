@@ -1,0 +1,79 @@
+.menu {
+    // background-color: lightgreen;
+
+    @include flex-container(column, flex-start, center);
+
+    border-right: 1px solid black;
+
+    height: 100vh;
+    // width: calc(100% / 3);
+    width: 33%;
+    
+    padding-top: 50px;
+
+    position: fixed;
+    top: 0;
+    
+    &__isologo {
+        width: 20rem;
+
+        margin-bottom: 50px;
+    }
+
+    &__lista {
+        @include flex-container(column, flex-start, flex-start);
+        margin-bottom: calc(var(--distancia-vertical) * 2);
+        // width: 25%;
+
+        &__item-lista {
+            @include flex-container(row, flex-start, center);
+
+            &:not(:last-of-type) {
+                margin-bottom: calc(var(--distancia-vertical) * 2);
+            }
+
+            &__icone {
+                height: 5rem;
+                width: 5rem;
+
+                // margin-right: var(--distancia-horizontal);
+                margin-right: 15px;
+
+                cursor: pointer;
+
+                &:hover, &.atual {
+                    fill: var(--cor-principal);
+                }
+            }
+
+            &__link {
+                &,
+                &:link,
+                &:visited {
+                    color: black;
+                    font-size: 2rem;
+                    text-decoration: none;
+                }
+            }
+        }
+    }
+
+    &__botao {
+        background-color: var(--cor-principal);
+        border-radius: 9999px;
+        border: none;
+
+        cursor: pointer;
+
+        font-size: 1.8rem;
+
+        height: 3rem;
+        width: 20rem;
+
+        transition: ease .1s;
+
+        &:hover {
+            color: white
+        }
+    }
+}

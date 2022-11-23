@@ -1,0 +1,61 @@
+.menu-secundario {
+    border-left: 1px solid black;
+
+    height: 100vh;
+    width: 33%;
+
+    padding-top: 50px;
+
+    position: fixed;
+    right: 0;
+
+    @include flex-container(column, flex-start, center);
+
+    &__sugestoes {
+        width: 75%;
+
+        &__titulo {
+            font-size: 1.7rem;
+            font-family: 'Lato Semibold';
+
+            margin-bottom: 50px;
+
+            text-align: center;
+        }
+        
+        &__sugestao {
+            &:not(:last-of-type) {
+                margin-bottom: 10px
+            }
+
+            &__pessoa {
+                @include flex-container(row, space-between, center);
+    
+                width: 100%;
+                &__bloco-um {
+                    @include flex-container(row, flex-start, center);
+
+                    &__foto-perfil {
+                        border-radius: 999px;
+
+                        margin-right: 10px;
+
+                        width: 4rem;
+                    }
+
+                    &__nome {
+                        font-size: 1.7rem;
+                    }
+                }
+
+                &__bloco-dois {
+                    &__seguir {
+                        color: var(--cor-principal);
+
+                        font-size: 1.7rem;
+                    }
+                }
+            }
+        }
+    }
+}
