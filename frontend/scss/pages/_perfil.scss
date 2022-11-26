@@ -12,7 +12,7 @@
 
     &__banner {
         height: 20rem;
-        width: calc(100% + (var(--distancia-vertical) * 2));
+        width: calc(100% + (var(--distancia-vertical) * 2 + 1px));
 
         object-fit: cover;
 
@@ -21,6 +21,9 @@
 
     &__informacoes {
         @include flex-container(row, flex-start, flex-start);
+
+        margin-bottom: calc(var(--distancia-vertical) * 2);
+
         width: 100%;
 
         &__bloco-esquerda {
@@ -116,10 +119,85 @@
     }
 
     &__sobre-e-publicacoes {
-        &__caixa-de-selecao {
-            @include flex-container(row, space-around, center);
-            background-color: red;
+        display: block;
 
+        width: 100%;
+
+        &__caixa-de-selecao {
+            @include flex-container(row, flex-start, center);
+
+            margin-bottom: calc(var(--distancia-vertical) * 2);
+            padding-bottom: 5px;
+
+            position: relative;
+
+            &::before {
+                content: "";
+
+                background-color: var(--cor-principal);
+
+                height: 2px;
+                width: calc(50% + var(--distancia-vertical));
+
+                position: absolute;
+                bottom: 0;
+                left: calc(-1 * var(--distancia-vertical));
+
+                transition: ease .1s;
+                
+            }
+
+            &[ativo="2"] {
+                &::before {
+                    left: calc(calc(50% - var(--distancia-vertical)) + var(--distancia-vertical));
+                }
+            }
+            
+            &__item {
+                cursor: pointer;
+
+                font-size: 1.6rem;
+
+                width: 50%;
+
+                text-align: center;
+
+                &.ativo {
+
+                }
+            }
+        }
+
+        &__sobre {
+            display: none;
+            &__header {
+                @include flex-container(row, space-between, center);
+
+                margin-bottom: calc(var(--distancia-vertical));
+                
+                &__titulo {
+                    font-size: 2rem;
+                    
+                    font-weight: bold;
+                }
+                
+                &__editar {
+                    background-color: var(--cor-cinza);
+                    border-radius: 9999px;
+
+                    cursor: pointer;
+                    
+                    font-size: 1.6rem;
+
+                    padding: 4px 24px;
+                }
+            }
+
+            &__conteudo {
+                font-size: 1.6rem;
+
+                text-align: justify;
+            }
         }
 
         &__publicacao {
@@ -132,8 +210,7 @@
 
             position: relative;
 
-            &::after,
-            &::before {
+            &::after {
                 content: "";
 
                 background-color: #9a9a9a;
@@ -148,14 +225,6 @@
                 position: absolute;
             }
 
-            &:nth-of-type(1) {
-                &::before {
-                    display: block;
-                    
-                    top: 0;
-                }
-            }
-            
             &:not(:last-of-type) {
                 &::after {
                     display: block;
@@ -164,7 +233,10 @@
                 }
             }
 
-            padding-top: var(--distancia-vertical);
+            &:not(:first-of-type) {
+                padding-top: var(--distancia-vertical);
+            }
+            
             padding-bottom: var(--distancia-vertical);
 
             &__topo {
