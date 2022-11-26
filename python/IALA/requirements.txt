@@ -1,3 +1,4 @@
 SpeechRecognition==3.8.1
 PyAudio==0.2.12
 vosk==0.3.44
+sounddevice==0.4.5
