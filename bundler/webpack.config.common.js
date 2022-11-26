@@ -9,6 +9,7 @@ module.exports = {
         cadastro: ['./frontend/js/cadastro.js', './frontend/scss/cadastro.scss'],
         feed: ['./frontend/js/feed.js', './frontend/scss/feed.scss'],
         perfil: ['./frontend/js/perfil.js', './frontend/scss/perfil.scss'],
+        discussao: ['./frontend/js/discussao.js', './frontend/scss/discussao.scss'],
         login: './frontend/js/login.js',
     },
 

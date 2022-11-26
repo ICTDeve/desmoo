@@ -4,6 +4,7 @@ const cadastroController = require('./src/controllers/cadastroController');
 const loginController = require('./src/controllers/loginController');
 const feedController = require('./src/controllers/feedController');
 const perfilController = require('./src/controllers/perfilController');
+const discussaoController = require('./src/controllers/discussaoController');
 
 // CADASTRO
     // GET
@@ -29,6 +30,10 @@ const perfilController = require('./src/controllers/perfilController');
 // PERFIL
     // GET
         route.get('/perfil', perfilController.perfil)
+
+// DISCUSSAO
+    // GET
+        route.get('/discussao', discussaoController.discussao)
 
 // 404
     route.use((req, res) => res.status(404).render('404.ejs'))
