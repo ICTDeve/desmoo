@@ -1,97 +1,44 @@
-#commit
-#testecommit2
-# Arquivo Principal
-
-
-# import speech_recognition as sr
-
-# # Criar reconhecedor
-# r=sr.Recognizer()
-
-# # Abrir microfone para captura
-# with sr.Microphone() as source:
-#     while True:
-#         audio = r.listen(source) #Definir Microfone como fonte de audio
-#         print(r.recognize_google(audio, language='pt'))
-
-#!/usr/bin/env python3
-
-import argparse
-import queue
-import sys
+#Importando Bibliotecas necessários
+import pyautogui
+import speech_recognition as sr
 import sounddevice as sd
+import wavio as wv
+import pyttsx3
+import webbrowser
+import random
+import os
+import time
 
-from vosk import Model, KaldiRecognizer
 
-q = queue.Queue()
+# Voz IALA
+def iafala(fala):
+    engine = pyttsx3.init() #iniciar
+    engine.say(fala) #Conteúdo de fla
+    engine.runAndWait()
 
-def int_or_str(text):
-    """Helper function for argument parsing."""
-    try:
-        return int(text)
-    except ValueError:
-        return text
+iafala("Olá mozão, eu sou a inteligência artificial criada pelo meu mestre denominado Diego. Minha função é te dar amor e carinho quando o meu mestre bater as botas.")
 
-def callback(indata, frames, time, status):
-    """This is called (from a separate thread) for each audio block."""
-    if status:
-        print(status, file=sys.stderr)
-    q.put(bytes(indata))
+def gravarVoz():
+    freq = 48000
+    duration = 5
+    gravacao = sd.rec(int(duration*freq),
+                        samplerate=freq, channels=2)
+    print("Comece a falar!")
+    sd.wait()
+    wv.write('minhavoz.mp3', gravacao, freq, sampwith=2)
+    print('Ok, processando...')
 
-parser = argparse.ArgumentParser(add_help=False)
-parser.add_argument(
-    "-l", "--list-devices", action="store_true",
-    help="show list of audio devices and exit")
-args, remaining = parser.parse_known_args()
-if args.list_devices:
-    print(sd.query_devices())
-    parser.exit(0)
-parser = argparse.ArgumentParser(
-    description=__doc__,
-    formatter_class=argparse.RawDescriptionHelpFormatter,
-    parents=[parser])
-parser.add_argument(
-    "-f", "--filename", type=str, metavar="FILENAME",
-    help="audio file to store recording to")
-parser.add_argument(
-    "-d", "--device", type=int_or_str,
-    help="input device (numeric ID or substring)")
-parser.add_argument(
-    "-r", "--samplerate", type=int, help="sampling rate")
-args = parser.parse_args(remaining)
-
-try:
-    if args.samplerate is None:
-        device_info = sd.query_devices(args.device, "input")
-        # soundfile expects an int, sounddevice provides a float:
-        args.samplerate = int(device_info["default_samplerate"])
-
-    model = Model(lang="pt")
-
-    if args.filename:
-        dump_fn = open(args.filename, "wb")
-    else:
-        dump_fn = None
-
-    with sd.RawInputStream(samplerate=args.samplerate, blocksize = 8000, device=args.device,
-            dtype="int16", channels=1, callback=callback):
-        print("#" * 80)
-        print("Press Ctrl+C to stop the recording")
-        print("#" * 80)
-
-        rec = KaldiRecognizer(model, args.samplerate)
-        while True:
-            data = q.get()
-            if rec.AcceptWaveform(data):
-                print(rec.Result())
-            else:
-                print(rec.PartialResult())
-            if dump_fn is not None:
-                dump_fn.write(data)
-
-except KeyboardInterrupt:
-    print("\nDone")
-    parser.exit(0)
-except Exception as e:
-    parser.exit(type(e).__name__ + ": " + str(e))
-
+while True:
+    def pesquisaggl():
+        frase = fala
+        search = frase.replace('Pesquisar', '')
+        search2 = search.replace('pesquisar', '')
+        webbrowser.open(f'https://www.google.com/search?q= {search2}')
+    gravarVoz()
+    r = sr.Recognizer
+    filename = 'minhavoz.mp3'
+    with sr.AudioFile(filename) as source:
+        audio_data = r.record(source)
+        text = r.recognize_google(audio_data, language='pt-br')
+        print('Você disse: {text}')
+    fala = text
