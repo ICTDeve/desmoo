@@ -2,7 +2,7 @@ DROP TABLE IF EXISTS usuarios;
 CREATE TABLE IF NOT EXISTS usuarios (
 	id INT UNSIGNED NOT NULL AUTO_iNCREMENT,
     id_personalizavel VARCHAR(30) NOT NULL, -- referente a um identificador que o usuário pode personalizar e que deve ser único. Ex: usuario_123
-    id_lattes VARCHAR(100) NOT NULL,
+    id_lattes VARCHAR(100) DEFAULT NULL,
 	nome_completo VARCHAR(50) NOT NULL,
     email VARCHAR(40) NOT NULL,
     senha VARCHAR(40) NOT NULL,
