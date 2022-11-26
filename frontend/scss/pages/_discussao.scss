@@ -1,3 +1,173 @@
-* {
-    background-color: lightblue;
+.discussao {
+    @include flex-container(column, flex-start, center);
+    // background-color: lightblue;
+    // width: calc(100% / 3);
+
+    height: 100%;
+    width: 34%;
+
+    padding: 0 var(--distancia-vertical);
+    padding-top: 50px;
+
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+
+    &__header {
+        padding-bottom: calc(var(--distancia-vertical) * 2);
+
+        position: relative;
+
+        &::before {
+            content: "";
+
+            background-color: black;
+
+            height: 1px;
+            width: calc(100% + (var(--distancia-vertical) * 2));
+
+            position: absolute;
+            left: calc(-1 * var(--distancia-vertical));
+            bottom: 0;
+        }
+
+        &__voltar {
+            @include flex-container(row, flex-start, center);
+            margin-bottom: calc(var(--distancia-vertical) * 2);
+
+            &__setinha {
+                height: 1.5rem;
+                width:  1.5rem;
+
+                border-left: 1px solid var(--cor-principal);
+                border-bottom: 1px solid var(--cor-principal);
+
+                transform: rotateZ(45deg) translateX(5px) translateY(-5px);
+            }
+
+            &__texto {
+                color: var(--cor-principal);
+
+                font-size: 1.6rem;
+
+                margin-left: 10px;
+            }
+        }
+        
+        &__autor-e-data {
+            // color: var(--cor-cinza);
+            font-size: 1.6rem;
+
+            margin-bottom: var(--distancia-vertical);
+
+            &__autor {
+
+            }
+
+            &__data {
+
+            }
+        }
+
+        &__titulo {
+            font-size: 3.5rem;
+            font-weight: bold;
+
+            margin-bottom: var(--distancia-vertical);
+        }
+        
+        &__descricao {
+            font-size: 1.6rem;
+
+            margin-bottom: var(--distancia-vertical);
+
+            text-align: justify;
+        }
+
+        &__respostas {
+            @include flex-container(row, flex-start, center);
+
+            color: var(--cor-principal);
+
+            font-size: 1.6rem;
+
+            &__numero {
+                margin-right: 5px;
+            }
+        }
+    }
+
+    &__respostas {
+        &__resposta {
+            @include flex-container(column, flex-start, flex-start);
+
+            margin-top: calc(var(--distancia-vertical) * 2);
+
+            padding-bottom: calc(var(--distancia-vertical) * 2);
+
+            position: relative;
+
+            &::before {
+                content: "";
+                
+                background-color: black;
+
+                height: 1px;
+                width: calc(100% + (var(--distancia-vertical) * 2));
+
+                position: absolute;
+                bottom: 0;
+                left: calc(-1 * var(--distancia-vertical));
+            }
+
+            &:last-of-type {
+                &::before {
+                    display: none;
+                }
+            }
+
+            &__topo {
+                @include flex-container(row, flex-start, center);
+
+                margin-bottom: calc(var(--distancia-vertical));
+
+                &__img {
+                    border-radius: 999px;
+
+                    margin-right: 10px;
+
+                    width: 4rem;
+                }
+
+                &__nome-autor {
+                    font-size: 1.4rem;
+                }
+            }
+
+            &__conteudo {
+                font-size: 1.6rem;
+
+                margin-bottom: calc(var(--distancia-vertical));
+            }
+
+            &__icones {
+                @include flex-container(row, flex-start, center);
+
+                align-self: flex-end;
+
+                &__icone {
+                    display: block;
+
+                    &:not(:last-of-type) {
+                        margin-right: 10px;
+                    }
+
+                    svg {
+                        height: 3rem;
+                        width:  3rem;
+                    }
+                }
+            }
+        }
+    }
 }

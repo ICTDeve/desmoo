@@ -5,12 +5,15 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
     entry: {
-        bundle: './frontend/js/bundle.js',
-        cadastro: ['./frontend/js/cadastro.js', './frontend/scss/cadastro.scss'],
-        feed: ['./frontend/js/feed.js', './frontend/scss/feed.scss'],
-        perfil: ['./frontend/js/perfil.js', './frontend/scss/perfil.scss'],
-        discussao: ['./frontend/js/discussao.js', './frontend/scss/discussao.scss'],
-        login: './frontend/js/login.js',
+        bundle:         './frontend/js/bundle.js',
+        cadastro:       ['./frontend/js/cadastro.js', './frontend/scss/cadastro.scss'],
+        feed:           ['./frontend/js/feed.js', './frontend/scss/feed.scss'],
+        perfil:         ['./frontend/js/perfil.js', './frontend/scss/perfil.scss'],
+        discussao:      ['./frontend/js/discussao.js', './frontend/scss/discussao.scss'],
+        novaDiscussao:  ['./frontend/js/novaDiscussao.js', './frontend/scss/novaDiscussao.scss'],
+        novaPesquisa:   ['./frontend/js/novaPesquisa.js', './frontend/scss/novaPesquisa.scss'],
+        novaReview:     ['./frontend/js/novaReview.js', './frontend/scss/novaReview.scss'],
+        login:          './frontend/js/login.js',
     },
 
     output: {

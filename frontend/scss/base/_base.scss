@@ -12,7 +12,11 @@ html {
     }
 }
 
-.tamanho-texto-comum {
-    font-size: var(--tamanho-text-comum);
-    transition: var(--transition-1);
+a {
+    &,
+    &:link,
+    &:visited {
+        color: currentColor;
+        text-decoration: none;
+    }
 }

@@ -5,6 +5,9 @@ const loginController = require('./src/controllers/loginController');
 const feedController = require('./src/controllers/feedController');
 const perfilController = require('./src/controllers/perfilController');
 const discussaoController = require('./src/controllers/discussaoController');
+const novaDiscussaoController = require('./src/controllers/novaDiscussaoController');
+const novaPesquisaController = require('./src/controllers/novaPesquisaController');
+const novaReviewController = require('./src/controllers/novaReviewController');
 
 // CADASTRO
     // GET
@@ -34,6 +37,18 @@ const discussaoController = require('./src/controllers/discussaoController');
 // DISCUSSAO
     // GET
         route.get('/discussao', discussaoController.discussao)
+        
+// NOVA DISCUSSAO
+    // GET
+        route.get('/novaDiscussao', novaDiscussaoController.novaDiscussao)
+
+// NOVA PESQUISA
+    // GET
+        route.get('/novaPesquisa', novaPesquisaController.novaPesquisa)
+        
+// NOVA REVIEW
+    // GET
+        route.get('/novaReview', novaReviewController.novaReview)
 
 // 404
     route.use((req, res) => res.status(404).render('404.ejs'))
