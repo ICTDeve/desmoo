@@ -13,7 +13,8 @@ module.exports = {
         novaDiscussao:  ['./frontend/js/novaDiscussao.js',  './frontend/scss/novaDiscussao.scss'],
         novaPesquisa:   ['./frontend/js/novaPesquisa.js',   './frontend/scss/novaPesquisa.scss'],
         novaReview:     ['./frontend/js/novaReview.js',     './frontend/scss/novaReview.scss'],
-        notificacoes:     ['./frontend/js/notificacoes.js', './frontend/scss/notificacoes.scss'],
+        notificacoes:   ['./frontend/js/notificacoes.js',   './frontend/scss/notificacoes.scss'],
+        salvos:         ['./frontend/js/salvos.js', './frontend/scss/salvos.scss'],
         login:          './frontend/js/login.js',
     },
 

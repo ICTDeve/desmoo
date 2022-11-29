@@ -1,4 +1,4 @@
-.notificacoes {
+.salvos {
     @include flex-container(column, flex-start, center);
     // background-color: lightblue;
     // width: calc(100% / 3);
@@ -13,7 +13,7 @@
     left: 50%;
     transform: translateX(-50%);
 
-    &__notificacao {
+    &__salvo {
         @include flex-container(row, space-between, center);
 
         width: 100%;
@@ -45,52 +45,54 @@
                 display: none
             }
         }
+
+        &[tipo-publicacao="discussao"] {
+            .salvos__salvo__bloco-esquerda__tipo-publicacao {
+                background-color: var(--cor-discussao);
+            }
+        }
+
+        &[tipo-publicacao="pesquisa"] {
+            .salvos__salvo__bloco-esquerda__tipo-publicacao {
+                background-color: var(--cor-pesquisa);
+            }
+        }
+
+        &[tipo-publicacao="review"] {
+            .salvos__salvo__bloco-esquerda__tipo-publicacao {
+                background-color: var(--cor-review);
+            }
+        }
         
 
         &__bloco-esquerda {
-            @include flex-container(row, flex-start, center);
-            &__foto-perfil {
+            @include flex-container(column, flex-start, flex-start);
+
+            // margin-right: calc(var(--distancia-vertical) * 2);
+
+            // width: 50%;
+
+            &__tipo-publicacao {
                 border-radius: 999px;
 
-                margin-right: calc(var(--distancia-vertical) * 2);
+                color: white;
 
-                width: 5rem
+                font-size: 1.2rem;
+
+                margin-bottom: var(--distancia-vertical);
+                padding: 3px 10px;
+
+                text-align: center;
+
+                width: 40%;
             }
 
-            &__icone {
-                height: 4rem;
-                width:  4rem;
+            &__titulo-publicacao {
+                font-size: 2.4rem;
+                // font-weight: Bold;
 
-                display: block;
-
-                margin-right: calc(var(--distancia-vertical) * 2);
+                width: 80%;
             }
-
-            &__conteudo {
-                // @include flex-container(row, flex-start, center);
-
-                font-size: 1.6rem;
-
-                margin-right: calc(var(--distancia-vertical) * 2);
-
-                &__nome-autor {
-
-                }
-
-                &__tipo-interacao {
-
-                }
-
-                &__seu-post {
-
-                }
-
-                &__comentario {
-
-                }
-            }
-
-
         }
 
         &__tres-pontinhos {
