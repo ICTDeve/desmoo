@@ -36,10 +36,15 @@ def vozIA(fala):
 
 # Navegação Web
 def navegacaoWeb(fala):
-    frase = fala
     print(f'debug {fala}')
-    search = frase.replace('Ir para', '')
-    webbrowser.open(f'https://www.google.com/search?q= {search}')
+    
+    if 'Ir para' in fala:
+        pesquisa = fala.replace('Ir para', '')
+        webbrowser.open(f'https://www.google.com/search?q= {pesquisa}')
+
+    else:
+        pesquisa = fala.replace('ir para', '')
+        webbrowser.open(f'https://www.google.com/search?q= {pesquisa}')
 
 def ConverterAudioEmTexto():
     # Este Bloco irá Converter Voz em Texto
@@ -55,37 +60,43 @@ def ConverterAudioEmTexto():
 
 def respostaIA(fala):
   
-    if fala == 'Bom dia':
-        vozIA('Bom dia para você também!')
+    if fala == 'Bom dia' or fala == 'bom dia':
+        resposta = 'Bom dia para você também!'
+        print(resposta)
+        vozIA(resposta)
     
-    elif 'Ir para' in fala:
+    elif 'Ir para' in fala or 'ir para' in fala:
         navegacaoWeb(fala)
     
-    elif fala == 'Obrigado':
-        vozIA('De nada, é sempre um prazer em poder te ajudar macho!')
+    elif fala == 'Obrigado' or fala == 'obrigado' or fala == 'Obrigada' or fala == 'obrigada':
+        resposta = 'De nada, é sempre um prazer em poder te ajudar!'
+        print(resposta)
+        vozIA(resposta)
     
-    elif fala == 'obrigado':
-        vozIA('De nada, é sempre um prazer em poder te ajudar macho!')
-      
-    elif fala == 'Obrigada':
-        vozIA('De nada, é sempre um prazer em poder te ajudar femea!')
-    
-    elif fala == 'obrigada':
-        vozIA('De nada, é sempre um prazer em poder te ajudar femea!')
-    
-    elif fala == 'Test':
-        vozIA('deu bom')
+    elif fala == 'parar' or fala == 'Parar':
+        resposta = 'Tudo bem, se precisar de novo é só me chamar!'
+        print(resposta)
+        vozIA(resposta)
+        exit()
 
 #Iniciar ----------------------------------------------------------
 while True:
-    modoConversa = input(str('Deseja conversar por texto ou voz? \n'))
-
-    if modoConversa == 'voz':
+    
+    # Escolha do modo da conversa (texto ou voz)
+    modoConversa = input(str('Deseja conversar por texto ou voz? Digite `parar` para fechar o programa\n'))
+    
+    if modoConversa == 'parar' or modoConversa == 'Parar': print('Tudo bem, se precisar de novo é só me chamar!'), exit()
+    
+    elif modoConversa == 'voz' or modoConversa == 'Voz':
         # Iniciar Voz
         gravarVoz()
         ConverterAudioEmTexto()
         respostaIA(fraseConvertida)
 
-    elif modoConversa == 'texto':
-        perguntaUsuario = input(str('Digite sua dúvida \n'))
-        respostaIA(perguntaUsuario)
+    elif modoConversa == 'texto' or modoConversa == 'Texto':
+        perguntaTextoUsuario = input(str('Digite sua dúvida \n'))
+        respostaIA(perguntaTextoUsuario)
+        
+        if perguntaTextoUsuario == 'parar' or perguntaTextoUsuario == 'Parar':
+            respostaIA(perguntaTextoUsuario)
+            exit()
