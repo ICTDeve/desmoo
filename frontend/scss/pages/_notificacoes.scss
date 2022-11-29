@@ -1,0 +1,147 @@
+.notificacoes {
+    @include flex-container(column, flex-start, center);
+    // background-color: lightblue;
+    // width: calc(100% / 3);
+
+    height: 100%;
+    width: 34%;
+
+    padding: 0 var(--distancia-vertical);
+    padding-top: 50px;
+
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+
+    &__notificacao {
+        @include flex-container(row, space-between, center);
+
+        width: 100%;
+
+        padding-bottom: calc(var(--distancia-vertical) * 2);
+        position: relative;
+
+        &:not(:first-of-type) {
+            padding-top: calc(var(--distancia-vertical) * 2);
+        }
+
+        &::before {
+            content: "";
+
+            background-color: black;
+
+            position: absolute;
+            bottom: 0;
+            left: 0;
+
+            height: 1px;
+            width: calc(100% + (var(--distancia-vertical) * 2));
+
+            transform: translateX(calc(-1 * var(--distancia-vertical)));
+        }
+
+        &:last-of-type {
+            &::before {
+                display: none
+            }
+        }
+        
+        &__bloco-esquerda {
+            @include flex-container(row, flex-start, center);
+            &__foto-perfil {
+                border-radius: 999px;
+
+                margin-right: calc(var(--distancia-vertical) * 2);
+
+                width: 5rem
+            }
+
+            &__icone {
+                height: 4rem;
+                width:  4rem;
+
+                display: block;
+
+                margin-right: calc(var(--distancia-vertical) * 2);
+            }
+
+            &__conteudo {
+                // @include flex-container(row, flex-start, center);
+
+                font-size: 1.6rem;
+
+                margin-right: calc(var(--distancia-vertical) * 2);
+
+                &__nome-autor {
+
+                }
+
+                &__tipo-interacao {
+
+                }
+
+                &__seu-post {
+
+                }
+
+                &__comentario {
+
+                }
+            }
+
+
+        }
+
+        &__tres-pontinhos {
+            @include flex-container(row, center, center);
+            // background-color: lightgrey;
+            border-radius: 999px;
+
+            cursor: pointer;
+
+            height: 4rem;
+            width:  4rem;
+
+            position: relative;
+
+            transition: ease .2s;
+
+            &::after {
+                content: "";
+
+                background-color: #d9d9d950;
+                border-radius: 9999px;
+
+                height: 4rem;
+                width:  4rem;
+
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                transform: translate(-50%, -50%);
+
+                z-index: -1;
+
+                opacity: 0;
+            }
+
+            &:hover {
+                &::after {
+                    opacity: 1;
+                }
+            }
+
+            &__pontinho {
+                background-color: black;
+                border-radius: 999px;
+
+                height: .4rem;
+                width:  .4rem;
+
+                &:not(:last-of-type) {
+                    margin-right: 3px;
+                }
+            }
+        }
+    }
+}
