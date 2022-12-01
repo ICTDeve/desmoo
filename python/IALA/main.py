@@ -59,7 +59,7 @@ def ConverterAudioEmTexto():
         # return fraseConvertida
 
 def respostaIA(fala):
-  
+    print(f'debug {fala}')
     if fala == 'Bom dia' or fala == 'bom dia':
         resposta = 'Bom dia para você também!'
         print(resposta)
@@ -78,6 +78,11 @@ def respostaIA(fala):
         print(resposta)
         vozIA(resposta)
         exit()
+
+    elif fala == 'tudo bem' or fala == 'Tudo bem':
+        resposta = 'Estou sim'
+        print(resposta)
+        vozIA(resposta)
 
 #Iniciar ----------------------------------------------------------
 while True:
