@@ -10,6 +10,8 @@ const novaPesquisaController = require('./src/controllers/novaPesquisaController
 const novaReviewController = require('./src/controllers/novaReviewController');
 const notificacoesController = require('./src/controllers/notificacoesController');
 const salvosController = require('./src/controllers/salvosController');
+const reviewController = require('./src/controllers/reviewController');
+const pesquisaController = require('./src/controllers/pesquisaController');
 
 // CADASTRO
     // GET
@@ -59,6 +61,14 @@ const salvosController = require('./src/controllers/salvosController');
 // SALVOS
     // GET
         route.get('/salvos', salvosController.salvos)
+
+// REVIEW
+    // GET
+        route.get('/review', reviewController.review)
+
+// PESQUISA
+    // GET
+        route.get('/pesquisa', pesquisaController.pesquisa)
 
 // 404
     route.use((req, res) => res.status(404).render('404.ejs'))
