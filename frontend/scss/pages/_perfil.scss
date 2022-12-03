@@ -25,6 +25,9 @@
 
             &__img {
                 border-radius: 9999px;
+
+                object-fit: cover;
+                height: 15rem;
                 width: 15rem;
 
                 margin-bottom: 25px

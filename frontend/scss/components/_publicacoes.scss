@@ -119,6 +119,9 @@
             @include flex-container(row, flex-start, center);
             &__foto-perfil {
                 border-radius: 999px;
+
+                object-fit: cover;
+                height: 5rem;
                 width: 5rem;
 
                 margin-right: 20px;
@@ -343,6 +346,9 @@
 
                 &__img {
                     border-radius: 999px;
+
+                    object-fit: cover;
+                    height: 4rem;
                     width: 4rem;
 
                     margin-right: 10px;
