@@ -40,7 +40,9 @@
 
                 margin-right: calc(var(--distancia-vertical) * 2);
 
-                width: 5rem
+                object-fit: cover;
+                height: 5rem;
+                width: 5rem;
             }
 
             &__icone {

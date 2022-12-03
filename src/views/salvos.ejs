@@ -12,44 +12,7 @@
     </head>
     <body>
         <div class="container">
-            <nav class="menu">
-                <img src="../midias/imagens/isologo.png" alt="Logo da plataforma" class="menu__isologo">
-
-                <ul class="menu__lista">
-                    <li class="menu__lista__item-lista">
-                        <svg class="icon menu__lista__item-lista__icone atual">
-                            <use xlink:href="../midias/icones/lattes.svg#lattes"></use>
-                        </svg>
-                        <a href="perfil.ejs" class="menu__lista__item-lista__link">Página Inicial</a>
-                    </li>
-                    <li class="menu__lista__item-lista">
-                        <svg class="icon menu__lista__item-lista__icone">
-                            <use xlink:href="../midias/icones/lattes.svg#lattes"></use>
-                        </svg>
-                        <a href="perfil.ejs" class="menu__lista__item-lista__link">Explorar</a>
-                    </li>
-                    <li class="menu__lista__item-lista">
-                        <svg class="icon menu__lista__item-lista__icone">
-                            <use xlink:href="../midias/icones/lattes.svg#lattes"></use>
-                        </svg>
-                        <a href="perfil.ejs" class="menu__lista__item-lista__link">Notificações</a>
-                    </li>
-                    <li class="menu__lista__item-lista">
-                        <svg class="icon menu__lista__item-lista__icone">
-                            <use xlink:href="../midias/icones/lattes.svg#lattes"></use>
-                        </svg>
-                        <a href="perfil.ejs" class="menu__lista__item-lista__link">Mensagens</a>
-                    </li>
-                    <li class="menu__lista__item-lista">
-                        <svg class="icon menu__lista__item-lista__icone">
-                            <use xlink:href="../midias/icones/lattes.svg#lattes"></use>
-                      </svg>
-                        <a href="perfil.ejs" class="menu__lista__item-lista__link">Itens Salvos</a>
-                    </li>
-                </ul>
-                
-                <button class="menu__botao">Criar Post</button>
-            </nav>
+            <%- include('components/menu.ejs'); %>
 
             <main class="salvos">
                 <div class="salvos__salvo" tipo-publicacao="discussao">
@@ -90,55 +53,7 @@
                 </div>
             </main>
 
-            <div class="menu-secundario">
-                <div class="menu-secundario__sugestoes">
-                    <div class="menu-secundario__sugestoes__titulo">Pessoas que você talvez conheça</div>
-                    <div class="menu-secundario__sugestoes__sugestao">
-                        <div class="menu-secundario__sugestoes__sugestao__pessoa">
-                            <div class="menu-secundario__sugestoes__sugestao__pessoa__bloco-um">
-                                <img src="../midias/imagens/foto-perfil-padrao.jpg" alt="" class="menu-secundario__sugestoes__sugestao__pessoa__bloco-um__foto-perfil">
-                                <span class="menu-secundario__sugestoes__sugestao__pessoa__bloco-um__nome">Nome provisório</span>
-                            </div>
-                            <div class="menu-secundario__sugestoes__sugestao__pessoa__bloco-dois">
-                                <span class="menu-secundario__sugestoes__sugestao__pessoa__bloco-dois__seguir">Seguir</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="menu-secundario__sugestoes__sugestao">
-                        <div class="menu-secundario__sugestoes__sugestao__pessoa">
-                            <div class="menu-secundario__sugestoes__sugestao__pessoa__bloco-um">
-                                <img src="../midias/imagens/foto-perfil-padrao.jpg" alt="" class="menu-secundario__sugestoes__sugestao__pessoa__bloco-um__foto-perfil">
-                                <span class="menu-secundario__sugestoes__sugestao__pessoa__bloco-um__nome">Nome provisório</span>
-                            </div>
-                            <div class="menu-secundario__sugestoes__sugestao__pessoa__bloco-dois">
-                                <span class="menu-secundario__sugestoes__sugestao__pessoa__bloco-dois__seguir">Seguir</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="menu-secundario__sugestoes__sugestao">
-                        <div class="menu-secundario__sugestoes__sugestao__pessoa">
-                            <div class="menu-secundario__sugestoes__sugestao__pessoa__bloco-um">
-                                <img src="../midias/imagens/foto-perfil-padrao.jpg" alt="" class="menu-secundario__sugestoes__sugestao__pessoa__bloco-um__foto-perfil">
-                                <span class="menu-secundario__sugestoes__sugestao__pessoa__bloco-um__nome">Nome provisório</span>
-                            </div>
-                            <div class="menu-secundario__sugestoes__sugestao__pessoa__bloco-dois">
-                                <span class="menu-secundario__sugestoes__sugestao__pessoa__bloco-dois__seguir">Seguir</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="menu-secundario__sugestoes__sugestao">
-                        <div class="menu-secundario__sugestoes__sugestao__pessoa">
-                            <div class="menu-secundario__sugestoes__sugestao__pessoa__bloco-um">
-                                <img src="../midias/imagens/foto-perfil-padrao.jpg" alt="" class="menu-secundario__sugestoes__sugestao__pessoa__bloco-um__foto-perfil">
-                                <span class="menu-secundario__sugestoes__sugestao__pessoa__bloco-um__nome">Nome provisório</span>
-                            </div>
-                            <div class="menu-secundario__sugestoes__sugestao__pessoa__bloco-dois">
-                                <span class="menu-secundario__sugestoes__sugestao__pessoa__bloco-dois__seguir">Seguir</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <%- include('components/menu-secundario.ejs'); %>
         </div>
     </body>
 </html>

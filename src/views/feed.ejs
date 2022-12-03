@@ -1,56 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
     <head>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Feed</title>
 
-        <link rel="icon" type="image/png" sizes="16x16" href="../midias/imagens/favicon.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="midias/imagens/favicon.png">
 
-        <link rel="stylesheet" href="../css/feed.css">
+        <link rel="stylesheet" href="css/feed.css">
     </head>
     <body>
         <div class="container">
-            <nav class="menu">
-                <img src="../midias/imagens/isologo.png" alt="Logo da plataforma" class="menu__isologo">
-
-                <ul class="menu__lista">
-                    <li class="menu__lista__item-lista">
-                        <svg class="icon menu__lista__item-lista__icone atual">
-                            <use xlink:href="../midias/icones/lattes.svg#lattes"></use>
-                        </svg>
-                        <a href="perfil.ejs" class="menu__lista__item-lista__link">Página Inicial</a>
-                    </li>
-                    <li class="menu__lista__item-lista">
-                        <svg class="icon menu__lista__item-lista__icone">
-                            <use xlink:href="../midias/icones/lattes.svg#lattes"></use>
-                        </svg>
-                        <a href="perfil.ejs" class="menu__lista__item-lista__link">Explorar</a>
-                    </li>
-                    <li class="menu__lista__item-lista">
-                        <svg class="icon menu__lista__item-lista__icone">
-                            <use xlink:href="../midias/icones/lattes.svg#lattes"></use>
-                        </svg>
-                        <a href="perfil.ejs" class="menu__lista__item-lista__link">Notificações</a>
-                    </li>
-                    <li class="menu__lista__item-lista">
-                        <svg class="icon menu__lista__item-lista__icone">
-                            <use xlink:href="../midias/icones/lattes.svg#lattes"></use>
-                        </svg>
-                        <a href="perfil.ejs" class="menu__lista__item-lista__link">Mensagens</a>
-                    </li>
-                    <li class="menu__lista__item-lista">
-                        <svg class="icon menu__lista__item-lista__icone">
-                            <use xlink:href="../midias/icones/lattes.svg#lattes"></use>
-                      </svg>
-                        <a href="perfil.ejs" class="menu__lista__item-lista__link">Itens Salvos</a>
-                    </li>
-                </ul>
-                
-                <button class="menu__botao">Criar Post</button>
-            </nav>
-
+            <%- include('components/menu.ejs'); %>
+            
             <main class="feed">
                 <form method="get" action="" class="feed__barrinha-de-pesquisa">
                     <input type="search" class="feed__barrinha-de-pesquisa__input" placeholder="O que você está procurando?" name="pesquisa" id="pesquisa">
@@ -67,7 +30,7 @@
                     <div class="publicacao" tipo="discussao" tem-imagem="nao" imagem-e-escura="nao">
                         <div class="publicacao__topo">
                             <div class="publicacao__topo__informacoes-usuario">
-                                <img src="../midias/imagens/foto-perfil-padrao.jpg" alt="" class="publicacao__topo__informacoes-usuario__foto-perfil">
+                                <img src="midias/imagens/foto-perfil-padrao.jpg" alt="" class="publicacao__topo__informacoes-usuario__foto-perfil">
                                 <a href="/perfil?id=1" class="publicacao__topo__informacoes-usuario__nome">Lucas Barccinela</a>
                                 <span class="publicacao__topo__informacoes-usuario__seguir">Seguir</span>
                             </div>
@@ -98,7 +61,7 @@
                         <div class="publicacao__informacoes">
                             <div class="publicacao__informacoes__curtidas">
                                 <svg class="icon publicacao__informacoes__curtidas__icone">
-                                    <use xlink:href="../midias/icones/lattes.svg#lattes"></use>
+                                    <use xlink:href="midias/icones/lattes.svg#lattes"></use>
                                 </svg>
 
                                 <div class="publicacao__informacoes__curtidas__informacao">
@@ -113,16 +76,16 @@
                         </div>
                         <div class="publicacao__interacoes">
                             <svg class="icon publicacao__interacoes__interacao">
-                                <use xlink:href="../midias/icones/lattes.svg#lattes"></use>
+                                <use xlink:href="midias/icones/lattes.svg#lattes"></use>
                             </svg>
                             <svg class="icon publicacao__interacoes__interacao">
-                                <use xlink:href="../midias/icones/lattes.svg#lattes"></use>
+                                <use xlink:href="midias/icones/lattes.svg#lattes"></use>
                             </svg>
                             <svg class="icon publicacao__interacoes__interacao">
-                                <use xlink:href="../midias/icones/lattes.svg#lattes"></use>
+                                <use xlink:href="midias/icones/lattes.svg#lattes"></use>
                             </svg>
                             <svg class="icon publicacao__interacoes__interacao">
-                                <use xlink:href="../midias/icones/lattes.svg#lattes"></use>
+                                <use xlink:href="midias/icones/lattes.svg#lattes"></use>
                             </svg>
                         </div>
 
@@ -139,13 +102,13 @@
                                 <textarea class="publicacao__comentarios__novoComentario__input" placeholder="Adicionar comentário"></textarea>
 
                                 <svg class="publicacao__comentarios__novoComentario__iconeEmoji">
-                                    <use xlink:href="../midias/icones/lattes.svg#lattes"></use>
+                                    <use xlink:href="midias/icones/lattes.svg#lattes"></use>
                                 </svg>
                             </div>
 
                             <div class="publicacao__comentarios__comentarios">
                                 <div class="publicacao__comentarios__comentarios__comentario">
-                                    <img src="../midias/imagens/foto-perfil-padrao.jpg" alt="" class="publicacao__comentarios__comentarios__comentario__img">
+                                    <img src="midias/imagens/foto-perfil-padrao.jpg" alt="" class="publicacao__comentarios__comentarios__comentario__img">
                                     <div class="publicacao__comentarios__comentarios__comentario__conteudo">
                                         <span class="publicacao__comentarios__comentarios__comentario__conteudo__nomeAutor">
                                             Bruna Gabrielli
@@ -155,7 +118,7 @@
                                         </span>
                                     </div>
                                     <svg class="icon publicacao__comentarios__comentarios__comentario__estrelinha">
-                                        <use xlink:href="../midias/icones/lattes.svg#lattes"></use>
+                                        <use xlink:href="midias/icones/lattes.svg#lattes"></use>
                                     </svg>
                                 </div>
                             </div>
@@ -165,7 +128,7 @@
                     <div class="publicacao" tipo="pesquisa" tem-imagem="sim" imagem-e-escura="nao">
                         <div class="publicacao__topo">
                             <div class="publicacao__topo__informacoes-usuario">
-                                <img src="../midias/imagens/foto-perfil-padrao.jpg" alt="" class="publicacao__topo__informacoes-usuario__foto-perfil">
+                                <img src="midias/imagens/foto-perfil-padrao.jpg" alt="" class="publicacao__topo__informacoes-usuario__foto-perfil">
                                 <a href="/perfil?id=1" class="publicacao__topo__informacoes-usuario__nome">Lucas Barccinela</a>
                                 <span class="publicacao__topo__informacoes-usuario__seguir">Seguir</span>
                             </div>
@@ -175,7 +138,7 @@
                                 <div class="tres-pontinhos__pontinho"></div>
                             </div>
                         </div>
-                        <a href="/discussao?id=1" class="publicacao__previa" style="background-image: url('../midias/imagens/publicacao-2.jpg')">
+                        <a href="/pesquisa?id=1" class="publicacao__previa" style="background-image: url('midias/imagens/publicacao-2.jpg')">
                             <div class="publicacao__previa__container">
                                 <div class="publicacao__previa__container__informacoes">
                                     <div class="publicacao__previa__container__informacoes__tipo" tipo="discussao">
@@ -196,7 +159,7 @@
                         <div class="publicacao__informacoes">
                             <div class="publicacao__informacoes__curtidas">
                                 <svg class="icon publicacao__informacoes__curtidas__icone">
-                                    <use xlink:href="../midias/icones/lattes.svg#lattes"></use>
+                                    <use xlink:href="midias/icones/lattes.svg#lattes"></use>
                                 </svg>
 
                                 <div class="publicacao__informacoes__curtidas__informacao">
@@ -211,16 +174,16 @@
                         </div>
                         <div class="publicacao__interacoes">
                             <svg class="icon publicacao__interacoes__interacao">
-                                <use xlink:href="../midias/icones/lattes.svg#lattes"></use>
+                                <use xlink:href="midias/icones/lattes.svg#lattes"></use>
                             </svg>
                             <svg class="icon publicacao__interacoes__interacao">
-                                <use xlink:href="../midias/icones/lattes.svg#lattes"></use>
+                                <use xlink:href="midias/icones/lattes.svg#lattes"></use>
                             </svg>
                             <svg class="icon publicacao__interacoes__interacao">
-                                <use xlink:href="../midias/icones/lattes.svg#lattes"></use>
+                                <use xlink:href="midias/icones/lattes.svg#lattes"></use>
                             </svg>
                             <svg class="icon publicacao__interacoes__interacao">
-                                <use xlink:href="../midias/icones/lattes.svg#lattes"></use>
+                                <use xlink:href="midias/icones/lattes.svg#lattes"></use>
                             </svg>
                         </div>
 
@@ -237,13 +200,13 @@
                                 <textarea class="publicacao__comentarios__novoComentario__input" placeholder="Adicionar comentário"></textarea>
 
                                 <svg class="publicacao__comentarios__novoComentario__iconeEmoji">
-                                    <use xlink:href="../midias/icones/lattes.svg#lattes"></use>
+                                    <use xlink:href="midias/icones/lattes.svg#lattes"></use>
                                 </svg>
                             </div>
 
                             <div class="publicacao__comentarios__comentarios">
                                 <div class="publicacao__comentarios__comentarios__comentario">
-                                    <img src="../midias/imagens/foto-perfil-padrao.jpg" alt="" class="publicacao__comentarios__comentarios__comentario__img">
+                                    <img src="midias/imagens/foto-perfil-padrao.jpg" alt="" class="publicacao__comentarios__comentarios__comentario__img">
                                     <div class="publicacao__comentarios__comentarios__comentario__conteudo">
                                         <span class="publicacao__comentarios__comentarios__comentario__conteudo__nomeAutor">
                                             Bruna Gabrielli
@@ -253,7 +216,7 @@
                                         </span>
                                     </div>
                                     <svg class="icon publicacao__comentarios__comentarios__comentario__estrelinha">
-                                        <use xlink:href="../midias/icones/lattes.svg#lattes"></use>
+                                        <use xlink:href="midias/icones/lattes.svg#lattes"></use>
                                     </svg>
                                 </div>
                             </div>
@@ -263,7 +226,7 @@
                     <div class="publicacao" tipo="review" tem-imagem="sim" imagem-e-escura="sim">
                         <div class="publicacao__topo">
                             <div class="publicacao__topo__informacoes-usuario">
-                                <img src="../midias/imagens/foto-perfil-padrao.jpg" alt="" class="publicacao__topo__informacoes-usuario__foto-perfil">
+                                <img src="midias/imagens/foto-perfil-padrao.jpg" alt="" class="publicacao__topo__informacoes-usuario__foto-perfil">
                                 <a href="/perfil?id=1" class="publicacao__topo__informacoes-usuario__nome">Lucas Barccinela</a>
                                 <span class="publicacao__topo__informacoes-usuario__seguir">Seguir</span>
                             </div>
@@ -273,7 +236,7 @@
                                 <div class="tres-pontinhos__pontinho"></div>
                             </div>
                         </div>
-                        <a href="/discussao?id=1" class="publicacao__previa" style="background-image: url('../midias/imagens/publicacao-1.jpg')">
+                        <a href="/review?id=1" class="publicacao__previa" style="background-image: url('midias/imagens/publicacao-1.jpg')">
                             <div class="publicacao__previa__container">
                                 <div class="publicacao__previa__container__informacoes">
                                     <div class="publicacao__previa__container__informacoes__tipo" tipo="discussao">
@@ -294,7 +257,7 @@
                         <div class="publicacao__informacoes">
                             <div class="publicacao__informacoes__curtidas">
                                 <svg class="icon publicacao__informacoes__curtidas__icone">
-                                    <use xlink:href="../midias/icones/lattes.svg#lattes"></use>
+                                    <use xlink:href="midias/icones/lattes.svg#lattes"></use>
                                 </svg>
 
                                 <div class="publicacao__informacoes__curtidas__informacao">
@@ -309,16 +272,16 @@
                         </div>
                         <div class="publicacao__interacoes">
                             <svg class="icon publicacao__interacoes__interacao">
-                                <use xlink:href="../midias/icones/lattes.svg#lattes"></use>
+                                <use xlink:href="midias/icones/lattes.svg#lattes"></use>
                             </svg>
                             <svg class="icon publicacao__interacoes__interacao">
-                                <use xlink:href="../midias/icones/lattes.svg#lattes"></use>
+                                <use xlink:href="midias/icones/lattes.svg#lattes"></use>
                             </svg>
                             <svg class="icon publicacao__interacoes__interacao">
-                                <use xlink:href="../midias/icones/lattes.svg#lattes"></use>
+                                <use xlink:href="midias/icones/lattes.svg#lattes"></use>
                             </svg>
                             <svg class="icon publicacao__interacoes__interacao">
-                                <use xlink:href="../midias/icones/lattes.svg#lattes"></use>
+                                <use xlink:href="midias/icones/lattes.svg#lattes"></use>
                             </svg>
                         </div>
 
@@ -335,13 +298,13 @@
                                 <textarea class="publicacao__comentarios__novoComentario__input" placeholder="Adicionar comentário"></textarea>
 
                                 <svg class="publicacao__comentarios__novoComentario__iconeEmoji">
-                                    <use xlink:href="../midias/icones/lattes.svg#lattes"></use>
+                                    <use xlink:href="midias/icones/lattes.svg#lattes"></use>
                                 </svg>
                             </div>
 
                             <div class="publicacao__comentarios__comentarios">
                                 <div class="publicacao__comentarios__comentarios__comentario">
-                                    <img src="../midias/imagens/foto-perfil-padrao.jpg" alt="" class="publicacao__comentarios__comentarios__comentario__img">
+                                    <img src="midias/imagens/foto-perfil-padrao.jpg" alt="" class="publicacao__comentarios__comentarios__comentario__img">
                                     <div class="publicacao__comentarios__comentarios__comentario__conteudo">
                                         <span class="publicacao__comentarios__comentarios__comentario__conteudo__nomeAutor">
                                             Bruna Gabrielli
@@ -351,7 +314,7 @@
                                         </span>
                                     </div>
                                     <svg class="icon publicacao__comentarios__comentarios__comentario__estrelinha">
-                                        <use xlink:href="../midias/icones/lattes.svg#lattes"></use>
+                                        <use xlink:href="midias/icones/lattes.svg#lattes"></use>
                                     </svg>
                                 </div>
                             </div>
@@ -360,55 +323,7 @@
                 </div>
             </main>
 
-            <div class="menu-secundario">
-                <div class="menu-secundario__sugestoes">
-                    <div class="menu-secundario__sugestoes__titulo">Pessoas que você talvez conheça</div>
-                    <div class="menu-secundario__sugestoes__sugestao">
-                        <div class="menu-secundario__sugestoes__sugestao__pessoa">
-                            <div class="menu-secundario__sugestoes__sugestao__pessoa__bloco-um">
-                                <img src="../midias/imagens/foto-perfil-padrao.jpg" alt="" class="menu-secundario__sugestoes__sugestao__pessoa__bloco-um__foto-perfil">
-                                <span class="menu-secundario__sugestoes__sugestao__pessoa__bloco-um__nome">Nome provisório</span>
-                            </div>
-                            <div class="menu-secundario__sugestoes__sugestao__pessoa__bloco-dois">
-                                <span class="menu-secundario__sugestoes__sugestao__pessoa__bloco-dois__seguir">Seguir</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="menu-secundario__sugestoes__sugestao">
-                        <div class="menu-secundario__sugestoes__sugestao__pessoa">
-                            <div class="menu-secundario__sugestoes__sugestao__pessoa__bloco-um">
-                                <img src="../midias/imagens/foto-perfil-padrao.jpg" alt="" class="menu-secundario__sugestoes__sugestao__pessoa__bloco-um__foto-perfil">
-                                <span class="menu-secundario__sugestoes__sugestao__pessoa__bloco-um__nome">Nome provisório</span>
-                            </div>
-                            <div class="menu-secundario__sugestoes__sugestao__pessoa__bloco-dois">
-                                <span class="menu-secundario__sugestoes__sugestao__pessoa__bloco-dois__seguir">Seguir</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="menu-secundario__sugestoes__sugestao">
-                        <div class="menu-secundario__sugestoes__sugestao__pessoa">
-                            <div class="menu-secundario__sugestoes__sugestao__pessoa__bloco-um">
-                                <img src="../midias/imagens/foto-perfil-padrao.jpg" alt="" class="menu-secundario__sugestoes__sugestao__pessoa__bloco-um__foto-perfil">
-                                <span class="menu-secundario__sugestoes__sugestao__pessoa__bloco-um__nome">Nome provisório</span>
-                            </div>
-                            <div class="menu-secundario__sugestoes__sugestao__pessoa__bloco-dois">
-                                <span class="menu-secundario__sugestoes__sugestao__pessoa__bloco-dois__seguir">Seguir</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="menu-secundario__sugestoes__sugestao">
-                        <div class="menu-secundario__sugestoes__sugestao__pessoa">
-                            <div class="menu-secundario__sugestoes__sugestao__pessoa__bloco-um">
-                                <img src="../midias/imagens/foto-perfil-padrao.jpg" alt="" class="menu-secundario__sugestoes__sugestao__pessoa__bloco-um__foto-perfil">
-                                <span class="menu-secundario__sugestoes__sugestao__pessoa__bloco-um__nome">Nome provisório</span>
-                            </div>
-                            <div class="menu-secundario__sugestoes__sugestao__pessoa__bloco-dois">
-                                <span class="menu-secundario__sugestoes__sugestao__pessoa__bloco-dois__seguir">Seguir</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <%- include('components/menu-secundario.ejs'); %>
         </div>
     </body>
 </html>

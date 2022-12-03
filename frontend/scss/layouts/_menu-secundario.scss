@@ -11,19 +11,19 @@
 
     @include flex-container(column, flex-start, center);
 
+    &__titulo {
+        font-size: 1.7rem;
+        font-family: 'Lato Semibold';
+
+        height: 4.5rem;
+
+        margin-bottom: 50px;
+
+        text-align: center;
+    }
+
     &__sugestoes {
         width: 75%;
-        
-        &__titulo {
-            font-size: 1.7rem;
-            font-family: 'Lato Semibold';
-
-            height: 4.5rem;
-
-            margin-bottom: 50px;
-
-            text-align: center;
-        }
         
         &__sugestao {
             &:not(:last-of-type) {
