@@ -1,0 +1,106 @@
+.review {
+    &__header {
+        margin-bottom: calc(var(--distancia-vertical) * 2);
+
+        position: relative;
+
+        // &::before {
+        //     content: "";
+
+        //     background-color: black;
+
+        //     height: 1px;
+        //     width: calc(100% + (var(--distancia-vertical) * 2));
+
+        //     position: absolute;
+        //     left: calc(-1 * var(--distancia-vertical));
+        //     bottom: 0;
+        // }
+
+        &__voltar {
+            @include flex-container(row, flex-start, center);
+            margin-bottom: calc(var(--distancia-vertical) * 2);
+
+            &__setinha {
+                height: 1.5rem;
+                width:  1.5rem;
+
+                border-left: 1px solid var(--cor-principal);
+                border-bottom: 1px solid var(--cor-principal);
+
+                transform: rotateZ(45deg) translateX(5px) translateY(-5px);
+            }
+
+            &__texto {
+                color: var(--cor-principal);
+
+                font-size: 1.6rem;
+
+                margin-left: 10px;
+            }
+        }
+        
+        &__autor-e-data {
+            // color: var(--cor-cinza);
+            font-size: 1.6rem;
+
+            margin-bottom: var(--distancia-vertical);
+
+            &__autor {
+
+            }
+
+            &__data {
+
+            }
+        }
+
+        &__titulo {
+            font-size: 3.5rem;
+            font-weight: bold;
+
+            margin-bottom: var(--distancia-vertical);
+        }
+        
+        &__descricao {
+            font-size: 1.6rem;
+
+            text-align: justify;
+        }
+
+        &__respostas {
+            @include flex-container(row, flex-start, center);
+
+            color: var(--cor-principal);
+
+            font-size: 1.6rem;
+
+            &__numero {
+                margin-right: 5px;
+            }
+        }
+    }
+
+    &__conteudo {
+        width: 100%;
+
+        &__img-principal {
+            border-radius: 4px;
+
+            object-fit: cover;
+
+            height: 30rem;
+            width: 100%;
+
+            margin-bottom: calc(var(--distancia-vertical) * 2);
+        }
+
+        &__descricao {
+            font-size: 1.6rem;
+            
+            p:not(:last-of-type) {
+                margin-bottom: var(--distancia-vertical);
+            }
+        }
+    }
+}

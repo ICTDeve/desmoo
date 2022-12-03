@@ -1,0 +1,51 @@
+.tres-pontinhos {
+    @include flex-container(row, center, center);
+    // background-color: lightgrey;
+    border-radius: 999px;
+
+    cursor: pointer;
+
+    height: 4rem;
+    width:  4rem;
+
+    position: relative;
+
+    transition: ease .2s;
+
+    &::after {
+        content: "";
+
+        background-color: #d9d9d950;
+        border-radius: 9999px;
+
+        height: 4rem;
+        width:  4rem;
+
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+
+        z-index: -1;
+
+        opacity: 0;
+    }
+
+    &:hover {
+        &::after {
+            opacity: 1;
+        }
+    }
+
+    &__pontinho {
+        background-color: black;
+        border-radius: 999px;
+
+        height: .4rem;
+        width:  .4rem;
+
+        &:not(:last-of-type) {
+            margin-right: 3px;
+        }
+    }
+}

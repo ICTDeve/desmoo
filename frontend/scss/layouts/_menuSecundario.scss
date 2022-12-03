@@ -2,7 +2,7 @@
     border-left: 1px solid black;
 
     height: 100vh;
-    width: 33%;
+    width: 27.5%;
 
     padding-top: 50px;
 
@@ -13,10 +13,12 @@
 
     &__sugestoes {
         width: 75%;
-
+        
         &__titulo {
             font-size: 1.7rem;
             font-family: 'Lato Semibold';
+
+            height: 4.5rem;
 
             margin-bottom: 50px;
 
@@ -25,7 +27,7 @@
         
         &__sugestao {
             &:not(:last-of-type) {
-                margin-bottom: 10px
+                margin-bottom: calc(var(--distancia-vertical) * 2);
             }
 
             &__pessoa {
@@ -44,7 +46,7 @@
                     }
 
                     &__nome {
-                        font-size: 1.7rem;
+                        font-size: 1.8rem;
                     }
                 }
 
@@ -52,7 +54,7 @@
                     &__seguir {
                         color: var(--cor-principal);
 
-                        font-size: 1.7rem;
+                        font-size: 1.8rem;
                     }
                 }
             }

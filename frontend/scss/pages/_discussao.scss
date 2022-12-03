@@ -1,18 +1,4 @@
 .discussao {
-    @include flex-container(column, flex-start, center);
-    // background-color: lightblue;
-    // width: calc(100% / 3);
-
-    height: 100%;
-    width: 34%;
-
-    padding: 0 var(--distancia-vertical);
-    padding-top: 50px;
-
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-
     &__header {
         padding-bottom: calc(var(--distancia-vertical) * 2);
 

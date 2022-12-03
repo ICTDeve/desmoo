@@ -1,13 +1,10 @@
 .menu {
-    // background-color: lightgreen;
-
     @include flex-container(column, flex-start, center);
 
     border-right: 1px solid black;
 
     height: 100vh;
-    // width: calc(100% / 3);
-    width: 33%;
+    width: 27.5%;
     
     padding-top: 50px;
 
@@ -15,8 +12,7 @@
     top: 0;
     
     &__isologo {
-        width: 20rem;
-
+        height: 4.5rem;
         margin-bottom: 50px;
     }
 
@@ -33,8 +29,8 @@
             }
 
             &__icone {
-                height: 5rem;
-                width: 5rem;
+                height: 4rem;
+                width:  4rem;
 
                 // margin-right: var(--distancia-horizontal);
                 margin-right: 15px;
@@ -51,7 +47,7 @@
                 &:link,
                 &:visited {
                     color: black;
-                    font-size: 2rem;
+                    font-size: 1.8rem;
                     text-decoration: none;
                 }
             }

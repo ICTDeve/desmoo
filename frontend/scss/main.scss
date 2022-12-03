@@ -7,10 +7,10 @@
 @import "./base/typography";
 @import "./base/base";
 
-// @import "./components/";
+@import "./components/publicacoes";
+@import "./components/tres-pontinhos";
 
 @import "./layouts/container";
+@import "./layouts/main";
 @import "./layouts/menu";
 @import "./layouts/menuSecundario";
-
-// @import "./pages/";

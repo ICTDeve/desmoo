@@ -1,23 +1,11 @@
 .feed {
     @include flex-container(column, flex-start, center);
-    // background-color: lightblue;
-    // width: calc(100% / 3);
-
-    height: 100%;
-    width: 34%;
-
-    padding: 0 var(--distancia-vertical);
-    padding-top: 50px;
-
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
 
     &__barrinha-de-pesquisa {
         @include flex-container(row, flex-start, center);
 
         padding-left: 25px;
-        margin-bottom: var(--distancia-vertical);
+        margin-bottom: calc(var(--distancia-vertical) * 2);
 
         background-color: #d9d9d9;
         border-radius: 999px;
@@ -76,10 +64,10 @@
             }
 
             &:hover {
-                background-color: #525252;
-                border-color: #525252;
+                background-color: var(--cor-cinza);
+                border-color: var(--cor-cinza);
 
-                color: white;
+                // color: white;
             }
         }
     }
@@ -137,6 +125,9 @@
 
                 &__informacoes-usuario {
                     @include flex-container(row, flex-start, center);
+
+                    font-size: 1.6rem;
+
                     &__foto-perfil {
                         border-radius: 999px;
                         width: 5rem;
@@ -149,7 +140,7 @@
                         &:visited {
                             color: black;
 
-                            font-size: 1.7rem;
+                            // font-size: 1.7rem;
 
                             margin-right: 20px;
 
@@ -162,7 +153,7 @@
 
                         cursor: pointer;
 
-                        font-size: 1.7rem;
+                        // font-size: 1.7rem;
                     }
                 }
 
@@ -177,8 +168,6 @@
                     width:  4rem;
 
                     position: relative;
-
-                    transition: ease .2s;
 
                     &::after {
                         content: "";
@@ -197,6 +186,8 @@
                         z-index: -1;
 
                         opacity: 0;
+
+                        transition: ease .2s;
                     }
 
                     &:hover {
@@ -258,11 +249,13 @@
 
             &__informacoes {
                 @include flex-container(row, space-between, center);
+
+                font-size: 1.4rem;
+
+                margin-bottom: var(--distancia-vertical);
                 
                 &__curtidas {
                     @include flex-container(row, flex-start, center);
-
-                    margin-bottom: 10px;
 
                     &__icone {
                         height: 2rem;
@@ -274,8 +267,6 @@
                     &__informacao {
                         display: inline-block;
 
-                        font-size: 1.2rem;
-
                         &__numeroDeCurtidas {
 
                         }
@@ -284,15 +275,13 @@
 
                 &__verComentarios {
                     cursor: pointer;
-
-                    font-size: 1.2rem;
                 }
             }
 
             &__interacoes {
                 @include flex-container(row, space-between, flex-start);
 
-                margin: var(--distancia-vertical) 0;
+                margin-bottom: var(--distancia-vertical);
 
                 &__interacao {
                     height: 4rem;
@@ -304,11 +293,9 @@
                 // background-color: lightblue;
                 font-size: 1.6rem;
 
-                margin-bottom: 10px;
-
                 &__conteudo {
                     display: inline-block;
-                    height: 17px;
+                    height: 1.6rem;
                     overflow: hidden;
                 }
 
@@ -319,7 +306,13 @@
             }
 
             &__comentarios {
-                // background-color: lightgrey;
+                display: none;
+
+                margin-top: var(--distancia-vertical);
+
+                &.ativado {
+                    display: block;
+                }
 
                 &__novoComentario {
                     @include flex-container(row, space-around, center);
@@ -327,7 +320,7 @@
                     border-radius: 999px;
                     width: 100%;
 
-                    padding: 8px 0;
+                    padding: 6px 0;
 
                     margin-bottom: 10px;
 
