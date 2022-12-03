@@ -12,8 +12,17 @@
     top: 0;
     
     &__isologo {
-        height: 4.5rem;
-        margin-bottom: 50px;
+        &,
+        &:link,
+        &:visited {
+            display: inline-block;
+            height: 4.5rem;
+            margin-bottom: calc(var(--distancia-vertical) * 5);
+        }
+
+        &__img {
+            height: 100%;
+        }
     }
 
     &__lista {

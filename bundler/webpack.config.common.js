@@ -5,19 +5,20 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
     entry: {
-        bundle:         './frontend/js/bundle.js',
-        cadastro:       ['./frontend/js/cadastro.js',       './frontend/scss/cadastro.scss'],
-        feed:           ['./frontend/js/feed.js',           './frontend/scss/feed.scss'],
-        perfil:         ['./frontend/js/perfil.js',         './frontend/scss/perfil.scss'],
-        novaDiscussao:  ['./frontend/js/novaDiscussao.js',  './frontend/scss/novaDiscussao.scss'],
-        novaPesquisa:   ['./frontend/js/novaPesquisa.js',   './frontend/scss/novaPesquisa.scss'],
-        novaReview:     ['./frontend/js/novaReview.js',     './frontend/scss/novaReview.scss'],
-        notificacoes:   ['./frontend/js/notificacoes.js',   './frontend/scss/notificacoes.scss'],
-        salvos:         ['./frontend/js/salvos.js',         './frontend/scss/salvos.scss'],
-        discussao:      ['./frontend/js/discussao.js',      './frontend/scss/discussao.scss'],
-        pesquisa:       ['./frontend/js/pesquisa.js',       './frontend/scss/pesquisa.scss'],
-        review:         ['./frontend/js/review.js',         './frontend/scss/review.scss'],
-        login:          './frontend/js/login.js',
+        bundle:             './frontend/js/bundle.js',
+        cadastro:           ['./frontend/js/cadastro.js',           './frontend/scss/cadastro.scss'],
+        feed:               ['./frontend/js/feed.js',               './frontend/scss/feed.scss'],
+        perfil:             ['./frontend/js/perfil.js',             './frontend/scss/perfil.scss'],
+        novaDiscussao:      ['./frontend/js/novaDiscussao.js',      './frontend/scss/novaDiscussao.scss'],
+        novaPesquisa:       ['./frontend/js/novaPesquisa.js',       './frontend/scss/novaPesquisa.scss'],
+        novaReview:         ['./frontend/js/novaReview.js',         './frontend/scss/novaReview.scss'],
+        notificacoes:       ['./frontend/js/notificacoes.js',       './frontend/scss/notificacoes.scss'],
+        salvos:             ['./frontend/js/salvos.js',             './frontend/scss/salvos.scss'],
+        escolherTipoPost:   ['./frontend/js/escolherTipoPost.js',   './frontend/scss/escolherTipoPost.scss'],
+        discussao:          ['./frontend/js/discussao.js',          './frontend/scss/discussao.scss'],
+        pesquisa:           ['./frontend/js/pesquisa.js',           './frontend/scss/pesquisa.scss'],
+        review:             ['./frontend/js/review.js',             './frontend/scss/review.scss'],
+        login:              './frontend/js/login.js',
     },
 
     output: {

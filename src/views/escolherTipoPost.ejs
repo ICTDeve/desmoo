@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Feed</title>
+
+        <link rel="stylesheet" href="../css/escolherTipoPost.css">
+    </head>
+    <body>
+        <div class="container">
+            <%- include('components/menu.ejs'); %>
+
+            <main class="escolher-tipo-post">
+                <header class="escolher-tipo-post__header">
+                    <h1 class="escolher-tipo-post__header__titulo">Escolha o <span class="escolher-tipo-post__header__titulo__destaque">tipo</span> do post</h1>
+                    <p class="escolher-tipo-post__header__descricao">
+                        Selecione uma das opções abaixo para continuar
+                    </p>
+                </header>
+
+                <div class="escolher-tipo-post__opcoes">
+                    <a href="/novaDiscussao?id=1" class="escolher-tipo-post__opcoes__opcao escolher-tipo-post__opcoes__opcao--discussao">Discussão</a>
+                    <a href="/novaPesquisa?id=1" class="escolher-tipo-post__opcoes__opcao escolher-tipo-post__opcoes__opcao--pesquisa">Pesquisa</a>
+                    <a href="/novaReview?id=1" class="escolher-tipo-post__opcoes__opcao escolher-tipo-post__opcoes__opcao--review">Review</a>
+                </div>
+            </main>
+
+            <%- include('components/menu-secundario.ejs'); %>
+        </div>
+    </body>
+</html>
