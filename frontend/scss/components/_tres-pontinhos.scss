@@ -29,6 +29,8 @@
         z-index: -1;
 
         opacity: 0;
+
+        transition: ease .2s;
     }
 
     &:hover {

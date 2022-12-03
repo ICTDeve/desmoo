@@ -5,6 +5,7 @@ import "../midias/imagens/mascara-cadastro.png"
 import "../midias/imagens/imagem-cientifica-padrao.jpg"
 import "../midias/imagens/foto-perfil-padrao.jpg"
 import "../midias/imagens/publicacoes/publicacao-1.jpg"
+import "../midias/imagens/publicacoes/publicacao-2.jpg"
 import "../midias/imagens/favicon.png"
 
 //ÍCONES
