@@ -1,0 +1,72 @@
+.novaDiscussao {
+    &__header {
+        margin-bottom: calc(var(--distancia-vertical) * 2);
+
+        &__titulo {
+            font-size: 3.5rem;
+            margin-bottom: var(--distancia-vertical);
+
+            &__enfase {
+                color: var(--cor-discussao);
+            }
+        }
+
+        &__descricao {
+            font-size: 1.6rem;
+        }
+    }
+
+    &__form {
+        @include flex-container(column, flex-start, flex-start);
+
+        width: 100%;
+        
+        &__input {
+            display: block;
+            
+            width: 100%;
+            
+            &--area-cientifica,
+            &--titulo,
+            &--descricao {
+                border: 1px solid black;
+                border-radius: 999px;
+
+                height: 5rem;
+                font-size: 1.4rem;
+
+                margin-bottom: calc(var(--distancia-vertical));
+                padding-left: var(--distancia-vertical);
+
+                &::placeholder {
+
+                }
+            }
+            
+            &--area-cientifica {
+                cursor: pointer;
+            }
+
+            &--botao {
+                background-color: var(--cor-principal);
+                border-radius: 999px;
+                border: none;
+
+                color: white;
+                cursor: pointer;
+
+                // font-family: "Lato Semibold";
+                font-size: 1.6rem;
+
+                outline: none;
+
+                margin-top: var(--distancia-vertical);
+                padding: 10px 0;
+            }
+        }
+
+        .tox-tinymce {
+            border-radius: 0px !important;
+        }
+    }
+}

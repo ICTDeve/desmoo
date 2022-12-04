@@ -1,1 +1,64 @@
- 
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Feed</title>
+
+        <link rel="stylesheet" href="css/novaDiscussao.css">
+
+        <script src="https://cdn.tiny.cloud/1/9a511xaw07w1umjx8fwzxhfjn3l2fuaze6vd2rvwxmu8vui5/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+    </head>
+    <body>
+        <div class="container">
+            <%- include('components/menu.ejs'); %>
+
+            <main class="novaDiscussao">
+                <header class="novaDiscussao__header">
+                    <h1 class="novaDiscussao__header__titulo">Criar <span class="novaDiscussao__header__titulo__enfase">Discussão</span></h1>
+                    <p class="novaDiscussao__header__descricao">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tempora, odio magnam tempore rerum quas eligendi amet consequatur sunt necessitatibus, totam veritatis, ullam fugit ducimus accusamus fugiat quaerat deserunt perferendis alias.</p>
+                </header>
+
+                <form action="/novaDiscussao" method="post" class="novaDiscussao__form">
+                    <select name="areaCientifica" id="" class="novaDiscussao__form__input novaDiscussao__form__input--area-cientifica">
+                        <option value="Medicina">Medicina</option>
+                        <option value="Odontologia">Odontologia</option>
+                        <option value="Farmácia">Farmácia</option>
+                        <option value="Enfermagem">Enfermagem</option>
+                        <option value="Nutrição">Nutrição</option>
+                        <option value="Saúde Coletiva">Saúde Coletiva</option>
+                        <option value="Fonoaudiologia">Fonoaudiologia</option>
+                        <option value="Fisioterapia e Terapia Ocupacional">Fisioterapia e Terapia Ocupacional</option>
+                        <option value="Educação Física">Educação Física</option>
+                    </select>
+
+                    <input type="text" name="titulo" placeholder="Titulo" class="novaDiscussao__form__input novaDiscussao__form__input--titulo">
+                    <input type="text" name="descricao" placeholder="Descricao" class="novaDiscussao__form__input novaDiscussao__form__input--descricao">
+
+                    <textarea name="conteudo" class="novaDiscussao__form__input novaDiscussao__form__input--conteudo" style="width: 100%; border-radius: 0px !important;">
+                        Welcome to TinyMCE!
+                     </textarea>
+
+                     <button class="novaDiscussao__form__input novaDiscussao__form__input--botao">Criar post</button>
+                </form>
+            </main>
+
+            <%- include('components/menu-secundario.ejs'); %>
+
+            <script>
+                tinymce.init({
+                  selector: 'textarea',
+                  plugins: 'anchor autolink charmap codesample emoticons link lists media searchreplace visualblocks wordcount checklist mediaembed casechange export pageembed linkchecker a11ychecker tinymcespellchecker permanentpen powerpaste tinycomments tableofcontents footnotes mergetags autocorrect',
+                  toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table mergetags | addcomment showcomments | spellcheckdialog a11ycheck | align lineheight | checklist numlist bullist indent outdent | emoticons charmap | removeformat',
+                  tinycomments_mode: 'embedded',
+                  tinycomments_author: 'Author name',
+                  mergetags_list: [
+                    { value: 'First.Name', title: 'First Name' },
+                    { value: 'Email', title: 'Email' },
+                  ]
+                });
+              </script>
+        </div>
+    </body>
+</html>
