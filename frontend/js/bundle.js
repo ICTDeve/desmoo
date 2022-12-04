@@ -9,10 +9,15 @@ import "../midias/imagens/publicacoes/publicacao-2.jpg"
 import "../midias/imagens/favicon.png"
 
 //ÍCONES
+import "../midias/icones/casinha.svg"
+import "../midias/icones/chat.svg"
+import "../midias/icones/disquete.svg"
 import "../midias/icones/entusiasta.svg"
 import "../midias/icones/email.svg"
 import "../midias/icones/lattes.svg"
+import "../midias/icones/lupa.svg"
 import "../midias/icones/qualificado.svg"
+import "../midias/icones/sino.svg"
 
 // FONTES
 import "../midias/fontes/lato/Lato-Regular.eot"

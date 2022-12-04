@@ -45,6 +45,8 @@
             
             &--area-cientifica {
                 cursor: pointer;
+
+                overflow: hidden !important;
             }
 
             &--botao {

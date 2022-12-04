@@ -1,0 +1,11 @@
+<svg id="lupa" viewBox="0 0 55 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_671_803)">
+<path d="M27.8516 28.5054L38.4839 38.4312" stroke="black" stroke-width="2.27276" stroke-miterlimit="10" stroke-linecap="round"/>
+<path d="M7.03129 6.35382C9.76859 3.80428 13.1533 2.70166 17.0746 2.70166C20.1969 2.70496 23.2404 3.66697 25.7802 5.45344C28.32 7.2399 30.2294 9.7617 31.242 12.6669C32.2546 15.5721 32.3199 18.7158 31.4287 21.6592C30.5375 24.6027 28.7343 27.199 26.2708 29.086C23.8072 30.9729 20.8063 32.0564 17.6866 32.185C14.567 32.3137 11.4843 31.4812 8.86882 29.8037C6.25333 28.1263 4.23549 25.6875 3.0969 22.8278C1.95831 19.9681 1.75577 16.8301 2.51754 13.8517" stroke="black" stroke-width="2.27276" stroke-miterlimit="10" stroke-linecap="round"/>
+</g>
+<defs>
+<clipPath id="clip0_671_803">
+<rect fill="white" transform="translate(0.115234)"/>
+</clipPath>
+</defs>
+</svg>
