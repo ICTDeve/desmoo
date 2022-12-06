@@ -4,5 +4,7 @@ const load = require('express-load');
 load('src/models').into(app)
 
 exports.discussao = (req, res) => {
+    
+
     res.render('discussao');
 };

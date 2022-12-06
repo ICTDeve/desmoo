@@ -25,3 +25,5 @@ CREATE TABLE IF NOT EXISTS usuarios (
     UNIQUE KEY (cpf),
     UNIQUE KEY (id_lattes)
 );
+
+INSERT INTO usuarios (nome_completo, email, cpf, senha, categoria, data_cadastro) VALUES ('Victor Ribeiro Cunha', 'victorribeiro2929@gmail.com', '123', '12345678912', 'qualificado', '29/06/2022');

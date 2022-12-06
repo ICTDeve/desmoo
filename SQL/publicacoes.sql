@@ -1,3 +1,4 @@
+DROP TABLE IF EXISTS publicacoes;
 CREATE TABLE IF NOT EXISTS publicacoes (
     id INT UNSIGNED NOT NULL AUTO_INCREMENT,
     id_autor INT UNSIGNED NOT NULL,
@@ -15,3 +16,5 @@ CREATE TABLE IF NOT EXISTS publicacoes (
     PRIMARY KEY (id),
     FOREIGN KEY (id_autor) REFERENCES usuarios (id)
 );
+
+INSERT INTO publicacoes (id_autor, caminho_imagem, titulo, conteudo, data) VALUES ('1', 'midias/imagens/publicacao-1', 'Esse é o título da publicação', 'Conteúdo da publicação', '29/06/2022');
