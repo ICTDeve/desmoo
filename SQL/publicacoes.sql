@@ -2,8 +2,13 @@ CREATE TABLE IF NOT EXISTS publicacoes (
     id INT UNSIGNED NOT NULL AUTO_INCREMENT,
     id_autor INT UNSIGNED NOT NULL,
 
+<<<<<<< Updated upstream
+=======
+    caminho_imagem VARCHAR(100) DEFAULT NULL,
+>>>>>>> Stashed changes
     titulo VARCHAR(300) NOT NULL,
-    conteudo MEDIUMTEXT NOT NULL,
+    descricao VARCHAR(1000) NOT NULL,
+    conteudo MEDIUMTEXT DEFAULT NULL,
 
     -- termos / siglas,
     -- links bibliográficos
