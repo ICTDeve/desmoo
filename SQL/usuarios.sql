@@ -19,7 +19,7 @@ CREATE TABLE IF NOT EXISTS usuarios (
     
     idade INT UNSIGNED DEFAULT NULL,
 
-    verificado ENUM("sim", "não") NOT NULL,
+    verificado ENUM("sim", "não") DEFAULT "não",
 
     PRIMARY KEY (id),
     UNIQUE KEY (id_personalizavel),
@@ -28,4 +28,7 @@ CREATE TABLE IF NOT EXISTS usuarios (
     UNIQUE KEY (id_lattes)
 );
 
-INSERT INTO usuarios (nome_completo, email, cpf, senha, categoria, data_cadastro) VALUES ('Victor Ribeiro Cunha', 'victorribeiro2929@gmail.com', '123', '12345678912', 'qualificado', '29/06/2022');
+INSERT INTO usuarios (nome_completo, email, cpf, senha, categoria, data_cadastro) 
+VALUES 	('Victor Ribeiro Cunha', 'victorribeiro2929@gmail.com', '123', '12345678912', 'qualificado', '29/06/2022'),
+		('Fernanda Rocha', 'fe132@gmail.com', '321', '09876543210', 'entusiasta', '12/10/2022'),
+        ('Pedro João Lucas', 'pjc@gmail.com', '213', '56789012345', 'entusiasta', '16/11/2022');
