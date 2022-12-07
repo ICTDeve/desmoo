@@ -11,3 +11,7 @@ feed.prototype.consultarUsuarios = function(callback){
 module.exports = function(){
     return feed;
 }
+
+
+
+// SELECT id FROM usuarios ORDER BY id DESC LIMIT 1;

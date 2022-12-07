@@ -29,7 +29,7 @@
         }
     }
 
-    &[tipo="discussao"] {
+    &[categoria="discussao"] {
         .publicacao__previa {
             border-color: var(--cor-discussao);
         }
@@ -52,7 +52,7 @@
         }
     }
 
-    &[tipo="pesquisa"] {
+    &[categoria="pesquisa"] {
         .publicacao__previa {
             border-color: var(--cor-pesquisa);
         }
@@ -67,7 +67,7 @@
         }
     }
 
-    &[tipo="review"] {
+    &[categoria="review"] {
         .publicacao__previa {
             border-color: var(--cor-review);
         }

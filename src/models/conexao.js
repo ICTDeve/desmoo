@@ -4,8 +4,8 @@ function criarConexao(){
     host:'127.0.0.1',
     user: 'root',
     // password: '12345678',
-    // password: 'Esquilo79512357#',
-    password: '',
+    password: 'Esquilo79512357#',
+    // password: '',
     database: 'desmoo',
     insecureAuth: 'true',
     multipleStatements: 'true'

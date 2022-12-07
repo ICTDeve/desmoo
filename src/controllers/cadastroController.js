@@ -19,6 +19,7 @@ class Usuario {
         this.advertencias = 0
 
         this.id_personalizavel = null
+        this.id_personalizavel = null
     }
 }
 
@@ -185,17 +186,32 @@ exports.cadastrar = (req, res) => {
     const currentMonth = date.getMonth() + 1; 
 
     usuario.data_cadastro = `${today}/${currentMonth}/${currentYear}`
-
-    console.log(usuario)
-
+    
+    usuario.id_personalizavel = idPersonalizavel
+    
     const conexao = app.src.models.conexao();
     const cadastro = new app.src.models.cadastro(conexao);
+    
+    const primeiroNome = usuario.nome_completo.split(' ')
 
-    cadastro.cadastrar(usuario, function(erro, results){
-        if(erro){
+    console.log(primeiroNome)
+
+    cadastro.consultarNumeroDeNomesIguaisJaCadastrados(primeiroNome, function(erro, results){
+        if (erro) {
             console.log(erro);
-        }
-    });
+            console.log('dando erro aqui em')
+        } else {
+            let idPersonalizavel = primeiroNome + results[0].quantidade_nomes
+            console.log('o id:' + idPersonalizavel)
+            usuario.id_personalizavel = idPersonalizavel
 
+            // cadastro.cadastrar(usuario, function(erro, results){
+            //     if (erro){
+            //         console.log(erro);
+            //     } else {
+            //     }
+            // })
+        }
+    })
     res.render('cadastro_cadastrar', {usuario});
 };

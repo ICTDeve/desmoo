@@ -25,6 +25,14 @@ cadastro.prototype.verificarSeJaHaCadastro = function(dados, callback){
   )
 }
 
+cadastro.prototype.consultarIdUltimoUsuarioCadastrado = function(callback){
+  this._conexao.query('SELECT id FROM usuarios ORDER BY id DESC LIMIT 1', callback);
+}
+
+cadastro.prototype.consultarNumeroDeNomesIguaisJaCadastrados = function(primeiro_nome, callback){
+  this._conexao.query(`SELECT COUNT(nome_completo) AS quantidade_nomes FROM usuarios WHERE LOCATE(${primeiro_nome}, nome_completo)`, callback);
+}
+
 module.exports = function(){
   return cadastro;
 }

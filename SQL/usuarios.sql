@@ -19,6 +19,8 @@ CREATE TABLE IF NOT EXISTS usuarios (
     
     idade INT UNSIGNED DEFAULT NULL,
 
+	caminho_foto_perfil VARCHAR (200) DEFAULT "midias/imagens/foto-perfil-padrao.jpg",
+    caminho_banner VARCHAR (200) DEFAULT "midias/imagens/banner-padrao.jpg",
     verificado ENUM("sim", "não") DEFAULT "não",
 
     PRIMARY KEY (id),
@@ -32,3 +34,5 @@ INSERT INTO usuarios (nome_completo, email, cpf, senha, categoria, data_cadastro
 VALUES 	('Victor Ribeiro Cunha', 'victorribeiro2929@gmail.com', '123', '12345678912', 'qualificado', '29/06/2022'),
 		('Fernanda Rocha', 'fe132@gmail.com', '321', '09876543210', 'entusiasta', '12/10/2022'),
         ('Pedro João Lucas', 'pjc@gmail.com', '213', '56789012345', 'entusiasta', '16/11/2022');
+        
+SELECT * FROM usuarios;
