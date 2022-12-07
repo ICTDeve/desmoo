@@ -10,11 +10,11 @@ CREATE TABLE IF NOT EXISTS publicacoes (
     -- termos / siglas,
     -- links bibliográficos
 
-    data_inicio VARCHAR(10) NOT NULL,
-    data_fim VARCHAR(10) NOT NULL,
+
+    data_publicacao VARCHAR(10) NOT NULL,
 
     PRIMARY KEY (id),
     FOREIGN KEY (id_autor) REFERENCES usuarios (id)
 );
 
-INSERT INTO publicacoes (id_autor, caminho_imagem, titulo, conteudo, data) VALUES ('1', 'midias/imagens/publicacao-1', 'Esse é o título da publicação', 'Conteúdo da publicação', '29/06/2022');
+INSERT INTO publicacoes (id_autor, caminho_imagem, titulo, conteudo, data_publicacao) VALUES ('1', 'midias/imagens/publicacao-1', 'Esse é o título da publicação', 'Conteúdo da publicação', '29/06/2022');

@@ -19,6 +19,8 @@ CREATE TABLE IF NOT EXISTS usuarios (
     
     idade INT UNSIGNED DEFAULT NULL,
 
+    verificado ENUM("sim", "não") NOT NULL,
+
     PRIMARY KEY (id),
     UNIQUE KEY (id_personalizavel),
     UNIQUE KEY (email),
