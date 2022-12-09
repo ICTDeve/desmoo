@@ -275,13 +275,15 @@
     }
 
     &__descricao {
-        // background-color: lightblue;
-        font-size: 1.6rem;
+        @include flex-container(column, flex-start, flex-start);
 
+        font-size: 1.6rem;
+        
         &__conteudo {
             display: inline-block;
             height: 17px;
             overflow: hidden;
+            margin-right: 15px;
         }
 
         &__verMais {
@@ -292,7 +294,7 @@
 
     &__comentarios {
         margin-top: var(--distancia-vertical);
-        display: none;
+        // display: none;
 
         &.ativados {
             display: block;
@@ -342,28 +344,36 @@
 
         &__comentarios {
             &__comentario {
-                @include flex-container(row, flex-start, flex-start);
+                @include flex-container(row, space-between, flex-end);
 
-                &__img {
-                    border-radius: 999px;
+                &__bloco-esquerda {
+                    @include flex-container(row, flex-start, center);
+                    
+                    &__img {
+                        border-radius: 999px;
+                        
+                        object-fit: cover;
+                        height: 4rem;
+                        width: 4rem;
+                        
+                        margin-right: 10px;
+                    }
+                    
+                    &__conteudo {
+                        @include flex-container(column, center, flex-start);
 
-                    object-fit: cover;
-                    height: 4rem;
-                    width: 4rem;
-
-                    margin-right: 10px;
+                        padding-top: 13px;
+                        margin-right: 10px;
+                    }
                 }
-                
-                &__conteudo {
-                    padding-top: 13px;
-                    margin-right: 10px;
-                }
 
-                &__estrelinha {
-                    height: 3rem;
-                    width:  7rem;
-
-                    align-self: flex-end;
+                &__bloco-direita {
+                    &__estrelinha {
+                        height: 3rem;
+                        width:  7rem;
+    
+                        align-self: flex-end;
+                    }
                 }
             }
 

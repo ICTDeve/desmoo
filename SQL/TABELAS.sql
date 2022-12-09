@@ -4,22 +4,28 @@ USE desmoo;
 
 DROP TABLE IF EXISTS usuarios;
 CREATE TABLE IF NOT EXISTS usuarios (
-	id INT UNSIGNED NOT NULL AUTO_INCREMENT,
-    id_personalizavel VARCHAR(30) DEFAULT NULL,
+	id INT UNSIGNED NOT NULL AUTO_iNCREMENT,
+    id_personalizavel VARCHAR(30) DEFAULT NULL, -- referente a um identificador que o usuário pode personalizar e que deve ser único. Ex: usuario_123
     id_lattes VARCHAR(100) DEFAULT NULL,
+
 	nome_completo VARCHAR(50) NOT NULL,
     email VARCHAR(40) NOT NULL,
-    senha VARCHAR(40) NOT NULL,
-    idade INT UNSIGNED  DEFAULT NULL,
     cpf VARCHAR(11) NOT NULL,
+    senha VARCHAR(40) NOT NULL,
+    categoria ENUM("qualificado", "entusiasta", "admin") NOT NULL,
 
     data_cadastro VARCHAR(10) NOT NULL,
-    categoria ENUM("qualificado", "entusiasta", "admin") NOT NULL,
 
     seguidores INT UNSIGNED DEFAULT 0,
     seguindo INT UNSIGNED DEFAULT 0,
     pontos INT UNSIGNED DEFAULT 0,
     advertencias INT UNSIGNED DEFAULT 0,
+    
+    idade INT UNSIGNED DEFAULT NULL,
+
+	caminho_foto_perfil VARCHAR (200) DEFAULT "midias/imagens/foto-perfil-padrao.jpg",
+    caminho_banner VARCHAR (200) DEFAULT "midias/imagens/banner-padrao.jpg",
+    verificado ENUM("sim", "não") DEFAULT "não",
 
     PRIMARY KEY (id),
     UNIQUE KEY (id_personalizavel),
@@ -28,215 +34,74 @@ CREATE TABLE IF NOT EXISTS usuarios (
     UNIQUE KEY (id_lattes)
 );
 
-DROP TABLE IF EXISTS graduacoes;
-CREATE TABLE IF NOT EXISTS graduacoes (
-    id INT UNSIGNED NOT NULL AUTO_INCREMENT,
-    nome VARCHAR(50) NOT NULL,
+INSERT INTO usuarios (nome_completo, email, cpf, senha, categoria, data_cadastro) 
+VALUES 	('Victor Ribeiro Cunha', 'victorribeiro2929@gmail.com', '123', '12345678912', 'qualificado', '29/06/2022'),
+		('Fernanda Rocha', 'fe132@gmail.com', '321', '09876543210', 'entusiasta', '12/10/2022'),
+        ('Pedro João Lucas', 'pjc@gmail.com', '213', '56789012345', 'entusiasta', '16/11/2022');
+        
+SELECT * FROM usuarios;
 
-    PRIMARY KEY (id)
-);
-
-DROP TABLE IF EXISTS graduacoes_usuarios;
-CREATE TABLE IF NOT EXISTS graduacoes_usuarios (
-    id_graduacao INT UNSIGNED NOT NULL,
-    id_usuario INT UNSIGNED NOT NULL,
-
-    PRIMARY KEY (id_graduacao, id_usuario),
-    FOREIGN KEY (id_graduacao) REFERENCES graduacoes (id),
-    FOREIGN KEY (id_usuario) REFERENCES usuarios (id),
-    UNIQUE KEY  (id_graduacao, id_usuario)
-);
-
-DROP TABLE IF EXISTS solicitacoes;
-CREATE TABLE IF NOT EXISTS solicitacoes (
-    id INT UNSIGNED NOT NULL AUTO_INCREMENT,
-    id_usuario INT UNSIGNED NOT NULL,
-
-    PRIMARY KEY (id),
-    FOREIGN KEY (id_usuario) REFERENCES usuarios (id),
-    UNIQUE KEY (id_usuario)
-);
-
-DROP TABLE IF EXISTS areas_conhecimento;
-CREATE TABLE IF NOT EXISTS areas_conhecimento (
-    id INT UNSIGNED NOT NULL AUTO_INCREMENT,
-    nome VARCHAR(30) NOT NULL,
-
-    PRIMARY KEY (id),
-    UNIQUE KEY (nome)
-);
-
-DROP TABLE IF EXISTS subareas_conhecimento;
-CREATE TABLE IF NOT EXISTS subareas_conhecimento (
-    id INT UNSIGNED NOT NULL AUTO_INCREMENT,
-    id_area_conhecimento INT UNSIGNED NOT NULL,
-    nome VARCHAR(30) NOT NULL,
-
-    PRIMARY KEY (id),
-    FOREIGN KEY (id_area_conhecimento) REFERENCES areas_conhecimento (id),
-    UNIQUE KEY (nome)
-);
-
+DROP TABLE IF EXISTS publicacoes;
 CREATE TABLE IF NOT EXISTS publicacoes (
     id INT UNSIGNED NOT NULL AUTO_INCREMENT,
     id_autor INT UNSIGNED NOT NULL,
 
+    caminho_imagem VARCHAR(100) NOT NULL,
     titulo VARCHAR(300) NOT NULL,
+    legenda VARCHAR(1000) NOT NULL,
+    categoria ENUM("discussao", "pesquisa", "review") NOT NULL,
     conteudo MEDIUMTEXT NOT NULL,
+    
+    pontos INT UNSIGNED DEFAULT NULL,
+    
+    status ENUM("outra-categoria", "aberta", "fechada") DEFAULT "outra-categoria",
 
-    data_inicio VARCHAR(10) NOT NULL,
-    data_fim VARCHAR(10) NOT NULL,
+    tem_imagem ENUM("sim", "nao") DEFAULT "nao",
+    imagem_e_escura ENUM("sim", "nao") DEFAULT "sim",
+
+    -- termos / siglas,
+    -- links bibliográficos
+
+    data VARCHAR(10) NOT NULL,
 
     PRIMARY KEY (id),
     FOREIGN KEY (id_autor) REFERENCES usuarios (id)
 );
 
-DROP TABLE IF EXISTS pesquisas_de_campo;
-CREATE TABLE IF NOT EXISTS pesquisas_de_campo (
-    id INT UNSIGNED NOT NULL AUTO_INCREMENT,
-    id_autor INT UNSIGNED NOT NULL,
+INSERT INTO publicacoes (id_autor, caminho_imagem, categoria, titulo, conteudo, legenda, tem_imagem, imagem_e_escura, data, status)
+VALUES  ('1', 'midias/imagens/publicacao-1.jpg', 'review', 'Esse é o título da publicação', 'Conteúdo da publicação', 'Descrição', 'sim', 'sim', '29/06/2022', "outra-categoria"),
+        ('2', 'midias/imagens/publicacao-1.jpg', 'discussao', 'Esse é o título da publicação', 'Conteúdo da publicação', 'Descrição', 'sim', 'sim', '29/06/2022', "aberta"),
+        ('1', 'midias/imagens/publicacao-2.jpg', 'pesquisa', 'Esse é o título da publicação', 'Conteúdo da publicação', 'Descrição', 'sim', 'nao', '29/06/2022', "outra-categoria");
+        
+SELECT * FROM publicacoes;
 
-    titulo VARCHAR(300) NOT NULL,
-    descricao TINYTEXT NOT NULL,
-
-    data_inicio VARCHAR(10) NOT NULL,
-    data_fim VARCHAR(10) NOT NULL,
-
-    PRIMARY KEY (id),
-    FOREIGN KEY (id_autor) REFERENCES usuarios (id),
-    UNIQUE KEY (id, titulo)
-);
-
-DROP TABLE IF EXISTS perguntas_pesquisas_de_campo;
-CREATE TABLE IF NOT EXISTS perguntas_pesquisas_de_campo (
-    id INT UNSIGNED NOT NULL AUTO_INCREMENT,
-    id_pesquisa INT UNSIGNED NOT NULL,
-    
-    conteudo VARCHAR(255) NOT NULL,
-    tipo ENUM("dissertativa", "resposta unica", "multipla_escolha", "ranking") NOT NULL,
-
-    PRIMARY KEY (id),
-    UNIQUE KEY (id, conteudo)
-);
-
-DROP TABLE IF EXISTS respostas_dissertativas_pesquisas_de_campo;
-CREATE TABLE IF NOT EXISTS respostas_dissertativas_pesquisas_de_campo (
-    id INT UNSIGNED NOT NULL AUTO_INCREMENT,
-    id_pergunta INT UNSIGNED NOT NULL,
-    id_pesquisa_de_campo INT UNSIGNED NOT NULL,
-    id_usuario INT UNSIGNED NOT NULL,
-
-    conteudo TINYTEXT DEFAULT NULL,
-
-    PRIMARY KEY (id),
-    FOREIGN KEY (id_pergunta) REFERENCES perguntas_pesquisas_de_campo (id),
-    FOREIGN KEY (id_pesquisa_de_campo) REFERENCES pesquisas_de_campo (id),
-    FOREIGN KEY (id_usuario) REFERENCES usuarios (id)
-);
-
-DROP TABLE IF EXISTS respostas_unicas_pesquisas_de_campo;
-CREATE TABLE IF NOT EXISTS respostas_unicas_pesquisas_de_campo (
-    id INT UNSIGNED NOT NULL AUTO_INCREMENT,
-    id_pergunta INT UNSIGNED NOT NULL,
-    id_pesquisa_de_campo INT UNSIGNED NOT NULL,
-    id_usuario INT UNSIGNED NOT NULL,
-
-    conteudo VARCHAR(70) NOT NULL,
-    
-    PRIMARY KEY (id),
-    FOREIGN KEY (id_pergunta) REFERENCES perguntas_pesquisas_de_campo (id),
-    FOREIGN KEY (id_pesquisa_de_campo) REFERENCES pesquisas_de_campo (id),
-    FOREIGN KEY (id_usuario) REFERENCES usuarios (id)
-);
-
-DROP TABLE IF EXISTS respostas_multiplas_pesquisas_de_campo;
-CREATE TABLE IF NOT EXISTS respostas_multiplas_pesquisas_de_campo (
-    id INT UNSIGNED NOT NULL AUTO_INCREMENT,
-    id_pergunta INT UNSIGNED NOT NULL,
-    id_pesquisa_de_campo INT UNSIGNED NOT NULL,
-    id_usuario INT UNSIGNED NOT NULL,
-
-    conteudo VARCHAR(70) NOT NULL,
-    
-    PRIMARY KEY (id),
-    FOREIGN KEY (id_pergunta) REFERENCES perguntas_pesquisas_de_campo (id),
-    FOREIGN KEY (id_pesquisa_de_campo) REFERENCES pesquisas_de_campo (id),
-    FOREIGN KEY (id_usuario) REFERENCES usuarios (id)
-);
-
-DROP TABLE IF EXISTS respostas_rankeadas_pesquisas_de_campo;
-CREATE TABLE IF NOT EXISTS respostas_rankeadas_pesquisas_de_campo (
-    id INT UNSIGNED NOT NULL AUTO_INCREMENT,
-    id_pergunta INT UNSIGNED NOT NULL,
-    id_pesquisa_de_campo INT UNSIGNED NOT NULL,
-    id_usuario INT UNSIGNED NOT NULL,
-
-    numero_ranking INT UNSIGNED NOT NULL,
-    conteudo VARCHAR(70) NOT NULL,
-    
-    PRIMARY KEY (id),
-    FOREIGN KEY (id_pergunta) REFERENCES perguntas_pesquisas_de_campo (id),
-    FOREIGN KEY (id_pesquisa_de_campo) REFERENCES pesquisas_de_campo (id),
-    FOREIGN KEY (id_usuario) REFERENCES usuarios (id)
-);
-
-DROP TABLE IF EXISTS curtidas;
-CREATE TABLE IF NOT EXISTS curtidas (
-    id INT UNSIGNED NOT NULL AUTO_iNCREMENT,
-    id_publicacao INT UNSIGNED NOT NULL,
-    id_usuario INT UNSIGNED NOT NULL,
-
-    data VARCHAR(10) NOT NULL,
-
-    PRIMARY KEY (id),
-    FOREIGN KEY (id_publicacao) REFERENCES publicacoes (id),
-    FOREIGN KEY (id_usuario) REFERENCES usuarios (id)
-);
+SELECT U.id, U.caminho_foto_perfil, U.nome_completo, P.caminho_imagem, P.titulo, P.legenda, P.tem_imagem, P.imagem_e_escura FROM publicacoes P
+INNER JOIN usuarios U
+ON U.id = 1 AND U.id = P.id_autor;
 
 DROP TABLE IF EXISTS comentarios;
 CREATE TABLE IF NOT EXISTS comentarios (
-    id INT UNSIGNED NOT NULL AUTO_INCREMENT,
+    id INT UNSIGNED NOT NULL AUTO_iNCREMENT,
 	id_usuario INT UNSIGNED NOT NULL,
     id_publicacao INT UNSIGNED NOT NULL,
 
     data VARCHAR(10) NOT NULL,
-	
-    PRIMARY KEY (id),
-    FOREIGN KEY (id_usuario) REFERENCES usuarios (id),
-    FOREIGN KEY (id_publicacao) REFERENCES publicacoes (id)
-);
+    hora VARCHAR(5) NOT NULL,
 
-DROP TABLE IF EXISTS perfis;
-CREATE TABLE IF NOT EXISTS perfis (
-    id_usuario INT UNSIGNED NOT NULL,
-    descricao TINYTEXT NOT NULL,
-
-    FOREIGN KEY (id_usuario) REFERENCES usuarios (id)
-);
-
-DROP TABLE IF EXISTS pesquisas;
-CREATE TABLE IF NOT EXISTS pesquisas (
-    id INT UNSIGNED NOT NULL AUTO_INCREMENT,
-    id_usuario INT UNSIGNED NOT NULL,
-    conteudo_pesquisa VARCHAR (100) NOT NULL,
-
-    PRIMARY KEY (id),
-    FOREIGN KEY (id_usuario) REFERENCES usuarios (id)
-);
-
-DROP TABLE IF EXISTS pastas;
-CREATE TABLE IF NOT EXISTS pastas (
-    id INT UNSIGNED NOT NULL AUTO_INCREMENT,
-    id_usuario INT UNSIGNED NOT NULL,
-
-    nome VARCHAR(40) NOT NULL,
+    conteudo VARCHAR(2000) NOT NULL,
 
     PRIMARY KEY (id),
     FOREIGN KEY (id_usuario) REFERENCES usuarios (id),
-    UNIQUE KEY (id_usuario, nome)
+    FOREIGN KEY (id) REFERENCES publicacoes (id)
 );
 
-DROP TABLE IF EXISTS configuracoes;
-CREATE TABLE IF NOT EXISTS configuracoes (
-    tema ENUM("claro", "escuro") 
-);
+INSERT INTO comentarios (id_usuario, id_publicacao, data, hora, conteudo) 
+VALUES 	('2', '1', '10/10/2022', '10:45', 'Que legal!'),
+		('1', '1', '10/11/2022', '08:20', 'Realmente interessante!'),
+        ('3', '3', '10/08/2022', '09:15', 'Uau!');
+
+SELECT U.id, U.caminho_foto_perfil, U.nome_completo, C.conteudo, P.id as id_publicacao FROM comentarios C
+INNER JOIN publicacoes P
+ON C.id_publicacao = P.id
+INNER JOIN usuarios U
+ON C.id = U.id AND P.id_autor = 1;

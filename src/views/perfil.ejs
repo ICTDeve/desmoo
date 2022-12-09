@@ -93,11 +93,11 @@
 
                     <div class="perfil__sobre-e-publicacoes__publicacoes">
                         <%  for (let index = 0; index < publicacoes.length; index++) { %>
-                            <div class="publicacao" categoria=<%=publicacoes[index].categoria_publicacao%> tem-imagem=<%=publicacoes[index].tem_imagem%> imagem-e-escura=<%=publicacoes[index].imagem_e_escura%>>
+                            <div class="publicacao" categoria=<%=publicacoes[index].categoria%> tem-imagem=<%=publicacoes[index].tem_imagem%> imagem-e-escura=<%=publicacoes[index].imagem_e_escura%>>
                                 <div class="publicacao__topo">
                                     <div class="publicacao__topo__informacoes-usuario">
                                         <img src=<%=publicacoes[index].caminho_foto_perfil%> alt="" class="publicacao__topo__informacoes-usuario__foto-perfil">
-                                        <a href="/perfil?id=<%=publicacoes[index].id%>" class="publicacao__topo__informacoes-usuario__nome">
+                                        <a href="/perfil?id=<%=publicacoes[index].id_usuario%>" class="publicacao__topo__informacoes-usuario__nome">
                                             <%=publicacoes[index].nome_completo%>
                                         </a>
                                     </div>
@@ -107,14 +107,14 @@
                                         <div class="tres-pontinhos__pontinho"></div>
                                     </div>
                                 </div>
-                                <a href="/<%=publicacoes[index].categoria_publicacao%>?id=<%=publicacoes[index].id_publicacao%>" class="publicacao__previa" style="background-image: url('<%=publicacoes[index].caminho_imagem%>')">
+                                <a href="/<%=publicacoes[index].categoria%>?id=<%=publicacoes[index].id_publicacao%>" class="publicacao__previa" style="background-image: url('<%=publicacoes[index].caminho_imagem%>')">
                                     <div class="publicacao__previa__container">
                                         <div class="publicacao__previa__container__informacoes">
                                             <div class="publicacao__previa__container__informacoes__tipo" tipo="discussao">
                                                 <span class="publicacao__previa__container__informacoes__tipo__texto">
-                                                    <%  if (publicacoes[index].categoria_publicacao == 'discussao') { %>
+                                                    <%  if (publicacoes[index].categoria == 'discussao') { %>
                                                             <%= "Discussão" %>
-                                                    <%  } else if (publicacoes[index].categoria_publicacao == 'pesquisa') { %>
+                                                    <%  } else if (publicacoes[index].categoria == 'pesquisa') { %>
                                                             <%= "Pesquisa" %>
                                                     <%  } else { %>
                                                             <%= "Review" %>
@@ -122,9 +122,9 @@
                                                 </span>
                                                 <span class="publicacao__previa__container__informacoes__tipo__tracinho">-</span>
                                                 <span class="publicacao__previa__container__informacoes__tipo__status">
-                                                    <%  if (publicacoes[index].status_discussao == 'aberta') { %>
+                                                    <%  if (publicacoes[index].status == 'aberta') { %>
                                                         <%= "Aberta" %>
-                                                    <%  } else if (publicacoes[index].status_discussao == 'fechada') { %>
+                                                    <%  } else if (publicacoes[index].status == 'fechada') { %>
                                                         <%= "Fechada" %>
                                                     <%  }  %> 
                                                 </span>
@@ -137,7 +137,6 @@
                                                     </span>
                                                     Pontos
                                                 <%  }  %> 
-
                                             </div>
                                         </div>
                                         <span class="publicacao__previa__container__titulo">
@@ -179,7 +178,7 @@
         
                                 <div class="publicacao__descricao">
                                     <span class="publicacao__descricao__conteudo">
-                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis quibusdam hic eveniet perferendis modi optio quasi, corrupti officiis? Laudantium quasi quo, eius fugit qui at! Deleniti aut nulla perspiciatis fuga sunt laborum commodi amet nihil?
+                                        <%=publicacoes[index].legenda%>
                                     </span>
                                     <span class="publicacao__descricao__verMais">ver mais...</span>
                                 </div>
@@ -195,20 +194,29 @@
                                     </div>
         
                                     <div class="publicacao__comentarios__comentarios">
-                                        <div class="publicacao__comentarios__comentarios__comentario">
-                                            <img src="midias/imagens/foto-perfil-padrao.jpg" alt="" class="publicacao__comentarios__comentarios__comentario__img">
-                                            <div class="publicacao__comentarios__comentarios__comentario__conteudo">
-                                                <span class="publicacao__comentarios__comentarios__comentario__conteudo__nomeAutor">
-                                                    Bruna Gabrielli
-                                                </span>
-                                                <span class="publicacao__comentarios__comentarios__comentario__conteudo__comentario">
-                                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex maxime voluptatibus neque recusandae nihil, iure porro quae labore nesciunt reiciendis inventore iusto voluptas voluptate rerum est vero distinctio asperiores fugit.
-                                                </span>
-                                            </div>
-                                            <svg class="icon publicacao__comentarios__comentarios__comentario__estrelinha">
-                                                <use xlink:href="midias/icones/lattes.svg#lattes"></use>
-                                            </svg>
-                                        </div>
+
+                                        <%  for (let indexC = 0; indexC < comentarios.length; indexC++) { %>
+                                            <%  if (comentarios[indexC].id_publicacao == publicacoes[index].id_publicacao) { %>                                                    
+                                                    <div class="publicacao__comentarios__comentarios__comentario" >
+                                                        <a href="/perfil?id=<%=comentarios[indexC].id_usuario%>" class="publicacao__comentarios__comentarios__comentario__bloco-esquerda">
+                                                            <img src="midias/imagens/foto-perfil-padrao.jpg" alt="" class="publicacao__comentarios__comentarios__comentario__bloco-esquerda__img">
+                                                            <div class="publicacao__comentarios__comentarios__comentario__bloco-esquerda__conteudo">
+                                                                <span class="publicacao__comentarios__comentarios__comentario__conteudo__nomeAutor">
+                                                                    <%=comentarios[indexC].nome_completo%>
+                                                                </span>
+                                                                <span class="publicacao__comentarios__comentarios__comentario__conteudo__comentario">
+                                                                    <%=comentarios[indexC].conteudo%>
+                                                                </span>
+                                                            </div>
+                                                        </a>
+                                                        <div class="publicacao__comentarios__comentarios__comentario__bloco-direita">
+                                                            <svg class="icon publicacao__comentarios__comentarios__comentario__bloco-direita__estrelinha">
+                                                                <use xlink:href="midias/icones/lattes.svg#lattes"></use>
+                                                            </svg>
+                                                        </div>
+                                                    </div>
+                                            <%  }  %> 
+                                        <%  }  %>
                                     </div>
                                 </div>
                             </div>

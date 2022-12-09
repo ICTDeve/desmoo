@@ -7,6 +7,7 @@ exports.perfil = (req, res) => {
     const conexao = app.src.models.conexao();
     const perfil = new app.src.models.perfil(conexao);
 
+    let comentarios = null
     let publicacoes = null
     let usuario = null
 
@@ -23,12 +24,19 @@ exports.perfil = (req, res) => {
                     console.log(erro);
                 } else {
                     publicacoes = results
-                    console.log(publicacoes)
 
-                    res.render('perfil', {publicacoes, usuario});
+                    perfil.consultarComentarios(id, function(erro, results) {
+                        if(erro){
+                            console.log(erro);
+                        } else {
+                            comentarios = results
+                            console.log(comentarios)
+        
+                            res.render('perfil', {comentarios, publicacoes, usuario});
+                        }
+                    })
                 }
             })
         }
     })
-    
 };

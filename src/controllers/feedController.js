@@ -7,18 +7,34 @@ exports.feed = (req, res) => {
     const conexao = app.src.models.conexao();
     const feed = new app.src.models.feed(conexao);
 
+    let comentarios = null
+    let publicacoes = null
     let usuarios = null
     
     feed.consultarUsuarios(function(erro, results) {
         if(erro){
             console.log(erro);
         } else {
-            usuarios = results[0]
-            console.log(usuarios)
+            usuarios = results
+            console.log('oi')
+
+            feed.consultarPublicacoes(function(erro, results) {
+                if(erro){
+                    console.log(erro);
+                } else {
+                    publicacoes = results
+        
+                    feed.consultarComentarios(function(erro, results) {
+                        if(erro){
+                            console.log(erro);
+                        } else {
+                            comentarios = results
+                            console.log(publicacoes)
+                            res.render('feed', {comentarios, publicacoes, usuarios});
+                        }
+                    })
+                }
+            })
         }
     })
-
-    console.log(usuarios)
-
-    res.render('feed');
 };
