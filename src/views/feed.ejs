@@ -27,12 +27,8 @@
                 </div>
 
                 <div class="feed__publicacoes">
-
-
-
-
                     <%  for (let index = 0; index < publicacoes.length; index++) { %>
-                        <div class="publicacao" categoria=<%=publicacoes[index].categoria%> tem-imagem=<%=publicacoes[index].tem_imagem%> imagem-e-escura=<%=publicacoes[index].imagem_e_escura%>>
+                        <div class="publicacao" categoria=<%=publicacoes[index].categoria%> tem-imagem=<%=publicacoes[index].tem_imagem%> imagem-e-escura=<%=publicacoes[index].imagem_e_escura%> id-publicacao=<%=publicacoes[index].id_publicacao%>>
                             <div class="publicacao__topo">
                                 <div class="publicacao__topo__informacoes-usuario">
                                     <img src=<%=publicacoes[index].caminho_foto_perfil%> alt="" class="publicacao__topo__informacoes-usuario__foto-perfil">
@@ -91,12 +87,22 @@
                                     </svg>
     
                                     <div class="publicacao__informacoes__curtidas__informacao">
-                                        <span class="publicacao__informacoes__curtidas__informacao__numeroDeCurtidas">10</span>
-                                        curtiram esse post!
+                                        <span class="publicacao__informacoes__curtidas__informacao__numeroDeCurtidas">
+                                            <%  if (publicacoes[index].numero_de_curtidas != 0) {  %> 
+                                                <%=publicacoes[index].numero_de_curtidas%>
+                                            <%  }  %>
+                                        </span>
+                                        <%  if (publicacoes[index].numero_de_curtidas == 0) {  %> 
+                                            <%="Seja o primeiro a curtir isso!"%>
+                                        <%  } else if (publicacoes[index].numero_de_curtidas == 1) {  %>
+                                            <%="pessoa curtiu esse post!"%>
+                                        <%  } else { %>
+                                            <%="pessoas curtiram esse post!"%>
+                                        <%  }  %>
                                     </div>
                                 </div>
     
-                                <span class="publicacao__informacoes__verComentarios">
+                                <span class="publicacao__informacoes__verComentarios" id-publicacao=<%=publicacoes[index].id_publicacao%>>
                                     Ver comentários
                                 </span>
                             </div>
@@ -104,7 +110,7 @@
                                 <svg class="icon publicacao__interacoes__interacao">
                                     <use xlink:href="midias/icones/lattes.svg#lattes"></use>
                                 </svg>
-                                <svg class="icon publicacao__interacoes__interacao">
+                                <svg class="icon publicacao__interacoes__interacao" id="iconeComentario" id-publicacao=<%=publicacoes[index].id_publicacao%>>
                                     <use xlink:href="midias/icones/lattes.svg#lattes"></use>
                                 </svg>
                                 <svg class="icon publicacao__interacoes__interacao">
@@ -117,12 +123,12 @@
     
                             <div class="publicacao__descricao">
                                 <span class="publicacao__descricao__conteudo">
-                                    <%=publicacoes[index].legenda%>
+                                    <%=publicacoes[index].descricao%>
                                 </span>
                                 <span class="publicacao__descricao__verMais">ver mais...</span>
                             </div>
     
-                            <div class="publicacao__comentarios">
+                            <div class="publicacao__comentarios" id-publicacao=<%=publicacoes[index].id_publicacao%>>
                                 <div class="publicacao__comentarios__novoComentario">
                                     <!-- <input type="text" class="publicacao__comentarios__novoComentario__input" placeholder="Adicionar comentário"> -->
                                     <textarea class="publicacao__comentarios__novoComentario__input" placeholder="Adicionar comentário"></textarea>
@@ -469,6 +475,8 @@
             </main>
 
             <%- include('components/menu-secundario.ejs'); %>
+
+            <script src="js/feed.js"></script>
         </div>
     </body>
 </html>

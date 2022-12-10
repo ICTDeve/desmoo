@@ -15,66 +15,32 @@
             <%- include('components/menu.ejs'); %>
 
             <main class="notificacoes">
-                <div class="notificacoes__notificacao">
-                    <div class="notificacoes__notificacao__bloco-esquerda">
-                        <img src="../midias/imagens/foto-perfil-padrao.jpg" alt="Foto de perfil do usuário" class="notificacoes__notificacao__bloco-esquerda__foto-perfil">
-                        <svg class="icon notificacoes__notificacao__bloco-esquerda__icone">
-                            <use xlink:href="../midias/icones/lattes.svg#lattes"></use>
-                        </svg>
-                        <div class="notificacoes__notificacao__bloco-esquerda__conteudo">
-                            <span class="notificacoes__notificacao__bloco-esquerda__conteudo__nome-autor">Ana Vitoriana</span>
-                            <span class="notificacoes__notificacao__bloco-esquerda__conteudo__tipo-interacao">comentou</span>
-                            <span class="notificacoes__notificacao__bloco-esquerda__conteudo__seu-post">seu post</span>
-                            <span class="notificacoes__notificacao__bloco-esquerda__conteudo__comentario">"Lorem, ipsum mos nulla!"</span>
-                        </div>
 
-                    </div>
-                    <div class="tres-pontinhos">
-                        <div class="tres-pontinhos__pontinho"></div>
-                        <div class="tres-pontinhos__pontinho"></div>
-                        <div class="tres-pontinhos__pontinho"></div>
-                    </div>
-                </div>
-                <div class="notificacoes__notificacao">
-                    <div class="notificacoes__notificacao__bloco-esquerda">
-                        <img src="../midias/imagens/foto-perfil-padrao.jpg" alt="Foto de perfil do usuário" class="notificacoes__notificacao__bloco-esquerda__foto-perfil">
-                        <svg class="icon notificacoes__notificacao__bloco-esquerda__icone">
-                            <use xlink:href="../midias/icones/lattes.svg#lattes"></use>
-                        </svg>
-                        <div class="notificacoes__notificacao__bloco-esquerda__conteudo">
-                            <span class="notificacoes__notificacao__bloco-esquerda__conteudo__nome-autor">Ana Vitoriana</span>
-                            <span class="notificacoes__notificacao__bloco-esquerda__conteudo__tipo-interacao">comentou</span>
-                            <span class="notificacoes__notificacao__bloco-esquerda__conteudo__seu-post">seu post</span>
-                            <span class="notificacoes__notificacao__bloco-esquerda__conteudo__comentario">"Lorem, ipsum mos nulla!"</span>
+                <%  for (let index = 0; index < notificacoes.length; index++) { %>
+                    <div class="notificacoes__notificacao">
+                        <div class="notificacoes__notificacao__bloco-esquerda">
+                            <img src=<%=notificacoes[index].caminho_foto_perfil%> alt="Foto de perfil do usuário" class="notificacoes__notificacao__bloco-esquerda__foto-perfil">
+                            <svg class="icon notificacoes__notificacao__bloco-esquerda__icone">
+                                <use xlink:href="midias/icones/<%=notificacoes[index].categoria%>.svg#<%=notificacoes[index].categoria%>"></use>
+                            </svg>
+                            <div class="notificacoes__notificacao__bloco-esquerda__conteudo">
+                                <span class="notificacoes__notificacao__bloco-esquerda__conteudo__nome-autor">
+                                    <%=notificacoes[index].nome_completo%>
+                                </span>
+                                <span class="notificacoes__notificacao__bloco-esquerda__conteudo__tipo-interacao">
+                                    <%=notificacoes[index].categoria%>
+                                </span>
+                                <span class="notificacoes__notificacao__bloco-esquerda__conteudo__seu-post">seu post</span>
+                            </div>
+    
                         </div>
-
-                    </div>
-                    <div class="tres-pontinhos">
-                        <div class="tres-pontinhos__pontinho"></div>
-                        <div class="tres-pontinhos__pontinho"></div>
-                        <div class="tres-pontinhos__pontinho"></div>
-                    </div>
-                </div>
-                <div class="notificacoes__notificacao">
-                    <div class="notificacoes__notificacao__bloco-esquerda">
-                        <img src="../midias/imagens/foto-perfil-padrao.jpg" alt="Foto de perfil do usuário" class="notificacoes__notificacao__bloco-esquerda__foto-perfil">
-                        <svg class="icon notificacoes__notificacao__bloco-esquerda__icone">
-                            <use xlink:href="../midias/icones/lattes.svg#lattes"></use>
-                        </svg>
-                        <div class="notificacoes__notificacao__bloco-esquerda__conteudo">
-                            <span class="notificacoes__notificacao__bloco-esquerda__conteudo__nome-autor">Ana Vitoriana</span>
-                            <span class="notificacoes__notificacao__bloco-esquerda__conteudo__tipo-interacao">comentou</span>
-                            <span class="notificacoes__notificacao__bloco-esquerda__conteudo__seu-post">seu post</span>
-                            <span class="notificacoes__notificacao__bloco-esquerda__conteudo__comentario">"Lorem, ipsum mos nulla!"</span>
+                        <div class="tres-pontinhos">
+                            <div class="tres-pontinhos__pontinho"></div>
+                            <div class="tres-pontinhos__pontinho"></div>
+                            <div class="tres-pontinhos__pontinho"></div>
                         </div>
-
                     </div>
-                    <div class="tres-pontinhos">
-                        <div class="tres-pontinhos__pontinho"></div>
-                        <div class="tres-pontinhos__pontinho"></div>
-                        <div class="tres-pontinhos__pontinho"></div>
-                    </div>
-                </div>
+                <%  }  %>
             </main>
 
             <%- include('components/menu-secundario.ejs'); %>

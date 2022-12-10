@@ -48,7 +48,7 @@ CREATE TABLE IF NOT EXISTS publicacoes (
 
     caminho_imagem VARCHAR(100) NOT NULL,
     titulo VARCHAR(300) NOT NULL,
-    legenda VARCHAR(1000) NOT NULL,
+    descricao VARCHAR(1000) NOT NULL,
     categoria ENUM("discussao", "pesquisa", "review") NOT NULL,
     conteudo MEDIUMTEXT NOT NULL,
     
@@ -68,16 +68,29 @@ CREATE TABLE IF NOT EXISTS publicacoes (
     FOREIGN KEY (id_autor) REFERENCES usuarios (id)
 );
 
-INSERT INTO publicacoes (id_autor, caminho_imagem, categoria, titulo, conteudo, legenda, tem_imagem, imagem_e_escura, data, status)
-VALUES  ('1', 'midias/imagens/publicacao-1.jpg', 'review', 'Esse é o título da publicação', 'Conteúdo da publicação', 'Descrição', 'sim', 'sim', '29/06/2022', "outra-categoria"),
-        ('2', 'midias/imagens/publicacao-1.jpg', 'discussao', 'Esse é o título da publicação', 'Conteúdo da publicação', 'Descrição', 'sim', 'sim', '29/06/2022', "aberta"),
+INSERT INTO publicacoes (id_autor, caminho_imagem, categoria, titulo, conteudo, descricao, tem_imagem, imagem_e_escura, data, status)
+VALUES  ('2', 'midias/imagens/publicacao-1.jpg', 'review', 'Esse é o título da publicação', 'Conteúdo da publicação', 'Descrição', 'sim', 'sim', '29/06/2022', "outra-categoria"),
+        ('3', 'midias/imagens/publicacao-1.jpg', 'discussao', 'Esse é o título da publicação', 'Conteúdo da publicação', 'Descrição', 'sim', 'sim', '29/06/2022', "aberta"),
         ('1', 'midias/imagens/publicacao-2.jpg', 'pesquisa', 'Esse é o título da publicação', 'Conteúdo da publicação', 'Descrição', 'sim', 'nao', '29/06/2022', "outra-categoria");
         
 SELECT * FROM publicacoes;
 
-SELECT U.id, U.caminho_foto_perfil, U.nome_completo, P.caminho_imagem, P.titulo, P.legenda, P.tem_imagem, P.imagem_e_escura FROM publicacoes P
+SELECT U.id, U.caminho_foto_perfil, U.nome_completo, P.caminho_imagem, P.titulo, P.descricao, P.tem_imagem, P.imagem_e_escura FROM publicacoes P
 INNER JOIN usuarios U
 ON U.id = 1 AND U.id = P.id_autor;
+
+DROP TABLE IF EXISTS curtidas;
+CREATE TABLE IF NOT EXISTS curtidas (
+    id INT UNSIGNED NOT NULL AUTO_iNCREMENT,
+    id_publicacao INT UNSIGNED NOT NULL,
+    id_usuario INT UNSIGNED NOT NULL,
+
+    data VARCHAR(10) NOT NULL,
+
+    PRIMARY KEY (id),
+    FOREIGN KEY (id_publicacao) REFERENCES publicacoes (id),
+    FOREIGN KEY (id_usuario) REFERENCES usuarios (id)
+);
 
 DROP TABLE IF EXISTS comentarios;
 CREATE TABLE IF NOT EXISTS comentarios (
@@ -105,3 +118,39 @@ INNER JOIN publicacoes P
 ON C.id_publicacao = P.id
 INNER JOIN usuarios U
 ON C.id = U.id AND P.id_autor = 1;
+
+SELECT U.nome_completo as nome_autor, P.data, P.titulo, P.descricao, P.caminho_imagem, P.conteudo FROM publicacoes P
+INNER JOIN usuarios U
+ON P.id_autor = U.id;
+
+DROP TABLE IF EXISTS notificacoes;
+CREATE TABLE IF NOT EXISTS notificacoes (
+    id INT UNSIGNED NOT NULL AUTO_iNCREMENT,
+
+    id_destinatario INT UNSIGNED NOT NULL,
+    id_remetente INT UNSIGNED NOT NULL,
+    id_publicacao INT UNSIGNED NOT NULL,
+
+    categoria ENUM("comentario", "curtida") NOT NULL,
+
+    data VARCHAR(10) NOT NULL,
+    hora VARCHAR(8) NOT NULL,
+
+    PRIMARY KEY (id),
+    FOREIGN KEY (id_publicacao) REFERENCES publicacoes (id),
+    FOREIGN KEY (id_destinatario) REFERENCES usuarios (id),
+    FOREIGN KEY (id_remetente) REFERENCES usuarios (id)
+);
+
+INSERT INTO notificacoes (id_destinatario, id_remetente, id_publicacao, data, hora, categoria) 
+VALUES 	('2', '3', '1', '10/10/2022', "10:25", "curtida"),
+		('2', '1', '3', '10/11/2022', "08:40", "comentario"),
+        ('1', '2', '3', '10/08/2022', "12:15", "curtida");
+        
+SELECT * FROM notificacoes;
+        
+SELECT * FROM notificacoes;
+
+SELECT U.caminho_foto_perfil, U.nome_completo, N.categoria FROM notificacoes N
+INNER JOIN usuarios U
+ON N.id_usuario = U.id

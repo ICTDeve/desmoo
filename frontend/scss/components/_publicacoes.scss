@@ -240,7 +240,7 @@
         &__curtidas {
             @include flex-container(row, flex-start, center);
 
-            &__icone {
+            &__icone {                
                 height: 2rem;
                 width: 2rem;
 
@@ -271,6 +271,8 @@
         &__interacao {
             height: 4rem;
             width: 4rem;
+
+            cursor: pointer;
         }
     }
 
@@ -294,7 +296,7 @@
 
     &__comentarios {
         margin-top: var(--distancia-vertical);
-        // display: none;
+        display: none;
 
         &.ativados {
             display: block;
@@ -378,6 +380,10 @@
             }
 
             &__comentario {                        
+                &:not(:last-of-type) {
+                    margin-bottom: 5px;
+                }
+                
                 &__conteudo {
                     @include flex-container(column, flex-start, flex-start);
 

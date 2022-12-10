@@ -19,6 +19,8 @@ import "../midias/icones/lattes.svg"
 import "../midias/icones/lupa.svg"
 import "../midias/icones/qualificado.svg"
 import "../midias/icones/sino.svg"
+import "../midias/icones/comentario.svg"
+import "../midias/icones/curtida.svg"
 
 // FONTES
 import "../midias/fontes/lato/Lato-Regular.eot"

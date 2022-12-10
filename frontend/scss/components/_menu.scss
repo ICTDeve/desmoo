@@ -64,21 +64,28 @@
     }
 
     &__botao {
-        background-color: var(--cor-principal);
-        border-radius: 9999px;
-        border: none;
+        &:link,
+        &:visited {
+            @include flex-container;
 
-        cursor: pointer;
+            background-color: var(--cor-principal);
+            border-radius: 9999px;
+            border: none;
 
-        font-size: 1.8rem;
+            cursor: pointer;
 
-        height: 3rem;
-        width: 20rem;
+            font-size: 1.8rem;
 
-        transition: ease .1s;
+            height: 3rem;
+            width: 20rem;
 
-        &:hover {
-            color: white
+            transition: ease .2s;
+            
+            &:hover {
+                color: white;
+
+                transition: ease .2s;
+            }
         }
     }
 }
