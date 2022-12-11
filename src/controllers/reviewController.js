@@ -4,7 +4,6 @@ const load = require('express-load');
 load('src/models').into(app)
 
 exports.review = (req, res) => {
-
     const conexao = app.src.models.conexao();
     const review = new app.src.models.review(conexao);
 
@@ -22,5 +21,4 @@ exports.review = (req, res) => {
             res.render('review', {publicacao});
         }
     })
-
 };

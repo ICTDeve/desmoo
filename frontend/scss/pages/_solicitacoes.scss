@@ -1,0 +1,82 @@
+.solicitacoes {
+    @include flex-container(column, flex-start, flex-start);
+
+    
+    &__solicitacao {
+        @include flex-container(row, space-between, center);
+
+        padding-bottom: 10px;
+        position: relative;
+        
+        width: 100%;
+
+        &:not(:first-of-type) {
+            padding-top: 10px;
+        }
+
+        &::before {
+            content: "";
+            background-color: #999;
+
+            height: 1px;
+            width: calc(100% + (var(--distancia-vertical) * 2));
+
+            position: absolute;
+            bottom: 0;
+
+            transform: translateX(calc(-1 * var(--distancia-vertical)));
+        }
+        
+        &__bloco-esquerda {
+            @include flex-container(row, flex-start, center);
+
+            &__foto-perfil {
+                border-radius: 99999px;
+                object-fit: cover;
+                width:  4.5rem;
+                height: 4.5rem;
+
+                margin-right: 20px;
+            }
+
+            &__informacoes-usuario {
+                @include flex-container(column, flex-start, flex-start);
+
+                &__informacao {
+                    color: #999;
+                    font-size: 1.4rem;
+                    display: inline-block;
+
+                    &:not(:last-of-type) {
+                        margin-bottom: 2px;
+                    }
+
+                    &--nome {
+                        color: black;
+                        font-size: 1.6rem;
+                        font-family: "Lato semibold";
+                    }
+                }
+            }
+        }
+        
+        &__botoes {
+            @include flex-container(row, space-between, center);
+
+            &__botao {
+                border: 0px solid transparent;
+                border-radius: 9999px;
+                cursor: pointer;
+                font-family: "Lato semibold";
+                font-size: 1.4rem;
+                padding: 6px 15px;
+
+                &--aceitar {
+                    background-color: var(--cor-principal);
+                    color: white;
+                    margin-right: 10px;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Solicitacoes</title>
+
+        <link rel="icon" type="image/png" sizes="16x16" href="../midias/imagens/favicon.png">
+
+        <link rel="stylesheet" href="../css/solicitacoes.css">
+    </head>
+    <body>
+        <div class="container">
+            <%- include('components/menu.ejs'); %>
+
+            <main class="solicitacoes">
+                <%  for (let index = 0; index < solicitacoes.length; index++) { %>
+                    <form action="/respostaSolicitacao?id=<%=solicitacoes[index].id_usuario%>" id-usuario="<%=solicitacoes[index].id_usuario%>" method="post" class="solicitacoes__solicitacao">
+                        <div class="solicitacoes__solicitacao__bloco-esquerda">
+                            <img src=<%=solicitacoes[index].caminho_foto_perfil%> alt="" class="solicitacoes__solicitacao__bloco-esquerda__foto-perfil">
+
+                            <div class="solicitacoes__solicitacao__bloco-esquerda__informacoes-usuario">
+                                <span class="solicitacoes__solicitacao__bloco-esquerda__informacoes-usuario__informacao solicitacoes__solicitacao__bloco-esquerda__informacoes-usuario__informacao--nome">
+                                    <%=solicitacoes[index].nome_completo%>
+                                </span>
+                                <span class="solicitacoes__solicitacao__bloco-esquerda__informacoes-usuario__informacao ">
+                                    <%=`ID Usuário: ${solicitacoes[index].id_usuario}`%>
+                                </span>
+                                <span class="solicitacoes__solicitacao__bloco-esquerda__informacoes-usuario__informacao ">
+                                    <%=`ID Lattes: ${solicitacoes[index].id_lattes}`%>
+                                </span>
+                                <span class="solicitacoes__solicitacao__bloco-esquerda__informacoes-usuario__informacao ">
+                                    <%=`Data de solicitação: ${solicitacoes[index].data}`%>
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="solicitacoes__solicitacao__botoes">
+                            <button class="solicitacoes__solicitacao__botoes__botao solicitacoes__solicitacao__botoes__botao--aceitar" id-usuario="<%=solicitacoes[index].id_usuario%>" >Aceitar</button>
+                            <button class="solicitacoes__solicitacao__botoes__botao solicitacoes__solicitacao__botoes__botao--recusar" id-usuario="<%=solicitacoes[index].id_usuario%>" >Recusar</button>
+                        </div>
+
+                        <input type="hidden" name="situacao" id-usuario="<%=solicitacoes[index].id_usuario%>" value="">
+                    </form>
+                <%  }  %>
+            </main>
+
+            <%- include('components/menu-secundario.ejs'); %>
+        </div>
+
+        <script src="js/solicitacoes.js"></script>
+    </body>
+</html>

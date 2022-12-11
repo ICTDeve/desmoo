@@ -1,5 +1,3 @@
-
-
 function cadastro(conexao){
   this._conexao=conexao;
 }

@@ -14,7 +14,7 @@ perfil.prototype.consultarComentarios = function(id, callback){
 
 perfil.prototype.consultarPublicacoes = function(id, callback){
     this._conexao.query(`
-        SELECT U.id as id_usuario, U.caminho_foto_perfil, U.nome_completo, P.id as id_publicacao, P.caminho_imagem, P.categoria, P.titulo, P.legenda, P.status, P.tem_imagem, P.imagem_e_escura,
+        SELECT U.id as id_usuario, U.caminho_foto_perfil, U.nome_completo, P.id as id_publicacao, P.caminho_imagem, P.categoria, P.titulo, P.descricao, P.status, P.tem_imagem, P.imagem_e_escura,
             (SELECT COUNT(id)
             FROM curtidas
             WHERE curtidas.id_publicacao = P.id) as numero_de_curtidas

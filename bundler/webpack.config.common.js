@@ -18,6 +18,7 @@ module.exports = {
         discussao:          ['./frontend/js/discussao.js',          './frontend/scss/discussao.scss'],
         pesquisa:           ['./frontend/js/pesquisa.js',           './frontend/scss/pesquisa.scss'],
         review:             ['./frontend/js/review.js',             './frontend/scss/review.scss'],
+        solicitacoes:       ['./frontend/js/solicitacoes.js',       './frontend/scss/solicitacoes.scss'],
         login:              './frontend/js/login.js',
     },
 
