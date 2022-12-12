@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Explorar</title>
+
+        <link rel="icon" type="image/png" sizes="16x16" href="../midias/imagens/favicon.png">
+
+        <link rel="stylesheet" href="../css/explorar.css">
+    </head>
+    <body>
+        <div class="container">
+            <%- include('components/menu.ejs'); %>
+
+            <main class="explorar">
+                <div class="explorar__usuarios">
+                    <a href="/perfil?id=1" class="explorar__usuarios__usuario">
+                        <img src="midias/imagens/foto-perfil-padrao.jpg" alt="" class="explorar__usuarios__usuario__foto-perfil">
+                        <div class="explorar__usuarios__usuario__informacoes">
+                            <div class="explorar__usuarios__usuario__informacoes__nome-usuario">
+                                Victor Ribeiro Cunha
+                            </div>
+                            <div class="explorar__usuarios__usuario__informacoes__interesse">
+                                <span class="explorar__usuarios__usuario__informacoes__interesse__categoria">
+                                    Entusiasta:
+                                </span>
+                                <span class="explorar__usuarios__usuario__informacoes__interesse__area-cientifica">
+                                    Dentista
+                                </span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </main>
+
+            <%- include('components/menu-secundario.ejs'); %>
+        </div>
+
+        <script src="js/explorar.js"></script>
+    </body>
+</html>

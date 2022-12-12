@@ -15,7 +15,6 @@
             <%- include('components/menu.ejs'); %>
 
             <main class="notificacoes">
-
                 <%  for (let index = 0; index < notificacoes.length; index++) { %>
                     <div class="notificacoes__notificacao">
                         <div class="notificacoes__notificacao__bloco-esquerda">
@@ -28,9 +27,17 @@
                                     <%=notificacoes[index].nome_completo%>
                                 </span>
                                 <span class="notificacoes__notificacao__bloco-esquerda__conteudo__tipo-interacao">
-                                    <%=notificacoes[index].categoria%>
+                                    <%  if (notificacoes[index].categoria == 'curtida') { %>
+                                        <%= "Curtiu" %>
+                                    <%  } else if (notificacoes[index].categoria == 'comentario') { %>
+                                            <%= "Comentou" %>
+                                    <%  } else if (notificacoes[index].categoria == 'compartilhar') { %>
+                                            <%= "Compartilhou" %>
+                                    <%  } else if (notificacoes[index].categoria == 'salvar') { %>
+                                            <%= "Salvou" %>
+                                    <%  } %>
                                 </span>
-                                <span class="notificacoes__notificacao__bloco-esquerda__conteudo__seu-post">seu post</span>
+                                <span class="notificacoes__notificacao__bloco-esquerda__conteudo__seu-post">seu post!</span>
                             </div>
     
                         </div>

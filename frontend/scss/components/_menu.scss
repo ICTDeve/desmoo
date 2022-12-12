@@ -37,6 +37,15 @@
                 margin-bottom: calc(var(--distancia-vertical) * 2);
             }
 
+            &:last-of-type {
+                height: 4rem;
+
+                .menu__lista__item-lista__icone {
+                    height: 3rem;
+                    width:  4rem;
+                }
+            }
+
             &__icone {
                 height: 4rem;
                 width:  4rem;
@@ -74,7 +83,7 @@
 
             cursor: pointer;
 
-            font-size: 1.8rem;
+            font-size: 1.6rem;
 
             height: 3rem;
             width: 20rem;

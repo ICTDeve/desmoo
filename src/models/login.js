@@ -2,20 +2,10 @@ function login(conexao){
   this._conexao=conexao;
 }
 
-login.prototype.conferirCredenciais = function(dados, callback) {
+login.prototype.conferirCredenciais = function(credenciais, callback) {
   
-  this._conexao.query(
-    `SELECT  (
-      SELECT COUNT(*)
-      FROM usuarios
-      WHERE email = '${dados.email}'
-  ) AS email,
-  (
-      SELECT COUNT(*)
-      FROM   usuarios
-      WHERE senha = '${dados.senha}'
-  ) AS senha;`,
-    dados, 
+  this._conexao.query(`
+    SELECT COUNT(*) as numero_de_registros FROM usuarios WHERE email = '${credenciais.email}' AND senha = '${credenciais.senha}'`,
     callback
   )
 }

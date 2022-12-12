@@ -1,0 +1,21 @@
+.explorar {
+    &__usuarios {
+        &__usuario {
+            &__foto-perfil {
+
+            }
+
+            &__informacoes {
+                &__interesse {
+                    &__categoria {
+
+                    }
+
+                    &__area-cientifica {
+                        background-color: red;
+                    }
+                }
+            }
+        }
+    }
+}

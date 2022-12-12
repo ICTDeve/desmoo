@@ -34,14 +34,20 @@
 
                     <input type="submit" id="botaoEnvio" value="Avançar" class="tamanho-texto-comum cadastro-comum__conteudo__form__box-confirm__botao-avancar cadastro__conteudo__form__botao-avancar">
 
-                    <span class="tamanho-texto-comum cadastro__conteudo__form__login">
-                        Já tem conta? 
-                        <a href="/login" class="tamanho-texto-comum cadastro__conteudo__form__login__link">Faça login</a>
-                    </span>
+                    <a href="/cadastro" class="tamanho-texto-comum cadastro__conteudo__form__login">
+                        Ainda não tem cadastro?
+                    </a>
                 </form>
             </div>
         </div>
 
         <script src="js/cadastro.js"></script>
+
+        <script type="text/javascript">
+            const mensagem = '<%=erro.mensagem%>'
+            if (mensagem != '') {
+                alert(mensagem)
+            }
+        </script>
     </body>
 </html>

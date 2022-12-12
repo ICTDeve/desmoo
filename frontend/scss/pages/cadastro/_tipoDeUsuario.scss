@@ -17,11 +17,12 @@
                 cursor: pointer;;
 
                 height: 15rem;
+                width: 100%;
 
                 padding: 20px;
                 margin-bottom: 20px;
 
-                @include flex-container(row, space-between, center);
+                @include flex-container(row, flex-start, center);
 
                 transition: var(--transition-1);
                 
@@ -52,11 +53,14 @@
                 
                 &__descricao {
                     color: black;
+
+                    font-size: 1.4rem;
+
                     text-align: left;
 
                     &__titulo {
                         font-family: "Lato semibold";
-                        font-size: 2rem;
+                        font-size: 1.8rem;
 
                         margin-bottom: 10px;   
                         transition: var(--transition-1);

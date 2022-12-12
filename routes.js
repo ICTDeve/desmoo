@@ -14,6 +14,8 @@ const reviewController = require('./src/controllers/reviewController');
 const pesquisaController = require('./src/controllers/pesquisaController');
 const escolherTipoPostController = require('./src/controllers/escolherTipoPostController');
 const solicitacoesController = require('./src/controllers/solicitacoesController');
+const respostaSolicitacaoController = require('./src/controllers/respostaSolicitacaoController');
+const explorarController = require('./src/controllers/explorarController');
 
 // CADASTRO
     // GET
@@ -79,6 +81,14 @@ const solicitacoesController = require('./src/controllers/solicitacoesController
 // ESCOLHER TIPO PESQUISA
     // GET
         route.get('/solicitacoes', solicitacoesController.solicitacoes)
+        
+// ESCOLHER TIPO PESQUISA
+    // POST
+        route.post('/respostaSolicitacao', respostaSolicitacaoController.respostaSolicitacao)
+
+// ESCOLHER TIPO EXPLORAR
+    // GET
+        route.get('/explorar', explorarController.explorar)
 
 // 404
     route.use((req, res) => res.status(404).render('404.ejs'))

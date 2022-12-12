@@ -4,6 +4,8 @@
 
         position: relative;
 
+        width: 100%;
+        
         &::before {
             content: "";
 
@@ -84,14 +86,19 @@
     }
 
     &__respostas {
+        width: 100%;
+
         &__resposta {
             @include flex-container(column, flex-start, flex-start);
 
             margin-top: calc(var(--distancia-vertical) * 2);
 
-            padding-bottom: calc(var(--distancia-vertical) * 2);
-
+            
             position: relative;
+            
+            &:not(:last-of-type) {
+                padding-bottom: calc(var(--distancia-vertical) * 2);
+            }
 
             &::before {
                 content: "";

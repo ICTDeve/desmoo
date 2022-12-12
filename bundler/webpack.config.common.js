@@ -19,6 +19,7 @@ module.exports = {
         pesquisa:           ['./frontend/js/pesquisa.js',           './frontend/scss/pesquisa.scss'],
         review:             ['./frontend/js/review.js',             './frontend/scss/review.scss'],
         solicitacoes:       ['./frontend/js/solicitacoes.js',       './frontend/scss/solicitacoes.scss'],
+        explorar:           ['./frontend/js/explorar.js',           './frontend/scss/explorar.scss'],
         login:              './frontend/js/login.js',
     },
 

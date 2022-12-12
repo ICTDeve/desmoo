@@ -19,56 +19,51 @@
                         <span class="discussao__header__voltar__texto">Voltar</span>
                     </a>
                     <div class="discussao__header__autor-e-data">
-                        <span class="discussao__header__autor-e-data__autor">Lucas Barccinela</span>
+                        <span class="discussao__header__autor-e-data__autor">
+                            <%=publicacao.nome_autor%>
+                        </span>
                         -
-                        <span class="discussao__header__autor-e-data__data">22/10/2022</span>
+                        <span class="discussao__header__autor-e-data__data">
+                            <%=publicacao.data%>
+                        </span>
                     </div>
-                    <h1 class="discussao__header__titulo">Quais os efeitos do TDAH em autistas?</h1>
-                    <p class="discussao__header__descricao">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    <h1 class="discussao__header__titulo">
+                        <%=publicacao.titulo%>
+                    </h1>
+                    <p class="discussao__header__descricao">
+                        <%=publicacao.descricao%>
+                    </p>
                     <span class="discussao__header__respostas">
-                        <div class="discussao__header__respostas__numero">2</div>
+                        <div class="discussao__header__respostas__numero">
+                            <%=numeroDeRespostas%>
+                        </div>
                         Respostas
                     </span>
                 </header>
 
                 <div class="discussao__respostas">
-                    <div class="discussao__respostas__resposta">
-                        <a href="/perfil" class="discussao__respostas__resposta__topo">
-                            <img src="../midias/imagens/foto-perfil-padrao.jpg" alt="" class="discussao__respostas__resposta__topo__img">
-                            <span class="discussao__respostas__resposta__topo__nome-autor">Bruna Gabrielli</span>
-                        </a>
-
-                        <p class="discussao__respostas__resposta__conteudo">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                        </p>
-
-                        <div class="discussao__respostas__resposta__icones">
-                            <a href="" class="discussao__respostas__resposta__icones__icone">
-                                <svg class="icon">
-                                    <use xlink:href="../midias/icones/lattes.svg#lattes"></use>
-                                </svg>
+                    <%  for (let index = 0; index < comentariosDiscussao.length; index++) { %>
+                        <div class="discussao__respostas__resposta">
+                            <a href="/perfil" class="discussao__respostas__resposta__topo">
+                                <img src=<%=comentariosDiscussao[index].caminho_foto_perfil%> alt="" class="discussao__respostas__resposta__topo__img">
+                                <span class="discussao__respostas__resposta__topo__nome-autor">
+                                    <%=comentariosDiscussao[index].nome_completo%>
+                                </span>
                             </a>
+
+                            <p class="discussao__respostas__resposta__conteudo">
+                                <%=comentariosDiscussao[index].conteudo%>
+                            </p>
+
+                            <div class="discussao__respostas__resposta__icones">
+                                <a href="" class="discussao__respostas__resposta__icones__icone">
+                                    <svg class="icon">
+                                        <use xlink:href="../midias/icones/lattes.svg#lattes"></use>
+                                    </svg>
+                                </a>
+                            </div>
                         </div>
-                    </div>
-
-                    <div class="discussao__respostas__resposta">
-                        <a href="/perfil" class="discussao__respostas__resposta__topo">
-                            <img src="../midias/imagens/foto-perfil-padrao.jpg" alt="" class="discussao__respostas__resposta__topo__img">
-                            <span class="discussao__respostas__resposta__topo__nome-autor">Bruna Gabrielli</span>
-                        </a>
-
-                        <p class="discussao__respostas__resposta__conteudo">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                        </p>
-
-                        <div class="discussao__respostas__resposta__icones">
-                            <a href="" class="discussao__respostas__resposta__icones__icone">
-                                <svg class="icon">
-                                    <use xlink:href="../midias/icones/lattes.svg#lattes"></use>
-                                </svg>
-                            </a>
-                        </div>
-                    </div>
+                    <%  }  %> 
                 </div>
             </main>
 
