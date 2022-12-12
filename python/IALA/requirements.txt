@@ -1,4 +1,6 @@
-SpeechRecognition==3.8.1
-PyAudio==0.2.12
-vosk==0.3.44
+# Instalar requirements: pip install -r python/IALA/requirements.txt
+PyAutoGUI==0.9.53
 sounddevice==0.4.5
+wavio==0.0.7
+SpeechRecognition==3.8.1
+pyttsx3==2.90

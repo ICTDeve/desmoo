@@ -1,95 +1,107 @@
-# Arquivo Principal
+#Importando Bibliotecas necessários
+import pyautogui
+import sounddevice as sd #Gravador Voz
+import wavio as wv # Leitura e gravação de arquivo .WAV
+import speech_recognition as sr #Conversor de audio em texto
+import pyttsx3 # Fala IALA
+import webbrowser # Navegação Web
+import random
+import os
+import time
 
 
-# import speech_recognition as sr
 
-# # Criar reconhecedor
-# r=sr.Recognizer()
+# Funções ----------------------------------------------------------
 
-# # Abrir microfone para captura
-# with sr.Microphone() as source:
-#     while True:
-#         audio = r.listen(source) #Definir Microfone como fonte de audio
-#         print(r.recognize_google(audio, language='pt'))
+# Gravação voz usuário
+def gravarVoz():
+    #Definindo configurações padrão de audio (Sound Device)
+    frequenciaAudio = 48000
+    sd.default.samplerate = frequenciaAudio
+    sd.default.channels = 2
+    # sd.default.sampwidth = 2
+    duration = 5
+    
+    gravacao = sd.rec(int(duration*frequenciaAudio),)
+    print("Comece a falar!")
+    sd.wait()
+    wv.write('minhavoz.wav', gravacao, frequenciaAudio, sampwidth=2)
+    print('Ok, processando...')
 
-#!/usr/bin/env python3
+# Voz IALA
+def vozIA(fala):
+    engine = pyttsx3.init() #iniciar
+    engine.say(fala) #Conteúdo de fla
+    engine.runAndWait()
 
-import argparse
-import queue
-import sys
-import sounddevice as sd
+# Navegação Web
+def navegacaoWeb(fala):
+    print(f'debug {fala}')
+    
+    if 'Ir para' in fala:
+        pesquisa = fala.replace('Ir para', '')
+        webbrowser.open(f'https://www.google.com/search?q= {pesquisa}')
 
-from vosk import Model, KaldiRecognizer
-
-q = queue.Queue()
-
-def int_or_str(text):
-    """Helper function for argument parsing."""
-    try:
-        return int(text)
-    except ValueError:
-        return text
-
-def callback(indata, frames, time, status):
-    """This is called (from a separate thread) for each audio block."""
-    if status:
-        print(status, file=sys.stderr)
-    q.put(bytes(indata))
-
-parser = argparse.ArgumentParser(add_help=False)
-parser.add_argument(
-    "-l", "--list-devices", action="store_true",
-    help="show list of audio devices and exit")
-args, remaining = parser.parse_known_args()
-if args.list_devices:
-    print(sd.query_devices())
-    parser.exit(0)
-parser = argparse.ArgumentParser(
-    description=__doc__,
-    formatter_class=argparse.RawDescriptionHelpFormatter,
-    parents=[parser])
-parser.add_argument(
-    "-f", "--filename", type=str, metavar="FILENAME",
-    help="audio file to store recording to")
-parser.add_argument(
-    "-d", "--device", type=int_or_str,
-    help="input device (numeric ID or substring)")
-parser.add_argument(
-    "-r", "--samplerate", type=int, help="sampling rate")
-args = parser.parse_args(remaining)
-
-try:
-    if args.samplerate is None:
-        device_info = sd.query_devices(args.device, "input")
-        # soundfile expects an int, sounddevice provides a float:
-        args.samplerate = int(device_info["default_samplerate"])
-
-    model = Model(lang="pt")
-
-    if args.filename:
-        dump_fn = open(args.filename, "wb")
     else:
-        dump_fn = None
+        pesquisa = fala.replace('ir para', '')
+        webbrowser.open(f'https://www.google.com/search?q= {pesquisa}')
 
-    with sd.RawInputStream(samplerate=args.samplerate, blocksize = 8000, device=args.device,
-            dtype="int16", channels=1, callback=callback):
-        print("#" * 80)
-        print("Press Ctrl+C to stop the recording")
-        print("#" * 80)
+def ConverterAudioEmTexto():
+    # Este Bloco irá Converter Voz em Texto
+    r = sr.Recognizer()
+    filename = 'minhavoz.wav'
+    with sr.AudioFile(filename) as source:
+        global fraseConvertida 
+        audio_data = r.record(source)
+        text = r.recognize_google(audio_data, language='pt-br')
+        print(f'Você disse: {text}')
+        fraseConvertida = text
+        # return fraseConvertida
 
-        rec = KaldiRecognizer(model, args.samplerate)
-        while True:
-            data = q.get()
-            if rec.AcceptWaveform(data):
-                print(rec.Result())
-            else:
-                print(rec.PartialResult())
-            if dump_fn is not None:
-                dump_fn.write(data)
+def respostaIA(fala):
+    print(f'debug {fala}')
+    if fala == 'Bom dia' or fala == 'bom dia':
+        resposta = 'Bom dia para você também!'
+        print(resposta)
+        vozIA(resposta)
+    
+    elif 'Ir para' in fala or 'ir para' in fala:
+        navegacaoWeb(fala)
+    
+    elif fala == 'Obrigado' or fala == 'obrigado' or fala == 'Obrigada' or fala == 'obrigada':
+        resposta = 'De nada, é sempre um prazer em poder te ajudar!'
+        print(resposta)
+        vozIA(resposta)
+    
+    elif fala == 'parar' or fala == 'Parar':
+        resposta = 'Tudo bem, se precisar de novo é só me chamar!'
+        print(resposta)
+        vozIA(resposta)
+        exit()
 
-except KeyboardInterrupt:
-    print("\nDone")
-    parser.exit(0)
-except Exception as e:
-    parser.exit(type(e).__name__ + ": " + str(e))
+    elif fala == 'tudo bem' or fala == 'Tudo bem':
+        resposta = 'Estou sim'
+        print(resposta)
+        vozIA(resposta)
 
+#Iniciar ----------------------------------------------------------
+while True:
+    
+    # Escolha do modo da conversa (texto ou voz)
+    modoConversa = input(str('Deseja conversar por texto ou voz? Digite `parar` para fechar o programa\n'))
+    
+    if modoConversa == 'parar' or modoConversa == 'Parar': print('Tudo bem, se precisar de novo é só me chamar!'), exit()
+    
+    elif modoConversa == 'voz' or modoConversa == 'Voz':
+        # Iniciar Voz
+        gravarVoz()
+        ConverterAudioEmTexto()
+        respostaIA(fraseConvertida)
+
+    elif modoConversa == 'texto' or modoConversa == 'Texto':
+        perguntaTextoUsuario = input(str('Digite sua dúvida \n'))
+        respostaIA(perguntaTextoUsuario)
+        
+        if perguntaTextoUsuario == 'parar' or perguntaTextoUsuario == 'Parar':
+            respostaIA(perguntaTextoUsuario)
+            exit()
