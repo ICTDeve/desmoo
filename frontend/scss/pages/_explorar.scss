@@ -1,21 +1,292 @@
 .explorar {
-    &__usuarios {
-        &__usuario {
-            &__foto-perfil {
+    padding-left: 0;
+    padding-right: 0;
 
+    &[atual="usuarios"] {
+        .explorar__conteudo__usuarios {
+            transform: translateX(-0%);
+        }
+
+        .explorar__conteudo__areas-cientificas {
+            transform: translateX(-0%);
+        }
+
+        .explorar__conteudo__destaques {
+            transform: translateX(-0%);
+        }
+    }
+
+    &[atual="areas-cientificas"] {
+        .explorar__header__menu::before {
+            left: 50%;
+            transform: translateX(-57%);
+            width: 20%;
+        }
+
+        .explorar__conteudo__usuarios {
+            transform: translateX(-100%);
+        }
+
+        .explorar__conteudo__areas-cientificas {
+            transform: translateX(-100%);
+        }
+
+        .explorar__conteudo__destaques {
+            transform: translateX(-100%);
+        }
+    }
+
+    &[atual="destaques"] {
+        .explorar__header__menu::before {
+            left: 100%;
+            transform: translateX(-100%);
+            width: 19%;
+        }
+
+        .explorar__conteudo__usuarios {
+            transform: translateX(-200%);
+        }
+
+        .explorar__conteudo__areas-cientificas {
+            transform: translateX(-200%);
+        }
+
+        .explorar__conteudo__destaques {
+            transform: translateX(-200%);
+        }
+    }
+    &__header {
+        @include flex-container(column, flex-start, center);
+
+        margin-bottom: calc(var(--distancia-vertical) * 2);
+
+        width: 100%;
+
+
+        &__form {
+            margin-bottom: calc(var(--distancia-vertical) * 2);
+            width: 65%;
+
+            &__input {
+                background-color: var(--cor-cinza);
+                border-radius: 9999px;
+
+                border: none;
+                outline: none;
+
+                font-size: 1.6rem;
+                
+                height: 3.8rem;
+                width: 100%;
+                
+                text-align: center;
+
+                &:hover,
+                &:focus {
+                    border: none;
+                    outline: none;
+                }
+            }
+        }
+
+        &__menu {
+            @include flex-container(row, space-between);
+
+            position: relative;
+
+            width: 50%;
+
+            &::before {
+                content: "";
+
+                background-color: var(--cor-principal);
+
+                position: absolute;
+                bottom: 0;
+                left: 0;
+
+                height: 3px;
+                width: 16%;
+
+                border-radius: 9999px;
+
+                transition: .4s ease
             }
 
-            &__informacoes {
-                &__interesse {
-                    &__categoria {
+            &__item {
+                cursor: pointer;
 
+                font-size: 1.4rem;
+
+                padding-bottom: calc(var(--distancia-vertical) * 0.5);
+            }
+        }
+    }
+    
+    &__conteudo {
+        @include flex-container(row, flex-start, flex-start);
+
+        overflow: hidden;
+
+        width: 100%;
+
+        & > * {
+            padding: 0 var(--distancia-vertical);
+            transition: .4s ease;
+
+            transform: translateX(0%);
+        }
+
+        &__usuarios {
+            // display: none;
+            flex: none;
+
+            overflow: hidden;
+
+            width: 100%;
+    
+            &__usuario {
+                @include flex-container(row, flex-start);
+    
+                position: relative;
+    
+                padding-bottom: var(--distancia-vertical);
+                
+                &:not(:first-of-type) {
+                    padding-top: var(--distancia-vertical);
+                }
+    
+                &::before {
+                    content: "";
+        
+                    background-color: var(--cor-cinza-escuro);
+        
+                    position: absolute;
+                    bottom: 0;
+                    left: 0;
+        
+                    height: 1px;
+                    width: calc(100% + (var(--distancia-vertical) * 2));
+        
+                    transform: translateX(calc(-1 * var(--distancia-vertical)));
+                }
+    
+                &__foto-perfil {
+                    border-radius: 9999px;
+                    object-fit: cover;
+    
+                    margin-right: var(--distancia-vertical);
+                        
+                    height: 5rem;
+                    width:  5rem;
+                }
+    
+                &__informacoes {
+                    &__nome-usuario {
+                        font-size: 1.8rem;
                     }
-
-                    &__area-cientifica {
-                        background-color: red;
+                    
+                    &__interesse {
+                        font-size: 1.6em;
+    
+                        &__categoria {
+    
+                        }
+    
+                        &__area-cientifica {
+                            color: var(--cor-principal);
+                        }
                     }
                 }
             }
+        }
+
+        &__areas-cientificas {
+            // display: none;
+            flex: none;
+
+            width: 100%;
+            
+            &__area-cientifica {
+                &:link,
+                &:visited {
+                    @include flex-container();
+
+                    border-radius: 6px;
+
+                    background-size: 100%;
+                    background-position: center center;
+                    background-repeat: no-repeat;
+
+                    color: white;
+
+                    font-family: "Lato Semibold";
+                    font-size: 2rem;
+
+                    height: 6rem;
+
+                    position: relative;
+
+                    overflow: hidden;
+
+                }
+
+                &--odontologia {
+                    background-position: center -510px !important;
+                }
+
+                &:not(:last-of-type) {
+                    margin-bottom: calc(var(--distancia-vertical) * 2);
+                }
+
+                &__retangulo {
+                    background-color: #11D183;
+
+                    height: 100%;
+                    width: 100%;
+
+                    // mix-blend-mode: multiply;
+
+                    opacity: 0.3;
+
+                    position: absolute;
+
+                    z-index: 0;
+
+                    &--odontologia {
+                        background-color: #066C7D;
+                    }
+
+                    &--farmacia {
+                        background-color: #0D0791;
+                    }
+
+                    &--nutricao {
+                        background-color: #910721;
+                    }
+
+                    &--saude-coletiva {
+                        background-color: #912907;
+                    }
+
+                    &--fonoaudiologia {
+                        background-color: #916306;
+                    }
+
+                    &--educacao-fisica {
+                        background-color: #918D00;
+                    }
+                }
+
+                &__palavra {
+                    position: relative;
+                }
+            }
+        }
+
+        &__destaques {
+            flex: none;
+            width: 100%;
         }
     }
 }

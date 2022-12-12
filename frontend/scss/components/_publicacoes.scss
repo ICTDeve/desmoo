@@ -84,7 +84,7 @@
     &::after {
         content: "";
 
-        background-color: #9a9a9a;
+        background-color: var(--cor-cinza-escuro);
         
         display: none;
 

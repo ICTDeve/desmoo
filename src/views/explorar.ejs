@@ -14,24 +14,423 @@
         <div class="container">
             <%- include('components/menu.ejs'); %>
 
-            <main class="explorar">
-                <div class="explorar__usuarios">
-                    <a href="/perfil?id=1" class="explorar__usuarios__usuario">
-                        <img src="midias/imagens/foto-perfil-padrao.jpg" alt="" class="explorar__usuarios__usuario__foto-perfil">
-                        <div class="explorar__usuarios__usuario__informacoes">
-                            <div class="explorar__usuarios__usuario__informacoes__nome-usuario">
-                                Victor Ribeiro Cunha
+            <main class="explorar" atual="usuarios">
+                <header class="explorar__header">
+                    <form action="/explorar" class="explorar__header__form">
+                        <input class="explorar__header__form__input" type="search" name="explorar" id="" placeholder="O que você está procurando?">
+                    </form>
+
+                    <ul class="explorar__header__menu">
+                        <li class="explorar__header__menu__item" id="usuarios">Usuários</li>
+                        <li class="explorar__header__menu__item" id="areas-cientificas">Áreas Científicas</li>
+                        <li class="explorar__header__menu__item" id="destaques">Destaques</li>
+                    </ul>
+                </header>
+                <div class="explorar__conteudo">
+                    <div class="explorar__conteudo__usuarios">
+                        <a href="/perfil?id=1" class="explorar__conteudo__usuarios__usuario">
+                            <img src="midias/imagens/foto-perfil-padrao.jpg" alt="" class="explorar__conteudo__usuarios__usuario__foto-perfil">
+                            <div class="explorar__conteudo__usuarios__usuario__informacoes">
+                                <div class="explorar__conteudo__usuarios__usuario__informacoes__nome-usuario">
+                                    Victor Ribeiro Cunha
+                                </div>
+                                <div class="explorar__conteudo__usuarios__usuario__informacoes__interesse">
+                                    <span class="explorar__conteudo__usuarios__usuario__informacoes__interesse__review">
+                                        Entusiasta em
+                                    </span>
+                                    <span class="explorar__conteudo__usuarios__usuario__informacoes__interesse__area-cientifica">
+                                        Dentista
+                                    </span>
+                                </div>
                             </div>
-                            <div class="explorar__usuarios__usuario__informacoes__interesse">
-                                <span class="explorar__usuarios__usuario__informacoes__interesse__categoria">
-                                    Entusiasta:
+                        </a>
+                        <a href="/perfil?id=2" class="explorar__conteudo__usuarios__usuario">
+                            <img src="midias/imagens/foto-perfil-padrao.jpg" alt="" class="explorar__conteudo__usuarios__usuario__foto-perfil">
+                            <div class="explorar__conteudo__usuarios__usuario__informacoes">
+                                <div class="explorar__conteudo__usuarios__usuario__informacoes__nome-usuario">
+                                    Victor Ribeiro Cunha
+                                </div>
+                                <div class="explorar__conteudo__usuarios__usuario__informacoes__interesse">
+                                    <span class="explorar__conteudo__usuarios__usuario__informacoes__interesse__review">
+                                        Entusiasta em
+                                    </span>
+                                    <span class="explorar__conteudo__usuarios__usuario__informacoes__interesse__area-cientifica">
+                                        Dentista
+                                    </span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="explorar__conteudo__areas-cientificas">
+                        <a href="/feed?areaCientifica=medicina" class="explorar__conteudo__areas-cientificas__area-cientifica explorar__conteudo__areas-cientificas__area-cientifica" style="background-image: url('midias/imagens/medicina.jpg')">
+                            <div class="explorar__conteudo__areas-cientificas__area-cientifica__retangulo explorar__conteudo__areas-cientificas__area-cientifica__retangulo--medicina"></div>
+                            <div class="explorar__conteudo__areas-cientificas__area-cientifica__palavra">Medicina</div>
+                        </a>
+                        
+                        <a href="/feed?areaCientifica=medicina" class="explorar__conteudo__areas-cientificas__area-cientifica explorar__conteudo__areas-cientificas__area-cientifica--odontologia" style="background-image: url('midias/imagens/dentista.jpg')">
+                            <div class="explorar__conteudo__areas-cientificas__area-cientifica__retangulo explorar__conteudo__areas-cientificas__area-cientifica__retangulo--odontologia"></div>
+                            <div class="explorar__conteudo__areas-cientificas__area-cientifica__palavra">Odontologia</div>
+                        </a>
+
+                        <a href="/feed?areaCientifica=medicina" class="explorar__conteudo__areas-cientificas__area-cientifica explorar__conteudo__areas-cientificas__area-cientifica--farmacia" style="background-image: url('midias/imagens/farmacia.jpg')">
+                            <div class="explorar__conteudo__areas-cientificas__area-cientifica__retangulo explorar__conteudo__areas-cientificas__area-cientifica__retangulo--farmacia"></div>
+                            <div class="explorar__conteudo__areas-cientificas__area-cientifica__palavra">Farmácia</div>
+                        </a>
+
+                        <a href="/feed?areaCientifica=medicina" class="explorar__conteudo__areas-cientificas__area-cientifica explorar__conteudo__areas-cientificas__area-cientifica--nutricao" style="background-image: url('midias/imagens/nutricao.jpg')">
+                            <div class="explorar__conteudo__areas-cientificas__area-cientifica__retangulo explorar__conteudo__areas-cientificas__area-cientifica__retangulo--nutricao"></div>
+                            <div class="explorar__conteudo__areas-cientificas__area-cientifica__palavra">Nutrição</div>
+                        </a>
+
+                        <a href="/feed?areaCientifica=medicina" class="explorar__conteudo__areas-cientificas__area-cientifica explorar__conteudo__areas-cientificas__area-cientifica--saude-coletiva" style="background-image: url('midias/imagens/saude-coletiva.jpg')">
+                            <div class="explorar__conteudo__areas-cientificas__area-cientifica__retangulo explorar__conteudo__areas-cientificas__area-cientifica__retangulo--saude-coletiva"></div>
+                            <div class="explorar__conteudo__areas-cientificas__area-cientifica__palavra">Saúde Coletiva</div>
+                        </a>
+
+                        <a href="/feed?areaCientifica=medicina" class="explorar__conteudo__areas-cientificas__area-cientifica explorar__conteudo__areas-cientificas__area-cientifica--fonoaudiologia" style="background-image: url('midias/imagens/fonoaudiologia.jpg')">
+                            <div class="explorar__conteudo__areas-cientificas__area-cientifica__retangulo explorar__conteudo__areas-cientificas__area-cientifica__retangulo--fonoaudiologia"></div>
+                            <div class="explorar__conteudo__areas-cientificas__area-cientifica__palavra">Fonoaudiologia</div>
+                        </a>
+
+                        <a href="/feed?areaCientifica=medicina" class="explorar__conteudo__areas-cientificas__area-cientifica explorar__conteudo__areas-cientificas__area-cientifica--educacao-fisica" style="background-image: url('midias/imagens/educacao-fisica.jpg')">
+                            <div class="explorar__conteudo__areas-cientificas__area-cientifica__retangulo explorar__conteudo__areas-cientificas__area-cientifica__retangulo--educacao-fisica"></div>
+                            <div class="explorar__conteudo__areas-cientificas__area-cientifica__palavra">Educação Física</div>
+                        </a>
+                    </div>
+
+                    <div class="explorar__conteudo__destaques">
+                        <div class="publicacao" review="review" tem-imagem="sim" imagem-e-escura="sim" id-publicacao=2>
+                            <div class="publicacao__topo">
+                                <div class="publicacao__topo__informacoes-usuario">
+                                    <img src="midias/imagens/foto-perfil-padrao.jpg" alt="" class="publicacao__topo__informacoes-usuario__foto-perfil">
+                                    <a href="/perfil?id=2" class="publicacao__topo__informacoes-usuario__nome">
+                                        Victor Ribeiro Cunha
+                                    </a>
+                                </div>
+                                <div class="tres-pontinhos">
+                                    <div class="tres-pontinhos__pontinho"></div>
+                                    <div class="tres-pontinhos__pontinho"></div>
+                                    <div class="tres-pontinhos__pontinho"></div>
+                                </div>
+                            </div>
+                            <a href="/review%>?id=2" class="publicacao__previa" style="background-image: url('midias/imagens/publicacao-1.jpg')">
+                                <div class="publicacao__previa__container">
+                                    <div class="publicacao__previa__container__informacoes">
+                                        <div class="publicacao__previa__container__informacoes__tipo" tipo="discussao">
+                                            <span class="publicacao__previa__container__informacoes__tipo__texto">
+                                                texto
+                                            </span>
+                                            <span class="publicacao__previa__container__informacoes__tipo__tracinho">-</span>
+                                            <span class="publicacao__previa__container__informacoes__tipo__status">
+                                                Aberta
+                                            </span>
+                                        </div>
+    
+                                        <div class="publicacao__previa__container__informacoes__pontos">
+                                            <span class="publicacao__previa__container__informacoes__pontos__numero">
+                                                10
+                                            </span>
+                                            Pontos
+                                        </div>
+                                    </div>
+                                    <span class="publicacao__previa__container__titulo">
+                                        Título
+                                    </span>
+                                </div>
+                            </a>
+                            <div class="publicacao__informacoes">
+                                <div class="publicacao__informacoes__curtidas">
+                                    <svg class="icon publicacao__informacoes__curtidas__icone">
+                                        <use xlink:href="midias/icones/lattes.svg#lattes"></use>
+                                    </svg>
+    
+                                    <div class="publicacao__informacoes__curtidas__informacao">
+                                        <span class="publicacao__informacoes__curtidas__informacao__numeroDeCurtidas">
+                                            5
+                                        </span>
+                                        Curtiu esse post!
+                                    </div>
+                                </div>
+    
+                                <span class="publicacao__informacoes__verComentarios" id-publicacao="2">
+                                    Ver comentários
                                 </span>
-                                <span class="explorar__usuarios__usuario__informacoes__interesse__area-cientifica">
-                                    Dentista
+                            </div>
+                            <div class="publicacao__interacoes">
+                                <svg class="icon publicacao__interacoes__interacao">
+                                    <use xlink:href="midias/icones/curtida.svg#curtida"></use>
+                                </svg>
+                                <svg class="icon publicacao__interacoes__interacao" id="iconeComentario" id-publicacao="2">
+                                    <use xlink:href="midias/icones/comentario.svg#comentario"></use>
+                                </svg>
+                                <svg class="icon publicacao__interacoes__interacao">
+                                    <use xlink:href="midias/icones/compartilhar.svg#compartilhar"></use>
+                                </svg>
+                                <svg class="icon publicacao__interacoes__interacao">
+                                    <use xlink:href="midias/icones/salvar.svg#salvar"></use>
+                                </svg>
+                            </div>
+    
+                            <div class="publicacao__descricao">
+                                <span class="publicacao__descricao__conteudo">
+                                    Descrição
                                 </span>
+                                <span class="publicacao__descricao__verMais">ver mais...</span>
+                            </div>
+    
+                            <div class="publicacao__comentarios" id-publicacao="2">
+                                <div class="publicacao__comentarios__novoComentario">
+                                    <textarea class="publicacao__comentarios__novoComentario__input" placeholder="Adicionar comentário"></textarea>
+    
+                                    <svg class="publicacao__comentarios__novoComentario__iconeEmoji">
+                                        <use xlink:href="midias/icones/lattes.svg#lattes"></use>
+                                    </svg>
+                                </div>
+    
+                                <div class="publicacao__comentarios__comentarios">
+                                    <div class="publicacao__comentarios__comentarios__comentario" >
+                                        <a href="/perfil?id=2" class="publicacao__comentarios__comentarios__comentario__bloco-esquerda">
+                                            <img src="midias/imagens/foto-perfil-padrao.jpg" alt="" class="publicacao__comentarios__comentarios__comentario__bloco-esquerda__img">
+                                            <div class="publicacao__comentarios__comentarios__comentario__bloco-esquerda__conteudo">
+                                                <span class="publicacao__comentarios__comentarios__comentario__conteudo__nomeAutor">
+                                                    Victor Ribeiro
+                                                </span>
+                                                <span class="publicacao__comentarios__comentarios__comentario__conteudo__comentario">
+                                                    conteúdo
+                                                </span>
+                                            </div>
+                                        </a>
+                                        <div class="publicacao__comentarios__comentarios__comentario__bloco-direita">
+                                            <svg class="icon publicacao__comentarios__comentarios__comentario__bloco-direita__estrelinha">
+                                                <use xlink:href="midias/icones/lattes.svg#lattes"></use>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                    </a>
+                        <div class="publicacao" review="review" tem-imagem="sim" imagem-e-escura="sim" id-publicacao=2>
+                            <div class="publicacao__topo">
+                                <div class="publicacao__topo__informacoes-usuario">
+                                    <img src="midias/imagens/foto-perfil-padrao.jpg" alt="" class="publicacao__topo__informacoes-usuario__foto-perfil">
+                                    <a href="/perfil?id=2" class="publicacao__topo__informacoes-usuario__nome">
+                                        Victor Ribeiro Cunha
+                                    </a>
+                                </div>
+                                <div class="tres-pontinhos">
+                                    <div class="tres-pontinhos__pontinho"></div>
+                                    <div class="tres-pontinhos__pontinho"></div>
+                                    <div class="tres-pontinhos__pontinho"></div>
+                                </div>
+                            </div>
+                            <a href="/review%>?id=2" class="publicacao__previa" style="background-image: url('midias/imagens/publicacao-1.jpg')">
+                                <div class="publicacao__previa__container">
+                                    <div class="publicacao__previa__container__informacoes">
+                                        <div class="publicacao__previa__container__informacoes__tipo" tipo="discussao">
+                                            <span class="publicacao__previa__container__informacoes__tipo__texto">
+                                                texto
+                                            </span>
+                                            <span class="publicacao__previa__container__informacoes__tipo__tracinho">-</span>
+                                            <span class="publicacao__previa__container__informacoes__tipo__status">
+                                                Aberta
+                                            </span>
+                                        </div>
+    
+                                        <div class="publicacao__previa__container__informacoes__pontos">
+                                            <span class="publicacao__previa__container__informacoes__pontos__numero">
+                                                10
+                                            </span>
+                                            Pontos
+                                        </div>
+                                    </div>
+                                    <span class="publicacao__previa__container__titulo">
+                                        Título
+                                    </span>
+                                </div>
+                            </a>
+                            <div class="publicacao__informacoes">
+                                <div class="publicacao__informacoes__curtidas">
+                                    <svg class="icon publicacao__informacoes__curtidas__icone">
+                                        <use xlink:href="midias/icones/lattes.svg#lattes"></use>
+                                    </svg>
+    
+                                    <div class="publicacao__informacoes__curtidas__informacao">
+                                        <span class="publicacao__informacoes__curtidas__informacao__numeroDeCurtidas">
+                                            5
+                                        </span>
+                                        Curtiu esse post!
+                                    </div>
+                                </div>
+    
+                                <span class="publicacao__informacoes__verComentarios" id-publicacao="2">
+                                    Ver comentários
+                                </span>
+                            </div>
+                            <div class="publicacao__interacoes">
+                                <svg class="icon publicacao__interacoes__interacao">
+                                    <use xlink:href="midias/icones/curtida.svg#curtida"></use>
+                                </svg>
+                                <svg class="icon publicacao__interacoes__interacao" id="iconeComentario" id-publicacao="2">
+                                    <use xlink:href="midias/icones/comentario.svg#comentario"></use>
+                                </svg>
+                                <svg class="icon publicacao__interacoes__interacao">
+                                    <use xlink:href="midias/icones/compartilhar.svg#compartilhar"></use>
+                                </svg>
+                                <svg class="icon publicacao__interacoes__interacao">
+                                    <use xlink:href="midias/icones/salvar.svg#salvar"></use>
+                                </svg>
+                            </div>
+    
+                            <div class="publicacao__descricao">
+                                <span class="publicacao__descricao__conteudo">
+                                    Descrição
+                                </span>
+                                <span class="publicacao__descricao__verMais">ver mais...</span>
+                            </div>
+    
+                            <div class="publicacao__comentarios" id-publicacao="2">
+                                <div class="publicacao__comentarios__novoComentario">
+                                    <textarea class="publicacao__comentarios__novoComentario__input" placeholder="Adicionar comentário"></textarea>
+    
+                                    <svg class="publicacao__comentarios__novoComentario__iconeEmoji">
+                                        <use xlink:href="midias/icones/lattes.svg#lattes"></use>
+                                    </svg>
+                                </div>
+    
+                                <div class="publicacao__comentarios__comentarios">
+                                    <div class="publicacao__comentarios__comentarios__comentario" >
+                                        <a href="/perfil?id=2" class="publicacao__comentarios__comentarios__comentario__bloco-esquerda">
+                                            <img src="midias/imagens/foto-perfil-padrao.jpg" alt="" class="publicacao__comentarios__comentarios__comentario__bloco-esquerda__img">
+                                            <div class="publicacao__comentarios__comentarios__comentario__bloco-esquerda__conteudo">
+                                                <span class="publicacao__comentarios__comentarios__comentario__conteudo__nomeAutor">
+                                                    Victor Ribeiro
+                                                </span>
+                                                <span class="publicacao__comentarios__comentarios__comentario__conteudo__comentario">
+                                                    conteúdo
+                                                </span>
+                                            </div>
+                                        </a>
+                                        <div class="publicacao__comentarios__comentarios__comentario__bloco-direita">
+                                            <svg class="icon publicacao__comentarios__comentarios__comentario__bloco-direita__estrelinha">
+                                                <use xlink:href="midias/icones/lattes.svg#lattes"></use>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="publicacao" review="review" tem-imagem="sim" imagem-e-escura="sim" id-publicacao=2>
+                            <div class="publicacao__topo">
+                                <div class="publicacao__topo__informacoes-usuario">
+                                    <img src="midias/imagens/foto-perfil-padrao.jpg" alt="" class="publicacao__topo__informacoes-usuario__foto-perfil">
+                                    <a href="/perfil?id=2" class="publicacao__topo__informacoes-usuario__nome">
+                                        Victor Ribeiro Cunha
+                                    </a>
+                                </div>
+                                <div class="tres-pontinhos">
+                                    <div class="tres-pontinhos__pontinho"></div>
+                                    <div class="tres-pontinhos__pontinho"></div>
+                                    <div class="tres-pontinhos__pontinho"></div>
+                                </div>
+                            </div>
+                            <a href="/review%>?id=2" class="publicacao__previa" style="background-image: url('midias/imagens/publicacao-1.jpg')">
+                                <div class="publicacao__previa__container">
+                                    <div class="publicacao__previa__container__informacoes">
+                                        <div class="publicacao__previa__container__informacoes__tipo" tipo="discussao">
+                                            <span class="publicacao__previa__container__informacoes__tipo__texto">
+                                                texto
+                                            </span>
+                                            <span class="publicacao__previa__container__informacoes__tipo__tracinho">-</span>
+                                            <span class="publicacao__previa__container__informacoes__tipo__status">
+                                                Aberta
+                                            </span>
+                                        </div>
+    
+                                        <div class="publicacao__previa__container__informacoes__pontos">
+                                            <span class="publicacao__previa__container__informacoes__pontos__numero">
+                                                10
+                                            </span>
+                                            Pontos
+                                        </div>
+                                    </div>
+                                    <span class="publicacao__previa__container__titulo">
+                                        Título
+                                    </span>
+                                </div>
+                            </a>
+                            <div class="publicacao__informacoes">
+                                <div class="publicacao__informacoes__curtidas">
+                                    <svg class="icon publicacao__informacoes__curtidas__icone">
+                                        <use xlink:href="midias/icones/lattes.svg#lattes"></use>
+                                    </svg>
+    
+                                    <div class="publicacao__informacoes__curtidas__informacao">
+                                        <span class="publicacao__informacoes__curtidas__informacao__numeroDeCurtidas">
+                                            5
+                                        </span>
+                                        Curtiu esse post!
+                                    </div>
+                                </div>
+    
+                                <span class="publicacao__informacoes__verComentarios" id-publicacao="2">
+                                    Ver comentários
+                                </span>
+                            </div>
+                            <div class="publicacao__interacoes">
+                                <svg class="icon publicacao__interacoes__interacao">
+                                    <use xlink:href="midias/icones/curtida.svg#curtida"></use>
+                                </svg>
+                                <svg class="icon publicacao__interacoes__interacao" id="iconeComentario" id-publicacao="2">
+                                    <use xlink:href="midias/icones/comentario.svg#comentario"></use>
+                                </svg>
+                                <svg class="icon publicacao__interacoes__interacao">
+                                    <use xlink:href="midias/icones/compartilhar.svg#compartilhar"></use>
+                                </svg>
+                                <svg class="icon publicacao__interacoes__interacao">
+                                    <use xlink:href="midias/icones/salvar.svg#salvar"></use>
+                                </svg>
+                            </div>
+    
+                            <div class="publicacao__descricao">
+                                <span class="publicacao__descricao__conteudo">
+                                    Descrição
+                                </span>
+                                <span class="publicacao__descricao__verMais">ver mais...</span>
+                            </div>
+    
+                            <div class="publicacao__comentarios" id-publicacao="2">
+                                <div class="publicacao__comentarios__novoComentario">
+                                    <textarea class="publicacao__comentarios__novoComentario__input" placeholder="Adicionar comentário"></textarea>
+    
+                                    <svg class="publicacao__comentarios__novoComentario__iconeEmoji">
+                                        <use xlink:href="midias/icones/lattes.svg#lattes"></use>
+                                    </svg>
+                                </div>
+    
+                                <div class="publicacao__comentarios__comentarios">
+                                    <div class="publicacao__comentarios__comentarios__comentario" >
+                                        <a href="/perfil?id=2" class="publicacao__comentarios__comentarios__comentario__bloco-esquerda">
+                                            <img src="midias/imagens/foto-perfil-padrao.jpg" alt="" class="publicacao__comentarios__comentarios__comentario__bloco-esquerda__img">
+                                            <div class="publicacao__comentarios__comentarios__comentario__bloco-esquerda__conteudo">
+                                                <span class="publicacao__comentarios__comentarios__comentario__conteudo__nomeAutor">
+                                                    Victor Ribeiro
+                                                </span>
+                                                <span class="publicacao__comentarios__comentarios__comentario__conteudo__comentario">
+                                                    conteúdo
+                                                </span>
+                                            </div>
+                                        </a>
+                                        <div class="publicacao__comentarios__comentarios__comentario__bloco-direita">
+                                            <svg class="icon publicacao__comentarios__comentarios__comentario__bloco-direita__estrelinha">
+                                                <use xlink:href="midias/icones/lattes.svg#lattes"></use>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </main>
 
