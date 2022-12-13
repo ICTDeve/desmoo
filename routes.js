@@ -45,6 +45,9 @@ const explorarController = require('./src/controllers/explorarController');
 // DISCUSSAO
     // GET
         route.get('/discussao', discussaoController.discussao)
+
+    // POST
+        route.post('/novoComentario', discussaoController.novoComentario)
         
 // NOVA DISCUSSAO
     // GET

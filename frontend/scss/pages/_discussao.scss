@@ -1,4 +1,6 @@
 .discussao {
+    // position: relative;
+
     &__header {
         padding-bottom: calc(var(--distancia-vertical) * 2);
 
@@ -87,6 +89,12 @@
 
     &__respostas {
         width: 100%;
+        max-height: 75%;
+        overflow: scroll;
+
+        &::-webkit-scrollbar {
+            display: none
+        }
 
         &__resposta {
             @include flex-container(column, flex-start, flex-start);
@@ -96,9 +104,7 @@
             
             position: relative;
             
-            &:not(:last-of-type) {
-                padding-bottom: calc(var(--distancia-vertical) * 2);
-            }
+            padding-bottom: calc(var(--distancia-vertical) * 2);
 
             &::before {
                 content: "";
@@ -111,12 +117,6 @@
                 position: absolute;
                 bottom: 0;
                 left: calc(-1 * var(--distancia-vertical));
-            }
-
-            &:last-of-type {
-                &::before {
-                    display: none;
-                }
             }
 
             &__topo {
@@ -163,6 +163,30 @@
                     }
                 }
             }
+        }
+    }
+
+    &__form {
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+
+        margin-bottom: calc(var(--distancia-vertical) * 2);
+        padding: 0 var(--distancia-vertical);
+        width: 100%;
+
+        input {
+            background-color: var(--cor-cinza);
+            border-radius: 9999px;
+            border: none;
+            outline: none;
+
+            font-size: 1.6rem;
+            height: 3.8rem;
+
+            text-align: center;
+            width: 100%;
         }
     }
 }

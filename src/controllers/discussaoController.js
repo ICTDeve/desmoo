@@ -41,3 +41,21 @@ exports.discussao = (req, res) => {
         }
     })
 };
+
+exports.novoComentario = (req, res) => {
+    const conexao = app.src.models.conexao();
+    const discussao = new app.src.models.discussao(conexao);
+
+    const id = req.body.id
+    const comentario = req.body.comentario
+
+    const dados = { id, comentario }
+
+    discussao.inserirComentario(dados, function(erro, results) {
+        if(erro){
+            console.log(erro);
+        } else {
+            res.redirect(`discussao?id=${id}`)
+        }
+    })
+};

@@ -126,15 +126,26 @@
     &__conteudo {
         @include flex-container(row, flex-start, flex-start);
 
-        overflow: hidden;
+        overflow-x: hidden;
 
         width: 100%;
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
 
         & > * {
             padding: 0 var(--distancia-vertical);
             transition: .4s ease;
 
             transform: translateX(0%);
+
+            height: 100%;
+            overflow-y: scroll;
+
+            &::-webkit-scrollbar {
+                display: none;
+            }
         }
 
         &__usuarios {

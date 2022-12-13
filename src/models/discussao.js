@@ -4,7 +4,7 @@ function discussao(conexao){
 
 discussao.prototype.consultarPublicacao = function(id, callback){
     this._conexao.query(`
-        SELECT U.nome_completo as nome_autor, P.data, P.titulo, P.descricao, P.caminho_imagem, P.conteudo FROM publicacoes P
+        SELECT U.nome_completo as nome_autor, P.id, P.data, P.titulo, P.descricao, P.caminho_imagem, P.conteudo FROM publicacoes P
         INNER JOIN usuarios U
         ON P.id_autor = U.id AND P.id = ${id};`,
     callback);
@@ -25,6 +25,13 @@ discussao.prototype.consultarNumeroDeRespostas = function(id, callback){
         SELECT COUNT(*) as numero_de_respostas 
         FROM comentarios_discussao 
         WHERE id_publicacao = ${id}`,
+    callback);
+}
+
+discussao.prototype.inserirComentario = function(dados, callback){
+    this._conexao.query(`
+        INSERT INTO comentarios_discussao (id_publicacao, id_usuario, conteudo) 
+        VALUES 	(${dados.id}, 2, "${dados.comentario}")`,
     callback);
 }
 
