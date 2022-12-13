@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>ChatBot</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://fonts.googleapis.com/css?family=Lato:100,100italic,300,300italic,regular,italic,700,700italic,900,900italic" rel="stylesheet" />
+    <script src = "bancoRespostas.js" defer></script>
+</head>
+<body onload="init()">
+
+<div id="main">
+    
+    <div class="titulo">
+        <div class="perfil-IALA">
+            <img src="midias/imagens/foto-perfil-iala.png" alt="">
+            <span class="span-titulo">
+                <h2>IALA</h2>
+                <h3>Online</h3>
+            </span>
+        </div>
+        <div id="fecharPopUp">X</div>
+    </div>
+    
+    <div id="conteudo">
+        <div id="msg">
+            <div id="robot">
+                <div class="bot"></div>
+            </div>
+        </div>
+     
+            <div class="input">
+                <input type="text" id="msg_send" placeholder="Digite sua pergunta"> 
+                
+                <button onclick="scroll()" class="send" id="reply">
+                    <img src="midias/icones/enviar.svg" class=""></img>
+                    <!-- <img src="/midias/icones/microphone-icon.svg" class=""></img> -->
+                </button>
+                <!-- <button id="btnGravar"><img id="microphone" src="microphone-icon.png" alt=""></button> -->
+ 
+        </div>
+    </div>
+</div>
+
+<div id="abrirPopUp">
+    <div class="corpoBotao"><img src="midias/icones/vector-btn-iala.svg" alt=""></div> 
+    <div id="iconFechado"><img src="midias/icones/icon-fechado-iala.svg" alt=""></div>
+    <div id="iconAberto"><img src="midias/icones/icon-ativado-iala.svg" alt=""></div>
+    <!-- <div class="iconAberto"></div> -->
+</div> 
+
+<script src="js/app.js" async></script>
+<script src="js/popup.js" async></script>
+</html>

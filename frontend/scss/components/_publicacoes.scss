@@ -286,6 +286,10 @@
             height: 17px;
             overflow: hidden;
             margin-right: 15px;
+
+            &.ativado {
+                height: auto;
+            }
         }
 
         &__verMais {
@@ -317,7 +321,7 @@
                 border: none;
 
                 height: 3rem;
-                width: 85%;
+                width: 95%;
 
                 font-size: 1.6rem;
 

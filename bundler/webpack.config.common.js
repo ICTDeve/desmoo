@@ -20,7 +20,10 @@ module.exports = {
         review:             ['./frontend/js/review.js',             './frontend/scss/review.scss'],
         solicitacoes:       ['./frontend/js/solicitacoes.js',       './frontend/scss/solicitacoes.scss'],
         explorar:           ['./frontend/js/explorar.js',           './frontend/scss/explorar.scss'],
+        404:                ['./frontend/js/404.js',                './frontend/scss/404.scss'],
         login:              './frontend/js/login.js',
+        app:                './frontend/js/app.js',
+        popup:              './frontend/js/popup.js',
     },
 
     output: {

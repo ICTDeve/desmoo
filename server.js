@@ -13,8 +13,8 @@ app.use(express.static(path.resolve(__dirname, 'public')));
 app.use(session({
   secret: 'desmoo',
   resave: false,
-  saveUninitialized: true,
-  cookie: { secure: true }
+  saveUninitialized: false,
+  cookie: {maxAge: 10000}
 }));
 app.set('views', path.resolve(__dirname, 'src', 'views'));
 app.set('view engine', 'ejs');

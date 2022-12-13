@@ -19,12 +19,12 @@
                     <input type="search" class="feed__barrinha-de-pesquisa__input" placeholder="O que você está procurando?" name="pesquisa" id="pesquisa">
                 </form>
 
-                <div class="feed__ordenar-por">
+                <!-- <div class="feed__ordenar-por">
                     <div class="feed__ordenar-por__bloco"> Relevante </div>
                     <div class="feed__ordenar-por__bloco"> Mais Curtidos </div>
                     <div class="feed__ordenar-por__bloco"> Novidades </div>
                     <div class="feed__ordenar-por__bloco"> Data de envio </div>
-                </div>
+                </div> -->
 
                 <div class="feed__publicacoes">
                     <%  for (let index = 0; index < publicacoes.length; index++) { %>
@@ -83,7 +83,7 @@
                             <div class="publicacao__informacoes">
                                 <div class="publicacao__informacoes__curtidas">
                                     <svg class="icon publicacao__informacoes__curtidas__icone">
-                                        <use xlink:href="midias/icones/lattes.svg#lattes"></use>
+                                        <use xlink:href="midias/icones/curtida.svg#curtida"></use>
                                     </svg>
     
                                     <div class="publicacao__informacoes__curtidas__informacao">
@@ -102,7 +102,7 @@
                                     </div>
                                 </div>
     
-                                <span class="publicacao__informacoes__verComentarios" id-publicacao=<%=publicacoes[index].id_publicacao%>>
+                                <span class="publicacao__informacoes__verComentarios" alternar-visibiliadade-comentario id-publicacao=<%=publicacoes[index].id_publicacao%>>
                                     Ver comentários
                                 </span>
                             </div>
@@ -110,7 +110,7 @@
                                 <svg class="icon publicacao__interacoes__interacao">
                                     <use xlink:href="midias/icones/curtida.svg#curtida"></use>
                                 </svg>
-                                <svg class="icon publicacao__interacoes__interacao" id="iconeComentario" id-publicacao=<%=publicacoes[index].id_publicacao%>>
+                                <svg class="icon publicacao__interacoes__interacao" id="iconeComentario" alternar-visibiliadade-comentario id-publicacao=<%=publicacoes[index].id_publicacao%>>
                                     <use xlink:href="midias/icones/comentario.svg#comentario"></use>
                                 </svg>
                                 <svg class="icon publicacao__interacoes__interacao">
@@ -122,20 +122,16 @@
                             </div>
     
                             <div class="publicacao__descricao">
-                                <span class="publicacao__descricao__conteudo">
+                                <span class="publicacao__descricao__conteudo" id-publicacao=<%=publicacoes[index].id_publicacao%>>
                                     <%=publicacoes[index].descricao%>
                                 </span>
-                                <span class="publicacao__descricao__verMais">ver mais...</span>
+                                <span class="publicacao__descricao__verMais" alternar-visibiliadade-descricao id-publicacao=<%=publicacoes[index].id_publicacao%>>ver mais...</span>
                             </div>
     
                             <div class="publicacao__comentarios" id-publicacao=<%=publicacoes[index].id_publicacao%>>
                                 <div class="publicacao__comentarios__novoComentario">
                                     <!-- <input type="text" class="publicacao__comentarios__novoComentario__input" placeholder="Adicionar comentário"> -->
                                     <textarea class="publicacao__comentarios__novoComentario__input" placeholder="Adicionar comentário"></textarea>
-    
-                                    <svg class="publicacao__comentarios__novoComentario__iconeEmoji">
-                                        <use xlink:href="midias/icones/lattes.svg#lattes"></use>
-                                    </svg>
                                 </div>
     
                                 <div class="publicacao__comentarios__comentarios">
@@ -144,7 +140,7 @@
                                         <%  if (comentarios[indexC].id_publicacao == publicacoes[index].id_publicacao) { %>                                                    
                                                 <div class="publicacao__comentarios__comentarios__comentario" >
                                                     <a href="/perfil?id=<%=comentarios[indexC].id_usuario%>" class="publicacao__comentarios__comentarios__comentario__bloco-esquerda">
-                                                        <img src="midias/imagens/foto-perfil-padrao.jpg" alt="" class="publicacao__comentarios__comentarios__comentario__bloco-esquerda__img">
+                                                        <img src="midias/imagens/foto-perfil-<%=comentarios[indexC].id_usuario%>.jpg" alt="" class="publicacao__comentarios__comentarios__comentario__bloco-esquerda__img">
                                                         <div class="publicacao__comentarios__comentarios__comentario__bloco-esquerda__conteudo">
                                                             <span class="publicacao__comentarios__comentarios__comentario__conteudo__nomeAutor">
                                                                 <%=comentarios[indexC].nome_completo%>
@@ -156,7 +152,7 @@
                                                     </a>
                                                     <div class="publicacao__comentarios__comentarios__comentario__bloco-direita">
                                                         <svg class="icon publicacao__comentarios__comentarios__comentario__bloco-direita__estrelinha">
-                                                            <use xlink:href="midias/icones/lattes.svg#lattes"></use>
+                                                            <use xlink:href="midias/icones/curtida.svg#curtida"></use>
                                                         </svg>
                                                     </div>
                                                 </div>
@@ -166,315 +162,12 @@
                             </div>
                         </div>
                     <%  } %>
-
-
-
-
-
-                    <!-- <div class="publicacao" tipo="discussao" tem-imagem="nao" imagem-e-escura="nao">
-                        <div class="publicacao__topo">
-                            <div class="publicacao__topo__informacoes-usuario">
-                                <img src="midias/imagens/foto-perfil-padrao.jpg" alt="" class="publicacao__topo__informacoes-usuario__foto-perfil">
-                                <a href="/perfil?id=1" class="publicacao__topo__informacoes-usuario__nome">Lucas Barccinela</a>
-                                <span class="publicacao__topo__informacoes-usuario__seguir">Seguir</span>
-                            </div>
-                            <div class="tres-pontinhos">
-                                <div class="tres-pontinhos__pontinho"></div>
-                                <div class="tres-pontinhos__pontinho"></div>
-                                <div class="tres-pontinhos__pontinho"></div>
-                            </div>
-                        </div>
-                        <a href="/discussao?id=1" class="publicacao__previa" style="background-image: url('sem-imagem')">
-                            <div class="publicacao__previa__container">
-                                <div class="publicacao__previa__container__informacoes">
-                                    <div class="publicacao__previa__container__informacoes__tipo" tipo="discussao">
-                                        <span class="publicacao__previa__container__informacoes__tipo__texto">Review</span>
-                                        <span class="publicacao__previa__container__informacoes__tipo__tracinho">-</span>
-                                        <span class="publicacao__previa__container__informacoes__tipo__status">Aberta</span>
-                                    </div>
-
-                                    <div class="publicacao__previa__container__informacoes__pontos">
-                                        <span class="publicacao__previa__container__informacoes__pontos__numero">10</span>
-                                        Pontos
-                                    </div>
-                                </div>
-                                <span class="publicacao__previa__container__titulo"> Minions, por que tão fofinhos? </span>
-                            </div>
-                        </a>
-                        <div class="publicacao__informacoes">
-                            <div class="publicacao__informacoes__curtidas">
-                                <svg class="icon publicacao__informacoes__curtidas__icone">
-                                    <use xlink:href="midias/icones/lattes.svg#lattes"></use>
-                                </svg>
-
-                                <div class="publicacao__informacoes__curtidas__informacao">
-                                    <span class="publicacao__informacoes__curtidas__informacao__numeroDeCurtidas">10</span>
-                                    curtiram esse post!
-                                </div>
-                            </div>
-
-                            <span class="publicacao__informacoes__verComentarios">
-                                Ver comentários
-                            </span>
-                        </div>
-                        <div class="publicacao__interacoes">
-                            <svg class="icon publicacao__interacoes__interacao">
-                                <use xlink:href="midias/icones/lattes.svg#lattes"></use>
-                            </svg>
-                            <svg class="icon publicacao__interacoes__interacao">
-                                <use xlink:href="midias/icones/lattes.svg#lattes"></use>
-                            </svg>
-                            <svg class="icon publicacao__interacoes__interacao">
-                                <use xlink:href="midias/icones/lattes.svg#lattes"></use>
-                            </svg>
-                            <svg class="icon publicacao__interacoes__interacao">
-                                <use xlink:href="midias/icones/lattes.svg#lattes"></use>
-                            </svg>
-                        </div>
-
-                        <div class="publicacao__descricao">
-                            <span class="publicacao__descricao__conteudo">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis quibusdam hic eveniet perferendis modi optio quasi, corrupti officiis? Laudantium quasi quo, eius fugit qui at! Deleniti aut nulla perspiciatis fuga sunt laborum commodi amet nihil?
-                            </span>
-                            <span class="publicacao__descricao__verMais">ver mais...</span>
-                        </div>
-
-                        <div class="publicacao__comentarios">
-                            <div class="publicacao__comentarios__novoComentario">
-                                <textarea class="publicacao__comentarios__novoComentario__input" placeholder="Adicionar comentário"></textarea>
-
-                                <svg class="publicacao__comentarios__novoComentario__iconeEmoji">
-                                    <use xlink:href="midias/icones/lattes.svg#lattes"></use>
-                                </svg>
-                            </div>
-
-                            <div class="publicacao__comentarios__comentarios">
-                                <div class="publicacao__comentarios__comentarios__comentario">
-                                    <div class="publicacao__comentarios__comentarios__comentario__bloco-esquerda">
-                                        <img src="midias/imagens/foto-perfil-padrao.jpg" alt="" class="publicacao__comentarios__comentarios__comentario__bloco-esquerda__img">
-                                        <div class="publicacao__comentarios__comentarios__comentario__conteudo">
-                                            <span class="publicacao__comentarios__comentarios__comentario__conteudo__nomeAutor">
-                                                Bruna Gabrielli
-                                            </span>
-                                            <span class="publicacao__comentarios__comentarios__comentario__conteudo__comentario">
-                                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex maxime voluptatibus neque recusandae nihil, iure porro quae labore nesciunt reiciendis inventore iusto voluptas voluptate rerum est vero distinctio asperiores fugit.
-                                            </span>
-                                        </div>
-                                    </div>
-                                    <div class="publicacao__comentarios__comentarios__comentario__bloco-direita">
-                                        <svg class="icon publicacao__comentarios__comentarios__comentario__bloco-direita__estrelinha">
-                                            <use xlink:href="midias/icones/lattes.svg#lattes"></use>
-                                        </svg>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="publicacao" tipo="pesquisa" tem-imagem="sim" imagem-e-escura="nao">
-                        <div class="publicacao__topo">
-                            <div class="publicacao__topo__informacoes-usuario">
-                                <img src="midias/imagens/foto-perfil-padrao.jpg" alt="" class="publicacao__topo__informacoes-usuario__foto-perfil">
-                                <a href="/perfil?id=1" class="publicacao__topo__informacoes-usuario__nome">Lucas Barccinela</a>
-                                <span class="publicacao__topo__informacoes-usuario__seguir">Seguir</span>
-                            </div>
-                            <div class="tres-pontinhos">
-                                <div class="tres-pontinhos__pontinho"></div>
-                                <div class="tres-pontinhos__pontinho"></div>
-                                <div class="tres-pontinhos__pontinho"></div>
-                            </div>
-                        </div>
-                        <a href="/pesquisa?id=1" class="publicacao__previa" style="background-image: url('midias/imagens/publicacao-2.jpg')">
-                            <div class="publicacao__previa__container">
-                                <div class="publicacao__previa__container__informacoes">
-                                    <div class="publicacao__previa__container__informacoes__tipo" tipo="discussao">
-                                        <span class="publicacao__previa__container__informacoes__tipo__texto">Pesquisa</span>
-                                        <span class="publicacao__previa__container__informacoes__tipo__tracinho">-</span>
-                                        <span class="publicacao__previa__container__informacoes__tipo__status">Aberta</span>
-                                    </div>
-
-                                    <div class="publicacao__previa__container__informacoes__pontos">
-                                        <span class="publicacao__previa__container__informacoes__pontos__numero">10</span>
-                                        Pontos
-                                    </div>
-                                </div>
-                                <span class="publicacao__previa__container__titulo"> Minions, por que tão fofinhos? </span>
-                            </div>
-                        </a>
-                        <div class="publicacao__informacoes">
-                            <div class="publicacao__informacoes__curtidas">
-                                <svg class="icon publicacao__informacoes__curtidas__icone">
-                                    <use xlink:href="midias/icones/lattes.svg#lattes"></use>
-                                </svg>
-
-                                <div class="publicacao__informacoes__curtidas__informacao">
-                                    <span class="publicacao__informacoes__curtidas__informacao__numeroDeCurtidas">10</span>
-                                    curtiram esse post!
-                                </div>
-                            </div>
-
-                            <span class="publicacao__informacoes__verComentarios">
-                                Ver comentários
-                            </span>
-                        </div>
-                        <div class="publicacao__interacoes">
-                            <svg class="icon publicacao__interacoes__interacao">
-                                <use xlink:href="midias/icones/lattes.svg#lattes"></use>
-                            </svg>
-                            <svg class="icon publicacao__interacoes__interacao">
-                                <use xlink:href="midias/icones/lattes.svg#lattes"></use>
-                            </svg>
-                            <svg class="icon publicacao__interacoes__interacao">
-                                <use xlink:href="midias/icones/lattes.svg#lattes"></use>
-                            </svg>
-                            <svg class="icon publicacao__interacoes__interacao">
-                                <use xlink:href="midias/icones/lattes.svg#lattes"></use>
-                            </svg>
-                        </div>
-
-                        <div class="publicacao__descricao">
-                            <span class="publicacao__descricao__conteudo">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis quibusdam hic eveniet perferendis modi optio quasi, corrupti officiis? Laudantium quasi quo, eius fugit qui at! Deleniti aut nulla perspiciatis fuga sunt laborum commodi amet nihil?
-                            </span>
-                            <span class="publicacao__descricao__verMais">ver mais...</span>
-                        </div>
-
-                        <div class="publicacao__comentarios">
-                            <div class="publicacao__comentarios__novoComentario">
-                                <textarea class="publicacao__comentarios__novoComentario__input" placeholder="Adicionar comentário"></textarea>
-
-                                <svg class="publicacao__comentarios__novoComentario__iconeEmoji">
-                                    <use xlink:href="midias/icones/lattes.svg#lattes"></use>
-                                </svg>
-                            </div>
-
-                            <div class="publicacao__comentarios__comentarios">
-                                <div class="publicacao__comentarios__comentarios__comentario">
-                                    <div class="publicacao__comentarios__comentarios__comentario__bloco-esquerda">
-                                        <img src="midias/imagens/foto-perfil-padrao.jpg" alt="" class="publicacao__comentarios__comentarios__comentario__bloco-esquerda__img">
-                                        <div class="publicacao__comentarios__comentarios__comentario__conteudo">
-                                            <span class="publicacao__comentarios__comentarios__comentario__conteudo__nomeAutor">
-                                                Bruna Gabrielli
-                                            </span>
-                                            <span class="publicacao__comentarios__comentarios__comentario__conteudo__comentario">
-                                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex maxime voluptatibus neque recusandae nihil, iure porro quae labore nesciunt reiciendis inventore iusto voluptas voluptate rerum est vero distinctio asperiores fugit.
-                                            </span>
-                                        </div>
-                                    </div>
-                                    <div class="publicacao__comentarios__comentarios__comentario__bloco-direita">
-                                        <svg class="icon publicacao__comentarios__comentarios__comentario__bloco-direita__estrelinha">
-                                            <use xlink:href="midias/icones/lattes.svg#lattes"></use>
-                                        </svg>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="publicacao" tipo="review" tem-imagem="sim" imagem-e-escura="sim">
-                        <div class="publicacao__topo">
-                            <div class="publicacao__topo__informacoes-usuario">
-                                <img src="midias/imagens/foto-perfil-padrao.jpg" alt="" class="publicacao__topo__informacoes-usuario__foto-perfil">
-                                <a href="/perfil?id=1" class="publicacao__topo__informacoes-usuario__nome">Lucas Barccinela</a>
-                                <span class="publicacao__topo__informacoes-usuario__seguir">Seguir</span>
-                            </div>
-                            <div class="tres-pontinhos">
-                                <div class="tres-pontinhos__pontinho"></div>
-                                <div class="tres-pontinhos__pontinho"></div>
-                                <div class="tres-pontinhos__pontinho"></div>
-                            </div>
-                        </div>
-                        <a href="/review?id=1" class="publicacao__previa" style="background-image: url('midias/imagens/publicacao-1.jpg')">
-                            <div class="publicacao__previa__container">
-                                <div class="publicacao__previa__container__informacoes">
-                                    <div class="publicacao__previa__container__informacoes__tipo" tipo="discussao">
-                                        <span class="publicacao__previa__container__informacoes__tipo__texto">Review</span>
-                                        <span class="publicacao__previa__container__informacoes__tipo__tracinho">-</span>
-                                        <span class="publicacao__previa__container__informacoes__tipo__status">Aberta</span>
-                                    </div>
-
-                                    <div class="publicacao__previa__container__informacoes__pontos">
-                                        <span class="publicacao__previa__container__informacoes__pontos__numero">10</span>
-                                        Pontos
-                                    </div>
-                                </div>
-                                <span class="publicacao__previa__container__titulo"> Minions, por que tão fofinhos? </span>
-                            </div>
-                        </a>
-                        <div class="publicacao__informacoes">
-                            <div class="publicacao__informacoes__curtidas">
-                                <svg class="icon publicacao__informacoes__curtidas__icone">
-                                    <use xlink:href="midias/icones/lattes.svg#lattes"></use>
-                                </svg>
-
-                                <div class="publicacao__informacoes__curtidas__informacao">
-                                    <span class="publicacao__informacoes__curtidas__informacao__numeroDeCurtidas">10</span>
-                                    curtiram esse post!
-                                </div>
-                            </div>
-
-                            <span class="publicacao__informacoes__verComentarios">
-                                Ver comentários
-                            </span>
-                        </div>
-                        <div class="publicacao__interacoes">
-                            <svg class="icon publicacao__interacoes__interacao">
-                                <use xlink:href="midias/icones/lattes.svg#lattes"></use>
-                            </svg>
-                            <svg class="icon publicacao__interacoes__interacao">
-                                <use xlink:href="midias/icones/lattes.svg#lattes"></use>
-                            </svg>
-                            <svg class="icon publicacao__interacoes__interacao">
-                                <use xlink:href="midias/icones/lattes.svg#lattes"></use>
-                            </svg>
-                            <svg class="icon publicacao__interacoes__interacao">
-                                <use xlink:href="midias/icones/lattes.svg#lattes"></use>
-                            </svg>
-                        </div>
-
-                        <div class="publicacao__descricao">
-                            <span class="publicacao__descricao__conteudo">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis quibusdam hic eveniet perferendis modi optio quasi, corrupti officiis? Laudantium quasi quo, eius fugit qui at! Deleniti aut nulla perspiciatis fuga sunt laborum commodi amet nihil?
-                            </span>
-                            <span class="publicacao__descricao__verMais">ver mais...</span>
-                        </div>
-
-                        <div class="publicacao__comentarios">
-                            <div class="publicacao__comentarios__novoComentario">
-                                <textarea class="publicacao__comentarios__novoComentario__input" placeholder="Adicionar comentário"></textarea>
-
-                                <svg class="publicacao__comentarios__novoComentario__iconeEmoji">
-                                    <use xlink:href="midias/icones/lattes.svg#lattes"></use>
-                                </svg>
-                            </div>
-
-                            <div class="publicacao__comentarios__comentarios">
-                                <div class="publicacao__comentarios__comentarios__comentario">
-                                    <div class="publicacao__comentarios__comentarios__comentario__bloco-esquerda">
-                                        <img src="midias/imagens/foto-perfil-padrao.jpg" alt="" class="publicacao__comentarios__comentarios__comentario__bloco-esquerda__img">
-                                        <div class="publicacao__comentarios__comentarios__comentario__bloco-esquerda__conteudo">
-                                            <span class="publicacao__comentarios__comentarios__comentario__bloco-esquerda__conteudo__nomeAutor">
-                                                Bruna Gabrielli
-                                            </span>
-                                            <span class="publicacao__comentarios__comentarios__comentario__bloco-esquerda__conteudo__comentario">
-                                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex maxime voluptatibus neque recusandae nihil, iure porro quae labore nesciunt reiciendis inventore iusto voluptas voluptate rerum est vero distinctio asperiores fugit.
-                                            </span>
-                                        </div>
-                                    </div>
-
-                                    <div class="publicacao__comentarios__comentarios__comentario__bloco-direita">
-                                        <svg class="icon publicacao__comentarios__comentarios__comentario__bloco-direita__estrelinha">
-                                            <use xlink:href="midias/icones/lattes.svg#lattes"></use>
-                                        </svg>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div> -->
                 </div>
             </main>
 
             <%- include('components/menu-secundario.ejs'); %>
+            
+            <%- include('components/iala.ejs') %>
 
             <script src="js/feed.js"></script>
         </div>

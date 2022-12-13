@@ -1,5 +1,3 @@
-
-
 const campoLattes = document.getElementById('campoLattes')
 
 class ValidacaoLattes extends ValidacaoGeral {

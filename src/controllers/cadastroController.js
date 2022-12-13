@@ -17,9 +17,6 @@ class Usuario {
         this.seguindo = 0
         this.pontos = 0
         this.advertencias = 0
-
-        this.id_personalizavel = null
-        this.id_personalizavel = null
     }
 }
 
@@ -105,22 +102,10 @@ exports.gerarCodigo = (req, res, next) => {
 
 exports.confirmacaoEmail = (req, res, next) => {
     if (etapaCadastro == 'confirmacaoEmail') {
-        // console.log('codigo vindo da res ' + res.codigo)
 
-        console.log(codigoValidacaoEmail)
-
-        // res.teste = 'oi'
-        // req.body.teste = 'oi'
-        // req.teste = 'oi'
-        // console.log(res.oi)
-
-        // const enviarEmail = require('../nodemailer.config')
-        // enviarEmail(codigo).catch(console.error);
-
-        // let codigo = res.codigo
-        // console.log(codigo)
-
-        // res.codigo = codigo
+        const enviarEmail = require('../nodemailer.config')
+        enviarEmail(codigoValidacaoEmail, usuario.email).catch(console.error);
+        
         etapaCadastro = 'validacaoCodigo'
         res.render('cadastro_confirmacaoEmail')
     } else {
@@ -132,17 +117,14 @@ exports.validacaoCodigo = (req, res, next) => {
     if (etapaCadastro == 'validacaoCodigo') {
         const codigoInserido = req.body.codigo
         
-        // if (codigoValidacaoEmail == codigoInserido) {
+        if (codigoValidacaoEmail == codigoInserido) {
             etapaCadastro = 'selecaoCategoria'
             next()
-        // } else {
-            // etapaCadastro = 'confirmacaoEmail'
-            // res.render('cadastro_confirmacaoEmail')
-        // }
+        } else {
+            etapaCadastro = 'confirmacaoEmail'
+            res.render('cadastro_confirmacaoEmail')
+        }
         // etapaCadastro = 'validacaoCodigo'
-
-        // console.log(res)
-
     } else {
         next()
     }
@@ -165,9 +147,11 @@ exports.confirmacaoLattes = (req, res, next) => {
         usuario.categoria = req.body.categoria
 
         if (req.body.categoria == 'entusiasta') {
+            etapaCadastro = 'cadastrar'
             next()
         } else {
             res.render('cadastro_confirmacaoLattes');
+            etapaCadastro = 'cadastrar'
         }
     } else {
         next()
@@ -187,31 +171,28 @@ exports.cadastrar = (req, res) => {
 
     usuario.data_cadastro = `${today}/${currentMonth}/${currentYear}`
     
-    usuario.id_personalizavel = idPersonalizavel
-    
     const conexao = app.src.models.conexao();
     const cadastro = new app.src.models.cadastro(conexao);
     
-    const primeiroNome = usuario.nome_completo.split(' ')
-
-    console.log(primeiroNome)
-
-    cadastro.consultarNumeroDeNomesIguaisJaCadastrados(primeiroNome, function(erro, results){
-        if (erro) {
+    cadastro.cadastrar(usuario, function(erro, results){
+        if (erro){
             console.log(erro);
-            console.log('dando erro aqui em')
         } else {
-            let idPersonalizavel = primeiroNome + results[0].quantidade_nomes
-            console.log('o id:' + idPersonalizavel)
-            usuario.id_personalizavel = idPersonalizavel
-
-            // cadastro.cadastrar(usuario, function(erro, results){
-            //     if (erro){
-            //         console.log(erro);
-            //     } else {
-            //     }
-            // })
+            res.redirect('/feed');
         }
     })
-    res.render('cadastro_cadastrar', {usuario});
+    
+    // const primeiroNome = usuario.nome_completo.split(' ')
+
+    // console.log(primeiroNome)
+
+    // cadastro.consultarNumeroDeNomesIguaisJaCadastrados(primeiroNome, function(erro, results){
+    //     if (erro) {
+    //         console.log(erro);
+    //         console.log('dando erro aqui em')
+    //     } else {
+            // let idPersonalizavel = primeiroNome + results[0].quantidade_nomes
+            // console.log('o id:' + idPersonalizavel)
+            // usuario.id_personalizavel = idPersonalizavel
+    // })
 };

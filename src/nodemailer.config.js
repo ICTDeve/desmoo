@@ -2,10 +2,10 @@
 const nodemailer = require("nodemailer");
 
 // async..await is not allowed in global scope, must use a wrapper
-async function enviarEmail(mensagem) {
+async function enviarEmail(mensagem, destinatario) {
   // Generate test SMTP service account from ethereal.email
   // Only needed if you don't have a real mail account for testing
-  let testAccount = await nodemailer.createTestAccount();
+  // let testAccount = await nodemailer.createTestAccount();
 
   // create reusable transporter object using the default SMTP transport
   let transporter = nodemailer.createTransport({
@@ -14,17 +14,17 @@ async function enviarEmail(mensagem) {
     secure: false, // true for 465, false for other ports
     auth: {
       user: 'victorribeiro.dev@gmail.com', // generated ethereal user
-      pass: 'aulabgncsrehdvle', // generated ethereal password
+      pass: 'tsvdqtrdxrxnzanu', // generated ethereal password
     },
   });
 
   // send mail with defined transport object
   let info = await transporter.sendMail({
-    from: '"Fred Foo 👻" <foo@example.com>', // sender address
-    to: "victorribeiro.dev@gmail.com, baz@example.com", // list of receivers
-    subject: "Hello ✔", // Subject line
+    from: '"Suporte Desmoo" <victorribeiro.dev@gmail.com>', // sender address
+    to: destinatario, // list of receivers
+    subject: "Código de verificação", // Subject line
     text: "Hello world?", // plain text body
-    html: `<b>"${mensagem}"</b>`, // html body
+    html: `<b>Olá! Obrigado por se juntar a nós! Aqui está seu código de verificação: ${mensagem}</b>`, // html body
   });
 
   console.log("Message sent: %s", info.messageId);

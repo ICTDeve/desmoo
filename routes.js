@@ -90,6 +90,13 @@ const explorarController = require('./src/controllers/explorarController');
     // GET
         route.get('/explorar', explorarController.explorar)
 
+// ESCOLHER TIPO EXPLORAR
+    // GET
+        route.get('/DESMOO-PPRIV-R1.pdf', (req, res) => {
+            const path = require('path');
+            res.sendFile(path.join(__dirname, 'DESMOO-PPRIV-R1.pdf'))
+        })
+
 // 404
     route.use((req, res) => res.status(404).render('404.ejs'))
 

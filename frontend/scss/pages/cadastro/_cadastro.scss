@@ -52,11 +52,14 @@
                         }
                         
                         &__span {
-                            color: var(--cor-principal);
+                            &:link, 
+                            &:visited {
+                                color: var(--cor-principal);
 
-                            display: inline-block;
+                                display: inline-block;
 
-                            margin-left: 5px;
+                                margin-left: 5px;
+                            }
 
                             &::selection {
                                 background-color: transparent;

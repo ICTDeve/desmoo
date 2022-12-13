@@ -24,7 +24,7 @@
 
                 @include flex-container(row, flex-start, center);
 
-                transition: var(--transition-1);
+                transition: var(--transition-1) !important;
                 
                 &:hover { 
                     background-color: var(--cor-principal);
@@ -48,7 +48,7 @@
                     
                     margin-right: 10px;
 
-                    transition: var(--transition-1);
+                    transition: var(--transition-1) !important;
                 }
                 
                 &__descricao {
@@ -63,11 +63,11 @@
                         font-size: 1.8rem;
 
                         margin-bottom: 10px;   
-                        transition: var(--transition-1);
+                        transition: var(--transition-1) !important;
                     }
 
                     &__texto {
-
+                        transition: var(--transition-1) !important;
                     }
                 }
             }

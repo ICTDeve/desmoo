@@ -5,7 +5,7 @@ function notificacoes(conexao){
         this._conexao.query(`
             SELECT U.caminho_foto_perfil, U.nome_completo as nome_destinatario, U.nome_completo as nome_remetente, N.categoria FROM notificacoes N
             INNER JOIN usuarios U
-            ON N.id_remetente = U.id AND N.id_destinatario = ${idDestinatario};`,
+            ON N.id_remetente = U.id;`,
         callback);
     }
     

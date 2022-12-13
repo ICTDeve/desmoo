@@ -1,0 +1,268 @@
+::-webkit-scrollbar {
+    width: 0;
+  }
+  
+  /* Variáveis */
+  $color-green: #11D183;
+  $tamanho-height-padrao: 400px;
+  $tamanho-width-padrao: 500px;
+  
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: lato;
+  }
+  
+  body {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    // background-color: red;
+  }
+
+// Corpo principal - container
+#main {
+    // Flex
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    // Criando corpo principal
+    max-height: $tamanho-height-padrao;
+    max-width: $tamanho-width-padrao;
+    border-radius: 30px;
+    background-color: $color-green;
+
+    // Sombras
+    -webkit-box-shadow: 10px 10px 84px -26px rgba(0, 0, 0, 0.52);
+    -moz-box-shadow: 10px 10px 84px -26px rgba(0, 0, 0, 0.52);
+    box-shadow: 10px 10px 84px -26px rgba(0, 0, 0, 0.52);
+    /* border: 3px solid pink; */
+    
+
+    /* Configurações de Popup */
+    opacity: 0;
+    transition: .2s ease;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    top: 40%;
+}
+
+#main.ativo {
+    opacity: 1;
+}
+
+#abrirPopUp {
+    // Flex
+    display: flex;
+    align-items: center;  
+    justify-content: center;
+
+    cursor: pointer;
+    transform: translate(-50%, -50%);
+    
+    position: absolute;
+
+    // Opcional - Posicionar botao
+    right: 100px;
+    bottom: 35px;
+
+    // padding: 40px;
+
+    // background-color: var(--cor-principal);
+
+    // border-radius: 9999px;
+
+    // height: 100px;
+    // width: 100px;
+}
+
+// #abrirPopUp img {
+//     position: relative;
+//     bottom: -6px;
+// }
+    
+#iconFechado {
+    display: flex;
+    align-items: center;  
+    position: absolute;
+    bottom: 13px;
+    opacity: 1;
+}
+
+#iconFechado.ativo {
+    opacity: 0;
+}
+
+#iconAberto {
+    display: flex;
+    align-items: center;  
+    position: absolute;
+    opacity: 0;
+}
+
+#iconAberto.ativo {
+    opacity: 1;
+}
+
+
+// X - Fechar Popup
+#fecharPopUp {
+    font-size: 30px;
+    cursor: pointer;
+}
+
+//  Área Perfil IALA
+.titulo {
+    // Flex
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    // Estrutura corpo
+    padding: 30px 30px;
+    color: #fff;
+    height: 20vh;
+    /* border: 1px solid red; */
+}
+
+.titulo img {
+    // Tamanho imagem perfil
+    padding-right: 10px;
+}
+
+.span-titulo h2 {
+    // Tamanho texto 'IALA'
+    font-size: 30px;
+}
+
+.span-titulo h3 {
+    // Tamanho e fonte texto 'Online'
+    font-size: 15px;
+    font-weight: 900;
+}
+// Perfil IALA
+.perfil-IALA {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+}
+// 
+
+
+//  Container 2 - área mensagens + input
+#conteudo {
+    // Flex
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    
+    // Corpo conteudo
+    max-height: $tamanho-height-padrao;
+    background-color: white;
+    border-radius: 15px;
+    padding-top: 50px;
+    
+    /* border: 1px solid blue; */
+}
+
+//  ESTRUTURA inputs - Área de digitação e btn enviar
+.input {
+    // Flex
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    
+    // Tamanho e espaçamento
+    margin: 8px 16px;
+    padding-bottom: 50px;
+    min-height: 50px;
+}
+
+//  Input digitação texto
+#msg_send {
+    // Fonte txt
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #686868;
+    
+    // Estrutura Corpo
+    width: auto;
+    padding-left: 30px;
+    padding: 15px;
+    border-radius: 15px;
+    outline: none;
+    border: none;
+}
+
+//  Input enviar mensagem
+.send {
+    background: none;
+    border: none;
+    color: $color-green;
+    border-radius: 15px;
+    transition-duration: 0.2s;
+    margin-right: 10px;
+    width: 25px;
+
+    cursor: pointer;
+}
+
+.send:active {
+    font-size: 10px;
+}
+
+//  ícone enviar mensagem
+.fa-paper-plane {
+    background-color: none;
+}
+
+//  Caixa de mensagem
+.left, .right {
+    // Display
+    display: inline-block;
+    word-wrap: break-word;
+    
+    // Fonte
+    font-size: 1.6rem;
+    font-weight: bold;
+    
+    // Estrutura corpo
+    padding: 14px;
+    width: auto;
+    max-width: 60%;
+    margin: 8px 16px;
+}
+
+//  Mensagens IALA
+.left {
+    color: #363636;
+    background: #e9e9e9;
+    border-radius: 0 16px 16px 16px;
+    margin-bottom: 50px;
+}
+
+//  Mensagens usuário
+.right {
+    float: right;
+    color: #fff;
+    background: $color-green;
+    border-radius: 16px 16px 0 16px;
+}
+
+//  Área onde exibirá todas as mensagens
+#msg {
+    overflow-y: scroll;
+    height: $tamanho-height-padrao;
+    padding: 0 12px;
+    scroll-behavior: smooth;
+}
+  
+//  Caixa mensagem
+.msgCon1, .msgCon2 {
+    width: 100%;
+    display: inline-block;
+}
