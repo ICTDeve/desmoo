@@ -10,7 +10,7 @@ CREATE TABLE IF NOT EXISTS usuarios (
 
 	nome_completo VARCHAR(50) NOT NULL,
     email VARCHAR(40) NOT NULL,
-    cpf VARCHAR(11) NOT NULL,
+    cpf VARCHAR(15) NOT NULL,
     senha VARCHAR(40) NOT NULL,
     categoria ENUM("qualificado", "entusiasta", "admin") NOT NULL,
 
@@ -22,6 +22,8 @@ CREATE TABLE IF NOT EXISTS usuarios (
     advertencias INT UNSIGNED DEFAULT 0,
     
     idade INT UNSIGNED DEFAULT NULL,
+    
+    sobre VARCHAR(3000) DEFAULT NULL,
 
 	caminho_foto_perfil VARCHAR (200) DEFAULT "midias/imagens/foto-perfil-padrao.jpg",
     caminho_banner VARCHAR (200) DEFAULT "midias/imagens/banner-padrao.jpg",
@@ -34,10 +36,12 @@ CREATE TABLE IF NOT EXISTS usuarios (
     UNIQUE KEY (id_lattes)
 );
 
-INSERT INTO usuarios (nome_completo, email, cpf, senha, categoria, data_cadastro) 
-VALUES 	('Victor Ribeiro Cunha', 'victorribeiro2929@gmail.com', '123', '12345678912', 'qualificado', '29/06/2022'),
-		('Fernanda Rocha', 'fe132@gmail.com', '321', '09876543210', 'entusiasta', '12/10/2022'),
-        ('Pedro João Lucas', 'pjc@gmail.com', '213', '56789012345', 'entusiasta', '16/11/2022');
+SELECT * FROM usuarios;
+
+INSERT INTO usuarios (nome_completo, email, cpf, senha, categoria, data_cadastro, caminho_foto_perfil, sobre) 
+VALUES 	('Carlos Henrique Magalhães', 'victorribeiro2929@gmail.com', '123', '12345678912', 'qualificado', '29/06/2022', 'midias/imagens/foto-perfil-1.jpg', 'Doutor em Ciências com ênfase em Neuropsicofarmacologia pela USP. Consultor e palestrante, desenvolve aplicações dos conhecimentos neurocientíficos no ambiente corporativo e na educação de todos os níveis. Explora temas como Vieses Inconscientes nas Tomadas de Decisão, Vícios e Virtudes e as Mudanças de Comportamento, Promoção de Saúde Mental, Cérebro dos Líderes ou temas customizados em neurociência em palestras, workshops e minicursos.'),
+		('Diego Silva Oliveira', 'fe132@gmail.com', '321', '09876543210', 'entusiasta', '12/10/2022', 'midias/imagens/foto-perfil-2.jpg', 'Cirurgião Dentista, Ortodontista com atuação em Cirurgia oral menor, Disfunções da ATM e Odontologia Estética. Aplicação de Toxina Botulínica com finalidade terapêutica, bem como uso de Ácido hialuronico no preenchimento facial. Credenciado Invisalign e Essix Aligners. Ambos, sistemas de correção dentária através de placas estéticas, proporcionam maior conforto durante o tratamento.'),
+        ('Victor Ribeiro Cunha', 'pjc@gmail.com', '213', '56789012345', 'entusiasta', '16/11/2022', 'midias/imagens/foto-perfil-3.jpg', 'Biólogo formado pela faculdade Anhanguera de Brasília, cursando pós-graduação em análises clínicas. Durante a graduação, realizei diversos workshops em feiras acadêmicas destinada a biologia. Fiz uma pesquisa no laboratório da UNB durante 2 anos sobre entoparasitas.');
         
 SELECT * FROM usuarios;
 
@@ -69,9 +73,9 @@ CREATE TABLE IF NOT EXISTS publicacoes (
 );
 
 INSERT INTO publicacoes (id_autor, caminho_imagem, categoria, titulo, conteudo, descricao, tem_imagem, imagem_e_escura, data, status)
-VALUES  ('2', 'midias/imagens/publicacao-1.jpg', 'review', 'Esse é o título da publicação', 'Conteúdo da publicação', 'Descrição', 'sim', 'sim', '29/06/2022', "outra-categoria"),
-        ('3', 'midias/imagens/publicacao-1.jpg', 'discussao', 'Esse é o título da publicação', 'Conteúdo da publicação', 'Descrição', 'sim', 'sim', '29/06/2022', "aberta"),
-        ('1', 'midias/imagens/publicacao-2.jpg', 'pesquisa', 'Esse é o título da publicação', 'Conteúdo da publicação', 'Descrição', 'sim', 'nao', '29/06/2022', "outra-categoria");
+VALUES  ('2', 'midias/imagens/publicacao-1.jpg', 'review', 'Significado de "Astronomia"', 'Astronomia é uma ciência multidisciplinar que estuda uma grande variedade de corpos celestes e fenômenos que acontecem fora da Terra. Ela estuda a Lua, o Sol, os planetas do Sistema Solar, cometas, galáxias, nebulosas, entre outros, em busca de entender um pouco melhor o Universo em que vivemos.', 'Nessa review tentarei explicar a você o significado de astronomia', 'sim', 'sim', '29/06/2022', "outra-categoria"),
+        ('3', '', 'discussao', 'O que é TDAH?', 'Conteúdo da publicação', 'Oi, tenho curiosidades acerca desse assunto e gostaria de saber se alguém poderia me ajudar.', 'nao', 'nao', '29/06/2022', "aberta"),
+        ('1', 'midias/imagens/publicacao-2.jpg', 'review', 'O que são sinapses', 'As sinapses são junções entre a terminação de um neurônio e a membrana de outro neurônio. São elas que fazem a conexão entre células vizinhas, dando continuidade à propagação do impulso nervoso por toda a rede neuronal. Os neurônios fazem a comunicação entre os órgãos do corpo e o meio externo, isso acontece através de sinais elétricos. Os impulsos elétricos percorrem toda a extensão do neurônio, indo do corpo celular aos axônios, mas não podem passar de um neurônio a outro. O espaço entre as membranas das células é chamado fenda sináptica. A membrana do axônio que gera o sinal e libera as vesículas na fenda é chamada pré-sináptica, enquanto que a membrana que recebe o estímulo através dos neurotransmissores é chamada pós-sináptica.', 'Vou explicar um pouquinho da conceituação de "sinapses", venha conferir caso tenha curiosidade!', 'sim', 'nao', '09/06/2022', "outra-categoria");
         
 SELECT * FROM publicacoes;
 
@@ -91,6 +95,11 @@ CREATE TABLE IF NOT EXISTS curtidas (
     FOREIGN KEY (id_publicacao) REFERENCES publicacoes (id),
     FOREIGN KEY (id_usuario) REFERENCES usuarios (id)
 );
+
+INSERT INTO curtidas (id_usuario, id_publicacao, data) 
+VALUES 	('1', '2', '10/10/2022'),
+		('3', '2', '10/11/2022'),
+        ('3', '3', '10/08/2022');
 
 DROP TABLE IF EXISTS comentarios;
 CREATE TABLE IF NOT EXISTS comentarios (
@@ -126,8 +135,7 @@ ON P.id_autor = U.id;
 DROP TABLE IF EXISTS notificacoes;
 CREATE TABLE IF NOT EXISTS notificacoes (
     id INT UNSIGNED NOT NULL AUTO_iNCREMENT,
-
-    id_destinatario INT UNSIGNED NOT NULL,
+    
     id_remetente INT UNSIGNED NOT NULL,
     id_publicacao INT UNSIGNED NOT NULL,
 
@@ -138,14 +146,13 @@ CREATE TABLE IF NOT EXISTS notificacoes (
 
     PRIMARY KEY (id),
     FOREIGN KEY (id_publicacao) REFERENCES publicacoes (id),
-    FOREIGN KEY (id_destinatario) REFERENCES usuarios (id),
     FOREIGN KEY (id_remetente) REFERENCES usuarios (id)
 );
 
-INSERT INTO notificacoes (id_destinatario, id_remetente, id_publicacao, data, hora, categoria) 
-VALUES 	('2', '3', '1', '10/10/2022', "10:25", "curtida"),
-		('2', '1', '3', '10/11/2022', "08:40", "comentario"),
-        ('1', '2', '3', '10/08/2022', "12:15", "curtida");
+INSERT INTO notificacoes (id_remetente, id_publicacao, data, hora, categoria) 
+VALUES 	('3', '1', '10/10/2022', "10:25", "curtida"),
+		('1', '3', '10/11/2022', "08:40", "comentario"),
+        ('2', '3', '10/08/2022', "12:15", "curtida");
         
 SELECT * FROM notificacoes;
         
@@ -176,3 +183,34 @@ VALUES 	(2, "15/08/2021"),
 SELECT U.id as id_usuario, U.caminho_foto_perfil, U.nome_completo, U.id_lattes, S.data FROM solicitacoes S
 INNER JOIN usuarios U
 ON S.id_usuario = U.id;
+
+DELETE FROM solicitacoes WHERE id = 1;
+
+UPDATE usuarios
+SET categoria = "qualificado"
+WHERE id = 3;
+
+SELECT * FROM usuarios;
+
+DROP TABLE IF EXISTS comentarios_discussao;
+CREATE TABLE IF NOT EXISTS comentarios_discussao (
+    id INT UNSIGNED NOT NULL AUTO_INCREMENT,
+    id_publicacao INT UNSIGNED NOT NULL,
+    id_usuario INT UNSIGNED NOT NULL,
+    
+    conteudo VARCHAR(2000) NOT NULL,
+
+    PRIMARY KEY (id),
+    FOREIGN KEY (id_publicacao) REFERENCES publicacoes (id),
+    FOREIGN KEY (id_usuario) REFERENCES usuarios (id)
+);
+
+INSERT INTO comentarios_discussao (id_publicacao, id_usuario, conteudo) 
+VALUES 	(2, 2, "Eu acho que eu tenho"),
+		(2, 1, "Eita. Forças!");
+
+SELECT P.id as id_publicacao, U.id as id_usuario, U.caminho_foto_perfil, U.nome_completo, CS.conteudo FROM comentarios_discussao CS
+INNER JOIN publicacoes P
+ON CS.id_publicacao = P.id AND P.id = 2
+INNER JOIN usuarios U
+ON CS.id_usuario = U.id;
